@@ -1,0 +1,2 @@
+class Roles::Researcher
+end
