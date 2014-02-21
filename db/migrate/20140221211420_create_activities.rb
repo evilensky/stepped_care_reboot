@@ -30,6 +30,17 @@ class CreateActivities < ActiveRecord::Migration
             REFERENCES activity_types(id)
         SQL
       end
+
+      dir.down do
+        execute <<-SQL
+          ALTER TABLE activities
+            DROP CONSTRAINT fk_activities_participants
+        SQL
+        execute <<-SQL
+          ALTER TABLE activities
+            DROP CONSTRAINT fk_activities_types
+        SQL
+      end
     end
   end
 end
