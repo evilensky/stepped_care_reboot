@@ -6,4 +6,5 @@ class Participant < ActiveRecord::Base
 
   has_many :memberships, dependent: :destroy
   has_many :groups, through: :memberships
+  has_many :activities, dependent: :destroy
 end
