@@ -11,10 +11,37 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221201915) do
+ActiveRecord::Schema.define(version: 20140221211420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "activities", force: true do |t|
+    t.integer  "participant_id",                                     null: false
+    t.integer  "activity_type_id",                                   null: false
+    t.datetime "start_time",                                         null: false
+    t.datetime "end_time",                                           null: false
+    t.integer  "actual_accomplishment_intensity"
+    t.integer  "actual_pleasure_intensity"
+    t.integer  "predicted_accomplishment_intensity"
+    t.integer  "predicted_pleasure_intensity"
+    t.boolean  "is_complete",                        default: false, null: false
+    t.text     "noncompliance_reason"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activities", ["activity_type_id"], name: "index_activities_on_activity_type_id", using: :btree
+  add_index "activities", ["participant_id"], name: "index_activities_on_participant_id", using: :btree
+
+  create_table "activity_types", force: true do |t|
+    t.integer  "participant_id"
+    t.string   "title",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "activity_types", ["participant_id"], name: "index_activity_types_on_participant_id", using: :btree
 
   create_table "groups", force: true do |t|
     t.string   "title",      null: false
