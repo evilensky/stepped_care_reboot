@@ -1,4 +1,5 @@
 SteppedCareReboot::Application.routes.draw do
+  devise_for :participants
   devise_for :users
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
