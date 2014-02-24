@@ -1,9 +1,11 @@
 slide1:
-  body: "This is the body for slide 1 position 1"
+  title: slide 1
+  body: This is the body for slide 1 position 1
   position: 1
   slideshow: slideshow1
 
 slide2:
-  body: "This is the body for slide 1 position 2"
+  title: slide 1
+  body: This is the body for slide 1 position 2
   position: 2
   slideshow: slideshow1
