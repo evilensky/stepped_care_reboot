@@ -1,0 +1,4 @@
+content_module1:
+  title: content module 1
+  context: activity_tracker
+  position: 1

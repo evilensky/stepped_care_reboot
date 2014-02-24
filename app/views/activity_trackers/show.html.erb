@@ -1,7 +1,4 @@
-<%= link_to 'do', '/activity_tracker' %>
 <p>
   <%= @navigator.render_current_content(self) %>
 <p>
-<p>
-  <%= link_to @navigator.next_action_label, @navigator.next_path %>
-</p>
+<%= link_to "#{ @navigator.next_action_label } &gt;".html_safe, @navigator.next_path, class: 'btn btn-default' %>
