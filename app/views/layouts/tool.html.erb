@@ -10,23 +10,28 @@
 <body>
 
 <div class="row">
-  <div class="col-md-5 main-nav">
-    <%= link_to 'think', '/thought_tracker' %>
-    <%= link_to 'feel', '/feelings_tracker' %>
-    <%= link_to 'do', '/activity_tracker' %>
-    <%= link_to 'learn', '/library' %>
-    <%= link_to 'messages', '/messages' %>
+  <div class="col-md-2 tool-nav">
+    <h1>DO</h1>
+    <h2>Chapter Title</h2>
+    <h3>Pagination</h3>
   </div>
   
-  <div class="col-md-7 main-content">
-    <%= yield %>
+  <div class="col-md-10 tool-content">
+    <h1>Tool Content Heading</h1>
+
+    <h2>Tool Content Sub-Heading</h2>
+
+    <p>Some content</p>
+
+    <button class="btn btn-default">Continue &lt;</button
+
   </div>
 </div>
 
 <div class="well">
   <p>context: <%= session[:context] %></p>
-  <p>module: <%= ContentModule.find_by_context(session[:context]).try(:title) %></p>
-  <p>provider index: <%= session[:provider_position] %></p>
+  <p>module: <%= ContentModule.find_by_context params[:context] %></p>
+  <p>provider index: <%= session[:provider_index] %></p>
 </div>
 
 </body>

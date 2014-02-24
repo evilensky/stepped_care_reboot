@@ -1,9 +1,10 @@
 class Navigator
   def initialize(state)
-    context = state[:context]
-    module_position = state[:module_position]
+    @state = state
+    context = @state[:context]
+    module_position = @state[:module_position]
     @current_module = ContentModule.where(context: context, position: module_position).first
-    current_module.provider_index = state[:provider_index]
+    current_module.provider_position = @state[:provider_position]
   end
 
   def render_current_content(view_context)
@@ -18,13 +19,15 @@ class Navigator
     current_content_provider.has_more_content? ? 'Continue' : 'Finish'
   end
 
-  def next_path
+  def fetch_next_content
     if current_content_provider.has_more_content?
-      'next_content'
+      @state[:content_position] += 1
+      current_content_provider.fetch_next
     elsif current_module.has_more_providers?
-      'next_provider'
+      @state[:content_position] = 0
+      @state[:provider_position] += 1
     else
-      '/'
+      #asdf
     end
   end
 
