@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140221214020) do
+ActiveRecord::Schema.define(version: 20140223151505) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -90,6 +90,23 @@ ActiveRecord::Schema.define(version: 20140221214020) do
 
   add_index "participants", ["email"], name: "index_participants_on_email", unique: true, using: :btree
   add_index "participants", ["reset_password_token"], name: "index_participants_on_reset_password_token", unique: true, using: :btree
+
+  create_table "slides", force: true do |t|
+    t.string   "title"
+    t.text     "body",                     null: false
+    t.integer  "position",     default: 1, null: false
+    t.integer  "slideshow_id",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "slides", ["slideshow_id"], name: "index_slides_on_slideshow_id", using: :btree
+
+  create_table "slideshows", force: true do |t|
+    t.string   "title",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "user_roles", force: true do |t|
     t.integer  "user_id",         null: false

@@ -7,4 +7,5 @@ class Participant < ActiveRecord::Base
   has_many :memberships, dependent: :destroy
   has_many :groups, through: :memberships
   has_many :activities, dependent: :destroy
+  has_many :awake_periods, dependent: :destroy
 end
