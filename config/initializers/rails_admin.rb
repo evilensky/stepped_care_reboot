@@ -32,11 +32,11 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.model 'ContentProviders::Slideshow' do
+  config.model 'ContentProviders::SlideshowProvider' do
     edit do
       field :content_module
       field :position
-      field :slideshow
+      field :source_content
     end
   end
 end
