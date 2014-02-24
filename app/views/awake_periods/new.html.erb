@@ -1,0 +1,6 @@
+<% create_path ||= awake_periods_path %>
+<%= form_for awake_period, url: create_path do |f| %>
+  <%= f.time_field :start_time %>
+  <%= f.time_field :end_time %>
+  <%= f.submit "Create" %>
+<% end %>

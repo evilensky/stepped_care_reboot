@@ -31,4 +31,12 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
+
+  config.model 'ContentProviders::Slideshow' do
+    edit do
+      field :content_module
+      field :position
+      field :slideshow
+    end
+  end
 end

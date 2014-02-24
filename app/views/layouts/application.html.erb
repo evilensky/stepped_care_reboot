@@ -10,5 +10,11 @@
 
 <%= yield %>
 
+<div class="well">
+  <p>context: <%= session[:context] %></p>
+  <p>module: <%= ContentModule.find_by_context params[:context] %></p>
+  <p>provider index: <%= session[:provider_index] %></p>
+</div>
+
 </body>
 </html>
