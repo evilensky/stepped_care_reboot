@@ -1,4 +1,21 @@
-<%= link_to 'do', '/activity_tracker' %>
+
+
+<div class="row">
+<div class="col-md-5 main-nav">
+	<%= link_to 'think', '/thought_tracker' %>
+	<%= link_to 'feel', '/feelings_tracker' %>
+	<%= link_to 'do', '/activity_tracker' %>
+	<%= link_to 'learn', '/library' %>
+	<%= link_to 'messages', '/messages' %>
+
+
+</div>
+<div class="col-md-7 main-content">
+<p>Content</p>
+<button class="btn btn-default">Next &gt;</button>
+</div>
+</div>
+
 <p>
   <%= @navigator.render_current_content(self) %>
 <p>
