@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140224031252) do
+ActiveRecord::Schema.define(version: 20140224194936) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(version: 20140224031252) do
   add_index "participants", ["reset_password_token"], name: "index_participants_on_reset_password_token", unique: true, using: :btree
 
   create_table "slides", force: true do |t|
-    t.string   "title"
+    t.string   "title",                    null: false
     t.text     "body",                     null: false
     t.integer  "position",     default: 1, null: false
     t.integer  "slideshow_id",             null: false
