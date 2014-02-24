@@ -4,19 +4,19 @@ class ContentModule < ActiveRecord::Base
   validates :title, :context, :position, presence: true
   validates_numericality_of :position, greater_than_or_equal_to: 1
 
-  def provider_index=(provider_index)
-    @current_provider_index = provider_index
+  def provider_position=(provider_position)
+    @current_provider_position = provider_position
   end
 
   def current_content_provider
-    providers[current_provider_index] || ContentProviders::Null.new
+    providers[current_provider_position] || ContentProviders::Null.new
   end
 
-  def current_provider_index
-    @current_provider_index ||= 0
+  def current_provider_position
+    @current_provider_position ||= 0
   end
 
   def has_more_providers?
-    current_provider_index + 1 < providers.count
+    current_provider_position + 1 < providers.count
   end
 end
