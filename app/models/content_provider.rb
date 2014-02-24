@@ -4,4 +4,5 @@ class ContentProvider < ActiveRecord::Base
 
   validates :content_module, :position, presence: true
   validates_numericality_of :position, greater_than_or_equal_to: 1
+
 end
