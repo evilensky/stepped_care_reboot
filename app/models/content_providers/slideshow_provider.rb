@@ -26,4 +26,9 @@ class ContentProviders::SlideshowProvider < ContentProvider
   def slide_position
     @slide_position ||= 1
   end
+
+  def show_nav_link?
+    true
+  end
+
 end

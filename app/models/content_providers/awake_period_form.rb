@@ -1,4 +1,4 @@
-class ContentProviders::AwakePeriodForm
+class ContentProviders::AwakePeriodForm < ContentProvider
   def render_current(view_context)
     view_context.render(template: 'awake_periods/new', locals: {
         awake_period: AwakePeriod.new,
@@ -18,4 +18,9 @@ class ContentProviders::AwakePeriodForm
   def data_attributes
     [:start_time, :end_time]
   end
+
+  def show_nav_link?
+    false
+  end
+
 end
