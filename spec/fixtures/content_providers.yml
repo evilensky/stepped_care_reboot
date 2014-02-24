@@ -1,4 +1,4 @@
-content_provider1:
+content_provider_slideshow:
   type: ContentProviders::SlideshowProvider
   source_content: slideshow1 (Slideshow)
   content_module: content_module1
