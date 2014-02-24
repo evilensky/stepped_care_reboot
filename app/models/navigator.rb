@@ -7,8 +7,13 @@ class Navigator
     current_module.provider_position = @state[:provider_position]
   end
 
-  def render_current_content(view_context)
-    current_content_provider.render_current(view_context)
+  def render_current_content(view_context, &block)
+    rendered = current_content_provider.render_current(view_context)
+    if block && current_content_provider.show_nav_link?
+      rendered += yield
+    end
+
+    rendered
   end
 
   def current_content_provider
@@ -27,7 +32,7 @@ class Navigator
       @state[:content_position] = 0
       @state[:provider_position] += 1
     else
-      #asdf
+      redirect_to root_path
     end
   end
 
