@@ -1,0 +1,5 @@
+content_provider1:
+  type: ContentProviders::SlideshowProvider
+  source_content: slideshow1 (Slideshow)
+  content_module: content_module1
+  position: 1
