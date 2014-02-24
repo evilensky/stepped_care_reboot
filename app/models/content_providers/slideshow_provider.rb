@@ -22,4 +22,8 @@ class ContentProviders::SlideshowProvider < ContentProvider
   def current_slide_index
     @current_slide_index ||= 0
   end
+
+  def fetch_next
+    @current_slide_index += 1
+  end
 end
