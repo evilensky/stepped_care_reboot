@@ -25,7 +25,7 @@
 
 <div class="well">
   <p>context: <%= session[:context] %></p>
-  <p>module: <%= ContentModule.find_by_context(session[:context]).title %></p>
+  <p>module: <%= ContentModule.find_by_context(session[:context]).try(:title) %></p>
   <p>provider index: <%= session[:provider_index] %></p>
 </div>
 
