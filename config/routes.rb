@@ -6,6 +6,7 @@ SteppedCareReboot::Application.routes.draw do
   scope constraints: { format: 'html' } do
     resource :next_provider, only: :show
     resource :activity_tracker, only: :show
+    resource :generic_tool
     resources :participant_data, only: :create
   end
 
