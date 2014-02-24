@@ -9,18 +9,7 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
- *= require_tree .
+	 *= require_tree .
  */
 
 
-body,html{font-family: 'Archivo Narrow', sans-serif !important;}
-
-.container {width:90%;}
-
-.main-nav {text-align: right; border-right: 1px solid black;}
-
-.main-nav a {display:block; font-size:3em; text-transform: uppercase; color:black;}
-
-.main-nav a:hover {text-decoration: none; color:#AAA;}
-
-.main-content {text-align: left;}
