@@ -3,27 +3,27 @@ class ContentProviders::SlideshowProvider < ContentProvider
     source_content
   end
 
-  def render_current(view_context)
-    render_slide current_slide
+  def render_current(view_context, content_position)
+    render_slide slide(content_position)
   end
 
   def render_slide(slide)
     slide.body
   end
 
-  def current_slide
-    slideshow.slides[current_slide_index] || Slide.new(body: 'no slides')
+  def slide(position)
+    slideshow.slides.where(position: position).first || Slide.new(body: 'no slides')
+  end
+
+  def fetch(position)
+    @slide_position = position
   end
 
   def has_more_content?
-    current_slide_index + 1 < slideshow.slides.count
+    slide_position < slideshow.slides.count
   end
 
-  def current_slide_index
-    @current_slide_index ||= 0
-  end
-
-  def fetch_next
-    @current_slide_index += 1
+  def slide_position
+    @slide_position ||= 1
   end
 end

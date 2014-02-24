@@ -13,7 +13,7 @@
   <div class="col-md-5 main-nav">
     <%= link_to 'think', '/thought_tracker' %>
     <%= link_to 'feel', '/feelings_tracker' %>
-    <%= link_to 'do', '/activity_tracker' %>
+    <%= link_to 'do', navigator_context_path(context_name: 'activity_tracker') %>
     <%= link_to 'learn', '/library' %>
     <%= link_to 'messages', '/messages' %>
   </div>
@@ -26,7 +26,8 @@
 <div class="well">
   <p>context: <%= session[:context] %></p>
   <p>module: <%= ContentModule.find_by_context(session[:context]).try(:title) %></p>
-  <p>provider index: <%= session[:provider_position] %></p>
+  <p>provider position: <%= session[:provider_position] %></p>
+  <p>content position: <%= session[:content_position] %></p>
 </div>
 
 </body>
