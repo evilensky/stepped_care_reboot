@@ -1,4 +1,4 @@
 <p>
   <%= @navigator.render_current_content(self) %>
 <p>
-<%= link_to "#{ @navigator.next_action_label } &gt;".html_safe, @navigator.next_path, class: 'btn btn-default next-button' %>
+<%= link_to "#{ @navigator.next_action_label } &gt;".html_safe, navigator_path, class: 'btn btn-default next-button' %>
