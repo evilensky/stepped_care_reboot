@@ -1,5 +1,13 @@
-<strong>Let’s break it down hour by hour...</strong>
-<strong>What did you do from </strong>
-<% hours do |hour| %>
-	hour here
+<h1>Let’s break it down hour by hour...</h1>
+<h2>What did you do from </h2>
+<%= form_for :activity, :html => { role: "form" } do |f| %>
+	<div class="form-group">
+		<%= f.label :fun, "How much fun was it?" %>
+		<%= f.select :fun, [['Not Fun', 0], ['Super Fun', 9]], {}, { class: "form-control" } %>
+	</div>
+	<div class="form-group">
+		<%= f.label :importance, "How important was it to you?" %>
+		<%= f.select :importance, [['Not Important', 0], ['Super Important', 9]], {}, { class: "form-control" } %>
+	</div>
+  <%= f.submit "Continue", :class => "btn btn-default btn-large" %>
 <% end %>
