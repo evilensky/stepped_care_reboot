@@ -26,4 +26,9 @@ class ContentProviders::SlideshowProvider < ContentProvider
   def fetch_next
     @current_slide_index += 1
   end
+
+  def show_nav_link?
+    true
+  end
+
 end
