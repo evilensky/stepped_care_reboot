@@ -2,17 +2,30 @@
 <html>
 <head>
   <title>SteppedCareReboot</title>
+  <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="row">
+  <div class="col-md-5 main-nav">
+    <%= link_to 'think', '/thought_tracker' %>
+    <%= link_to 'feel', '/feelings_tracker' %>
+    <%= link_to 'do', '/activity_tracker' %>
+    <%= link_to 'learn', '/library' %>
+    <%= link_to 'messages', '/messages' %>
+  </div>
+  
+  <div class="col-md-7 main-content">
+    <%= yield %>
+  </div>
+</div>
 
 <div class="well">
   <p>context: <%= session[:context] %></p>
-  <p>module: <%= ContentModule.find_by_context params[:context] %></p>
+  <p>module: <%= ContentModule.find_by_context(session[:context]).title %></p>
   <p>provider index: <%= session[:provider_index] %></p>
 </div>
 

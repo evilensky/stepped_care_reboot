@@ -16,7 +16,7 @@ class ContentProviders::SlideshowProvider < ContentProvider
   end
 
   def has_more_content?
-    false
+    current_slide_index + 1 < slideshow.slides.count
   end
 
   def current_slide_index
