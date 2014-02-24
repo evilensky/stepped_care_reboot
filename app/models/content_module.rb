@@ -9,7 +9,7 @@ class ContentModule < ActiveRecord::Base
   end
 
   def current_content_provider
-    providers[current_provider_index]
+    providers[current_provider_index] || ContentProviders::Null.new
   end
 
   def current_provider_index
