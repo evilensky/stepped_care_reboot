@@ -7,16 +7,15 @@ class Navigator
     module_position = @state[:module_position]
   end
 
-  def render_current_content(view_context, &block)
+  def render_current_content(view_context)
     options = RenderOptions.new(view_context, @state[:context],
         @state[:content_position], view_context.current_participant)
-    rendered = current_content_provider.render_current(options)
 
-    if block && current_content_provider.show_nav_link?
-      rendered += yield
-    end
+    current_content_provider.render_current(options)
+  end
 
-    rendered
+  def show_nav_link?
+    current_content_provider.show_nav_link?
   end
 
   def current_content_provider
@@ -24,13 +23,12 @@ class Navigator
   end
 
   def next_action_label
-    current_content_provider.has_more_content? ? 'Continue' : 'Finish'
+    current_content_provider.exists?(@state[:content_position] + 1) ? 'Continue' : 'Finish'
   end
 
   def fetch_next_content
-    if current_content_provider.has_more_content?
+    if current_content_provider.exists?(@state[:content_position] + 1)
       @state[:content_position] += 1
-      current_content_provider.fetch(@state[:content_position])
     elsif current_module.provider_exists?(@state[:provider_position] + 1)
       @state[:content_position] = 0
       @state[:provider_position] += 1

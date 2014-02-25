@@ -10,7 +10,7 @@ slideshow_provider:
   position: 1
 
 awake_period_form_provider:
-  type: ContentProviders::SlideshowProvider
+  type: ContentProviders::AwakePeriodForm
   content_module: activity_tracker_module2
   position: 2
 
