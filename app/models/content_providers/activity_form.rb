@@ -18,12 +18,20 @@ class ContentProviders::ActivityForm < ContentProvider
     )
   end
 
+  def data_attributes
+    [:start_time, :end_time, :activity_type_title, :actual_pleasure_intensity, :actual_accomplishment_intensity]
+  end
+
   def exists?(position)
     false
   end
 
   def data_class_name
     'Activity'
+  end
+
+  def has_more_content?
+    false
   end
 
   def show_nav_link?

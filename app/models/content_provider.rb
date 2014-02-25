@@ -6,4 +6,9 @@ class ContentProvider < ActiveRecord::Base
   validates_numericality_of :position, greater_than_or_equal_to: 1
 
   delegate :context, to: :content_module, prefix: false
+
+  # def data_attributes
+  	#alert of some sort that says you are calling ContentProvider data_attributes
+  # end
+
 end
