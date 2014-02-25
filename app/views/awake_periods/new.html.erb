@@ -1,11 +1,17 @@
 <% create_path ||= awake_periods_path %>
 <strong>OK, let's talk about yesterday.</strong>
-<%= form_for awake_period, url: create_path do |f| %>
+<%= form_for awake_period, url: create_path, :html => {:role => "form"} do |f| %>
 <div class="form-group">
+	<% hours = [] %>
+	<% y = DateTime.yesterday %>
+	<% [*0..24].each do |hr| %>
+		<% date_time = Time.new(y.year, y.month, y.day, hr) %>
+		<% hours << [date_time.strftime("%l %p"), date_time.to_s] %>
+	<% end %>
   <%=f.label :start_time, "What time did you wake up?" %>
-  <%= f.time_field :start_time, :class=>"form-control" %>
+  <%= f.select :start_time, hours, :class=>"form-control" %>
   <%=f.label :end_time, "And, what time did you go to bed?" %>
-  <%= f.time_field :end_time, :class=>"form-control" %>
+  <%= f.select :end_time, hours, :class=>"form-control" %>
   <div class="form-group">
   	<%= f.submit "Create", class: 'btn btn-default form-button' %>
   </div>
