@@ -47,4 +47,12 @@ RailsAdmin.config do |config|
   config.model 'AwakePeriod' do
     navigation_label 'Participant data'
   end
+
+  config.model 'ContentProvider' do
+    list do
+      field :context
+      field :content_module
+      field :position
+    end
+  end
 end

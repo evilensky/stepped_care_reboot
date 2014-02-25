@@ -1,4 +1,6 @@
 class Navigator
+  RenderOptions = Struct.new(:view_context, :app_context, :position, :participant)
+
   def initialize(state)
     @state = state
     context = @state[:context]
@@ -6,7 +8,10 @@ class Navigator
   end
 
   def render_current_content(view_context, &block)
-    rendered = current_content_provider.render_current(view_context, @state[:context], @state[:content_position])
+    options = RenderOptions.new(view_context, @state[:context],
+        @state[:content_position], view_context.current_participant)
+    rendered = current_content_provider.render_current(options)
+
     if block && current_content_provider.show_nav_link?
       rendered += yield
     end

@@ -1,12 +1,12 @@
 class ContentProviders::ActivityForm < ContentProvider
 
-  def render_current(view_context, app_context, position)
-    view_context.render(
+  def render_current(options)
+    options.view_context.render(
       template: 'activities/new',
       locals: {
         hours: [7,8,9,10,11,12,13,14,15,16,17], #this will be dynamic...
         activity: Activity.new,
-        create_path: view_context.participant_data_path
+        create_path: options.view_context.participant_data_path
       }
     )
   end
