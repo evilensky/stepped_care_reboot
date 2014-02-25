@@ -2,13 +2,6 @@
 
 <h2>Recently, you...</h2>
 
-<table>
-  <% activities.each do |a| %>
-    <tr>
-      <td><%= a.start_time %></td>
-      <td><%= a.title %></td>
-      <td><%= a.actual_pleasure_intensity %></td>
-      <td><%= a.actual_accomplishment_intensity %></td>
-    </tr>
-  <% end %>
+<table class="table">
+  <%= render partial: 'activities/activity', collection: activities %>
 </table>
