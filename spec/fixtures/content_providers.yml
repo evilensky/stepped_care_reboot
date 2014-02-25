@@ -13,3 +13,8 @@ awake_period_form_provider:
   type: ContentProviders::SlideshowProvider
   content_module: activity_tracker_module2
   position: 2
+
+activity_form_provider:
+  type: ContentProviders::ActivityForm
+  content_module: activity_tracker_module2
+  position: 3
