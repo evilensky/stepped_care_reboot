@@ -1,4 +1,5 @@
 class ContentProviders::AwakePeriodForm < ContentProvider
+  
   def render_current(options)
     options.view_context.render(template: 'awake_periods/new', locals: {
         awake_period: AwakePeriod.new,
