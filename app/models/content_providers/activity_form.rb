@@ -1,10 +1,17 @@
 class ContentProviders::ActivityForm < ContentProvider
 
   def render_current(options)
+    most_recent_awake_period = AwakePeriod.last
+    start_time = most_recent_awake_period.start_time
+    end_time = most_recent_awake_period.end_time
+    timestamps = []
+    (start_time.to_i .. (end_time.to_i - 1.hour)).step(1.hour) do |timestamp|
+      timestamps << timestamp
+    end
     options.view_context.render(
-      template: 'activities/new',
+      template: 'activity/new',
       locals: {
-        hours: [7,8,9,10,11,12,13,14,15,16,17], #this will be dynamic...
+        timestamps: timestamps,
         activity: Activity.new,
         create_path: options.view_context.participant_data_path
       }
@@ -18,10 +25,6 @@ class ContentProviders::ActivityForm < ContentProvider
   def data_class_name
     'Activity'
   end
-
-  # def data_attributes
-  #   [:start_time, :end_time]
-  # end
 
   def show_nav_link?
     false
