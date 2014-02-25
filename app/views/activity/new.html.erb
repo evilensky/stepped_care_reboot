@@ -1,8 +1,9 @@
 <h1>Let’s break it down hour by hour...</h1>
 <%= form_for :activity, :html => { role: "form" } do |f| %>
-	<% hours.each do |hour| %>
+	<% timestamps.each do |timestamp| %>
+		<% timestamp = Time.at(timestamp) %>
 		<fieldset>
-			<legend>What did you do from <%= hour %> to <%= hour + 1 %>?</legend>
+			<legend>What did you do from <%= timestamp.strftime("%l %P") %> to <%= (timestamp + 1.hours ).to_datetime.strftime("%l %P") %>?</legend>
 			<div class="form-group">
 				<%= f.label :fun, "How much fun was it?" %>
 				<input type="range" name="points" min="1" max="10" class="form-control">
