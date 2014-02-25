@@ -4,6 +4,7 @@ namespace :seed do
   desc 'seed the database with fixtures from spec/fixtures'
   task with_fixtures: :environment do
     path = File.join(File.dirname(__FILE__), '..', '..', 'spec', 'fixtures')
-    ActiveRecord::FixtureSet.create_fixtures path, [:participants, :slideshows, :slides, :content_modules, :content_providers]
+    ActiveRecord::FixtureSet.create_fixtures path, [:participants, :slideshows,
+      :slides, :content_modules, :content_providers, :users]
   end
 end
