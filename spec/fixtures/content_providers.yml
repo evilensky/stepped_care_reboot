@@ -1,5 +1,10 @@
-content_provider_slideshow:
+slideshow_provider:
   type: ContentProviders::SlideshowProvider
   source_content: slideshow1 (Slideshow)
   content_module: content_module1
   position: 1
+
+awake_period_form_provider:
+  type: ContentProviders::SlideshowProvider
+  content_module: content_module1
+  position: 2
