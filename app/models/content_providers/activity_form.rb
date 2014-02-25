@@ -9,7 +9,7 @@ class ContentProviders::ActivityForm < ContentProvider
       timestamps << timestamp
     end
     options.view_context.render(
-      template: 'activity/new',
+      template: 'activities/new',
       locals: {
         timestamps: timestamps,
         activity: Activity.new,
