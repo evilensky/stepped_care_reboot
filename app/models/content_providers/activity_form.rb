@@ -2,7 +2,7 @@ class ContentProviders::ActivityForm < ContentProvider
 
   def render_current(view_context)
     view_context.render(template: 'activity/new', locals: {
-        hours: [1,2,3,4],
+        hours: [7,8,9,10,11,12,13,14,15,16,17],
         activity: Activity.new,
         create_path: view_context.participant_data_path
       }
