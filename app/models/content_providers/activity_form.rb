@@ -1,6 +1,6 @@
 class ContentProviders::ActivityForm < ContentProvider
 
-  def render_current(view_context)
+  def render_current(view_context, position)
     view_context.render(
       template: 'activity/new',
       locals: {
