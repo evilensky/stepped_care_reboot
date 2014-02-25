@@ -1,13 +1,17 @@
 <h1>Let’s break it down hour by hour...</h1>
-<h2>What did you do from </h2>
 <%= form_for :activity, :html => { role: "form" } do |f| %>
-	<div class="form-group">
-		<%= f.label :fun, "How much fun was it?" %>
-		<%= f.select :fun, [['Not Fun', 0], ['Super Fun', 9]], {}, { class: "form-control" } %>
-	</div>
-	<div class="form-group">
-		<%= f.label :importance, "How important was it to you?" %>
-		<%= f.select :importance, [['Not Important', 0], ['Super Important', 9]], {}, { class: "form-control" } %>
-	</div>
+	<% hours.each do |hour | %>
+		<fieldset>
+			<legend>What did you do from <%= hour %> to <%= hour + 1 %>?</legend>
+			<div class="form-group">
+				<%= f.label :fun, "How much fun was it?" %>
+				<input type="range" name="points" min="1" max="10" class="form-control">
+			</div>
+			<div class="form-group">
+				<%= f.label :importance, "How important was it to you?" %>
+				<input type="range" name="points" min="1" max="10" class="form-control">
+			</div>
+		</fieldset>
+	<% end %>
   <%= f.submit "Continue", :class => "btn btn-default btn-large" %>
 <% end %>
