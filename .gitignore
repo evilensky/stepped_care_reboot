@@ -17,5 +17,4 @@
 
 # secrets
 config/iniializers/secret_token.rb
-config/database.yml
 .DS_Store
