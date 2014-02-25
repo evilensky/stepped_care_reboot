@@ -1,4 +1,6 @@
-<%= @navigator.render_current_content(self) do %>
+<%= @navigator.render_current_content(self) %>
+
+<% if @navigator.show_nav_link? %>
   <p>
     <%= link_to @navigator.next_action_label, navigator_next_content_path, class: 'btn btn-default next-button' %>
   </p>

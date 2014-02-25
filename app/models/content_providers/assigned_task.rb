@@ -3,7 +3,7 @@ class ContentProviders::AssignedTask
     options.view_context.render template: 'assigned_tasks/show'
   end
 
-  def has_more_content?
+  def exists?(position)
     false
   end
 

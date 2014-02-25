@@ -15,20 +15,11 @@ class ContentProviders::SlideshowProvider < ContentProvider
     slideshow.slides.where(position: position).first || Slide.new(body: 'no slides')
   end
 
-  def fetch(position)
-    @slide_position = position
-  end
-
-  def has_more_content?
-    slide_position < slideshow.slides.count
-  end
-
-  def slide_position
-    @slide_position ||= 1
+  def exists?(position)
+    slideshow.slides.exists?(position: position)
   end
 
   def show_nav_link?
     true
   end
-
 end

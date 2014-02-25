@@ -18,7 +18,7 @@ class ContentProviders::ActivityForm < ContentProvider
     )
   end
 
-  def has_more_content?
+  def exists?(position)
     false
   end
 

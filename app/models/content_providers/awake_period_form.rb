@@ -8,7 +8,7 @@ class ContentProviders::AwakePeriodForm < ContentProvider
     )
   end
 
-  def has_more_content?
+  def exists?(position)
     false
   end
 
