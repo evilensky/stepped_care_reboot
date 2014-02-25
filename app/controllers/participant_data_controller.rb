@@ -11,7 +11,11 @@ class ParticipantDataController < ApplicationController
     @data = current_participant.build_data_record(association, data_attributes)
 
     if @data.save
-      redirect_to navigator_next_content_url
+      respond_to do |format|
+        format.html { redirect_to navigator_next_content_url }
+        format.js {}
+        # format.json {}
+      end
     else
       render text: @data.errors.full_messages
     end
