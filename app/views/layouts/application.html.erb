@@ -9,17 +9,19 @@
 </head>
 <body>
 
-<div class="row">
-  <div class="col-md-5 main-nav">
-    <%= link_to 'think', '/thought_tracker' %>
-    <%= link_to 'feel', '/feelings_tracker' %>
-    <%= link_to 'do', navigator_context_path(context_name: 'activity_tracker') %>
-    <%= link_to 'learn', '/library' %>
-    <%= link_to 'messages', '/messages' %>
-  </div>
-  
-  <div class="col-md-7 main-content">
-    <%= yield %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 main-nav">
+      <%= link_to 'think', '/thought_tracker' %>
+      <%= link_to 'feel', '/feelings_tracker' %>
+      <%= link_to 'do', navigator_context_path(context_name: 'activity_tracker') %>
+      <%= link_to 'learn', '/library' %>
+      <%= link_to 'messages', '/messages' %>
+    </div>
+    
+    <div class="col-md-7 main-content">
+      <%= yield %>
+    </div>
   </div>
 </div>
 
