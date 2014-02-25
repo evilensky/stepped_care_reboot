@@ -1,18 +1,22 @@
 <h1>Let’s break it down hour by hour...</h1>
-<%= form_for :activity, :html => { role: "form" } do |f| %>
-	<% timestamps.each do |timestamp| %>
+	
+	<% timestamps.each_with_index do |timestamp, index| %>
 		<% timestamp = Time.at(timestamp) %>
-		<fieldset>
-			<legend>What did you do from <%= timestamp.strftime("%l %P") %> to <%= (timestamp + 1.hours ).to_datetime.strftime("%l %P") %>?</legend>
+		<%= form_for :activity, url: create_path, method: "post", :remote => true, :html => { role: "form", id: "activity-form-#{index}"} do |f| %>
+			<%= f.hidden_field :start_time, value: timestamp %>
+			<%= f.hidden_field :end_time, value: (timestamp + 1.hour) %>
 			<div class="form-group">
-				<%= f.label :fun, "How much fun was it?" %>
-				<input type="range" name="points" min="1" max="10" class="form-control">
+				<%= f.label :activity_type_title, "What did you do from #{timestamp.strftime("%l %P")} to #{(timestamp + 1.hours ).to_datetime.strftime("%l %P")}?", :for => "activity_fun_#{index}" %>
+				<%= f.text_field :activity_type_title, :class => "form-control" %>
 			</div>
 			<div class="form-group">
-				<%= f.label :importance, "How important was it to you?" %>
-				<input type="range" name="points" min="1" max="10" class="form-control">
+				<%= f.label :actual_pleasure_intensity, "How much fun was it?", :for => "activity_fun_#{index}" %>
+				<%= f.range_field :actual_pleasure_intensity, :in => 0..10, :step => '1', :id => "activity_fun_#{index}" %>
 			</div>
-		</fieldset>
+			<div class="form-group">
+				<%= f.label :actual_accomplishment_intensity, "How important was it to you?", :for => "activity_importance_#{index}" %>
+				<%= f.range_field :actual_accomplishment_intensity, :in => 0..10, :step => '1', :id => "activity_importance_#{index}" %>
+			</div>
+	  <%= f.submit "Continue", :class => "btn btn-primary btn-large" %>
 	<% end %>
-  <%= f.submit "Continue", :class => "btn btn-default btn-large" %>
 <% end %>
