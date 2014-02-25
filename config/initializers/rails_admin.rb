@@ -3,10 +3,10 @@ RailsAdmin.config do |config|
   ### Popular gems integration
 
   ## == Devise ==
-  # config.authenticate_with do
-  #   warden.authenticate! scope: :user
-  # end
-  # config.current_user_method(&:current_user)
+  config.authenticate_with do
+    warden.authenticate! scope: :user
+  end
+  config.current_user_method(&:current_user)
 
   ## == Cancan ==
   # config.authorize_with :cancan
@@ -38,5 +38,13 @@ RailsAdmin.config do |config|
       field :position
       field :source_content
     end
+  end
+
+  config.model 'Activity' do
+    navigation_label 'Participant data'
+  end
+
+  config.model 'AwakePeriod' do
+    navigation_label 'Participant data'
   end
 end

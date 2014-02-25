@@ -44,11 +44,13 @@ class Navigator
   private
 
   def current_module
+    module_attrs = { context: @state[:context], position: @state[:module_position] }
+
     if current_module_stale?
-      @current_module = ContentModule.where(context: @state[:context], position: @state[:module_position]).first
+      @current_module = ContentModule.where(module_attrs).first
     end
 
-    @current_module || ContentModule.new
+    @current_module ||= ContentModule.new(module_attrs)
   end
 
   def current_module_stale?

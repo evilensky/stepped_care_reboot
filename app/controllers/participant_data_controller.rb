@@ -1,4 +1,6 @@
 class ParticipantDataController < ApplicationController
+  before_filter :authenticate_participant!
+
   def create
     navigator = Navigator.new(session)
     provider = navigator.current_content_provider
