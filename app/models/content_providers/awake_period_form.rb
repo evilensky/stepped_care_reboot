@@ -22,5 +22,4 @@ class ContentProviders::AwakePeriodForm < ContentProvider
   def show_nav_link?
     false
   end
-
 end
