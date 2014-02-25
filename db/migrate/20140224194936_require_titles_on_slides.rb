@@ -6,6 +6,6 @@ class RequireTitlesOnSlides < ActiveRecord::Migration
         slide.save!
       end
     end
-    change_column :slides, :title, :string, null: false
+    change_column_null :slides, :title, false
   end
 end

@@ -1,5 +1,5 @@
 class ContentProviders::Null
-  def render_current(view_context, position)
+  def render_current(view_context, app_context, position)
     'Null content provider'
   end
 

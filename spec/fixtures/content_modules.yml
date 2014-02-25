@@ -1,4 +1,9 @@
-content_module1:
+activity_tracker_module1:
   title: content module 1
   context: activity_tracker
   position: 1
+
+activity_tracker_module2:
+  title: content module 2
+  context: activity_tracker
+  position: 2

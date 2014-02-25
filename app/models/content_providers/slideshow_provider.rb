@@ -3,8 +3,8 @@ class ContentProviders::SlideshowProvider < ContentProvider
     source_content
   end
 
-  def render_current(view_context, content_position)
-    render_slide slide(content_position)
+  def render_current(view_context, app_context, position)
+    render_slide slide(position)
   end
 
   def render_slide(slide)

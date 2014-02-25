@@ -1,5 +1,5 @@
 class ContentProviders::AwakePeriodForm < ContentProvider
-  def render_current(view_context, position)
+  def render_current(view_context, app_context, position)
     view_context.render(template: 'awake_periods/new', locals: {
         awake_period: AwakePeriod.new,
         create_path: view_context.participant_data_path

@@ -3,6 +3,7 @@ class ContentModule < ActiveRecord::Base
 
   validates :title, :context, :position, presence: true
   validates_numericality_of :position, greater_than_or_equal_to: 1
+  validates_uniqueness_of :position, scope: :context
 
   def provider(position)
     providers.where(position: position).first || ContentProviders::Null.new

@@ -23,12 +23,7 @@
   </div>
 </div>
 
-<div class="well">
-  <p>context: <%= session[:context] %></p>
-  <p>module: <%= ContentModule.find_by_context(session[:context]).try(:title) %></p>
-  <p>provider position: <%= session[:provider_position] %></p>
-  <p>content position: <%= session[:content_position] %></p>
-</div>
+<%= render 'shared/debug' %>
 
 </body>
 </html>
