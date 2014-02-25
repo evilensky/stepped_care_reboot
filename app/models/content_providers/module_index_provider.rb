@@ -1,7 +1,7 @@
 class ContentProviders::ModuleIndexProvider < ContentProvider
-  def render_current(view_context, app_context, position)
-    view_context.render(template: 'content_modules/index', locals: {
-        content_modules: ContentModule.where(context: app_context)
+  def render_current(options)
+    options.view_context.render(template: 'content_modules/index', locals: {
+        content_modules: ContentModule.where(context: options.app_context)
       }
     )
   end
