@@ -26,6 +26,10 @@ class Participant < ActiveRecord::Base
     recent_activities.pleasurable
   end
 
+  def recent_accomplished_activities
+    recent_activities.accomplished
+  end
+
   def recent_awake_period
     @recent_awake_period ||= awake_periods.order('start_time').last
   end

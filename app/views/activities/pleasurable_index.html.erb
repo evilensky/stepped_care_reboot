@@ -1,14 +1,11 @@
-<h1>Take a look--does this all seem right?</h1>
+<h1>Things you found fun.</h1>
 
-<h2>Recently, you...</h2>
-
-<table>
-  <% activities.each do |a| %>
-    <tr>
-      <td><%= a.start_time %></td>
-      <td><%= a.title %></td>
-      <td><%= a.actual_pleasure_intensity %></td>
-      <td><%= a.actual_accomplishment_intensity %></td>
-    </tr>
-  <% end %>
+<table class="table">
+  <%= render partial: 'activities/activity', collection: activities %>
 </table>
+
+<h2>Why does this matter?</h2>
+
+<p>Because doing things that are fun can make you happier.</p>
+
+<p>Have fun! Really!</p>
