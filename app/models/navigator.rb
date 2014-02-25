@@ -30,9 +30,18 @@ class Navigator
       @state[:content_position] = 0
       @state[:provider_position] += 1
     else
-      redirect_to root_path
+      initialize_context(@state[:context])
     end
   end
+
+  def initialize_context(context)
+    @state[:context] = context
+    @state[:module_position] = 1
+    @state[:provider_position] = 1
+    @state[:content_position] = 1
+  end
+
+  private
 
   def current_module
     if current_module_stale?
@@ -46,12 +55,5 @@ class Navigator
     @current_module.nil? ||
       (@current_module.context != @state[:context] ||
        @current_module.position != @state[:module_position])
-  end
-
-  def initialize_context(context)
-    @state[:context] = context
-    @state[:module_position] = 1
-    @state[:provider_position] = 1
-    @state[:content_position] = 1
   end
 end

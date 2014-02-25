@@ -6,10 +6,10 @@ class ParticipantDataController < ApplicationController
     data_attributes = params.require(parameter).permit(provider.data_attributes)
     association = parameter.pluralize
 
-    @data = current_participant.send(association).build(data_attributes)
+    @data = current_participant.build_data_record(association, data_attributes)
 
     if @data.save
-      redirect_to next_provider_url
+      redirect_to navigator_next_content_url
     else
       render text: @data.errors.full_messages
     end

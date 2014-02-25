@@ -1,4 +1,4 @@
-module AuthenticationHelper
+module AuthenticationHelpers
   def sign_in_participant(participant)
     visit new_participant_session_path
     fill_in 'Email', with: participant.email
