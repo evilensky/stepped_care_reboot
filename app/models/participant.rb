@@ -14,14 +14,19 @@ class Participant < ActiveRecord::Base
   end
 
   def recent_activities
-    if recent_awake_period
-      activities.during(recent_awake_period.start_time, recent_awake_period.end_time)
-    else
-      []
-    end
+    # when no awake period return an empty set to allow chaining
+    now = Time.new
+    start_time = recent_awake_period.try(:start_time) || now
+    end_time = recent_awake_period.try(:end_time) || now
+
+    activities.during(start_time, end_time)
+  end
+
+  def recent_pleasurable_activities
+    recent_activities.pleasurable
   end
 
   def recent_awake_period
-    awake_periods.order('start_time').last
+    @recent_awake_period ||= awake_periods.order('start_time').last
   end
 end
