@@ -1,10 +1,15 @@
+module_index_provider:
+  type: ContentProviders::ModuleIndexProvider
+  content_module: activity_tracker_module1
+  position: 1
+
 slideshow_provider:
   type: ContentProviders::SlideshowProvider
   source_content: slideshow1 (Slideshow)
-  content_module: content_module1
+  content_module: activity_tracker_module2
   position: 1
 
 awake_period_form_provider:
   type: ContentProviders::SlideshowProvider
-  content_module: content_module1
+  content_module: activity_tracker_module2
   position: 2

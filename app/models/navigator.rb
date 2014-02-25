@@ -6,7 +6,7 @@ class Navigator
   end
 
   def render_current_content(view_context, &block)
-    rendered = current_content_provider.render_current(view_context, @state[:content_position])
+    rendered = current_content_provider.render_current(view_context, @state[:context], @state[:content_position])
     if block && current_content_provider.show_nav_link?
       rendered += yield
     end
@@ -29,6 +29,9 @@ class Navigator
     elsif current_module.provider_exists?(@state[:provider_position] + 1)
       @state[:content_position] = 0
       @state[:provider_position] += 1
+    elsif ContentModule.exists?(position: @state[:module_position] + 1)
+      initialize_context(@state[:context])
+      @state[:module_position] += 1
     else
       initialize_context(@state[:context])
     end

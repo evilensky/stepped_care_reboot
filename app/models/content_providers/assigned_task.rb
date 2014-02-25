@@ -1,5 +1,5 @@
 class ContentProviders::AssignedTask
-  def render_current(view_context, position)
+  def render_current(view_context, app_context, position)
     view_context.render template: 'assigned_tasks/show'
   end
 
