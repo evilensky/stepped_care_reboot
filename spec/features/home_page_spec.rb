@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'home page' do
-  fixtures :participants, :slideshows, :slides
+  fixtures :participants, :slideshows, :slides, :content_modules, :content_providers
 
   describe 'user visits' do
     it 'should have an introduction' do

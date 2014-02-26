@@ -7,7 +7,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def switch_layout
-      session[:context] == "home" ? "application" : "tool"
+  def switch_layout
+    if devise_controller?
+      'devise'
+    elsif session[:context] == 'home'
+      'application'
+    else
+      'tool'
     end
+  end
 end
