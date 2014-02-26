@@ -11,6 +11,10 @@ $(function() {
         if (response.status == "success") {
           $target.hide();
           $target.next('form.activity_form').show();
+          if (!$("form.activity_form").is(":visible")) {
+            alert('No more forms exist');
+            // No more forms exist...move on!
+          }
         } else {
           console.log('ERRORS');
         };
