@@ -12,16 +12,7 @@
 
   <div class="container">
     <div class="row">
-      <%= render 'shared/authentication' %>
-    </div>
-
-    <div class="row">
-      <div class="col-md-2 tool-nav">
-        <h1><%= AppSection.by_name(session[:context]).label %></h1>
-        <h2><%= @navigator.current_module.title %></h2>
-      </div>
-
-      <div class="col-md-10 tool-content">
+      <div class="col-md-7 main-content">
         <%= yield %>
       </div>
     </div>
@@ -29,10 +20,8 @@
     <div class="row">
       <%= render 'shared/alerts' %>
     </div>
-    
+
     <%= render 'shared/debug' %>
-
   </div>
-
 </body>
 </html>
