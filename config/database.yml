@@ -49,9 +49,8 @@ test:
   encoding: unicode
   database: stepped_care_reboot_test
   pool: 5
-  username: stepped_care_reboot
+  username: postgres
   password:
-  # host: localhost
 
 production:
   adapter: postgresql
