@@ -1,8 +1,12 @@
 class ContentProviders::ModuleIndexProvider < ContentProvider
   def render_current(options)
-    options.view_context.render(template: 'content_modules/index', locals: {
-        content_modules: ContentModule.where(context: options.app_context)
-      }
+    content_modules = ContentModule
+      .where(context: options.app_context)
+      .where.not(id: content_module_id)
+
+    options.view_context.render(
+      template: 'content_modules/index',
+      locals: { content_modules: content_modules }
     )
   end
 
