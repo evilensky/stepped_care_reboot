@@ -7,7 +7,7 @@ describe 'home page' do
     it 'should have an introduction' do
       sign_in_participant participants(:participant1)
 
-      expect(page).to have_text(slides(:home_intro).body)
+      expect(page).to have_text(slides(:home_intro1).body)
     end
   end
 end

@@ -10,11 +10,17 @@ gem 'turbolinks'
 gem 'devise'
 gem 'rails_admin'
 gem 'cancan'
-gem 'capistrano', group: :development
+gem 'redcarpet', '~> 2.3.0'
+
 group :development, :test do
-  gem 'debugger'
   gem 'rspec-rails', '~> 3.0.0.beta2'
 end
+
+group :development do
+  gem 'capistrano'
+  gem 'debugger'
+end
+
 group :test do
   gem 'capybara'
 end

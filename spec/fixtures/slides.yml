@@ -1,11 +1,42 @@
-home_intro:
-  title: It's simple.
+home_intro1:
+  title: "It's simple."
   body: If you’re feeling sad or down and want to get better, this is for you.
   position: 1
+  slideshow: home_intro
+
+home_intro2:
+  title: Slide 2
+  is_title_visible: false
+  body: Log in once a day and tell us how you’re doing.
+
+
+    Read a few things. Do a few things.
+  position: 2
+  slideshow: home_intro
+
+home_intro3:
+  title: Slide 3
+  is_title_visible: false
+  body: Come back every day for a few weeks.
+
+
+    Give it a chance.
+
+
+    See if you’ll feel better.
+  position: 3
   slideshow: home_intro
 
 do_awareness_intro1:
   title: This is just the beginning...
   body: For the next few days, let’s start by making you aware of some of the things you do every day.
+
+
+    Be honest. No cheating. No judgments, no worries--just a little bit of work. Just, let us know a bit about what you’ve been up to...
+
+
+    We just want you to know that we know this is a bit tedious.
+
+    But bear with us. If you can keep this up for a few days it will be really helpful later.
   position: 1
   slideshow: do_awareness_intro

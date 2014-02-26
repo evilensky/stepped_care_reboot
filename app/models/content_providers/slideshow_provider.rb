@@ -4,11 +4,12 @@ class ContentProviders::SlideshowProvider < ContentProvider
   end
 
   def render_current(options)
-    render_slide slide(options.position)
-  end
-
-  def render_slide(slide)
-    slide.body
+    options.view_context.render(
+      template: 'slides/show',
+      locals: {
+        slide: slide(options.position)
+      }
+    )
   end
 
   def slide(position)
