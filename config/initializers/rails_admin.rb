@@ -46,6 +46,12 @@ RailsAdmin.config do |config|
 
   config.model 'AwakePeriod' do
     navigation_label 'Participant data'
+
+    list do
+      field :participant
+      field :start_time
+      field :end_time
+    end
   end
 
   config.model 'ContentProvider' do
