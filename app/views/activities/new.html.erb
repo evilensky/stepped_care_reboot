@@ -2,7 +2,7 @@
 	
 	<% timestamps.each_with_index do |timestamp, index| %>
 		<% timestamp = Time.at(timestamp) %>
-		<%= form_for :activity, url: create_path, method: "post", :remote => true, :html => { role: "form", id: "activity-form-#{index}"} do |f| %>
+		<%= form_for :activity, url: create_path, method: "post", :remote =>  true, :html => { role: "form", :class => "activity_form", id: "activity-form-#{index}", style: "display:none;"} do |f| %>
 			<%= f.hidden_field :start_time, value: timestamp %>
 			<%= f.hidden_field :end_time, value: (timestamp + 1.hour) %>
 			<div class="form-group">
@@ -20,3 +20,4 @@
 	  <%= f.submit "Continue", :class => "btn btn-primary btn-large" %>
 	<% end %>
 <% end %>
+
