@@ -1,4 +1,5 @@
 $(function() {
+  $("form.activity_form:first").show();
   $("form.activity_form").on('submit', function(event) {
     event.preventDefault();
     var $target = $(event.currentTarget);
