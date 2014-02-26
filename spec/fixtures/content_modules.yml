@@ -1,3 +1,8 @@
+home_landing:
+  title: Landing
+  context: home
+  position: 1
+
 activity_tracker_landing:
   title: Landing
   context: activity_tracker
