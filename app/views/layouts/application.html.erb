@@ -11,6 +11,13 @@
 
   <div class="container">
     <div class="row">
+      <% if (user_signed_in?) %>
+        <%= render 'layouts/logged_in_links' %>
+      <% else %>
+        <%= link_to "Sign Up", new_registration_path(:user), :id => "sign-up-navbar" %>
+      <% end %>
+    </div>
+    <div class="row">
       <div class="col-md-5 main-nav">
         <%= link_to 'think', '/thought_tracker' %>
         <%= link_to 'feel', '/feelings_tracker' %>
