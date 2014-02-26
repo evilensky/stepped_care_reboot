@@ -12,11 +12,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-5 main-nav">
-        <%= link_to 'think', '/thought_tracker' %>
-        <%= link_to 'feel', '/feelings_tracker' %>
+        <%= link_to 'think', navigator_context_path(context_name: 'thought_tracker') %>
+        <%= link_to 'feel', navigator_context_path(context_name: 'feelings_tracker') %>
         <%= link_to 'do', navigator_context_path(context_name: 'activity_tracker') %>
-        <%= link_to 'learn', '/library' %>
-        <%= link_to 'messages', '/messages' %>
+        <%= link_to 'learn', navigator_context_path(context_name: 'library') %>
+        <%= link_to 'messages', navigator_context_path(context_name: 'messages') %>
       </div>
       
       <div class="col-md-7 main-content">

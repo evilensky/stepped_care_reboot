@@ -1,3 +1,9 @@
+home_intro:
+  title: It's simple.
+  body: If you’re feeling sad or down and want to get better, this is for you.
+  position: 1
+  slideshow: home_intro
+
 do_awareness_intro1:
   title: This is just the beginning...
   body: For the next few days, let’s start by making you aware of some of the things you do every day.

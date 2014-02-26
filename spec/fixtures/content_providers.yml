@@ -1,3 +1,9 @@
+home_slideshow:
+  type: ContentProviders::SlideshowProvider
+  source_content: home_intro (Slideshow)
+  content_module: home_landing
+  position: 1
+
 module_index_provider:
   type: ContentProviders::ModuleIndexProvider
   content_module: activity_tracker_landing
