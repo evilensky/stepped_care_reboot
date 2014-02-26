@@ -7,21 +7,28 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 
   <div class="container">
     <div class="row">
       <%= render 'shared/authentication' %>
     </div>
+
     <div class="row">
       <div class="col-md-2 tool-nav">
         <h1><%= AppSection.by_name(session[:context]).label %></h1>
         <h2>Chapter Title</h2>
         <h3>Pagination</h3>
       </div>
+
       <div class="col-md-10 tool-content">
         <%= yield %>
       </div>
+    </div>
+
+    <div class="row">
+      <%= render 'shared/alerts' %>
     </div>
     
     <%= render 'shared/debug' %>
