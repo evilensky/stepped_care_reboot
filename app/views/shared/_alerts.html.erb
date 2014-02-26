@@ -1,0 +1,5 @@
+<% if flash[:alert] %>
+  <%= icon('dot-circle-o', flash[:alert], class: 'text-danger') %>
+<% elsif notice %>
+  <%= icon('dot-circle-o', notice, class: 'text-success') %>
+<% end %>

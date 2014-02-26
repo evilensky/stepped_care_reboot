@@ -7,12 +7,14 @@
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 
   <div class="container">
     <div class="row">
       <%= render 'shared/authentication' %>
     </div>
+
     <div class="row">
       <div class="col-md-5 main-nav">
         <%= link_to 'think', navigator_context_path(context_name: 'thought_tracker') %>
@@ -26,9 +28,12 @@
         <%= yield %>
       </div>
     </div>
+
+    <div class="row">
+      <%= render 'shared/alerts' %>
+    </div>
+
+    <%= render 'shared/debug' %>
   </div>
-
-  <%= render 'shared/debug' %>
-
 </body>
 </html>
