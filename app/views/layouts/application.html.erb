@@ -11,6 +11,15 @@
 
   <div class="container">
     <div class="row">
+      <%# if user_signed_in? %>
+      <% if current_user.nil? %>
+        <%= link_to "Edit Account", edit_participant_registration_path %>
+        <%= link_to "Sign Out", destroy_participant_session_path %>
+      <% else %>
+        <%= link_to "Sign In", new_participant_session_path %>
+      <% end %>
+    </div>
+    <div class="row">
       <div class="col-md-5 main-nav">
         <%= link_to 'think', navigator_context_path(context_name: 'thought_tracker') %>
         <%= link_to 'feel', navigator_context_path(context_name: 'feelings_tracker') %>
