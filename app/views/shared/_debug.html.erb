@@ -1,6 +1,6 @@
-<div class="well">
-  <p>context: <%= session[:context] %></p>
-  <p>module: <%= ContentModule.find_by_context_and_position(session[:context], session[:module_position]).try(:title) %></p>
-  <p>provider position: <%= session[:provider_position] %></p>
-  <p>content position: <%= session[:content_position] %></p>
+<div style="position:fixed;bottom:0;">
+  <p>context: <%= session[:context] %> |
+  module: <%= ContentModule.find_by_context_and_position(session[:context], session[:module_position]).try(:title) %> |
+  provider position: <%= session[:provider_position] %> |
+  content position: <%= session[:content_position] %></p>
 </div>

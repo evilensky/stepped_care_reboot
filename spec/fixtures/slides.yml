@@ -1,11 +1,11 @@
-slide1:
-  title: slide 1
-  body: This is the body for slide 1 position 1
+home_intro:
+  title: It's simple.
+  body: If you’re feeling sad or down and want to get better, this is for you.
   position: 1
-  slideshow: slideshow1
+  slideshow: home_intro
 
-slide2:
-  title: slide 1
-  body: This is the body for slide 1 position 2
-  position: 2
-  slideshow: slideshow1
+do_awareness_intro1:
+  title: This is just the beginning...
+  body: For the next few days, let’s start by making you aware of some of the things you do every day.
+  position: 1
+  slideshow: do_awareness_intro

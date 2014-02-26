@@ -1,9 +1,24 @@
-activity_tracker_module1:
-  title: content module 1
+home_landing:
+  title: Landing
+  context: home
+  position: 1
+
+activity_tracker_landing:
+  title: Landing
   context: activity_tracker
   position: 1
 
 activity_tracker_module2:
-  title: content module 2
+  title: Awareness
   context: activity_tracker
   position: 2
+
+activity_tracker_module3:
+  title: Planning
+  context: activity_tracker
+  position: 3
+
+activity_tracker_module4:
+  title: Doing
+  context: activity_tracker
+  position: 4
