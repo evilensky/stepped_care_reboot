@@ -1,6 +1,9 @@
 class Participant < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
+
+  # To alllow the user to change his password after logging in;
+  # you have to use Devise::RegistrationsController#edit for that.
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
