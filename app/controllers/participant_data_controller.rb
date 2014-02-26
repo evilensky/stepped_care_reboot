@@ -13,8 +13,7 @@ class ParticipantDataController < ApplicationController
     if @data.save
       respond_to do |format|
         format.html { redirect_to navigator_next_content_url }
-        format.js {}
-        # format.json {}
+        format.json { render json: { status: :success } }
       end
     else
       render text: @data.errors.full_messages
