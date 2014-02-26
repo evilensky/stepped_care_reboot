@@ -1,0 +1,25 @@
+$(function() {
+  $("form.activity_form:first").show();
+  $("form.activity_form").on('submit', function(event) {
+    event.preventDefault();
+    var $target = $(event.currentTarget);
+    $.ajax({
+      type: "POST",
+      data: $(event.currentTarget).find('input').serialize(),
+      url: event.currentTarget.action,
+      success: function(response) {
+        if (response.status == "success") {
+          $target.hide();
+          $target.next('form.activity_form').show();
+          if (!$("form.activity_form").is(":visible")) {
+            alert('No more forms exist');
+            // No more forms exist...move on!
+          }
+        } else {
+          console.log('ERRORS');
+        };
+      },
+      dataType: "json"
+    });
+  })
+})
