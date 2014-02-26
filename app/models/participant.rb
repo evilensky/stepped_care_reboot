@@ -4,7 +4,7 @@ class Participant < ActiveRecord::Base
 
   # To alllow the user to change his password after logging in;
   # you have to use Devise::RegistrationsController#edit for that.
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :memberships, dependent: :destroy
