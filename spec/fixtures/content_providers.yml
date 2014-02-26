@@ -1,11 +1,17 @@
+home_slideshow:
+  type: ContentProviders::SlideshowProvider
+  source_content: home_intro (Slideshow)
+  content_module: home_landing
+  position: 1
+
 module_index_provider:
   type: ContentProviders::ModuleIndexProvider
-  content_module: activity_tracker_module1
+  content_module: activity_tracker_landing
   position: 1
 
 slideshow_provider:
   type: ContentProviders::SlideshowProvider
-  source_content: slideshow1 (Slideshow)
+  source_content: do_awareness_intro (Slideshow)
   content_module: activity_tracker_module2
   position: 1
 
