@@ -11,10 +11,12 @@
 
   <div class="container">
     <div class="row">
-      <% if (user_signed_in?) %>
-        <%= render 'layouts/logged_in_links' %>
+      <%# if user_signed_in? %>
+      <% if current_user.nil? %>
+        <%= link_to "Edit Account", edit_participant_registration_path %>
+        <%= link_to "Sign Out", destroy_participant_session_path %>
       <% else %>
-        <%= link_to "Sign Up", new_registration_path(:user), :id => "sign-up-navbar" %>
+        <%= link_to "Sign In", new_participant_session_path %>
       <% end %>
     </div>
     <div class="row">

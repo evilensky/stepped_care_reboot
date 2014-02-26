@@ -9,21 +9,30 @@
 </head>
 <body>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-2 tool-nav">
-      <h1>DO</h1>
-      <h2>Chapter Title</h2>
-      <h3>Pagination</h3>
+  <div class="container">
+    <div class="row">
+      <%# if user_signed_in? %>
+      <% if current_user.nil? %>
+        <%= link_to "Edit Account", edit_participant_registration_path %>
+        <%= link_to "Sign Out", destroy_participant_session_path %>
+      <% else %>
+        <%= link_to "Sign In", new_participant_session_path %>
+      <% end %>
     </div>
-    
-    <div class="col-md-10 tool-content">
-      <%= yield %>
+    <div class="row">
+      <div class="col-md-2 tool-nav">
+        <h1>DO</h1>
+        <h2>Chapter Title</h2>
+        <h3>Pagination</h3>
+      </div>
+      
+      <div class="col-md-10 tool-content">
+        <%= yield %>
+      </div>
     </div>
   </div>
-</div>
 
-<%= render 'shared/debug' %>
+  <%= render 'shared/debug' %>
 
 </body>
 </html>
