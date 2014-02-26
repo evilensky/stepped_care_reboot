@@ -47,8 +47,6 @@ class Navigator
     @state[:content_position] = 1
   end
 
-  private
-
   def current_module
     module_attrs = { context: @state[:context], position: @state[:module_position] }
 
@@ -58,6 +56,8 @@ class Navigator
 
     @current_module ||= ContentModule.new(module_attrs)
   end
+
+  private
 
   def current_module_stale?
     @current_module.nil? ||

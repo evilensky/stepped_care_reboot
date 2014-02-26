@@ -32,16 +32,18 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.model 'ContentProviders::SlideshowProvider' do
-    edit do
-      field :content_module
-      field :position
-      field :source_content
-    end
-  end
-
   config.model 'Activity' do
     navigation_label 'Participant data'
+
+    list do
+      sort_by :participant_id, :start_time
+
+      field :participant
+      field :start_time
+      field :activity_type
+      field :actual_accomplishment_intensity
+      field :actual_pleasure_intensity
+    end
   end
 
   config.model 'AwakePeriod' do
@@ -54,11 +56,64 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model 'ActivityType' do
+    list do
+      sort_by :participant, :title
+
+      field :participant
+      field :title
+    end
+  end
+
   config.model 'ContentProvider' do
     list do
       field :context
       field :content_module
       field :position
+    end
+  end
+
+  config.model 'ContentProviders::SlideshowProvider' do
+    edit do
+      field :content_module
+      field :position
+      field :source_content
+    end
+  end
+
+  config.model 'ContentModule' do
+    list do
+      sort_by :context, :position
+
+      field :context
+      field :position
+      field :title
+      field :providers
+    end
+  end
+
+  config.model 'Participant' do
+    list do
+      field :email
+      field :groups
+    end
+  end
+
+  config.model 'Slide' do
+    list do
+      sort_by :slideshow_id, :position
+
+      field :slideshow
+      field :position
+      field :title
+      field :body
+    end
+  end
+
+  config.model 'Slideshow' do
+    list do
+      field :title
+      field :slides
     end
   end
 end
