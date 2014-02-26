@@ -1,0 +1,14 @@
+<h2>We want you to plan a few fun things.</h2>
+<p> But you don’t have to start from scratch, you can do some of the things that you already said.</p>
+
+<%= form_tag create_path, method: "post", :html => { role: "form", :class => "activity_form", id: "activity-form"} do %>
+	<% past_activities.each do |activity| %>
+		<div class="checkbox">
+    		<label>
+      			<%= check_box_tag "unplanned_activities[activity_type_ids][]", activity.activity_type_id %><%= activity.activity_type.title %>
+    		</label>
+  		</div>
+	<% end %>
+	<%= submit_tag %>
+
+<%end%>
