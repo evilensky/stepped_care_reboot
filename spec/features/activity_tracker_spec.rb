@@ -8,13 +8,13 @@ describe 'activity tracker' do
       sign_in_participant participants(:participant1)
       visit '/navigator/contexts/activity_tracker'
 
-      expect(page).to have_text(content_modules(:activity_tracker_module1).title)
+      expect(page).to have_text(content_modules(:activity_tracker_module2).title)
     end
 
     it 'should allow navigation within the slideshow' do
       sign_in_participant participants(:participant1)
       visit '/navigator/contexts/activity_tracker'
-      click_on content_modules(:activity_tracker_module1).title
+      click_on content_modules(:activity_tracker_module2).title
       find('.next-button').click
 
       expect(page).to have_text(slides(:slide2).body)
