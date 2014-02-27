@@ -8,6 +8,26 @@
         <input name="activity[id][<%= activity.id %>][start_time]" id="activity_id_<%= activity.id %>_start_time" type="datetime-local"/>
       </label>
     </div>
+    <div class="form-group">
+      <label for="activity_id_<%= activity.id %>_fun">HOLD ON fun HERE PARTNER...</label>
+      <div class="range row">
+        <div class="col-md-4 left">1<br>None</div>
+        <div class="col-md-4 center">5 <br>Some
+        </div>
+        <div class="col-md-4 right">10<br>A Lot</div>
+      </div>
+      <input id="activity_id_<%= activity.id %>_fun" max="10" min="0" name="activity[id][<%= activity.id %>][fun]" step="1" type="range">
+    </div>
+    <div class="form-group">
+      <label for="activity_id_<%= activity.id %>_importance">HOLD ON importance HERE PARTNER...</label>
+      <div class="range row">
+        <div class="col-md-4 left">1<br>None</div>
+        <div class="col-md-4 center">5 <br>Some
+        </div>
+        <div class="col-md-4 right">10<br>A Lot</div>
+      </div>
+      <input id="activity_id_<%= activity.id %>_importance" max="10" min="0" name="activity[id][<%= activity.id %>][importance]" step="1" type="range">
+    </div>
   <% end %>
   <%= submit_tag "Continue", class: "btn btn-default" %>
 <% end %>
