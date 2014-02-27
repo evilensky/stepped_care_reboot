@@ -24,3 +24,24 @@ activity_form_provider:
   type: ContentProviders::ActivityForm
   content_module: activity_tracker_module2
   position: 3
+
+activity_index:
+  type: ContentProviders::ActivityIndexProvider
+  content_module: activity_tracker_module2
+  position: 4
+
+pleasurable_activity_index:
+  type: ContentProviders::PleasurableActivityIndexProvider
+  content_module: activity_tracker_module2
+  position: 5
+
+accomplished_activity_index:
+  type: ContentProviders::AccomplishedActivityIndexProvider
+  content_module: activity_tracker_module2
+  position: 6
+
+do_planning_intro_slideshow:
+  type: ContentProviders::SlideshowProvider
+  source_content: do_planning_intro (Slideshow)
+  content_module: activity_tracker_module3
+  position: 1

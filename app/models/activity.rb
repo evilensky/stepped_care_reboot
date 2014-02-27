@@ -1,5 +1,4 @@
 class Activity < ActiveRecord::Base
-  
   attr_accessor :activity_type_title
 
   PLEASURABLE_CUTOFF = 6
@@ -27,6 +26,10 @@ class Activity < ActiveRecord::Base
     order("RANDOM()")
   end
 
+  scope :in_the_past, -> do
+    where('activities.end_time < ?', Time.now)
+  end
+
   def self.during(start_time, end_time)
     where('start_time >= ? AND end_time <= ?', start_time, end_time)
   end
@@ -34,7 +37,8 @@ class Activity < ActiveRecord::Base
   private
 
   def create_activity_type
-  	self.activity_type = participant.activity_types.create(title: self.activity_type_title)
+    if activity_type_title
+      self.activity_type = participant.activity_types.create(title: activity_type_title)
+    end
   end
-
 end

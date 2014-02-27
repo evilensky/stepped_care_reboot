@@ -22,3 +22,28 @@ activity_tracker_module4:
   title: Doing
   context: activity_tracker
   position: 4
+
+thought_tracker_landing:
+  title: Landing
+  context: thought_tracker
+  position: 1
+
+thought_tracker_module2:
+  title: Identifying
+  context: thought_tracker
+  position: 2
+
+thought_tracker_module3:
+  title: Patterns
+  context: thought_tracker
+  position: 3
+
+thought_tracker_module4:
+  title: Reshape
+  context: thought_tracker
+  position: 4  
+
+thought_tracker_module5:
+  title: Add
+  context: thought_tracker
+  position: 5  
