@@ -11,6 +11,6 @@ class ContentProviders::ActivityIndexProvider < ContentProvider
   end
 
   def show_nav_link?
-    false
+    true
   end
 end
