@@ -1,0 +1,13 @@
+<%= form_tag create_path, method: "post", :html => { role: "form", :class => "activity_form", id: "activity-form"} do %>
+				
+	<h2>OK, name another IMPORTANT thing you can do this week:</h2>
+
+	<%= text_field_tag "unplanned_activities[activity_type_title]", class: "form_control"%>
+
+	<h2>OK, name another FUN thing you can do this week:</h2>
+
+	<%= text_field_tag "unplanned_activities[activity_type_title]", class: "form_control"%>
+
+	<%= submit_tag %>
+	
+<%end%>
