@@ -1,27 +1,29 @@
 unplanned_activity1:
   participant: participant1
-  activity_type: activity_type1
+  activity_type: going_to_school
 
 unplanned_activity2:
   participant: participant1
-  activity_type: activity_type2
+  activity_type: jogging
 
 unplanned_activity3:
   participant: participant1
-  activity_type: activity_type3
+  activity_type: parkour
 
 unplanned_activity4:
   participant: participant1
-  activity_type: activity_type4
+  activity_type: loving
 
 planned_activity1:
   participant: participant1
-  activity_type: activity_type4
+  activity_type: loving
+  actual_pleasure_intensity: 6
   start_time: <%= Time.now - 3600 %>
   end_time: <%= Time.now %>
 
 planned_activity2:
   participant: participant1
-  activity_type: activity_type4
+  activity_type: parkour
+  actual_accomplishment_intensity: 6
   start_time: <%= Time.now - 3600 %>
   end_time: <%= Time.now %>

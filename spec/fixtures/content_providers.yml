@@ -50,3 +50,13 @@ do_planning_intro_slideshow:
   source_content: do_planning_intro (Slideshow)
   content_module: activity_tracker_module3
   position: 1
+
+do_planning_fun_activity_checklist:
+  type: ContentProviders::FunActivityChecklist
+  content_module: activity_tracker_module3
+  position: 2
+
+do_planning_important_activity_checklist:
+  type: ContentProviders::ImportantActivityChecklist
+  content_module: activity_tracker_module3
+  position: 3

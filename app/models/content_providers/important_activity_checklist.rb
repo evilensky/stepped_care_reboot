@@ -1,7 +1,9 @@
 class ContentProviders::ImportantActivityChecklist < ContentProvider
   def render_current(options)
-    options.view_context.render(template: 'activities/important_activity_checklist', locals: {
-        past_activities: options.participant.activities.accomplished.first(5),
+    options.view_context.render(
+      template: 'activities/important_activity_checklist',
+      locals: {
+        past_activities: options.participant.activities.accomplished.random.in_the_past.first(5),
         create_path: options.view_context.participant_data_path 
       }
     )
