@@ -30,6 +30,10 @@ class Activity < ActiveRecord::Base
     where('activities.end_time < ?', Time.now)
   end
 
+  scope :unplanned, -> do
+    where('activities.start_time is null and activities.end_time is null')
+  end
+
   def self.during(start_time, end_time)
     where('start_time >= ? AND end_time <= ?', start_time, end_time)
   end
