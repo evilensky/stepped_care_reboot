@@ -11,7 +11,6 @@ class UnplannedActivities
     activity_type_ids.each do |activity_type_id|
       @activities << @participant.activities.build(activity_type_id: activity_type_id)
     end
-
     self
   end
 
