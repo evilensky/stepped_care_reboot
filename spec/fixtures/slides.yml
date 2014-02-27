@@ -40,3 +40,12 @@ do_awareness_intro1:
     But bear with us. If you can keep this up for a few days it will be really helpful later.
   position: 1
   slideshow: do_awareness_intro
+
+do_planning_intro1:
+  title: The last few times you were here...
+  body: You told us about a few activities that were either fun or important to you.
+
+
+    Now it’s time to use what you’ve done to help you.
+  position: 1
+  slideshow: do_planning_intro

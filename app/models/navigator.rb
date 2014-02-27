@@ -47,6 +47,14 @@ class Navigator
     @state[:content_position] = 1
   end
 
+  def initialize_module(module_id)
+    content_module = ContentModule.find(module_id)
+    @state[:context] = content_module.context
+    @state[:module_position] = content_module.position
+    @state[:provider_position] = 1
+    @state[:content_position] = 1
+  end
+
   def current_module
     module_attrs = { context: @state[:context], position: @state[:module_position] }
 
