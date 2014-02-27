@@ -10,10 +10,11 @@
 
 <body>
 
+<%= render 'shared/home' %>
+<%= render 'shared/authentication' %>
+
+
   <div class="container">
-    <div class="row">
-      <%= render 'shared/authentication' %>
-    </div>
 
     <div class="row">
       <div class="col-md-5 main-nav">
@@ -29,7 +30,7 @@
       </div>
     </div>
 
-    <div class="row">
+    <div class="row" id="alerts">
       <%= render 'shared/alerts' %>
     </div>
 

@@ -1,5 +1,7 @@
 <% if slide.is_title_visible %>
-  <h2><%= slide.title %></h2>
+<div class="slide">
+  <h1><%= slide.title %></h1>
+</div>
 <% end %>
 
 <%= slide.render_body %>
