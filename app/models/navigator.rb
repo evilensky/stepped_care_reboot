@@ -48,12 +48,16 @@ class Navigator
     @state[:content_position] = 1
   end
 
-  def initialize_module(module_id)
-    content_module = ContentModule.find(module_id)
+  def initialize_location(options)
+    content_module = ContentModule.find(options[:module_id])
     @state[:context] = content_module.context
     @state[:module_position] = content_module.position
-    @state[:provider_position] = 1
-    @state[:content_position] = 1
+    if options[:provider_id]
+      @state[:provider_position] = content_module.providers.find(options[:provider_id]).position
+    else
+      @state[:provider_position] = 1
+    end
+    @state[:content_position] = [options[:content_position].to_i, 1].max
   end
 
   def current_module
