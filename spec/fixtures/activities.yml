@@ -1,0 +1,27 @@
+unplanned_activity1:
+  participant: participant1
+  activity_type: activity_type1
+
+unplanned_activity2:
+  participant: participant1
+  activity_type: activity_type2
+
+unplanned_activity3:
+  participant: participant1
+  activity_type: activity_type3
+
+unplanned_activity4:
+  participant: participant1
+  activity_type: activity_type4
+
+planned_activity1:
+  participant: participant1
+  activity_type: activity_type4
+  start_time: <%= Time.now - 3600 %>
+  end_time: <%= Time.now %>
+
+planned_activity2:
+  participant: participant1
+  activity_type: activity_type4
+  start_time: <%= Time.now - 3600 %>
+  end_time: <%= Time.now %>
