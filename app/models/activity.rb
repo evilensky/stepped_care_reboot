@@ -37,8 +37,8 @@ class Activity < ActiveRecord::Base
   private
 
   def create_activity_type
-    if activity_type_title
-      self.activity_type = participant.activity_types.create(title: activity_type_title)
+    if activity_type_title && participant.activity_types.create(title: activity_type_title)
+      self.activity_type = participant.activity_types.find_by_title(activity_type_title)
     end
   end
 end
