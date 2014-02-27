@@ -16,5 +16,5 @@
 /tmp
 
 # secrets
-config/iniializers/secret_token.rb
+config/initializers/secret_token.rb
 .DS_Store
