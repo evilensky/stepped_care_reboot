@@ -39,3 +39,9 @@ accomplished_activity_index:
   type: ContentProviders::AccomplishedActivityIndexProvider
   content_module: activity_tracker_module2
   position: 6
+
+do_planning_intro_slideshow:
+  type: ContentProviders::SlideshowProvider
+  source_content: do_planning_intro (Slideshow)
+  content_module: activity_tracker_module3
+  position: 1
