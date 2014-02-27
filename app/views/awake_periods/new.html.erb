@@ -1,19 +1,29 @@
 <% create_path ||= awake_periods_path %>
-<strong>OK, let's talk about yesterday.</strong>
+<h1>OK, let's talk about yesterday.</h1>
 <%= form_for awake_period, url: create_path, :html => {:role => "form"} do |f| %>
-<div class="form-group">
-	<% hours = [] %>
-	<% y = DateTime.yesterday %>
-	<% [*0..24].each do |hr| %>
-		<% date_time = Time.new(y.year, y.month, y.day, hr) %>
-		<% hours << [date_time.strftime("%l %p"), date_time.to_s] %>
-	<% end %>
-  <%=f.label :start_time, "What time did you wake up?" %>
-  <%= f.select :start_time, hours, :class=>"form-control" %>
-  <%=f.label :end_time, "And, what time did you go to bed?" %>
-  <%= f.select :end_time, hours, :class=>"form-control" %>
   <div class="form-group">
-  	<%= f.submit "Create", class: 'btn btn-primary form-button' %>
+    <% y = DateTime.yesterday %>
+    <% start_hours = (0..23).map do |hr| %>
+      <% date_time = Time.new(y.year, y.month, y.day, hr) %>
+      <% [date_time.strftime("%l %p"), date_time.to_s] %>
+    <% end %>
+    <% end_hours = (1..24).map do |hr| %>
+      <% date_time = Time.new(y.year, y.month, y.day, hr) %>
+      <% [date_time.strftime("%l %p"), date_time.to_s] %>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :start_time, "What time did you wake up?" %><br/>
+      <%= f.select :start_time, start_hours, {}, :class=>"form-control big" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :end_time, "And, what time did you go to bed?" %><br/>
+      <%= f.select :end_time, end_hours, {}, :class=>"form-control big" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit "Create", class: 'btn btn-primary form-button' %>
+    </div>
   </div>
- </div>
 <% end %>
