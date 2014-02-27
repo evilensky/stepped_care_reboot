@@ -1,15 +1,15 @@
-activity_type1:
+going_to_school:
   participant: participant1
-  title: "Going to school"
+  title: Going to school
 
-activity_type2:
+jogging:
   participant: participant1
-  title: "Jogging"
+  title: Jogging
 
-activity_type3:
+parkour:
   participant: participant1
-  title: "Parkour"
+  title: Parkour
 
-activity_type4:
+loving:
   participant: participant1
-  title: "Loving"
+  title: Loving

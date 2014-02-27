@@ -7,8 +7,8 @@ SteppedCareReboot::Application.routes.draw do
     get 'navigator/next_content', to: 'navigator#show_next_content', as: 'navigator_next_content'
     get 'navigator/contexts/:context_name', to: 'navigator#show_context', as: 'navigator_context'
     get 'navigator/modules/:module_id', to: 'navigator#show_module', as: 'navigator_module'
-    resource :generic_tool
     resources :participant_data, only: :create
+    resource :flow, only: :show
   end
 
   root to: 'navigator#show_context'

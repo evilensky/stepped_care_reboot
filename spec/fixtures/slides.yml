@@ -49,3 +49,9 @@ do_planning_intro1:
     Now it’s time to use what you’ve done to help you.
   position: 1
   slideshow: do_planning_intro
+
+do_planning_transition:
+  title: OK... the most important thing is to do more that is pleasureable and gives you a sense of accomplishment
+  body: Now let’s go plan...
+  position: 1
+  slideshow: do_planning_transition
