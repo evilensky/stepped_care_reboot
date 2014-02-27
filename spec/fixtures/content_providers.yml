@@ -25,8 +25,8 @@ awake_period_form_provider:
   content_module: activity_tracker_module2
   position: 2
 
-activity_form_provider:
-  type: ContentProviders::ActivityForm
+past_activity_form_provider:
+  type: ContentProviders::PastActivityForm
   content_module: activity_tracker_module2
   position: 3
 

@@ -1,4 +1,4 @@
-class ContentProviders::ActivityForm < ContentProvider
+class ContentProviders::PastActivityForm < ContentProvider
 
   def render_current(options)
     most_recent_awake_period = AwakePeriod.last
@@ -9,7 +9,7 @@ class ContentProviders::ActivityForm < ContentProvider
       timestamps << timestamp
     end
     options.view_context.render(
-      template: 'activities/new',
+      template: 'activities/past_activity_form',
       locals: {
         timestamps: timestamps,
         activity: Activity.new,
