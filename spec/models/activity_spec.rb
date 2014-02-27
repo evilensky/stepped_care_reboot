@@ -26,15 +26,17 @@ describe Activity do
 
 	end
 
-	# describe "scopes" do
-	# 	it "unplanned should only show activities where start_time and end_time are nil" do
-	# 		unplanned_activities = Activity.unplanned
-	# 		unplanned_activities.count.to_not be_empty
-	# 		unplanned_activities.each do |a|
-	# 			a.start_time.to be nil
-	# 			a.end_time.to be nil
-	# 		end
-	# 	end
-	# end
+	describe "scopes" do
+
+		it "unplanned should only show activities where start_time and end_time are nil" do
+			unplanned_activities = Activity.unplanned
+			unplanned_activities.all.should_not be_empty
+			unplanned_activities.each do |a|
+				a.start_time.should be_nil
+				a.end_time.should be_nil
+			end
+		end
+
+	end
 
 end

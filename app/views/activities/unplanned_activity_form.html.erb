@@ -1,3 +1,13 @@
+<h2>Alright...</h2>
+  
+<%= form_tag(create_path, method: :post) do %>
   <% activities.each do |activity| %>
-  <%= activity.title %></br>
-  <%end%>
+    <div class="form-group">
+      <label>
+        <%= activity.title %>
+        <input name="activity[id][<%= activity.id %>][start_time]" id="activity_id_<%= activity.id %>_start_time" type="datetime-local"/>
+      </label>
+    </div>
+  <% end %>
+  <%= submit_tag "Continue", class: "btn btn-default" %>
+<% end %>
