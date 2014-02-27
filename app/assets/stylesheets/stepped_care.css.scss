@@ -13,3 +13,18 @@ body,html{font-family: 'Archivo Narrow', sans-serif !important;}
 input.form-button {
 	margin-top: 8px;
 }
+
+#auth_nav {
+	position:absolute;
+	top:15px;
+	right:15px;
+}
+
+#alerts{
+	position:fixed;
+	bottom:50px;
+	font-weight:bold;
+	font-size:1.1em;
+}
+
+.form-control.big {font-size:1.5em;}
