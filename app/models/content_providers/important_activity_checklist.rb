@@ -8,11 +8,11 @@ class ContentProviders::ImportantActivityChecklist < ContentProvider
   end
 
   def data_attributes
-    [:activity_type_ids]
+    [activity_type_ids: []]
   end
 
   def data_class_name
-    'UnplannedActivity'
+    'UnplannedActivities'
   end
 
   def exists?(position)
