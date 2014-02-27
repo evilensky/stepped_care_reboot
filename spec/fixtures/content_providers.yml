@@ -60,3 +60,14 @@ do_planning_important_activity_checklist:
   type: ContentProviders::ImportantActivityChecklist
   content_module: activity_tracker_module3
   position: 3
+
+do_planning_transition:
+  type: ContentProviders::SlideshowProvider
+  source_content: do_planning_transition (Slideshow)
+  content_module: activity_tracker_module3
+  position: 4
+
+do_planning_input_new_activity:
+  type: ContentProviders::InputNewActivityForm
+  content_module: activity_tracker_module3
+  position: 5

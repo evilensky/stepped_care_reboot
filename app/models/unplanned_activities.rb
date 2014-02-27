@@ -7,10 +7,17 @@ class UnplannedActivities
   end
 
   def build(attributes)
-    activity_type_ids = attributes[:activity_type_ids] || []
-    activity_type_ids.each do |activity_type_id|
-      @activities << @participant.activities.build(activity_type_id: activity_type_id)
+    many_attributes = case
+    when attributes[:activity_type_ids]
+      (attributes[:activity_type_ids] || []).map do |type_id|
+        { activity_type_id: type_id }
+      end
+    else
+      attributes.values
     end
+
+    build_many(many_attributes)
+
     self
   end
 
@@ -30,5 +37,13 @@ class UnplannedActivities
 
   def errors
     @errors
+  end
+
+  private
+
+  def build_many(arr_of_attributes)
+    arr_of_attributes.each do |attrs|
+      @activities << @participant.build_data_record(:activities, attrs)
+    end
   end
 end
