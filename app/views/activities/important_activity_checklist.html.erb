@@ -1,5 +1,5 @@
-<h2>We want you to plan a few fun things.</h2>
-<p> But you don’t have to start from scratch, you can do some of the things that you already said.</p>
+<h2>OK, you also said certain things were important to you.</h2>
+<p> Want to do any of these?</p>
 
 <%= form_tag create_path, method: "post", :html => { role: "form", :class => "activity_form", id: "activity-form"} do %>
 	<% past_activities.each do |activity| %>
