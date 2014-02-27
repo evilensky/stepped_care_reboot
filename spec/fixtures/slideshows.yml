@@ -6,3 +6,6 @@ do_awareness_intro:
 
 do_planning_intro:
   title: Intro
+
+think_identify_intro:
+  title: Intro
