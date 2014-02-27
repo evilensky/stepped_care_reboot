@@ -1,7 +1,7 @@
-class ContentProviders::RandomActivityChecklist < ContentProvider
+class ContentProviders::FunActivityChecklist < ContentProvider
   def render_current(options)
     options.view_context.render(
-      template: 'activities/random_activity_checklist',
+      template: 'activities/fun_activity_checklist',
       locals: {
         past_activities: options.participant.activities.random.in_the_past.first(5),
         create_path: options.view_context.participant_data_path 
