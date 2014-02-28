@@ -15,7 +15,7 @@ class ParticipantDataController < ApplicationController
         format.js { render status: 201 }
       end
     else
-      flash[:alert] = @data.errors.full_messages.join(', ')
+      flash.now[:alert] = @data.errors.full_messages.join(', ')
 
       respond_to do |format|
         format.html { render template: 'navigator/show_content'}
@@ -38,7 +38,7 @@ class ParticipantDataController < ApplicationController
         format.js {}
       end
     else
-      flash[:alert] = @data.errors.full_messages.join(', ')
+      flash.now[:alert] = @data.errors.full_messages.join(', ')
 
       respond_to do |format|
         format.html { render text: @data.errors.full_messages }

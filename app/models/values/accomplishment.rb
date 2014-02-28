@@ -3,9 +3,9 @@ class Values::Accomplishment
     if intensity < 4
       new("Low Importance")
     elsif intensity < 7
-      new ("Average Importance")
+      new("Average Importance")
     else
-      new ("High Importance")
+      new("High Importance")
     end
   end
 
