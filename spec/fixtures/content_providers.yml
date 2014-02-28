@@ -72,6 +72,7 @@ do_planning_input_new_activity:
   content_module: activity_tracker_module3
   position: 5
 
+<<<<<<< HEAD
 module_index_provider:
   type: ContentProviders::ModuleIndexProvider
   content_module: thought_tracker_landing
@@ -83,3 +84,15 @@ think_identify_index:
   content_module: thought_tracker_module2
   position: 2
 
+=======
+do_doing_intro_slideshow:
+  type: ContentProviders::SlideshowProvider
+  source_content: do_doing_intro (Slideshow)
+  content_module: activity_tracker_module4
+  position: 1
+
+do_doing_past_activity_review:
+  type: ContentProviders::PastActivityReviewForm
+  content_module: activity_tracker_module4
+  position: 2
+>>>>>>> FETCH_HEAD
