@@ -47,3 +47,23 @@ thought_tracker_module5:
   title: Add a New Thought
   context: thought_tracker
   position: 5  
+
+feeling_tracker_landing:
+  title: Landing
+  context: feeling_tracker
+  position: 1
+
+feeling_tracker_module2:
+  title: '#1 Tracking Your Mood'
+  context: feeling_tracker
+  position: 2
+
+feeling_tracker_module3:
+  title: '#2 Monitoring Your Emotions'
+  context: feeling_tracker
+  position: 3
+
+feeling_tracker_module4:
+  title: '#3 Making Changes'
+  context: feeling_tracker
+  position: 4  
