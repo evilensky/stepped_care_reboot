@@ -1,5 +1,8 @@
 var ready = function() {
-  centerIt($(".container"));
+
+  centerIt($("#main-layout"),1);
+  centerIt($("#tool-layout"),.5);
+
 };
 
 // on initial page load
