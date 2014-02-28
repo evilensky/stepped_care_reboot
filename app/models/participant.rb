@@ -17,6 +17,10 @@ class Participant < ActiveRecord::Base
     send(association).build(attributes)
   end
 
+  def fetch_data_record(association, id)
+    send(association).find(id)
+  end
+
   def recent_activities
     # when no awake period return an empty set to allow chaining
     now = Time.new

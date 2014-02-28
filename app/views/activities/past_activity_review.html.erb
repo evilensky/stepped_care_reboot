@@ -1,28 +1,48 @@
-<%= form_for :activity, url: update_path do |f| %>
-  <% activities.each do |activity| %>
+<% activities.each do |activity| %>
+  <%= form_for(
+        :activity,
+        url: update_path,
+        remote: true,
+        method: 'put',
+        html: {
+          class: 'past-activity-review',
+          style: 'display: none;',
+          id: "activity-#{ activity.id }"
+        }
+      ) do |f| %>
+    <%= f.hidden_field :id, { value: activity.id } %>
+
     <h2>You said you were going to</h2>
 
     <p><%= activity.title %> on <%= activity.start_time.to_s :date_time_with_meridian %>.</p>
 
     Did you?
-    <%= f.radio_button :is_complete, 'yes' %> Yes
-    <%= f.radio_button :is_complete, 'no' %> No
+    <%= f.radio_button :is_complete, true, { id: "activity_is_complete_yes_#{ activity.id }", :'data-activity-id' => activity.id } %> Yes
+    <%= f.radio_button :is_complete, false, { id: "activity_is_complete_no_#{ activity.id }", :'data-activity-id' => activity.id } %> No
 
-    <p>On a scale of 1-10 you said that you thought it would be a <%= activity.predicted_pleasure_intensity %>.</p>
+    <span id="activity-complete-<%= activity.id %>" style="display: none;">
+      <p>On a scale of 1-10 you said that you thought it would be a <%= activity.predicted_pleasure_intensity %>.</p>
 
-    <div class="form-group">
-      <%= render 'activities/pleasure_slider', form: f, activity: activity %>
-    </div>
+      <div class="form-group">
+        <%= render 'activities/pleasure_slider', form: f, activity: activity %>
+      </div>
 
-    <p>On a scale of 1-10 you said that you thought it would be a <%= activity.predicted_accomplishment_intensity %>.</p>
+      <p>On a scale of 1-10 you said that you thought it would be a <%= activity.predicted_accomplishment_intensity %>.</p>
 
-    <div class="form-group">
-      <%= render 'activities/accomplishment_slider', form: f, activity: activity %>
-    </div>
+      <div class="form-group">
+        <%= render 'activities/accomplishment_slider', form: f, activity: activity %>
+      </div>
+    </span>
 
-    <div class="form-group">
-      <label for="activity_noncompliance_reason<%= activity.id %>">Why didn't you?</label>
-      <textarea class="form-control" rows="3" id="activity_noncompliance_reason_<%= activity.id %>"></textarea>
+    <span id="activity-incomplete-<%= activity.id %>" style="display: none;">
+      <div class="form-group">
+        <label for="activity_noncompliance_reason<%= activity.id %>">Why didn't you?</label>
+        <textarea class="form-control" rows="3" id="activity_noncompliance_reason_<%= activity.id %>" name="activity[noncompliance_reason]"></textarea>
+      </div>
+    </span>
+
+    <div id="activity-submit-<%= activity.id %>" style="display: none;">
+      <%= f.submit 'Continue', class: 'btn btn-default btn-large' %>
     </div>
   <% end %>
 <% end %>

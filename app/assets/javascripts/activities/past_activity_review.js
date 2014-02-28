@@ -1,14 +1,29 @@
-/*$(document).on('page:change', function() {
+$(document).on('page:change', function() {
+  var formEl = 'form.past-activity-review';
+
+  $(formEl + ':first').show();
+
   $(document)
-    .on('change', 'form.activity_form', function(event, script, status, xhr) {
-      $(this).hide();
-      $(this).next('form.activity_form').show();
-      if (!$("form.activity_form").is(":visible")) {
-        window.location.replace(window.location.origin+"/navigator/next_content")
-      };
+    .on('change', formEl + ' input[name="activity[is_complete]"]', function(event) {
+      var val = $(event.target).val(),
+          id = $(event.target).data('activityId');
+
+      if (val === 'true') {
+        $('#activity-incomplete-' + id).hide();
+        $('#activity-complete-' + id).show();
+      } else {
+        $('#activity-complete-' + id).hide();
+        $('#activity-incomplete-' + id).show();
+      }
+
+      $('#activity-submit-' + id).show();
     })
-    .on('ajax:error', 'form.activity_form', function(event, xhr, status) {
-    })
-    .on('ajax:complete', 'form.activity_form', function(data, status, xhr) {
+    .on('ajax:success', formEl, function(event, script, status, xhr) {
+      $(this)
+        .hide()
+        .next(formEl).show();
+      if ($(this).next(formEl).length === 0) {
+        window.location.replace(window.location.origin + '/navigator/next_content');
+      }
     });
-});*/
+});

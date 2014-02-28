@@ -77,3 +77,11 @@ do_doing_intro1:
     Let’s see what you did..."
   position: 1
   slideshow: do_doing_intro
+
+do_doing_intro2:
+  title: "Let's do this..."
+  body: Since you last logged in you said you were going to
+    do a few activities that are pleasureable and give you
+    a set of accomplishment.
+  position: 2
+  slideshow: do_doing_intro

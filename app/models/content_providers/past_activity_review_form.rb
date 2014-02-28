@@ -23,7 +23,7 @@ class ContentProviders::PastActivityReviewForm < ContentProvider
 
   def data_attributes
     [
-      :actual_pleasure_intensity, :actual_accomplishment_intensity,
+      :id, :actual_pleasure_intensity, :actual_accomplishment_intensity,
       :is_complete, :noncompliance_reason
     ]
   end
