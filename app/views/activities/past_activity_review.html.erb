@@ -1,0 +1,28 @@
+<%= form_for :activity, url: update_path do |f| %>
+  <% activities.each do |activity| %>
+    <h2>You said you were going to</h2>
+
+    <p><%= activity.title %> on <%= activity.start_time.to_s :date_time_with_meridian %>.</p>
+
+    Did you?
+    <%= f.radio_button :is_complete, 'yes' %> Yes
+    <%= f.radio_button :is_complete, 'no' %> No
+
+    <p>On a scale of 1-10 you said that you thought it would be a <%= activity.predicted_pleasure_intensity %>.</p>
+
+    <div class="form-group">
+      <%= render 'activities/pleasure_slider', form: f, activity: activity %>
+    </div>
+
+    <p>On a scale of 1-10 you said that you thought it would be a <%= activity.predicted_accomplishment_intensity %>.</p>
+
+    <div class="form-group">
+      <%= render 'activities/accomplishment_slider', form: f, activity: activity %>
+    </div>
+
+    <div class="form-group">
+      <label for="activity_noncompliance_reason<%= activity.id %>">Why didn't you?</label>
+      <textarea class="form-control" rows="3" id="activity_noncompliance_reason_<%= activity.id %>"></textarea>
+    </div>
+  <% end %>
+<% end %>

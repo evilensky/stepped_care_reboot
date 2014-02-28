@@ -55,3 +55,16 @@ do_planning_transition:
   body: Now let’s go plan...
   position: 1
   slideshow: do_planning_transition
+
+do_doing_intro1:
+  title: Welcome back!
+  body: "# Wilkommen!
+
+    # Hola!
+
+
+    This is where the big results start to happen.
+
+    Let’s see what you did..."
+  position: 1
+  slideshow: do_doing_intro

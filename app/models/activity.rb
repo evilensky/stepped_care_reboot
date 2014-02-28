@@ -31,7 +31,11 @@ class Activity < ActiveRecord::Base
   end
 
   scope :unplanned, -> do
-    where('activities.start_time is null and activities.end_time is null')
+    where(start_time: nil, end_time: nil)
+  end
+
+  scope :incomplete, -> do
+    where(is_complete: false)
   end
 
   def self.during(start_time, end_time)

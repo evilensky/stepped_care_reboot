@@ -71,3 +71,14 @@ do_planning_input_new_activity:
   type: ContentProviders::InputNewActivityForm
   content_module: activity_tracker_module3
   position: 5
+
+do_doing_intro_slideshow:
+  type: ContentProviders::SlideshowProvider
+  source_content: do_doing_intro (Slideshow)
+  content_module: activity_tracker_module4
+  position: 1
+
+do_doing_past_activity_review:
+  type: ContentProviders::PastActivityReviewForm
+  content_module: activity_tracker_module4
+  position: 2

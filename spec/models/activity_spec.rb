@@ -30,7 +30,7 @@ describe Activity do
 
 		it "unplanned should only show activities where start_time and end_time are nil" do
 			unplanned_activities = Activity.unplanned
-			unplanned_activities.all.should_not be_empty
+			expect(unplanned_activities.all).not_to be_empty
 			unplanned_activities.each do |a|
 				a.start_time.should be_nil
 				a.end_time.should be_nil

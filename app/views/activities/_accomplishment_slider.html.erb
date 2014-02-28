@@ -1,0 +1,8 @@
+<%= form.label :actual_accomplishment_intensity, "How much accomplishment did you get from doing this?", for: "activity_accomplishment_intensity_#{ activity.id }" %><br>
+<div class="range row">
+  <div class="col-md-4 left">1<br>None</div>
+  <div class="col-md-4 center">5 <br>Some
+  </div>
+  <div class="col-md-4 right">10<br>A Lot</div>
+</div>
+<%= form.range_field :actual_accomplishment_intensity, in: 0..10, step: 1, id: "activity_accomplishment_intensity_#{ activity.id }" %>
