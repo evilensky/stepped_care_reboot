@@ -1,5 +1,19 @@
 class Values::Accomplishment
-  def initialize(intensity)
-    @intensity = intensity
+  def self.from_intensity(intensity)
+    if intensity < 4
+      new("Low Importance")
+    elsif intensity < 7
+      new ("Average Importance")
+    else
+      new ("High Importance")
+    end
+  end
+
+  def initialize(label)
+    @label = label
+  end
+
+  def to_s
+    @label.to_s
   end
 end

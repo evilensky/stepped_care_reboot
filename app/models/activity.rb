@@ -42,6 +42,14 @@ class Activity < ActiveRecord::Base
     where('start_time >= ? AND end_time <= ?', start_time, end_time)
   end
 
+  def actual_pleasure_value
+    Values::Pleasure.from_intensity(actual_pleasure_intensity)
+  end
+
+  def actual_accomplishment_value
+    Values::Accomplishment.from_intensity(actual_accomplishment_intensity)
+  end
+
   private
 
   def create_activity_type
