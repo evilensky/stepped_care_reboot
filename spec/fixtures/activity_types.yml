@@ -13,3 +13,15 @@ parkour:
 loving:
   participant: participant1
   title: Loving
+
+hanging_with_friends:
+  participant: participant1
+  title: Hanging with friends
+
+going_for_a_walk:
+  participant: participant1
+  title: Going for a walk
+
+arguing_with_my_boss:
+  participant: participant1
+  title: Arguing with my boss
