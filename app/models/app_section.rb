@@ -1,7 +1,7 @@
 class AppSection
   SECTIONS = {
     thought_tracker: 'THINK',
-    feelings_tracker: 'FEEL',
+    feeling_tracker: 'FEEL',
     activity_tracker: 'DO',
     library: 'LEARN',
     messages: 'MESSAGES'
