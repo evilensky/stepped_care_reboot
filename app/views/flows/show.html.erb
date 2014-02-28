@@ -1,8 +1,8 @@
-<% [['home', 'Home'], ['thought_tracker', 'Think'], ['feelings_tracker', 'Feel'], ['activity_tracker', 'Do'], ['library', 'Learn'], ['messages', 'Messages']].each do |c| %>
-  <h2><%= c[1] %></h2>
-  <ul>
-    <% ContentModule.find_all_by_context(c[0]).each do |m| %>
+<% AppSection.all.each do |s| %>
+  <h2><%= s.label %></h2>
+  <ol>
+    <% s.content_modules.each do |m| %>
       <li><%= m.title %></li>
     <% end %>
-  </ul>
+  </ol>
 <% end %>
