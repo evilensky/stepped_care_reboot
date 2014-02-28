@@ -1,9 +1,10 @@
 body,html{font-family: 'Archivo Narrow', sans-serif !important;}
 .container {width:90%;}
 .main-nav {text-align: right; border-right: 1px solid black;}
-.main-nav a {display:block; font-size:3em; text-transform: uppercase; color:black;}
+.main-nav a {display:block; font-size:3em; text-transform: uppercase; color:black;margin:0;padding-right:40px;}
 .main-nav a:hover {text-decoration: none; color:#AAA;}
 .main-content {text-align: left;}
+.main-content h2 {margin-top:.5em; display:block;}
 
 .tool-nav {}
 .tool-nav h1 {}
@@ -30,7 +31,7 @@ input.form-button {
 	position:fixed;
 	bottom:50px;
 	font-weight:bold;
-	font-size:1.1em;
+	font-size:2.1em;
 }
 
 .form-control.big {font-size:1.5em;}
@@ -46,6 +47,12 @@ footer {position:fixed; bottom:15px; left:15px;}
 .think{color:#72A049}
 .feel{color:#5A5198}
 .do{color:#7E4791}
+
+.fa-asterisk{color:#7E4791;}
+.fa-caret-right{color:#5A5198; margin-right:-30px; width:30px; font-size:1.3em;}
+a {color:#72A049}
+
+
 
 
 
