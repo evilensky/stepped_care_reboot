@@ -16,12 +16,12 @@
  
 
     <div class="row">
-      <div class="col-md-2 tool-nav">
+      <div class="col-md-2 col-sm-2 tool-nav">
         <h1><%= AppSection.by_name(session[:context]).label %></h1>
         <h2><%= @navigator.current_module.title %></h2>
       </div>
 
-      <div class="col-md-10 tool-content">
+      <div class="col-md-10 col-sm-10 tool-content">
         <%= yield %>
       </div>
     </div>
@@ -30,6 +30,7 @@
       <%= render 'shared/alerts' %>
     </div>
     
+    <%= render 'shared/footer' %>
     <%= render 'shared/debug' %>
 
   </div>
