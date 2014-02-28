@@ -4,7 +4,7 @@ home_landing:
   position: 1
 
 activity_tracker_landing:
-  title: Landing
+  title: ''
   context: activity_tracker
   position: 1
 
@@ -24,7 +24,7 @@ activity_tracker_module4:
   position: 4
 
 thought_tracker_landing:
-  title: Landing
+  title: ''
   context: thought_tracker
   position: 1
 
@@ -49,7 +49,7 @@ thought_tracker_module5:
   position: 5  
 
 feeling_tracker_landing:
-  title: Landing
+  title: ''
   context: feeling_tracker
   position: 1
 
@@ -67,3 +67,8 @@ feeling_tracker_module4:
   title: '#3 Making Changes'
   context: feeling_tracker
   position: 4  
+
+feeling_tracker_landing:
+  title: Landing
+  context: feeling_tracker
+  position: 1
