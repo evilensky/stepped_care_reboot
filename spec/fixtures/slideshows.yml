@@ -10,5 +10,8 @@ do_planning_intro:
 do_planning_transition:
   title: 3 of 4
 
+do_doing_intro:
+  title: Intro
+
 think_identify_intro:
   title: Intro
