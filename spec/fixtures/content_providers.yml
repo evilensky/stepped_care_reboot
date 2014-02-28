@@ -72,6 +72,11 @@ do_planning_input_new_activity:
   content_module: activity_tracker_module3
   position: 5
 
+unplanned_activity_form_provider:
+  type: ContentProviders::UnplannedActivityForm
+  content_module: activity_tracker_module3
+  position: 6
+
 do_doing_intro_slideshow:
   type: ContentProviders::SlideshowProvider
   source_content: do_doing_intro (Slideshow)
