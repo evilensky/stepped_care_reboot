@@ -1,0 +1,9 @@
+#debug {
+  position: fixed;
+  bottom: 0;
+  opacity: 0;
+}
+
+#debug:hover {
+  opacity: 0.8;
+}
