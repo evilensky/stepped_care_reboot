@@ -22,10 +22,6 @@ class Navigator
     current_module.provider(@state[:provider_position])
   end
 
-  def next_action_label
-    current_content_provider.exists?(@state[:content_position] + 1) ? 'Continue' : 'Finish'
-  end
-
   def fetch_next_content
     if current_content_provider.exists?(@state[:content_position] + 1)
       @state[:content_position] += 1
