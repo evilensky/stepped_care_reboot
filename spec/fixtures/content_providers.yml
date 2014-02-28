@@ -88,6 +88,12 @@ do_doing_past_activity_review:
   content_module: activity_tracker_module4
   position: 2
 
+do_congrats_provider:
+  type: ContentProviders::SlideshowProvider
+  source_content: do_congrats (Slideshow)
+  content_module: activity_tracker_module4
+  position: 3
+
 think_landing:
   type: ContentProviders::ModuleIndexProvider
   content_module: thought_tracker_landing

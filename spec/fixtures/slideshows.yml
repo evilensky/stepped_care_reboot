@@ -13,6 +13,9 @@ do_planning_transition:
 do_doing_intro:
   title: Intro
 
+do_congrats:
+  title: Congrats
+
 think_identify_intro:
   title: Intro
 

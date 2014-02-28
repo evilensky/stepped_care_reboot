@@ -67,21 +67,28 @@ do_planning_transition:
 
 do_doing_intro1:
   title: Welcome back!
-  body: "# Wilkommen!
+  body: # Wilkommen!
 
     # Hola!
 
-
     This is where the big results start to happen.
 
-    Let’s see what you did..."
+    Let’s see what you did...
   position: 1
   slideshow: do_doing_intro
 
 do_doing_intro2:
-  title: "Let's do this..."
+  title: Let's do this...
   body: Since you last logged in you said you were going to
     do a few activities that are pleasureable and give you
     a set of accomplishment.
   position: 2
   slideshow: do_doing_intro
+
+do_doing_intro3:
+  title: Good Work!
+  body: You built your awareness, planned beneficial activities, and followed up.
+
+    It’s ﬁne if you didn’t do all the things you planned - as long as you keep intentionally trying to do things that you’ve said are good for you.
+  position: 1
+  slideshow: do_congrats
