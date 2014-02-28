@@ -1,7 +1,0 @@
-<div id="debug">
-  <p>context: <%= session[:context] %> |
-  module: <%= ContentModule.find_by_context_and_position(session[:context], session[:module_position]).try(:title) %> |
-  module position: <%= session[:module_position] %> |
-  provider position: <%= session[:provider_position] %> |
-  content position: <%= session[:content_position] %></p>
-</div>
