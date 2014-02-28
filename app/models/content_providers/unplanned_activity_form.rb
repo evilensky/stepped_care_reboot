@@ -5,13 +5,13 @@ class ContentProviders::UnplannedActivityForm < ContentProvider
       template: 'activities/unplanned_activity_form',
       locals: {
         activities: options.participant.activities.random.unplanned.first(4),
-        create_path: options.view_context.participant_data_path
+        update_path: options.view_context.participant_data_path
       }
     )
   end
 
   def data_attributes
-    [:activity, :start_time, :end_time, :activity_type_title, :actual_pleasure_intensity, :actual_accomplishment_intensity]
+    [:id, :activity, :start_time, :end_time, :activity_type_title, :actual_pleasure_intensity, :actual_accomplishment_intensity]
   end
 
   def exists?(position)
