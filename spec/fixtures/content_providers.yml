@@ -71,3 +71,15 @@ do_planning_input_new_activity:
   type: ContentProviders::InputNewActivityForm
   content_module: activity_tracker_module3
   position: 5
+
+module_index_provider:
+  type: ContentProviders::ModuleIndexProvider
+  content_module: thought_tracker_landing
+  position: 1
+
+think_identify_index:
+  type: ContentProviders::SlideshowProvider
+  source_content: think_identify_intro (Slideshow)
+  content_module: thought_tracker_module2
+  position: 2
+
