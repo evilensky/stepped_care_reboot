@@ -28,8 +28,8 @@ class UnplannedActivities
       end
 
       true
-    rescue ActiveRecord::StatementInvalid => err
-      @errors = Errors.new(err)
+    rescue => err
+      @errors = Errors.new(Array(err.to_s))
 
       false
     end
