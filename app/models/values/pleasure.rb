@@ -1,7 +1,7 @@
 class Values::Pleasure
   def self.from_intensity(intensity)
     if intensity < 4
-      new("Not Fun")
+      new ("Not Fun")
     elsif intensity < 7
       new ("Kind of fun")
     else

@@ -13,15 +13,11 @@
     <%= f.hidden_field :id, { value: activity.id } %>
 
     <h2>Alright...</h2>
-    <%= activity.title %>
-
-    <p>HOLD ON PARTNER! FUN</p>
+    <h3><%= activity.title %></h3>
 
     <div class="form-group">
       <%= render 'activities/pleasure_slider', form: f, activity: activity %>
     </div>
-
-    <p>HOLD ON PARTNER! ACCOMPLISHMENT</p>
 
     <div class="form-group">
       <%= render 'activities/accomplishment_slider', form: f, activity: activity %>
