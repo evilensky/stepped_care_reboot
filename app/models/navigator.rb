@@ -33,9 +33,8 @@ class Navigator
       @state[:content_position] = 1
       @state[:provider_position] += 1
     elsif ContentModule.exists?(context: @state[:context], position: @state[:module_position] + 1)
-      next_module_position = @state[:module_position] + 1
       initialize_context(@state[:context])
-      @state[:module_position] = next_module_position
+      @state[:module_position] = 1
     else
       initialize_context(@state[:context])
     end
