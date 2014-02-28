@@ -83,7 +83,7 @@ do_doing_past_activity_review:
   content_module: activity_tracker_module4
   position: 2
 
-thing_landing:
+think_landing:
   type: ContentProviders::ModuleIndexProvider
   content_module: thought_tracker_landing
   position: 1
@@ -92,4 +92,44 @@ think_identify_index:
   type: ContentProviders::SlideshowProvider
   source_content: think_identify_intro (Slideshow)
   content_module: thought_tracker_module2
-  position: 2
+  position: 1
+
+think_patterns_index:
+  type: ContentProviders::SlideshowProvider
+  source_content: think_patterns_intro (Slideshow)
+  content_module: thought_tracker_module3
+  position: 1
+
+think_reshape_index:
+  type: ContentProviders::SlideshowProvider
+  source_content: think_reshape_intro (Slideshow)
+  content_module: thought_tracker_module4
+  position: 1    
+
+feel_landing:
+  type: ContentProviders::ModuleIndexProvider
+  content_module: feeling_tracker_landing
+  position: 1
+
+feel_identify_index:
+  type: ContentProviders::SlideshowProvider
+  source_content: feel_identify_intro (Slideshow)
+  content_module: feeling_tracker_module2
+  position: 1
+
+feel_patterns_index:
+  type: ContentProviders::SlideshowProvider
+  source_content: feel_patterns_intro (Slideshow)
+  content_module: feeling_tracker_module3
+  position: 1
+
+feel_reshape_index:
+  type: ContentProviders::SlideshowProvider
+  source_content: feel_reshape_intro (Slideshow)
+  content_module: feeling_tracker_module4
+  position: 1    
+
+learn_landing:
+  type: ContentProviders::ModuleIndexProvider
+  content_module: learn_landing
+  position: 1
