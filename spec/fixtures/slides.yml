@@ -27,6 +27,15 @@ home_intro3:
   position: 3
   slideshow: home_intro
 
+home_intro4:
+  type: VideoSlide
+  title: Slide 4
+  is_title_visible: false
+  body: Learn about this site...
+  position: 4
+  slideshow: home_intro
+  options: { url: "http://mohrlab.northwestern.edu/video/introtfd.mp4" }
+
 do_awareness_intro1:
   title: This is just the beginning...
   body: For the next few days, let’s start by making you aware of some of the things you do every day.

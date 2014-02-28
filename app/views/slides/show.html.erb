@@ -5,3 +5,8 @@
 <% end %>
 
 <%= slide.render_body %>
+
+<% case slide.class.to_s %>
+<% when 'VideoSlide' %>
+  <%= render 'slides/video', slide: slide %>
+<% end %>
