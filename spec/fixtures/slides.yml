@@ -1,25 +1,25 @@
 home_intro1:
+  slideshow: home_intro
+  position: 1
   title: "It's simple."
   body: If you’re feeling sad or down and want to get better, this is for you.
     ![](/images/head_with_gears.jpg)
-  position: 1
-  slideshow: home_intro
 
 home_intro2:
+  slideshow: home_intro
+  position: 2
   title: Slide 2
   is_title_visible: false
-  title: Log in once a day and tell us you're doing.
-  body: We're going to ask about the things you think about,
-    
-    the emotions you have,
+  body: "Log in once a day and tell us you're doing.
 
-    and the activities you do.
 
-    **Read a few things. Do a few things.**
-  position: 2
-  slideshow: home_intro
+    Read a few things.
+
+    Do a few things."
 
 home_intro3:
+  slideshow: home_intro
+  position: 3
   title: Slide 3
   is_title_visible: false
   body: Come back every day for a few weeks.
@@ -29,16 +29,14 @@ home_intro3:
 
 
     See if you’ll feel better.
-  position: 3
-  slideshow: home_intro
 
 home_intro4:
+  slideshow: home_intro
+  position: 4
   type: VideoSlide
   title: Slide 4
   is_title_visible: false
   body: ''
-  position: 4
-  slideshow: home_intro
   options: { url: "http://mohrlab.northwestern.edu/video/introtfd.mp4" }
 
 do_awareness_intro1:

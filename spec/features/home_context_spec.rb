@@ -7,14 +7,14 @@ describe 'home context' do
     sign_in_participant participants(:participant1)
     visit '/'
 
-    expect(page).to have_text(slides(:home_intro1).body)
+    expect(page).to have_text("It's simple")
 
     find('.next-button').click
 
-    expect(page).to have_text(slides(:home_intro2).body)
+    expect(page).to have_text("Log in once a day")
 
     find('.next-button').click
 
-    expect(page).to have_text(slides(:home_intro3).body)
+    expect(page).to have_text("Come back every day")
   end
 end

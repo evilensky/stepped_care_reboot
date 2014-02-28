@@ -53,6 +53,8 @@ class Navigator
   end
 
   def current_module
+    @current_module ||= nil
+
     module_attrs = { context: @state[:context], position: @state[:module_position] }
 
     if current_module_stale?
