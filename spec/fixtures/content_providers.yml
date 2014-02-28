@@ -106,6 +106,12 @@ think_reshape_index:
   content_module: thought_tracker_module4
   position: 1    
 
+thought_add_index:
+  type: ContentProviders::SlideshowProvider
+  source_content: think_add_intro (Slideshow)
+  content_module: thought_tracker_module5
+  position: 1   
+
 feel_landing:
   type: ContentProviders::ModuleIndexProvider
   content_module: feeling_tracker_landing
