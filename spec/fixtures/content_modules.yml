@@ -1,5 +1,5 @@
 home_landing:
-  title: Landing
+  title: Landing 
   context: home
   position: 1
 
@@ -9,17 +9,17 @@ activity_tracker_landing:
   position: 1
 
 activity_tracker_module2:
-  title: Awareness
+  title: '#1 Awareness'
   context: activity_tracker
   position: 2
 
 activity_tracker_module3:
-  title: Planning
+  title: '#2 Planning'
   context: activity_tracker
   position: 3
 
 activity_tracker_module4:
-  title: Doing
+  title: '#3 Doing'
   context: activity_tracker
   position: 4
 
@@ -29,21 +29,21 @@ thought_tracker_landing:
   position: 1
 
 thought_tracker_module2:
-  title: Identifying
+  title: '#1 Identifying'
   context: thought_tracker
   position: 2
 
 thought_tracker_module3:
-  title: Patterns
+  title: '#2 Patterns'
   context: thought_tracker
   position: 3
 
 thought_tracker_module4:
-  title: Reshape
+  title: '#3 Reshape'
   context: thought_tracker
   position: 4  
 
 thought_tracker_module5:
-  title: Add
+  title: Add a New Thought
   context: thought_tracker
   position: 5  
