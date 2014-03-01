@@ -1,36 +1,46 @@
 <h1>Let’s break it down hour by hour...</h1>
 	
-	<% timestamps.each_with_index do |timestamp, index| %>
-		<% timestamp = Time.at(timestamp) %>
-		<%= form_for :activity, url: create_path, method: "post", :remote =>  true, :html => { role: "form", :class => "activity_form", id: "activity-form-#{index}", style: "display:none;"} do |f| %>
-			<%= f.hidden_field :start_time, value: timestamp %>
-			<%= f.hidden_field :end_time, value: (timestamp + 1.hour) %>
+<% timestamps.each_with_index do |timestamp, index| %>
+  <% start_time = Time.at(timestamp); end_time = start_time + 1.hour %>
+  <%= form_for(
+        :activity,
+        url: create_path,
+        method: 'post',
+        remote:  true,
+        html: {
+          role: 'form',
+          class: 'activity_form',
+          id: "activity-form-#{ index }",
+          style: index > 0 ? "display: none;" : ""
+        }
+      ) do |f| %>
+			<%= f.hidden_field :start_time, value: start_time %>
+			<%= f.hidden_field :end_time, value: end_time %>
 			<div class="form-group">
-				<%= f.label :activity_type_title, "What did you do from #{timestamp.strftime("%l %P")} to #{(timestamp + 1.hours ).to_datetime.strftime("%l %P")}?", :for => "activity_fun_#{index}" %>
-				<%= f.text_field :activity_type_title, :class => "form-control" %>
+				<%= f.label :activity_type_title, "What did you do from #{ start_time.to_s(:time_with_meridian) } to #{ end_time.to_s(:time_with_meridian) }?", for: "activity_type_#{ index }" %>
+				<%= f.text_field :activity_type_title, class: "form-control", id: "activity_type_#{ index }" %>
 			</div>
-			<div class="form-group">
-				<%= f.label :actual_pleasure_intensity, "How much pleasure did you get from doing this?", :for => "activity_fun_#{index}" %><br/>
-				<div class="range row">
-					<div class="col-md-4 col-sm-4 col-xs-4 left">1<br/>None</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 center">5 <br/>Some
-					</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 right">10<br/>A Lot</div>
-				</div>
-				<%= f.range_field :actual_pleasure_intensity, :in => 0..10, :step => '1', :id => "activity_fun_#{index}" %>
 
-			</div>
 			<div class="form-group">
-				<%= f.label :actual_accomplishment_intensity, "How much did doing this give you a sense of accomplishment?", :for => "activity_importance_#{index}" %>	
-					<div class="range row">
-					<div class="col-md-4 col-sm-4 col-xs-4 left">1<br/>None</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 center">5 <br/>Some
-					</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 right">10<br/>A Lot</div>
-				</div>	
-				<%= f.range_field :actual_accomplishment_intensity, :in => 0..10, :step => '1', :id => "activity_importance_#{index}" %>
+				<%= f.label :actual_pleasure_intensity, "How much pleasure did you get from doing this?", for: "activity_pleasure_#{index}" %><br>
+				<div class="range row">
+					<div class="col-md-4 col-sm-4 col-xs-4 left">1<br>None</div>
+					<div class="col-md-4 col-sm-4 col-xs-4 center">5<br>Some</div>
+					<div class="col-md-4 col-sm-4 col-xs-4 right">10<br>A Lot</div>
+				</div>
+				<%= f.range_field :actual_pleasure_intensity, in: 0..10, step: '1', id: "activity_pleasure_#{index}" %>
 			</div>
-	  <%= f.submit "Continue", :class => "btn btn-primary btn-large" %>
+
+			<div class="form-group">
+				<%= f.label :actual_accomplishment_intensity, "How much did doing this give you a sense of accomplishment?", for: "activity_accomplishment_#{index}" %>	
+					<div class="range row">
+					<div class="col-md-4 col-sm-4 col-xs-4 left">1<br>None</div>
+					<div class="col-md-4 col-sm-4 col-xs-4 center">5<br>Some</div>
+					<div class="col-md-4 col-sm-4 col-xs-4 right">10<br>A Lot</div>
+				</div>	
+				<%= f.range_field :actual_accomplishment_intensity, in: 0..10, step: '1', id: "activity_accomplishment_#{index}" %>
+			</div>
+	  <%= f.submit "Continue", class: "btn btn-primary btn-large" %>
 	<% end %>
 <% end %>
 

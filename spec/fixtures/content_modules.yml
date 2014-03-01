@@ -3,22 +3,22 @@ home_landing:
   context: home
   position: 1
 
-activity_tracker_landing:
+do_landing:
   title: ''
   context: activity_tracker
   position: 1
 
-activity_tracker_module2:
+do_awareness:
   title: '#1 Awareness'
   context: activity_tracker
   position: 2
 
-activity_tracker_module3:
+do_planning:
   title: '#2 Planning'
   context: activity_tracker
   position: 3
 
-activity_tracker_module4:
+do_doing:
   title: '#3 Doing'
   context: activity_tracker
   position: 4

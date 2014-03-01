@@ -1,5 +1,4 @@
 $(document).on('page:change', function() {
-  $("form.activity_form:first").show();
   $(document)
     .on('ajax:success', 'form.activity_form', function(event, script, status, xhr) {
       $(this).hide();
@@ -9,7 +8,8 @@ $(document).on('page:change', function() {
       };
     })
     .on('ajax:error', 'form.activity_form', function(event, xhr, status) {
-    })
-    .on('ajax:complete', 'form.activity_form', function(data, status, xhr) {
+      if ($('#alerts').text().trim() === '') {
+        $('#alerts').html('<i class="fa fa-flag text-danger"></i> There was a problem, please try again');
+      }
     });
 });
