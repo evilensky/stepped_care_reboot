@@ -24,13 +24,13 @@
       <p>On a scale of 1-10 you said that you thought it would be a <%= activity.predicted_pleasure_intensity %>.</p>
 
       <div class="form-group">
-        <%= render 'activities/pleasure_slider', form: f, activity: activity %>
+        <%= render 'activities/shared/intensity_slider', form: f, activity: activity, name: :actual_pleasure_intensity, label: "How much pleasure did you get from doing this?" %>
       </div>
 
       <p>On a scale of 1-10 you said that you thought it would be a <%= activity.predicted_accomplishment_intensity %>.</p>
 
       <div class="form-group">
-        <%= render 'activities/accomplishment_slider', form: f, activity: activity %>
+        <%= render 'activities/shared/intensity_slider', form: f, activity: activity, name: :actual_accomplishment_intensity, label: "How much accomplishment did you get from doing this?" %>
       </div>
     </span>
 

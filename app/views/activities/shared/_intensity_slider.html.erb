@@ -1,0 +1,8 @@
+<%= form.label name, label, for: "#{ name }_#{ activity.id }" %><br>
+<div class="range row">
+  <div class="col-md-4 left">1<br>None</div>
+  <div class="col-md-4 center">5 <br>Some
+  </div>
+  <div class="col-md-4 right">10<br>A Lot</div>
+</div>
+<%= form.range_field name, in: 0..10, step: 1, id: "#{ name }_#{ activity.id }" %>

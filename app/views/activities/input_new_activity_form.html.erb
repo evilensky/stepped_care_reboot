@@ -1,13 +1,23 @@
-<%= form_tag create_path, method: "post", :html => { role: "form", :class => "activity_form", id: "activity-form"} do %>
-		<div class='form-group'>	
-			<h2>OK, what’s something fun that you can do this week?</h2>
+<%= form_tag(
+      create_path,
+      method: "post",
+      html: {
+        role: "form",
+        class: "activity_form",
+        id: "activity-form"
+      }
+    ) do %>
+  <div class="form-group">
+    <label for="unplanned_activities_0_activity_type_title">OK, what’s something fun that you can do this week?</label>
 
-			<%= text_field_tag "unplanned_activities[0][activity_type_title]", "",class: "form-control"%>
-		</div>
-		<div class='form-group'>	
-			<h2>And, something else you can do that gives you a sense of accomplishment?</h2>
-			<%= text_field_tag "unplanned_activities[1][activity_type_title]","", class: "form-control"%>
-			</div>
-		<%= submit_tag "Continue", class: 'btn btn-default' %>
-	
-<%end%>
+    <%= text_field_tag "unplanned_activities[0][activity_type_title]", "", class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <label for="unplanned_activities_1_activity_type_title">And, something else you can do that gives you a sense of accomplishment?</label>
+
+    <%= text_field_tag "unplanned_activities[1][activity_type_title]", "", class: "form-control" %>
+  </div>
+
+  <%= submit_tag "Continue", class: 'btn btn-default' %>
+<% end %>

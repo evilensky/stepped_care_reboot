@@ -1,4 +1,6 @@
-<% activities.each do |activity| %>
+<h2>Alright--we've picked a few important and a few fun things. When can you do them?</h2>
+
+<% activities.each_with_index do |activity, index| %>
   <%= form_for(
         :activity,
         url: update_path,
@@ -6,21 +8,22 @@
         method: 'put',
         html: {
           class: 'unplanned-activity-review',
-          style: 'display: none;',
+          style: index > 0 ? "display: none;" : "",
           id: "activity-#{ activity.id }"
         }
       ) do |f| %>
     <%= f.hidden_field :id, { value: activity.id } %>
 
-    <h2>Alright...</h2>
     <h3><%= activity.title %></h3>
 
+    <%= datetime_select :activity, :start_time, ampm: true, minute_step: 15 %>
+
     <div class="form-group">
-      <%= render 'activities/pleasure_slider', form: f, activity: activity %>
+      <%= render 'activities/shared/intensity_slider', form: f, activity: activity, name: :predicted_pleasure_intensity, label: "How much pleasure do you expect to get from doing this?" %>
     </div>
 
     <div class="form-group">
-      <%= render 'activities/accomplishment_slider', form: f, activity: activity %>
+      <%= render 'activities/shared/intensity_slider', form: f, activity: activity, name: :predicted_accomplishment_intensity, label: "How much accomplishment do you expect to get from doing this?" %>
     </div>
 
     <div id="activity-submit-<%= activity.id %>">
