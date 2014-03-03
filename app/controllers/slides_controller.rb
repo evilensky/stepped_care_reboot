@@ -48,6 +48,19 @@ class SlidesController < ApplicationController
     end
   end
 
+  def sort
+    @slide = Slide.find(params[:slide_id])
+    new_position = params[:position].to_i
+    slide_position = @slide.position
+    other_slide = @slide.slideshow.slides.find_by_position(new_position)
+    @slide.position = new_position
+    other_slide.position = slide_position
+    [ ["#{@slide.id}", new_position], ["#{@other_slide}", slide_position] ].each do | array |
+      Slide.where(:slideshow_id => @slide.slideshow_id).update_all({position: array[1]}, {id: array[0]})
+    end
+    redirect_to slideshow_path(@slide.slideshow)
+  end
+
 private
 
   def slide_params 

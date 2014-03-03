@@ -1,4 +1,4 @@
-<h1>Slideshows <small><%= @slideshow.title %></small></h1>
+<h1>Slides <small><%= @slideshow.title %></small></h1>
 <ol class="breadcrumb">
   <li><%= link_to "Slideshows", slideshows_path %></li>
   <li class="active"><%= @slideshow.title %></li>
@@ -17,7 +17,12 @@
 	<tbody>
 		<% @slides.each do |slide| %>
 			<tr>
-				<td><%= slide.position %></td>
+				<td>
+					<%= slide.position %>.
+					<%= link_to "Move Up", slideshow_slide_sort_path(@slideshow, slide, position: slide.position - 1 ), method: :put unless slide.position == 1 %>
+					-
+					<%= link_to "Move Down", slideshow_slide_sort_path(@slideshow, slide, position: slide.position + 1 ), method: :put unless slide.position == @slideshow.slides.count %>
+				</td>
 				<td>
 					<%= link_to slide.title, slideshow_slide_path(@slideshow, slide) %>
 				</td>

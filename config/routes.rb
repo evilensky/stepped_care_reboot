@@ -14,7 +14,9 @@ SteppedCareReboot::Application.routes.draw do
   root to: 'navigator#show_context'
 
   resources :slideshows do
-    resources :slides
+    resources :slides do
+      put :sort
+    end
   end
   
 end
