@@ -1,8 +1,6 @@
 $(document).on('page:change', function() {
   var formEl = 'form.past-activity-review';
 
-  $(formEl + ':first').show();
-
   $(document)
     .on('change', formEl + ' input[name="activity[is_complete]"]', function(event) {
       var val = $(event.target).val(),
