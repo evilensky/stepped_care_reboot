@@ -9,24 +9,13 @@ class SlideshowsController < ApplicationController
   end
 
   def create
-    if @slideshow = Slideshow.create(params[:slideshow])
-      # success
-    else
-      # error handling
-    end
-  end
-
-  def create
     @slideshow = Slideshow.create(slideshow_params)
     if @slideshow.save
       flash[:success] = "Successfully created slideshow"
       redirect_to slideshows_path
     else
       flash.now[:alert] = @slideshow.errors.full_messages.join(', ')
-      respond_to do |format|
-        format.html { render text: @slideshow.errors.full_messages }
-        # format.js { render status: 400 }
-      end
+      render :new
     end
   end
 
@@ -47,10 +36,7 @@ class SlideshowsController < ApplicationController
       redirect_to slideshows_path
     else
       flash.now[:alert] = @slideshow.errors.full_messages.join(', ')
-      respond_to do |format|
-        format.html { render text: @slide.errors.full_messages }
-        # format.js { render status: 400 }
-      end
+      render :edit
     end
   end
 

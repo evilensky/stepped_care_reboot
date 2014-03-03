@@ -14,10 +14,7 @@ class SlidesController < ApplicationController
       redirect_to slideshow_path(@slideshow)
     else
       flash.now[:alert] = @slide.errors.full_messages.join(', ')
-      respond_to do |format|
-        format.html { render text: @slide.errors.full_messages }
-        # format.js { render status: 400 }
-      end
+      render :new
     end
   end
 
@@ -36,10 +33,7 @@ class SlidesController < ApplicationController
       redirect_to slideshow_path(@slide.slideshow)
     else
       flash.now[:alert] = @slide.errors.full_messages.join(', ')
-      respond_to do |format|
-        format.html { render text: @slide.errors.full_messages }
-        # format.js { render status: 400 }
-      end
+      render :edit
     end
   end
 
