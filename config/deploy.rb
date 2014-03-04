@@ -46,7 +46,7 @@ task :copy_secret_token, :except => { :no_release => true }, :role => :app do
 end
 
 task :copy_production_config, :except => { :no_release => true }, :role => :app do
-  run "cp -f ~/#{application}_production.rb #{release_path}/config/environments/production.rb"
+  run "cp -f ~/#{application}/config/environments/production.rb #{release_path}/config/environments/production.rb"
 end
 
 before "deploy:migrate", "copy_secret_token"
