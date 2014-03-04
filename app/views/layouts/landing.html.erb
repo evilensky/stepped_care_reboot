@@ -10,20 +10,26 @@
 </head>
 
 <body>
+  <%= render 'shared/home' %>
+
+  <%= render 'shared/authentication' %>
 
   <div class="container" id="main-layout">
     <div class="row">
-      <div class="col-md-7 main-content">
-        <h1 class="logo"><span class="think">Think</span><span class="feel">Feel</span><span class="do">Do</span></h1>
-        <%= yield %>
+      <div class="col-md-5 col-sm-5 main-nav">
+        <%= render 'shared/main_navigation' %>
       </div>
-      <div class="col-md-5">
+      
+      <div class="col-md-7 col-sm-5 main-content">
+        <%= yield %>
       </div>
     </div>
 
     <div class="row" id="alerts">
       <%= render 'shared/alerts' %>
     </div>
+
+    <%= render 'shared/footer' %>
   </div>
 </body>
 </html>

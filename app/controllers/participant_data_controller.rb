@@ -1,4 +1,6 @@
 class ParticipantDataController < ApplicationController
+  include Concerns::NavigatorEnabled
+
   before_filter :authenticate_participant!, :instantiate_navigator
 
   def create
@@ -45,11 +47,5 @@ class ParticipantDataController < ApplicationController
         format.js { render status: 400 }
       end
     end
-  end
-
-  private
-
-  def instantiate_navigator
-    @navigator = Navigator.new(session)
   end
 end

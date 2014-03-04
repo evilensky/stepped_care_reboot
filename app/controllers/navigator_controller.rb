@@ -1,5 +1,9 @@
 class NavigatorController < ApplicationController
+  include Concerns::NavigatorEnabled
+
   before_action :authenticate_participant!, :instantiate_navigator
+
+  layout :switch_layout
 
   def show_context
     @navigator.initialize_context(params[:context_name] || 'home')
@@ -32,7 +36,11 @@ class NavigatorController < ApplicationController
 
   private
 
-  def instantiate_navigator
-    @navigator = Navigator.new(session)
+  def switch_layout
+    if session[:context] == 'home' || session[:module_position] == 1
+      'landing'
+    else
+      'tool'
+    end
   end
 end
