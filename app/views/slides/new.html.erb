@@ -1,0 +1,6 @@
+<h1>New Slide</h1>
+<%= form_for(@slide, url: slideshow_slides_path(@slideshow, @slide)) do |f| %>
+	<%= render "slides/fields", f: f %>
+	<%= f.submit "Create", class: "btn btn-primary" %>
+	<%= link_to "Cancel", slideshow_path(@slideshow), class: "btn btn-default" %>
+<% end %>

@@ -215,6 +215,7 @@ DEPENDENCIES
   devise
   font-awesome-sass-rails
   jquery-rails
+  jquery-ui-rails
   pg
   rails (~> 4.0.3)
   rails_admin

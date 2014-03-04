@@ -1,0 +1,6 @@
+<h1>Edit Slide <small><%= @slide.title %></small></h1>
+<%= form_for(@slide, url: slideshow_slide_path(@slide.slideshow, @slide)) do |f| %>
+	<%= render "slides/fields", f: f %>
+	<%= f.submit "Update", class: "btn btn-primary" %>
+	<%= link_to "Cancel", slideshow_slide_path(@slide.slideshow, @slide), class: "btn btn-default" %>
+<% end %>

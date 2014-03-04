@@ -10,4 +10,14 @@ class Slide < ActiveRecord::Base
 
     markdown.render(body).html_safe
   end
+
+  def self.update_positions(ids)
+    transaction do
+      connection.execute "SET CONSTRAINTS slide_position DEFERRED"
+      ids.each_with_index do |id, index|
+        where(id: id).update_all(position: index + 1)
+      end
+    end
+  end
+
 end

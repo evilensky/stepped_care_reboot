@@ -34,7 +34,7 @@ class NavigatorController < ApplicationController
     )
   end
 
-  private
+private
 
   def switch_layout
     if @navigator.context == 'home' || @navigator.current_module.position == 1
@@ -43,4 +43,5 @@ class NavigatorController < ApplicationController
       'tool'
     end
   end
+
 end

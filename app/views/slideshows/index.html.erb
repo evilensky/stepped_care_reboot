@@ -1,0 +1,29 @@
+<h1>Slideshows</h1>
+<div class="btn btn-toolbar" style="padding: 0px;">
+	<%= link_to "New", new_slideshow_path, class: "btn btn-success" %>
+</div>
+<table class="table">
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Created At</th>
+			<th>Updated At</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @slideshows.each do |slideshow| %>
+			<tr>
+				<td>
+					<%= link_to slideshow.title, slideshow_path(slideshow) %>
+				</td>
+				<td><%= slideshow.created_at %></td>
+				<td><%= slideshow.updated_at %></td>
+				<td>
+					<%= link_to "Edit", edit_slideshow_path(slideshow), class: "btn btn-default" %>
+					<%= link_to "Delete", slideshow_path(slideshow), :method => :delete, :confirm => 'Are you sure?', class: "btn btn-danger" %>
+				</td>
+			</tr>
+		<% end %>
+	</tbody>
+</table>
