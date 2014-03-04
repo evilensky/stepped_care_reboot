@@ -37,7 +37,7 @@ after "deploy:set_owner", "deploy:restart"
 
 namespace :db do
   task :db_config, :except => { :no_release => true }, :role => :app do
-    run "cp -f ~/#{application}_database.yml #{release_path}/config/database.yml"
+    run "cp -f ~/#{application}/config/database.yml #{release_path}/config/database.yml"
   end
 end
 
@@ -45,7 +45,8 @@ end
 before "deploy:migrate", "db:db_config"
 
 task :copy_secret_token, :except => { :no_release => true }, :role => :app do
-  run "cp -f ~/#{application}_secret_token.rb #{release_path}/config/initializers/secret_token.rb"
+  run "cp -f ~/#{application}/config/initializers/secret_token.rb #{release_path}/config/initializers/secret_token.rb"
+  run "cp -f ~/#{application}/config/initializers/devise_secret_token.rb #{release_path}/config/initializers/devise_secret_token.rb"
 end
 
 
