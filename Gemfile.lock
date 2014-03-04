@@ -164,6 +164,8 @@ GEM
       rspec-mocks (= 3.0.0.beta2)
       rspec-support (= 3.0.0.beta2)
     rspec-support (3.0.0.beta2)
+    rvm-capistrano (1.5.1)
+      capistrano (~> 2.15.4)
     safe_yaml (1.0.1)
     sass (3.2.14)
     sass-rails (4.0.1)
@@ -217,6 +219,7 @@ DEPENDENCIES
   rails_admin
   redcarpet (~> 2.3.0)
   rspec-rails (~> 3.0.0.beta2)
+  rvm-capistrano
   sass-rails (~> 4.0.0)
   turbolinks
   uglifier (>= 1.3.0)
