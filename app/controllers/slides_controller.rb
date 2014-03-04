@@ -48,26 +48,15 @@ class SlidesController < ApplicationController
     end
   end
 
-  # def sort
-  #   slide = Slide.find(params[:slide_id])
-  #   new_position = params[:position].to_i
-  #   slide_position = slide.position
-  #   other_slide = slide.slideshow.slides.find_by_position(new_position)
-  #   puts "other_slide =#{other_slide}"
-  #   slide.position = new_position
-  #   other_slide.position = slide_position
-  #   [ ["#{slide.id}", new_position.to_i], ["#{other_slide.id}", slide_position.to_i] ].each do | array |
-  #     Slide.where(:slideshow_id => slide.slideshow_id).update_all({position: array[1]}, {id: array[0]})
-  #   end
-  #   redirect_to slideshow_path(slide.slideshow)
-  # end
-
   def sort
-    params[:slide].each_with_index do |id, index|
-      Slide.where({slideshow_id: params[:slideshow_id]}).update_all({position: index+1}, {id: id})
+    slideshow = Slideshow.find(params[:slideshow_id])
+    if slideshow.slides.update_positions(params[:slide])
+      flash.now[:success] = "Reorder was successful."
+      render nothing: true
+    else
+      flash.now[:alert] = slideshow.errors.full_messages.join(', ')
+      render nothing: true
     end
-    # redirect_to slideshow_path(slide.slideshow)
-    render nothing: true
   end
 
 private

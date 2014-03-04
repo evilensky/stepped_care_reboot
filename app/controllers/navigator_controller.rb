@@ -22,4 +22,10 @@ class NavigatorController < ApplicationController
     redirect_to navigator_location_path(module_id: @navigator.current_module.id, provider_id: @navigator.current_content_provider.id, content_position: session[:content_position])
   end
 
+private
+
+  def instantiate_navigator
+    @navigator = Navigator.new(session)
+  end
+
 end
