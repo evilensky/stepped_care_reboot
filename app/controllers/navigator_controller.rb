@@ -30,14 +30,14 @@ class NavigatorController < ApplicationController
     redirect_to navigator_location_path(
       module_id: @navigator.current_module.id,
       provider_id: @navigator.current_content_provider.id,
-      content_position: session[:content_position]
+      content_position: @navigator.content_position
     )
   end
 
   private
 
   def switch_layout
-    if session[:context] == 'home' || session[:module_position] == 1
+    if @navigator.context == 'home' || @navigator.current_module.position == 1
       'landing'
     else
       'tool'

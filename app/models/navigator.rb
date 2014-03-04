@@ -64,6 +64,14 @@ class Navigator
     @current_module ||= ContentModule.new(module_attrs)
   end
 
+  def content_position
+    @state[:content_position]
+  end
+
+  def context
+    @state[:context]
+  end
+
   private
 
   def current_module_stale?
