@@ -1,4 +1,5 @@
 class SlidesController < ApplicationController
+  before_filter :authenticate_user!
 
   def new
     @slideshow = Slideshow.find(params[:slideshow_id])

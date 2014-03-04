@@ -1,4 +1,5 @@
 class SlideshowsController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
     @slideshows = Slideshow.all
