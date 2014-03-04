@@ -63,9 +63,8 @@ class SlidesController < ApplicationController
   # end
 
   def sort
-    @slideshow = Slideshow.find(params[:slideshow_id])
     params[:slide].each_with_index do |id, index|
-      Slide.where({slideshow_id: @slideshow.id}).update_all({position: index+1}, {id: id})
+      Slide.where({slideshow_id: params[:slideshow_id]}).update_all({position: index+1}, {id: id})
     end
     # redirect_to slideshow_path(slide.slideshow)
     render nothing: true
