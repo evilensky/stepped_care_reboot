@@ -7,6 +7,7 @@ class Participant < ActiveRecord::Base
   has_many :activities, dependent: :destroy
   has_many :awake_periods, dependent: :destroy
   has_many :activity_types, dependent: :destroy
+  has_one :participant_status
 
   def unplanned_activities
     UnplannedActivities.new(self)
@@ -18,6 +19,10 @@ class Participant < ActiveRecord::Base
 
   def fetch_data_record(association, id)
     send(association).find(id)
+  end
+
+  def navigation_status
+    participant_status || build_participant_status
   end
 
   def recent_activities

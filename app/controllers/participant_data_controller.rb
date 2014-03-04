@@ -3,6 +3,8 @@ class ParticipantDataController < ApplicationController
 
   before_filter :authenticate_participant!, :instantiate_navigator
 
+  layout 'tool'
+
   def create
     provider = @navigator.current_content_provider
     parameter = provider.data_class_name.underscore
