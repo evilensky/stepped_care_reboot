@@ -13,7 +13,6 @@ set :scm, :git
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
 
-
 set :branch, "master"
 
 set :deploy_to, "/var/www/html/src/#{application}"
@@ -24,7 +23,6 @@ set(:bundle_flags) { "--path=#{deploy_to}/shared/gems" }
 
 server "deploy@cbits-railsapps.nubic.northwestern.edu", :web, :db, :primary => true                          # Your HTTP server, Apache/etc
 
-
 before "deploy", "deploy:create_vhost"
 
 before "bundle:install" do
@@ -34,13 +32,11 @@ end
 after "bundle:install", "deploy:migrate"
 after "deploy:set_owner", "deploy:restart"
 
-
 namespace :db do
   task :db_config, :except => { :no_release => true }, :role => :app do
     run "cp -f ~/#{application}/config/database.yml #{release_path}/config/database.yml"
   end
 end
-
 
 before "deploy:migrate", "db:db_config"
 
@@ -49,14 +45,12 @@ task :copy_secret_token, :except => { :no_release => true }, :role => :app do
   run "cp -f ~/#{application}/config/initializers/devise_secret_token.rb #{release_path}/config/initializers/devise_secret_token.rb"
 end
 
-
 task :copy_production_config, :except => { :no_release => true }, :role => :app do
   run "cp -f ~/#{application}_production.rb #{release_path}/config/environments/production.rb"
 end
 
-after "deploy:migrate", "copy_secret_token"
+before "deploy:migrate", "copy_secret_token"
 after "deploy:migrate", "copy_production_config"
-
 
 namespace :deploy do
   task :start do ; end
@@ -86,9 +80,7 @@ namespace :deploy do
 </VirtualHost>
     EOF
     put vhost_config, "/etc/httpd/conf.d/#{application}.conf"
-#    sudo "mv vhost_config /etc/http/conf.d/#{application}.conf"
   end
-
 
   task :restart, :roles => :web, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
