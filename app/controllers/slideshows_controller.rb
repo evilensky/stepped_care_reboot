@@ -1,7 +1,7 @@
 class SlideshowsController < ApplicationController
 
   def index
-    @slideshows = Slideshow.order("position").all
+    @slideshows = Slideshow.order("position")
   end
 
   def new

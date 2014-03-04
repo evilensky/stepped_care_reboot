@@ -15,7 +15,7 @@ SteppedCareReboot::Application.routes.draw do
 
   resources :slideshows do
     resources :slides do
-      put :sort
+      collection { post :sort }
     end
   end
   
