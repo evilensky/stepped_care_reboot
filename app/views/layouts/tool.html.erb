@@ -1,37 +1,32 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>SteppedCareReboot</title>
-  <link href='http://fonts.googleapis.com/css?family=Archivo+Narrow:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
-  <%= favicon_link_tag 'favicon.ico' %>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
 
-<body>
-<%= render 'shared/home' %>
-<%= render 'shared/authentication' %>
- 
-  <div class="container" id="tool-layout">
+  <body>
+    <%= render 'shared/home' %>
 
-    <div class="row">
-      <div class="col-md-2 col-sm-2 tool-nav">
-        <h1><%= AppSection.by_name(@navigator.context).label %></h1>
-        <h2><%= @navigator.current_module.title %></h2>
+    <%= render 'shared/authentication' %>
+   
+    <div class="container" id="tool-layout">
+      <div class="row">
+        <div class="col-md-2 col-sm-2 tool-nav">
+          <h1><%= AppSection.by_name(@navigator.context).label %></h1>
+
+          <h2><%= @navigator.current_module.title %></h2>
+        </div>
+
+        <div class="col-md-10 col-sm-10 tool-content">
+          <%= yield %>
+        </div>
       </div>
 
-      <div class="col-md-10 col-sm-10 tool-content">
-        <%= yield %>
+      <div class="row" id="alerts">
+        <%= render 'shared/alerts' %>
       </div>
+      
+      <%= render 'shared/footer' %>
     </div>
-
-    <div class="row" id="alerts">
-      <%= render 'shared/alerts' %>
-    </div>
-    
-    <%= render 'shared/footer' %>
-  </div>
-
-</body>
+  </body>
 </html>
