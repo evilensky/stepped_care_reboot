@@ -13,13 +13,15 @@ gem 'rails_admin'
 gem 'cancan'
 gem 'redcarpet', '~> 2.3.0'
 gem 'font-awesome-sass', '~> 4.0.3'
+gem 'whenever'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
 end
 
 group :development do
-  gem 'capistrano'
+  gem 'capistrano', '~> 2.15.5'
+  gem 'rvm-capistrano'
   gem 'debugger'
 end
 

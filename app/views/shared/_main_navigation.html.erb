@@ -1,3 +1,0 @@
-<% AppSection.all.each do |s| %>
-  <%= link_to "#{ icon('asterisk') if session[:context] == 'home' && s.label == 'DO' }#{ s.label }#{ icon('caret-right') if session[:context] == s.slug }".html_safe, navigator_context_path(context_name: s.slug) %>
-<% end %>

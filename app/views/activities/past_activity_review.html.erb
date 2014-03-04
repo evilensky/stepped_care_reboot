@@ -1,4 +1,4 @@
-<% activities.each do |activity| %>
+<% activities.each_with_index do |activity, index| %>
   <%= form_for(
         :activity,
         url: update_path,
@@ -6,7 +6,7 @@
         method: 'put',
         html: {
           class: 'past-activity-review',
-          style: 'display: none;',
+          style: index > 0 ? "display: none;" : "",
           id: "activity-#{ activity.id }"
         }
       ) do |f| %>

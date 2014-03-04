@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body>
+    <%= render 'shared/home' %>
+
+    <%= render 'shared/authentication' %>
+
+    <div class="container" id="main-layout">
+      <div class="row">
+        <div class="col-md-5 col-sm-5 main-nav">
+          <% AppSection.all.each do |s| %>
+            <%= link_to "#{ icon('asterisk') if @navigator.context == 'home' && s.label == 'DO' }#{ s.label }#{ icon('caret-right') if @navigator.context == s.slug }".html_safe, navigator_context_path(context_name: s.slug) %>
+          <% end %>
+        </div>
+        
+        <div class="col-md-7 col-sm-5 main-content">
+          <%= yield %>
+        </div>
+      </div>
+
+      <div class="row" id="alerts">
+        <%= render 'shared/alerts' %>
+      </div>
+
+      <%= render 'shared/footer' %>
+    </div>
+  </body>
+</html>

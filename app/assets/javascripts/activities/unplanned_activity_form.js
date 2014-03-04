@@ -1,8 +1,6 @@
 $(document).on('page:change', function() {
   var formEl = 'form.unplanned-activity-review';
 
-  $(formEl + ':first').show();
-  
   $(document)
     .on('ajax:success', formEl, function(event, script, status, xhr) {
       $(this)
