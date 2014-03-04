@@ -12,6 +12,7 @@ gem 'rails_admin'
 gem 'cancan'
 gem 'redcarpet', '~> 2.3.0'
 gem 'font-awesome-sass', '~> 4.0.3'
+gem 'whenever'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
