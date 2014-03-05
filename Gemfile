@@ -14,6 +14,7 @@ gem 'cancan'
 gem 'redcarpet', '~> 2.3.0'
 gem 'font-awesome-sass-rails'
 gem 'whenever'
+gem 'bluecloth', '~> 2.2.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
