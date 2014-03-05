@@ -1,5 +1,4 @@
 class ContentProviders::PastActivityForm < ContentProvider
-
   def render_current(options)
     most_recent_awake_period = AwakePeriod.last
     start_time = most_recent_awake_period.start_time
@@ -22,10 +21,6 @@ class ContentProviders::PastActivityForm < ContentProvider
     [:start_time, :end_time, :activity_type_title, :actual_pleasure_intensity, :actual_accomplishment_intensity]
   end
 
-  def exists?(position)
-    false
-  end
-
   def data_class_name
     'Activity'
   end
@@ -37,5 +32,4 @@ class ContentProviders::PastActivityForm < ContentProvider
   def show_nav_link?
     false
   end
-
 end

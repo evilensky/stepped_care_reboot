@@ -13,10 +13,6 @@ class ContentProviders::PastActivityReviewForm < ContentProvider
     )
   end
 
-  def exists?(position)
-    false
-  end
-
   def data_class_name
     'Activity'
   end

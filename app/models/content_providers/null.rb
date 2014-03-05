@@ -3,10 +3,6 @@ class ContentProviders::Null
     'Null content provider'
   end
 
-  def exists?(position)
-    false
-  end
-
   def show_nav_link?
   	true
   end

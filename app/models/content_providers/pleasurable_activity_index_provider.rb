@@ -6,10 +6,6 @@ class ContentProviders::PleasurableActivityIndexProvider < ContentProvider
     )
   end
 
-  def exists?(position)
-    false
-  end
-
   def show_nav_link?
     true
   end

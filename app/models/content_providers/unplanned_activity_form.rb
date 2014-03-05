@@ -17,10 +17,6 @@ class ContentProviders::UnplannedActivityForm < ContentProvider
     ]
   end
 
-  def exists?(position)
-    false
-  end
-
   def data_class_name
     'Activity'
   end

@@ -7,8 +7,7 @@ class ContentProvider < ActiveRecord::Base
 
   delegate :context, to: :content_module, prefix: false
 
-  # def data_attributes
-  	#alert of some sort that says you are calling ContentProvider data_attributes
-  # end
-
+  def exists?(position)
+    false
+  end
 end

@@ -9,10 +9,6 @@ class ContentProviders::AwakePeriodForm < ContentProvider
     )
   end
 
-  def exists?(position)
-    false
-  end
-
   def data_class_name
     'AwakePeriod'
   end

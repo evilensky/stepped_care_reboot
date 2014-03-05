@@ -17,10 +17,6 @@ class ContentProviders::FunActivityChecklist < ContentProvider
     'UnplannedActivities'
   end
 
-  def exists?(position)
-    false
-  end
-
   def show_nav_link?
     false
   end
