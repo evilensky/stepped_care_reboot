@@ -9,13 +9,13 @@ describe 'Slideshow' do
   end
 
   it 'User can create a slideshow' do
-    Slideshow.find_by_title("My favorite Slideshow").should be_nil
+    expect(Slideshow.find_by_title("My favorite Slideshow")).to be_nil
     click_on "New"
     fill_in "Title", with: "My favorite Slideshow"
     click_on "Create"
-    current_path.should == slideshows_path
-    Slideshow.find_by_title("My favorite Slideshow").should_not be_nil
-    page.should have_content("My favorite Slideshow")
+    expect(current_path).to eq slideshows_path
+    expect(Slideshow.find_by_title("My favorite Slideshow")).not_to be_nil
+    expect(page).to have_text("My favorite Slideshow")
   end
 
   it 'User will see error if no title is included' do
@@ -28,7 +28,7 @@ describe 'Slideshow' do
   it 'User can view show page of a slideshow' do
     click_on "I'm a test!"
     slideshow = Slideshow.find_by_title("I'm a test!")
-    current_path.should == slideshow_path(slideshow)
+    expect(current_path).to eq slideshow_path(slideshow)
     expect(page).to have_text("I'm a test!")
   end
 
@@ -40,9 +40,9 @@ describe 'Slideshow' do
     fill_in "Title", with: "This is no longer a TEST!"
     click_on "Update"
     slideshow.reload
-    slideshow.title.should_not == "I'm a test!"
-    slideshow.title.should == "This is no longer a TEST!"
-    current_path.should == slideshows_path
+    expect(slideshow.title).not_to eq "I'm a test!"
+    expect(slideshow.title).to eq "This is no longer a TEST!"
+    expect(current_path).to eq slideshows_path
   end
 
   it 'User can\'t update a slideshow without a title' do
@@ -54,17 +54,18 @@ describe 'Slideshow' do
     click_on "Update"
     expect(page).to have_text("Title can't be blank")
     slideshow.reload
-    slideshow.title.should_not == ""
+    expect(slideshow.title).not_to eq ""
+    expect(slideshow.title).to eq "I'm a test!"
   end
 
   it 'User can delete a slideshow' do
     expect(page).to have_text("I'm a test!")
-    Slideshow.find_by_title("I'm a test!").should_not be_nil
+    expect(Slideshow.find_by_title("I'm a test!")).not_to eq nil
     slideshow = Slideshow.find_by_title("I'm a test!")
     with_scope "#slideshow-#{slideshow.id}" do
       click_on "Delete"
     end
-    Slideshow.find_by_title("I'm a test!").should be_nil
+    expect(Slideshow.find_by_title("I'm a test!")).to eq nil
     expect(page).to_not have_text("I'm a test!")
   end
 

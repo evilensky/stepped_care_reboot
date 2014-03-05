@@ -21,7 +21,7 @@
 				<td><%= slideshow.updated_at %></td>
 				<td>
 					<%= link_to "Edit", edit_slideshow_path(slideshow), class: "btn btn-default" %>
-					<%= link_to "Delete", slideshow_path(slideshow), :method => :delete, :confirm => 'Are you sure?', class: "btn btn-danger" %>
+					<%= link_to "Delete", slideshow_path(slideshow), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 				</td>
 			</tr>
 		<% end %>
