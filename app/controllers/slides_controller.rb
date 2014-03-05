@@ -24,6 +24,7 @@ class SlidesController < ApplicationController
 
   def edit
     @slide = Slide.find(params[:id])
+    @body = BlueCloth.new(@slide.body).to_html
   end
 
   def update
