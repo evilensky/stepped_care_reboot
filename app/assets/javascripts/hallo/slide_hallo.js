@@ -51,10 +51,4 @@ jQuery(document).ready(function() {
   showSource(jQuery('.editable').html());
 }); 
 
-}
-
-
-
-
-$(document).ready(slideHallo)
-$(document).on('page:load', slideHallo)
+};
