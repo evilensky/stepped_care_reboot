@@ -15,11 +15,10 @@ class SlideshowsController < ApplicationController
       flash[:success] = "Successfully created slideshow"
       redirect_to slideshows_path
     else
-      flash.now[:alert] = @slideshow.errors.full_messages.join(', ')
+      flash[:alert] = @slideshow.errors.full_messages.join(', ')
       render :new
     end
   end
-
 
   def show
     @slideshow = Slideshow.find(params[:id])
@@ -36,7 +35,7 @@ class SlideshowsController < ApplicationController
       flash[:success] = "Successfully updated slideshow"
       redirect_to slideshows_path
     else
-      flash.now[:alert] = @slideshow.errors.full_messages.join(', ')
+      flash[:alert] = @slideshow.errors.full_messages.join(', ')
       render :edit
     end
   end
