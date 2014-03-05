@@ -11,7 +11,6 @@ describe 'Slides' do
   it 'User can create a slide' do
     expect(Slide.find_by_title("A great slide!!")).to be_nil
     click_on "New Slide"
-    # save_and_open_page
     fill_in "Title", with: "A great slide!!"
     fill_in "Body", with: "The greatest content ever!"
     click_on "Create"
