@@ -4,11 +4,13 @@ class SlidesController < ApplicationController
   def new
     @slideshow = Slideshow.find(params[:slideshow_id])
     @slide = @slideshow.slides.build(params[:slide])
+    @body = BlueCloth.new(@slide.body).to_html
   end
 
   def create
     @slideshow = Slideshow.find(params[:slideshow_id])
     @slide = @slideshow.slides.build(slide_params)
+    @body = BlueCloth.new(@slide.body).to_html
     @slide.position = @slideshow.slides.count + 1
     if @slide.save
       flash[:success] = "Successfully created slide for slideshow"
@@ -30,6 +32,7 @@ class SlidesController < ApplicationController
 
   def update
     @slide = Slide.find(params[:id])
+    @body = BlueCloth.new(@slide.body).to_html
     if @slide.update(slide_params)
       flash[:success] = "Successfully updated slide for slideshow"
       redirect_to slideshow_path(@slide.slideshow)
