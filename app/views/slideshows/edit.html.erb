@@ -1,4 +1,5 @@
 <h1>Edit Slideshow <small><%= @slideshow.title %></small></h1>
+
 <%= form_for(@slideshow) do |f| %>
 	<%= render "slideshows/fields", f: f %>
 	<%= f.submit "Update", class: "btn btn-primary" %>

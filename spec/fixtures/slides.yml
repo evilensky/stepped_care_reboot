@@ -183,3 +183,9 @@ think_identifying_intro4:
     a helpful thought
 
     \"If I work a little harder, I can do better\""
+
+rspec_slide:
+  slideshow: rspec_slideshow
+  position: 1
+  title: "I'm an rspec slide"
+  body: "I'm serious!"

@@ -12,9 +12,10 @@ gem 'devise'
 gem 'rails_admin'
 gem 'bluecloth', '~> 2.2.0'
 gem 'cancan'
+gem 'font-awesome-sass-rails'
 gem 'launchy'
 gem 'redcarpet', '~> 2.3.0'
-gem 'font-awesome-sass-rails'
+gem 'selenium-webdriver'
 gem 'whenever'
 
 group :development, :test do

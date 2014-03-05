@@ -16,7 +16,7 @@ class SlidesController < ApplicationController
       flash[:success] = "Successfully created slide for slideshow"
       redirect_to slideshow_path(@slideshow)
     else
-      flash.now[:alert] = @slide.errors.full_messages.join(', ')
+      flash[:alert] = @slide.errors.full_messages.join(', ')
       render :new
     end
   end
@@ -37,7 +37,7 @@ class SlidesController < ApplicationController
       flash[:success] = "Successfully updated slide for slideshow"
       redirect_to slideshow_path(@slide.slideshow)
     else
-      flash.now[:alert] = @slide.errors.full_messages.join(', ')
+      flash[:alert] = @slide.errors.full_messages.join(', ')
       render :edit
     end
   end
