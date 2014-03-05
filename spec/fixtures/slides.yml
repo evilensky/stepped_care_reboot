@@ -81,7 +81,7 @@ do_doing_intro1:
   slideshow: do_doing_intro
 
 do_doing_intro2:
-  title: Let's do this...
+  title: "Let's do this..."
   body: Since you last logged in you said you were going to
     do a few activities that are pleasureable and give you
     a set of accomplishment.
@@ -95,3 +95,91 @@ do_doing_intro3:
     It’s ﬁne if you didn’t do all the things you planned - as long as you keep intentionally trying to do things that you’ve said are good for you.
   position: 1
   slideshow: do_congrats
+
+think_identifying_intro1:
+  title: You are what you think...
+  body: "Your thoughts shape and guide
+
+
+    how you **feel**
+
+
+    and what you **do**.
+
+
+    Thoughts are the exact sentences that go through your head.
+
+
+    \"I can do better if I try\"
+
+
+    \"Nobody likes me\"
+
+
+    \"People really think I matter\"
+
+
+    \"They did that to hurt me\"
+
+
+    \"I'm going to screw up this presentation...\"
+
+
+    \"This always happens to me\"
+
+
+    \"I did a good job today\"
+
+
+    There are helpful and harmful ways to think."
+  position: 1
+  slideshow: think_identifying_intro
+
+think_identifying_intro2:
+  slideshow: think_identifying_intro
+  position: 2
+  title: Helpful thoughts are...
+  body: "constructive:
+
+    they build you up and make you stronger
+
+
+    necessary:
+
+    they help you do what you have to do to live your life
+
+
+    positive:
+
+    they make you feel better about things in general"
+
+think_identifying_intro3:
+  slideshow: think_identifying_intro
+  position: 3
+  title: "Harmful thoughts are:"
+  body: "destructive:
+
+    they tear you down
+
+
+    unnecessary:
+
+    they're not needed for anything and waste your time
+
+
+    negative:
+
+    they make you feel worse and hurt you"
+
+think_identifying_intro4:
+  slideshow: think_identifying_intro
+  position: 4
+  title: Some quick examples...
+  body: "a harmful thought
+
+    \"I'm never going to be good enough.\"
+
+
+    a helpful thought
+
+    \"If I work a little harder, I can do better\""

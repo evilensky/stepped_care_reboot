@@ -23,27 +23,27 @@ do_doing:
   context: activity_tracker
   position: 4
 
-thought_tracker_landing:
+think_landing:
   title: ''
   context: thought_tracker
   position: 1
 
-thought_tracker_module2:
+think_identifying:
   title: '#1 Identifying'
   context: thought_tracker
   position: 2
 
-thought_tracker_module3:
+think_patterns:
   title: '#2 Patterns'
   context: thought_tracker
   position: 3
 
-thought_tracker_module4:
+think_reshape:
   title: '#3 Reshape'
   context: thought_tracker
   position: 4  
 
-thought_tracker_module5:
+think_module5:
   title: Add a New Thought
   context: thought_tracker
   position: 5  

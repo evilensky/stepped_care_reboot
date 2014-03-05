@@ -96,31 +96,31 @@ do_congrats_provider:
 
 think_landing:
   type: ContentProviders::ModuleIndexProvider
-  content_module: thought_tracker_landing
+  content_module: think_landing
   position: 1
 
 think_identify_index:
   type: ContentProviders::SlideshowProvider
-  source_content: think_identify_intro (Slideshow)
-  content_module: thought_tracker_module2
+  source_content: think_identifying_intro (Slideshow)
+  content_module: think_identifying
   position: 1
 
 think_patterns_index:
   type: ContentProviders::SlideshowProvider
   source_content: think_patterns_intro (Slideshow)
-  content_module: thought_tracker_module3
+  content_module: think_patterns
   position: 1
 
 think_reshape_index:
   type: ContentProviders::SlideshowProvider
   source_content: think_reshape_intro (Slideshow)
-  content_module: thought_tracker_module4
+  content_module: think_reshape
   position: 1    
 
 thought_add_index:
   type: ContentProviders::SlideshowProvider
   source_content: think_add_intro (Slideshow)
-  content_module: thought_tracker_module5
+  content_module: think_module5
   position: 1   
 
 feel_landing:
