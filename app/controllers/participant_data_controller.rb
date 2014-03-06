@@ -14,6 +14,8 @@ class ParticipantDataController < ApplicationController
     @data = current_participant.build_data_record(association, data_attributes)
 
     if @data.save
+      flash[:notice] = provider.data_class_name + ' saved'
+
       respond_to do |format|
         format.html { redirect_to navigator_next_content_url }
         format.js { render status: 201 }
@@ -37,6 +39,8 @@ class ParticipantDataController < ApplicationController
     @data = current_participant.fetch_data_record(association, data_attributes[:id])
 
     if @data.update(data_attributes.reject { |a| a == 'id' })
+      flash[:notice] = provider.data_class_name + ' saved'
+
       respond_to do |format|
         format.html { redirect_to navigator_next_content_url }
         format.js {}
@@ -45,7 +49,7 @@ class ParticipantDataController < ApplicationController
       flash.now[:alert] = @data.errors.full_messages.join(', ')
 
       respond_to do |format|
-        format.html { render text: @data.errors.full_messages }
+        format.html { render template: 'navigator/show_content' }
         format.js { render status: 400 }
       end
     end
