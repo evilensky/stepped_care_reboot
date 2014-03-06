@@ -11,7 +11,7 @@ class ContentProviders::MessagesIndexProvider < BitPlayer::ContentProvider
       template: 'messages/index',
       locals: {
         sent_messages: options.participant.sent_messages.order(:sent_at),
-        received_messages: options.participant.received_messages.order(:sent_at),
+        received_messages: options.participant.received_messages.order('messages.sent_at'),
         compose_path: compose_path
       }
     )

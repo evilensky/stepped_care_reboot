@@ -1,5 +1,11 @@
 <h2>Inbox (<%= received_messages.unread.count %>)</h2>
 
+<ul class="list-unstyled">
+  <% received_messages.each do |msg| %>
+    <li><%= msg.subject %></li>
+  <% end %>
+</ul>
+
 <% if sent_messages.count > 0 %>
   <h3>Sent</h3>
 

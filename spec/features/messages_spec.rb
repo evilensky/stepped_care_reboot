@@ -24,5 +24,7 @@ describe 'messages' do
   end
 
   it 'should display all messages' do
+    expect(page).to have_text('Try out the LEARN tool')
+    expect(page).to have_text('I like this app')
   end
 end

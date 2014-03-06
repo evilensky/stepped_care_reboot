@@ -6,4 +6,6 @@ class DeliveredMessage < ActiveRecord::Base
   validates :is_read, inclusion: { in: [true, false] }
 
   scope :unread, -> { where(is_read: false) }
+
+  delegate :subject, to: :message
 end
