@@ -2,15 +2,18 @@
 <% if slide.is_title_visible %>
   <div class="slide">
     <h1><%= slide.title %></h1>
-    <div class="btn-toolbar">
-      <%= link_to "Edit", edit_slideshow_slide_path(slide.slideshow, slide), class: "btn btn-default" %>
-    </div>
+
+    <% if current_user %>
+      <div class="btn-toolbar">
+        <%= link_to "Edit", edit_slideshow_slide_path(slide.slideshow, slide), class: "btn btn-default" %>
+      </div>
+    <% end %>
   </div>
 <% end %>
 
 <%= slide.render_body %>
 
 <% case slide.class.to_s %>
-<% when 'VideoSlide' %>
+<% when 'BitPlayer::VideoSlide' %>
   <%= render 'slides/video', slide: slide %>
 <% end %>

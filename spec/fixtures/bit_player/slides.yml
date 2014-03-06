@@ -33,7 +33,7 @@ home_intro3:
 home_intro4:
   slideshow: home_intro
   position: 4
-  type: VideoSlide
+  type: BitPlayer::VideoSlide
   title: Slide 4
   is_title_visible: false
   body: ''
