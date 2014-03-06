@@ -11,5 +11,29 @@ describe 'thought tracker' do
 
   it 'should implement #1 Identifying' do
     click_on bit_player_content_modules(:think_identifying).title
+
+    expect(page).to have_text(bit_player_slides(:think_identifying_intro1).title)
+
+    find('.next-button').click
+
+    expect(page).to have_text(bit_player_slides(:think_identifying_intro2).title)
+
+    find('.next-button').click
+
+    expect(page).to have_text(bit_player_slides(:think_identifying_intro3).title)
+
+    find('.next-button').click
+
+    expect(page).to have_text(bit_player_slides(:think_identifying_intro4).title)
+
+    find('.next-button').click
+
+    expect(page).to have_text("Now, your turn...")
+
+    fill_in('thought_content', with: 'my great thought')
+    choose('thought_effect_helpful')
+    click_on('Continue')
+
+    expect(page).to have_text("Now list a few more...")
   end
 end
