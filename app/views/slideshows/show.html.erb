@@ -18,7 +18,7 @@
 			</span>
 			<span>
 				<%= link_to "Edit", edit_slideshow_slide_path(@slideshow, slide), class: "btn btn-default" %>
-				<%= link_to "Delete", slideshow_slide_path(@slideshow, slide), :method => :delete, :confirm => 'Are you sure?', class: "btn btn-danger" %>
+				<%= link_to "Delete", slideshow_slide_path(@slideshow, slide), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 			</span>
 		</li>
 	<% end %>
