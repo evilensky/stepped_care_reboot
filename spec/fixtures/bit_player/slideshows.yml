@@ -36,3 +36,6 @@ feel_changes_intro:
 
 learn_thoughts_intro:
   title: Intro
+
+rspec_slideshow:
+  title: "I'm a test!"

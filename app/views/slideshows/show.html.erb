@@ -5,14 +5,13 @@
 </ol>
 <div class="btn btn-toolbar" style="padding: 0px;">
 	<%= link_to "New Slide", new_slideshow_slide_path(@slideshow), class: "btn btn-success" %>
+  <%= link_to "Edit", edit_slideshow_path(@slideshow), class: "btn btn-default" %>
 </div>
 <ol id="sortable-slides" data-update-url="<%= sort_slideshow_slides_url(@slideshow) %>">
 	<% @slides.each do |slide| %>
 		<li class="slide" id="slide_<%= slide.id %>">
 			<span>
 				<span class="handle"><i class="fa fa-sort fa-lg"></i> <%= slide.position %></span>
-				<%#= link_to "Up", slideshow_slide_sort_path(@slideshow, slide, position: slide.position - 1 ), method: :put unless slide.position == 1 %>
-				<%#= link_to "Down", slideshow_slide_sort_path(@slideshow, slide, position: slide.position + 1 ), method: :put unless slide.position == @slideshow.slides.count %>
 			</span>
 			<span>
 				<%= link_to slide.title, slideshow_slide_path(@slideshow, slide) %>

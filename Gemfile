@@ -11,8 +11,8 @@ gem 'turbolinks'
 gem 'devise'
 gem 'rails_admin'
 gem 'cancan'
-gem 'redcarpet', '~> 2.3.0'
 gem 'font-awesome-sass-rails'
+gem 'redcarpet', '~> 2.3.0'
 gem 'whenever'
 
 group :development, :test do
@@ -27,7 +27,6 @@ end
 
 group :test do
   gem 'capybara'
-  gem 'debugger'
 end
 
 gem 'bit_player', git: 'git@github.com:nupmmarkbegale/bit_player.git'

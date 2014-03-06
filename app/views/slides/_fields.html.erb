@@ -1,6 +1,18 @@
 <div class="form-group">
 	<%= f.label :title %>
-  <%= f.text_field :title, class: "form-control" %>
-	<%= f.label :body %>
-  <%= f.text_area :body, class: "form-control", :rows => "10" %>
+  <%= f.text_field :title, class: "form-control", contenteditable: true %>
+	<%= f.label :body, for: "source" %>
+  <div class="editable" contenteditable="true" style="border: 1px solid #cccccc;height:200px;padding: 6px 12px;">
+    <%= @body.html_safe %>
+  </div>
+  <% if Rails.env.test? %>
+    <%= f.text_area :body, id: "source", class: "form-control", :rows => "10" %>
+  <% else %>
+    <%= f.text_area :body, id: "source", class: "form-control", style: "display:none;", :rows => "10" %>
+  <% end %>
 </div>
+
+<script>
+  $(document).ready(slideHallo)
+  $(document).on('page:load', slideHallo)
+</script>
