@@ -1,8 +1,8 @@
-class ContentProviders::ModuleIndexProvider < ContentProvider
+class ContentProviders::ModuleIndexProvider < BitPlayer::ContentProvider
   def render_current(options)
-    content_modules = ContentModule
+    content_modules = BitPlayer::ContentModule
       .where(context: options.app_context)
-      .where.not(id: content_module_id)
+      .where.not(id: bit_player_content_module_id)
 
     options.view_context.render(
       template: 'content_modules/index',

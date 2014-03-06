@@ -8,7 +8,7 @@ class Participant < ActiveRecord::Base
   has_many :awake_periods, dependent: :destroy
   has_many :activity_types, dependent: :destroy
   has_many :thoughts, dependent: :destroy
-  has_one :participant_status
+  has_one :participant_status, class_name: 'BitPlayer::ParticipantStatus'
 
   def unplanned_activities
     UnplannedActivities.new(self)

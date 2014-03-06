@@ -1,4 +1,4 @@
-class ContentProviders::AssignedTask < ContentProvider
+class ContentProviders::AssignedTask < BitPlayer::ContentProvider
   def render_current(options)
     options.view_context.render(
       template: 'assigned_tasks/show',

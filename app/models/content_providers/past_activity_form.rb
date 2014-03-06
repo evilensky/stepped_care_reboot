@@ -1,4 +1,4 @@
-class ContentProviders::PastActivityForm < ContentProvider
+class ContentProviders::PastActivityForm < BitPlayer::ContentProvider
   def render_current(options)
     most_recent_awake_period = AwakePeriod.last
     start_time = most_recent_awake_period.start_time

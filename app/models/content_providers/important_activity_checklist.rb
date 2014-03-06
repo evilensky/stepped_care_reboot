@@ -1,4 +1,4 @@
-class ContentProviders::ImportantActivityChecklist < ContentProvider
+class ContentProviders::ImportantActivityChecklist < BitPlayer::ContentProvider
   def render_current(options)
     options.view_context.render(
       template: 'activities/important_activity_checklist',

@@ -28,6 +28,6 @@ class AppSection
   end
 
   def content_modules
-    ContentModule.where(context: @name)
+    BitPlayer::ContentModule.where(context: @name)
   end
 end

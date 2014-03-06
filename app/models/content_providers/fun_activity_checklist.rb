@@ -1,4 +1,4 @@
-class ContentProviders::FunActivityChecklist < ContentProvider
+class ContentProviders::FunActivityChecklist < BitPlayer::ContentProvider
   def render_current(options)
     options.view_context.render(
       template: 'activities/fun_activity_checklist',

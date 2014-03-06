@@ -5,7 +5,7 @@ module Concerns
     private
 
     def instantiate_navigator
-      @navigator ||= Navigator.new(current_participant)
+      @navigator ||= BitPlayer::Navigator.new(current_participant)
     end
   end
 end

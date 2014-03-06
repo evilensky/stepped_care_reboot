@@ -1,4 +1,4 @@
-class ContentProviders::PastActivityReviewForm < ContentProvider
+class ContentProviders::PastActivityReviewForm < BitPlayer::ContentProvider
   def render_current(options)
     activities = options.participant.activities
       .in_the_past

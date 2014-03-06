@@ -1,7 +1,8 @@
 require 'spec_helper'
 
 describe 'activity tracker' do
-  fixtures :participants, :slideshows, :slides, :content_modules, :content_providers
+  fixtures :participants, :'bit_player/slideshows', :'bit_player/slides',
+    :'bit_player/content_modules', :'bit_player/content_providers'
 
   before do
     sign_in_participant participants(:participant1)
@@ -9,11 +10,11 @@ describe 'activity tracker' do
   end
 
   it 'should implement #1 Awareness' do
-    expect(page).to have_text(content_modules(:do_awareness).title)
+    expect(page).to have_text(bit_player_content_modules(:do_awareness).title)
 
-    click_on content_modules(:do_awareness).title
+    click_on bit_player_content_modules(:do_awareness).title
 
-    expect(page).to have_text(slides(:do_awareness_intro1).body)
+    expect(page).to have_text(bit_player_slides(:do_awareness_intro1).body)
 
     find('.next-button').click
 
@@ -48,9 +49,9 @@ describe 'activity tracker' do
   end
 
   it 'should implement #2 Planning' do
-    click_on content_modules(:do_planning).title
+    click_on bit_player_content_modules(:do_planning).title
 
-    expect(page).to have_text(slides(:do_planning_intro1).body)
+    expect(page).to have_text(bit_player_slides(:do_planning_intro1).body)
 
     find('.next-button').click
 
@@ -81,13 +82,13 @@ describe 'activity tracker' do
   end
 
   it 'should implement #3 Doing' do
-    click_on content_modules(:do_doing).title
+    click_on bit_player_content_modules(:do_doing).title
 
-    expect(page).to have_text(slides(:do_doing_intro1).title)
+    expect(page).to have_text(bit_player_slides(:do_doing_intro1).title)
 
     find('.next-button').click
 
-    expect(page).to have_text(slides(:do_doing_intro2).title)
+    expect(page).to have_text(bit_player_slides(:do_doing_intro2).title)
 
     find('.next-button').click
 

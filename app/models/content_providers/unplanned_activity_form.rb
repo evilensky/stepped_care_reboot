@@ -1,4 +1,4 @@
-class ContentProviders::UnplannedActivityForm < ContentProvider
+class ContentProviders::UnplannedActivityForm < BitPlayer::ContentProvider
 
   def render_current(options)
     options.view_context.render(

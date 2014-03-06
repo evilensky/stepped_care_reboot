@@ -1,4 +1,4 @@
-class ContentProviders::AwakePeriodForm < ContentProvider
+class ContentProviders::AwakePeriodForm < BitPlayer::ContentProvider
   def render_current(options)
     options.view_context.render(
       template: 'awake_periods/new',

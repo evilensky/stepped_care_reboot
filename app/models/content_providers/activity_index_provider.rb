@@ -1,4 +1,4 @@
-class ContentProviders::ActivityIndexProvider < ContentProvider
+class ContentProviders::ActivityIndexProvider < BitPlayer::ContentProvider
   def render_current(options)
     options.view_context.render(template: 'activities/index', locals: {
         activities: options.participant.recent_activities

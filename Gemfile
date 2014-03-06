@@ -27,4 +27,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'debugger'
 end
+
+gem 'bit_player', git: 'git@github.com:nupmmarkbegale/bit_player.git'
