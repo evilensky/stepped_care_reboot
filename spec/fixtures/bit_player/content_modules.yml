@@ -72,3 +72,8 @@ learn_landing:
   title: ''
   context: learn
   position: 1
+
+messages_landing:
+  title: ''
+  context: messages
+  position: 1

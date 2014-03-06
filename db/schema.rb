@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140306000610) do
+ActiveRecord::Schema.define(version: 20140306175954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -107,6 +107,28 @@ ActiveRecord::Schema.define(version: 20140306000610) do
     t.datetime "updated_at"
   end
 
+  create_table "coach_assignments", force: true do |t|
+    t.integer  "participant_id", null: false
+    t.integer  "coach_id",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "coach_assignments", ["coach_id"], name: "index_coach_assignments_on_coach_id", using: :btree
+  add_index "coach_assignments", ["participant_id"], name: "index_coach_assignments_on_participant_id", using: :btree
+
+  create_table "delivered_messages", force: true do |t|
+    t.integer  "message_id",                     null: false
+    t.integer  "recipient_id",                   null: false
+    t.string   "recipient_type",                 null: false
+    t.boolean  "is_read",        default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delivered_messages", ["message_id"], name: "index_delivered_messages_on_message_id", using: :btree
+  add_index "delivered_messages", ["recipient_id", "recipient_type"], name: "index_delivered_messages_on_recipient_id_and_recipient_type", using: :btree
+
   create_table "groups", force: true do |t|
     t.string   "title",      null: false
     t.integer  "creator_id", null: false
@@ -126,6 +148,21 @@ ActiveRecord::Schema.define(version: 20140306000610) do
   add_index "memberships", ["group_id", "participant_id"], name: "index_memberships_on_group_id_and_participant_id", unique: true, using: :btree
   add_index "memberships", ["group_id"], name: "index_memberships_on_group_id", using: :btree
   add_index "memberships", ["participant_id"], name: "index_memberships_on_participant_id", using: :btree
+
+  create_table "messages", force: true do |t|
+    t.integer  "sender_id",      null: false
+    t.string   "sender_type",    null: false
+    t.integer  "recipient_id",   null: false
+    t.string   "recipient_type", null: false
+    t.string   "subject",        null: false
+    t.text     "body"
+    t.datetime "sent_at",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["recipient_id", "recipient_type"], name: "index_messages_on_recipient_id_and_recipient_type", using: :btree
+  add_index "messages", ["sender_id", "sender_type"], name: "index_messages_on_sender_id_and_sender_type", using: :btree
 
   create_table "participants", force: true do |t|
     t.string   "email",                  default: "", null: false

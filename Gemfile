@@ -29,4 +29,4 @@ group :test do
   gem 'capybara'
 end
 
-gem 'bit_player', git: 'git@github.com:nupmmarkbegale/bit_player.git'
+gem 'bit_player', '= 0.0.5'
