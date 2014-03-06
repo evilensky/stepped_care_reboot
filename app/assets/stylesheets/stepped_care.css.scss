@@ -1,15 +1,17 @@
-body,html{font-family: 'Archivo Narrow', sans-serif !important;}
+$think-color: #72A049;
+$feel-color: #5A5198;
+$do-color: #7E4791;
+
+body, html {
+  font-family: 'Archivo Narrow', sans-serif !important;
+}
+
 .container {width:90%;}
 .main-nav {text-align: right; border-right: 1px solid black;}
 .main-nav a {display:block; font-size:3em; text-transform: uppercase; color:black;margin:0;padding-right:40px;}
 .main-nav a:hover {text-decoration: none; color:#AAA;}
 .main-content {text-align: left;}
 .main-content h2 {margin-top:.5em; display:block;}
-
-.tool-nav {}
-.tool-nav h1 {}
-.tool-nav h2 {}
-.tool-nav h3 {}
 
 input.form-button {
 	margin-top: 8px;
@@ -44,16 +46,28 @@ footer {position:fixed; bottom:15px; left:15px;}
 
 .logo{font-weight:bold;font-size:4em;}
 
-.think{color:#72A049}
-.feel{color:#5A5198}
-.do{color:#7E4791}
+.think {
+  color: $think-color;
+}
 
-.fa-asterisk{color:#7E4791;}
-.fa-caret-right{color:#5A5198; margin-right:-30px; width:30px;}
-a {color:#72A049}
+.feel {
+  color: $feel-color;
+}
 
+.do {
+  color: $do-color;
+}
 
+.icon-asterisk {
+  color: $do-color;
+}
 
+.icon-caret-right {
+  color: $feel-color;
+  margin-right: -30px;
+  width: 30px;
+}
 
-
-
+a {
+  color: $think-color;
+}
