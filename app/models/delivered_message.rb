@@ -4,4 +4,6 @@ class DeliveredMessage < ActiveRecord::Base
 
   validates :message, :recipient, presence: true
   validates :is_read, inclusion: { in: [true, false] }
+
+  scope :unread, -> { where(is_read: false) }
 end
