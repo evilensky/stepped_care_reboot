@@ -1,0 +1,5 @@
+<h2>Now list a few more...</h2>
+
+<% thoughts.each do |thought| %>
+  <%= render 'thoughts/form', thought: thought, create_path: create_path %>
+<% end %>

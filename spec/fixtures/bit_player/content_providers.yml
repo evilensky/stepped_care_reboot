@@ -110,6 +110,11 @@ think_identify_new_thought_form:
   bit_player_content_module: think_identifying
   position: 2
 
+think_identify_new_thoughts_form:
+  type: ContentProviders::NewThoughtsFormProvider
+  bit_player_content_module: think_identifying
+  position: 3
+
 think_patterns_index:
   type: BitPlayer::ContentProviders::SlideshowProvider
   source_content: think_patterns_intro (BitPlayer::Slideshow)
