@@ -2,7 +2,7 @@
 
 <ul class="list-unstyled">
   <% received_messages.each do |msg| %>
-    <li><%= msg.subject %></li>
+    <li><%= link_to msg.subject, show_path.call(message_id: msg.message_id), class: (msg.is_read ? 'text-muted' : '') %></li>
   <% end %>
 </ul>
 
@@ -11,7 +11,7 @@
 
   <ul class="list-unstyled">
     <% sent_messages.each do |msg| %>
-      <li><%= msg.subject %></li>
+      <li><%= link_to msg.subject, show_path.call(message_id: msg.id), class: 'text-muted' %></li>
     <% end %>
   </ul>
 <% end %>

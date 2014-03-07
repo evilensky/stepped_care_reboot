@@ -27,4 +27,10 @@ describe 'messages' do
     expect(page).to have_text('Try out the LEARN tool')
     expect(page).to have_text('I like this app')
   end
+
+  it 'should show a message' do
+    click_on('I like this app')
+
+    expect(page).to have_text('This app is really helpful!')
+  end
 end

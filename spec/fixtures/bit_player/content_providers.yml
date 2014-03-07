@@ -166,7 +166,12 @@ messages_landing:
   content_module: messages_landing
   position: 1
 
+message_view:
+  type: ContentProviders::ShowMessageProvider
+  content_module: messages_landing
+  position: 2
+
 messages_compose:
   type: ContentProviders::NewMessageFormProvider
   content_module: messages_landing
-  position: 2
+  position: 3
