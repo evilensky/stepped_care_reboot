@@ -5,7 +5,7 @@ home_slideshow:
   position: 1
 
 home_task:
-  type: ContentProviders::AssignedTask
+  type: ContentProviders::AssignedTaskProvider
   content_module: home_landing
   position: 2
 
