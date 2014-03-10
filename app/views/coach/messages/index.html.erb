@@ -1,0 +1,17 @@
+<%= render 'inbox_header', received_messages: received_messages %>
+
+<ul class="list-unstyled" id="received-messages">
+  <%= render partial: 'coach/received_messages/received_message', collection: received_messages %>
+</ul>
+
+<% if sent_messages.count > 0 %>
+  <h3>Sent</h3>
+
+  <ul class="list-unstyled">
+    <% sent_messages.each do |msg| %>
+      <li><%= link_to msg.subject, coach_sent_message_path(msg), class: 'text-muted' %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Compose', new_coach_message_path, class: 'btn btn-default' %>

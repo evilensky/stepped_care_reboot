@@ -11,12 +11,17 @@ SteppedCareReboot::Application.routes.draw do
     resource :flow, only: :show
   end
 
-  root to: 'navigator#show_context'
-
   resources :slideshows do
     resources :slides do
       collection { post :sort }
     end
   end
-  
+
+  namespace :coach do
+    resources :messages, only: [:index, :new, :create]
+    resources :received_messages, only: [:index, :show]
+    resources :sent_messages, only: :show
+  end
+
+  root to: 'navigator#show_context'
 end

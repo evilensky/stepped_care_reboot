@@ -1,0 +1,2 @@
+$("#inbox-header").replaceWith("<%= j render('coach/messages/inbox_header', received_messages: @received_messages) %>");
+$("#received-messages").html("<%= j render(partial: 'coach/received_messages/received_message', collection: @received_messages) %>");

@@ -1,0 +1,29 @@
+// Poll for new messages
+<% url = SteppedCareReboot::Application.routes.url_helpers %>
+
+(function() {
+  // interval in ms
+  var POLL_INTERVAL = 5000;
+  var timeoutId = null;
+
+  $(document).on('page:change', function() {
+    waitAndCheck();
+
+    function waitAndCheck() {
+      window.clearTimeout(timeoutId);
+
+      if (window.location.pathname === "<%= url.coach_messages_path %>") {
+        timeoutId = setTimeout(checkMessages, POLL_INTERVAL);
+      } else {
+        timeoutId = null;
+      }
+    }
+
+    function checkMessages() {
+      $.ajax({
+        url: "<%= url.coach_received_messages_path %>"
+      })
+        .always(waitAndCheck);
+    }
+  });
+})();
