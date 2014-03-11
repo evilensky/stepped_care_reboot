@@ -1,0 +1,2 @@
+$("#inbox-header").replaceWith("<%= j render('participant/messages/inbox_header', received_messages: @received_messages) %>");
+$("#received-messages").html("<%= j render(partial: 'participant/received_messages/received_message', collection: @received_messages) %>");

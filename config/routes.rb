@@ -23,5 +23,9 @@ SteppedCareReboot::Application.routes.draw do
     resources :sent_messages, only: :show
   end
 
+  namespace :participant do
+    resources :received_messages, only: :index
+  end
+
   root to: 'navigator#show_context'
 end

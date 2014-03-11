@@ -12,7 +12,7 @@
     function scheduleCheck() {
       window.clearTimeout(timeoutId);
 
-      if (window.location.pathname === "<%= url.coach_messages_path %>") {
+      if (window.location.pathname === "<%= url.navigator_context_path(context_name: 'messages') %>") {
         timeoutId = setTimeout(checkMessages, POLL_INTERVAL);
       } else {
         timeoutId = null;
@@ -21,7 +21,7 @@
 
     function checkMessages() {
       $.ajax({
-        url: "<%= url.coach_received_messages_path %>"
+        url: "<%= url.participant_received_messages_path %>"
       })
         .always(scheduleCheck);
     }

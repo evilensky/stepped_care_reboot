@@ -1,4 +1,4 @@
-<%= render 'inbox_header', received_messages: received_messages %>
+<%= render 'messages/inbox_header', received_messages: received_messages %>
 
 <ul class="list-unstyled" id="received-messages">
   <%= render partial: 'coach/received_messages/received_message', collection: received_messages %>

@@ -1,0 +1,1 @@
+<li><%= link_to received_message.subject, show_path.call(message_id: received_message.message_id), class: (received_message.is_read ? 'text-muted' : '') %></li>

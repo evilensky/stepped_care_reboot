@@ -1,9 +1,7 @@
-<h2>Inbox (<%= received_messages.unread.count %>)</h2>
+<%= render 'messages/inbox_header', received_messages: received_messages %>
 
-<ul class="list-unstyled">
-  <% received_messages.each do |msg| %>
-    <li><%= link_to msg.subject, show_path.call(message_id: msg.message_id), class: (msg.is_read ? 'text-muted' : '') %></li>
-  <% end %>
+<ul class="list-unstyled" id="received-messages">
+  <%= render partial: 'received_messages/received_message', collection: received_messages, locals: { show_path: show_path } %>
 </ul>
 
 <% if sent_messages.count > 0 %>
