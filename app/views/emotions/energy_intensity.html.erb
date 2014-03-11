@@ -1,8 +1,8 @@
-<h3>Over the past 24 hours, what emotions did you experience?</h3>
+<h3>Emotion Details</h3>
 <%= form_for emotion, url: update_path, method: "post", html: { role: "form" } do |f| %>
   <%= f.hidden_field :rating, value: emotion.rating %>
 
-  <%= f.label :activation_level, "Select the word that best describes your emotion" %>
+  <%= f.label :activation_level, "Select the word that best describes the emotion" %>
   <%= f.select(:activation_level, options_for_select(emotion_types)) %>
 
   <br>
