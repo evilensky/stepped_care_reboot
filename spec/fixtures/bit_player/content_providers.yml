@@ -161,6 +161,16 @@ feel_rate_new:
   content_module: feeling_tracker_module2
   position: 2
 
+emotion_rate_new:
+  type: ContentProviders::NewEmotionFormProvider
+  content_module: feeling_tracker_module2
+  position: 3
+
+emotion_rate_energy_and_intensity:
+  type: ContentProviders::EmotionEnergyIntensityFormProvider
+  content_module: feeling_tracker_module2
+  position: 4
+
 learn_landing:
   type: ContentProviders::ModuleIndexProvider
   content_module: learn_landing
