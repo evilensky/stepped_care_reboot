@@ -1,7 +1,9 @@
 <h1>Slideshows</h1>
+
 <div class="btn btn-toolbar" style="padding: 0px;">
 	<%= link_to "New Slideshow", new_slideshow_path, class: "btn btn-success" %>
 </div>
+
 <table class="table">
 	<thead>
 		<tr>
@@ -17,8 +19,8 @@
 				<td>
 					<%= link_to slideshow.title, slideshow_path(slideshow) %>
 				</td>
-				<td><%= slideshow.created_at %></td>
-				<td><%= slideshow.updated_at %></td>
+				<td><%= slideshow.created_at.to_s :date_time_with_meridian %></td>
+				<td><%= slideshow.updated_at.to_s :date_time_with_meridian %></td>
 				<td>
 					<%= link_to "Edit", edit_slideshow_path(slideshow), class: "btn btn-default" %>
 					<%= link_to "Delete", slideshow_path(slideshow), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
