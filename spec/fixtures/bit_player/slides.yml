@@ -184,6 +184,12 @@ think_identifying_intro4:
 
     \"If I work a little harder, I can do better\""
 
+feel_identifying_intro1:
+  slideshow: feel_identify_intro
+  position: 1
+  title: Some quick examples...
+  body: "What is mood?"
+
 rspec_slide:
   slideshow: rspec_slideshow
   position: 1

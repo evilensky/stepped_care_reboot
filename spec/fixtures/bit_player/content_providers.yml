@@ -156,6 +156,11 @@ feel_reshape_index:
   content_module: feeling_tracker_module4
   position: 1    
 
+feel_rate_new:
+  type: ContentProviders::NewMoodFormProvider
+  content_module: feeling_tracker_module2
+  position: 2
+
 learn_landing:
   type: ContentProviders::ModuleIndexProvider
   content_module: learn_landing

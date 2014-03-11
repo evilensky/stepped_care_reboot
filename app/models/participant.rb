@@ -7,6 +7,7 @@ class Participant < ActiveRecord::Base
   has_many :activities, dependent: :destroy
   has_many :awake_periods, dependent: :destroy
   has_many :activity_types, dependent: :destroy
+  has_many :moods, dependent: :destroy
   has_many :thoughts, dependent: :destroy
   has_many :sent_messages, class_name: 'Message', as: :sender
   has_many :messages, as: :sender

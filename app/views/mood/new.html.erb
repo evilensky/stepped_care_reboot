@@ -1,0 +1,12 @@
+<h3>What is your mood right now?</h3>
+<%= form_for mood, url: create_path, method: "post", html: { role: "form" } do |f| %>
+  <%= f.label :rating %>
+  <div class="range row">
+    <div class="col-sm-4 left">1<br>None</div>
+    <div class="col-sm-4 center">5 <br>Some</div>
+    <div class="col-sm-4 right">10<br>A Lot</div>
+  </div>
+  <%= f.range_field :rating, in: 0..10, step: 1 %>
+
+  <%= f.submit "Continue", class: "btn btn-primary" %>
+<% end %>
