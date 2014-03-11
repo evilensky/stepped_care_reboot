@@ -8,6 +8,12 @@ class Message < ActiveRecord::Base
   before_create :populate_sent_at
   after_create :create_delivered_messages
 
+  def render_body
+    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, space_after_headers: true)
+
+    markdown.render(body).html_safe
+  end
+
   private
 
   def populate_sent_at

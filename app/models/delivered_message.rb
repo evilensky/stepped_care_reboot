@@ -7,7 +7,7 @@ class DeliveredMessage < ActiveRecord::Base
 
   scope :unread, -> { where(is_read: false) }
 
-  delegate :subject, :body, to: :message
+  delegate :subject, :body, :render_body, to: :message
 
   def mark_read
     update(is_read: true)
