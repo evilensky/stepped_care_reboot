@@ -28,4 +28,8 @@ SteppedCareReboot::Application.routes.draw do
   end
 
   root to: 'navigator#show_context'
+
+  if Rails.env.development?
+    mount MailPreview => 'mail_view'
+  end
 end

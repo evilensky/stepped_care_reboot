@@ -13,7 +13,10 @@ gem 'rails_admin'
 gem 'cancan'
 gem 'font-awesome-sass-rails'
 gem 'redcarpet', '~> 2.3.0'
+# schedule tasks
 gem 'whenever'
+# preview email
+gem 'mail_view'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
