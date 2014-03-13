@@ -32,4 +32,4 @@ group :test do
   gem 'capybara'
 end
 
-gem 'bit_player', '= 0.1.0'
+gem 'bit_player', '~> 0.1'

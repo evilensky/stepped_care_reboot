@@ -30,7 +30,7 @@ GEM
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
-    bit_player (0.1.0)
+    bit_player (0.1.1)
       rails (~> 4.0.3)
     bootstrap-sass (3.1.1.0)
       sass (~> 3.2)
@@ -211,7 +211,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bit_player (= 0.1.0)
+  bit_player (~> 0.1)
   bootstrap-sass (~> 3.1.1)
   cancan
   capistrano (~> 2.15.5)
