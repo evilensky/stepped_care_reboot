@@ -1,4 +1,5 @@
 class Values::Pleasure
+
   def self.from_intensity(intensity)
     if intensity < 4
       new("Not Fun")
@@ -16,4 +17,5 @@ class Values::Pleasure
   def to_s
     @label.to_s
   end
+  
 end

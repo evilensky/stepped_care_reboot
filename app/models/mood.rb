@@ -3,4 +3,9 @@ class Mood < ActiveRecord::Base
   
   validates :participant, presence: true
   validates :rating, presence: true
+
+  def mood_value
+    Values::Mood.from_rating(rating).to_s
+  end
+
 end

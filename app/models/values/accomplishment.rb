@@ -1,4 +1,5 @@
 class Values::Accomplishment
+
   def self.from_intensity(intensity)
     if intensity < 4
       new("Low Importance")
@@ -16,4 +17,5 @@ class Values::Accomplishment
   def to_s
     @label.to_s
   end
+  
 end
