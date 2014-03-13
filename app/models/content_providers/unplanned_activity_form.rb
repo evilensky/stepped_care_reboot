@@ -1,5 +1,4 @@
 class ContentProviders::UnplannedActivityForm < BitPlayer::ContentProvider
-
   def render_current(options)
     options.view_context.render(
       template: 'activities/unplanned_activity_form',
@@ -28,5 +27,4 @@ class ContentProviders::UnplannedActivityForm < BitPlayer::ContentProvider
   def show_nav_link?
     false
   end
-
 end

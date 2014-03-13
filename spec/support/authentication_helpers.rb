@@ -12,5 +12,4 @@ module AuthenticationHelpers
     fill_in 'Password', with: 'secrets!'
     click_on 'Sign in'
   end
-
 end

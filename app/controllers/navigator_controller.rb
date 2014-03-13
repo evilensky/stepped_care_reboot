@@ -43,5 +43,4 @@ private
       'tool'
     end
   end
-
 end

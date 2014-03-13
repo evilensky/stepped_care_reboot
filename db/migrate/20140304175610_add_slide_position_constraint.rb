@@ -18,5 +18,4 @@ class AddSlidePositionConstraint < ActiveRecord::Migration
     remove_index :slides, [:position, :slideshow_id]
     add_index :slides, [:position, :slideshow_id], unique: true
   end
-
 end

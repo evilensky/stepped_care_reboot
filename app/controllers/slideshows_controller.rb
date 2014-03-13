@@ -51,10 +51,9 @@ class SlideshowsController < ApplicationController
     end
   end
 
-private
+  private
 
   def slideshow_params 
     params.require(:slideshow).permit(:title)
   end
-
 end
