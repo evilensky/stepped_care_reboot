@@ -1,2 +1,4 @@
-class Roles::Clinician
+module Roles
+  class Clinician
+  end
 end

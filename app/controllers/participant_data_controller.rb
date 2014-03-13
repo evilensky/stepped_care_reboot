@@ -6,12 +6,8 @@ class ParticipantDataController < ApplicationController
   layout 'tool'
 
   def create
-    provider = @navigator.current_content_provider
-    parameter = provider.data_class_name.underscore
-    data_attributes = params.fetch(parameter, {}).permit(provider.data_attributes)
-    association = parameter.pluralize
-
-    @data = current_participant.build_data_record(association, data_attributes)
+    @data = current_participant
+      .build_data_record(collection_association, data_attributes)
 
     if @data.save
       flash[:notice] = provider.data_class_name + ' saved'
@@ -31,12 +27,8 @@ class ParticipantDataController < ApplicationController
   end
 
   def update
-    provider = @navigator.current_content_provider
-    parameter = provider.data_class_name.underscore
-    data_attributes = params.fetch(parameter, {}).permit(provider.data_attributes)
-    association = parameter.pluralize
-
-    @data = current_participant.fetch_data_record(association, data_attributes[:id])
+    @data = current_participant
+      .fetch_data_record(collection_association, data_attributes[:id])
 
     if @data.update(data_attributes.reject { |a| a == 'id' })
       flash[:notice] = provider.data_class_name + ' saved'
@@ -53,5 +45,25 @@ class ParticipantDataController < ApplicationController
         format.js { render status: 400 }
       end
     end
+  end
+
+  private
+
+  def provider
+    @provider ||= @navigator.current_content_provider
+  end
+
+  def singular_association
+    @singular_association ||= provider.data_class_name.underscore
+  end
+
+  def collection_association
+    singular_association.pluralize
+  end
+
+  def data_attributes
+    @data_attributes ||= params
+      .fetch(singular_association, {})
+      .permit(provider.data_attributes)
   end
 end

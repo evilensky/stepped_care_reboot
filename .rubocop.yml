@@ -1,9 +1,20 @@
 AllCops:
   Excludes:
+    - bin/**
+    - config/**
     - db/schema.rb
+
+Documentation:
+  Exclude:
+    - db/**
+    - spec/**
 
 DotPosition:
   Enabled: false
+
+FileName:
+  Exclude:
+    - db/**
 
 FinalNewline:
   Enabled: false
@@ -11,12 +22,21 @@ FinalNewline:
 HandleExceptions:
   Enabled: false
 
+HashSyntax:
+  Exclude:
+    - db/**
+
 IfUnlessModifier:
   Enabled: false
 
 LineLength:
   Exclude:
+    - db/**
     - spec/**
+
+MethodLength:
+  Exclude:
+    - db/**
 
 StringLiterals:
   Enabled: false

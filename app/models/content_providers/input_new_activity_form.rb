@@ -9,7 +9,7 @@ class ContentProviders::InputNewActivityForm < BitPlayer::ContentProvider
   end
 
   def data_attributes
-    [ "1" => [:activity_type_title, :predicted_accomplishment_intensity], "0" => [:activity_type_title, :predicted_pleasure_intensity] ]
+    ["1" => [:activity_type_title, :predicted_accomplishment_intensity], "0" => [:activity_type_title, :predicted_pleasure_intensity]]
   end
 
   def data_class_name

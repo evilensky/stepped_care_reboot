@@ -7,7 +7,7 @@ describe Activity do
     let(:title) { 'prancing in the woods' }
 
     it "should create an activity type when it has an activity type title" do
-      activity = Activity.create(
+      Activity.create(
         participant: participants(:participant1),
         activity_type_title: title,
         start_time: Time.now,
@@ -17,7 +17,7 @@ describe Activity do
     end
 
     it "should not create an activity type when it does not have an activity type title" do
-      activity = Activity.create(
+      Activity.create(
         participant: participants(:participant1),
         start_time: Time.now,
         end_time: Time.now + 1.hour

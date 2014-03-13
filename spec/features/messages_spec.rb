@@ -1,9 +1,11 @@
 require 'spec_helper'
 
 describe 'messages' do
-  fixtures :participants, :users, :messages, :delivered_messages,
+  fixtures(
+    :participants, :users, :messages, :delivered_messages,
     :'bit_player/content_modules', :'bit_player/content_providers',
     :'bit_player/slideshows', :'bit_player/slides', :coach_assignments
+  )
 
   before do
     sign_in_participant participants(:participant1)

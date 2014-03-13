@@ -1,2 +1,4 @@
-class Roles::Researcher
+module Roles
+  class Researcher
+  end
 end

@@ -1,8 +1,10 @@
 require 'spec_helper'
 
 describe 'home context' do
-  fixtures :participants, :'bit_player/slideshows', :'bit_player/slides',
+  fixtures(
+    :participants, :'bit_player/slideshows', :'bit_player/slides',
     :'bit_player/content_modules', :'bit_player/content_providers'
+  )
 
   it 'should have the correct content' do
     sign_in_participant participants(:participant1)

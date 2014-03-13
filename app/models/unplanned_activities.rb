@@ -1,6 +1,8 @@
 class UnplannedActivities
   Errors = Struct.new(:full_messages)
 
+  attr_reader :errors
+
   def initialize(participant)
     @participant = participant
     @activities = []
@@ -32,10 +34,6 @@ class UnplannedActivities
 
       false
     end
-  end
-
-  def errors
-    @errors
   end
 
   private

@@ -14,29 +14,29 @@ class Activity < ActiveRecord::Base
 
   before_validation :create_activity_type
 
-  scope :pleasurable, -> do
+  scope :pleasurable, lambda {
     where('activities.actual_pleasure_intensity >= ?', PLEASURABLE_CUTOFF)
-  end
+  }
 
-  scope :accomplished, -> do
+  scope :accomplished, lambda {
     where('activities.actual_accomplishment_intensity >= ?', ACCOMPLISHED_CUTOFF)
-  end
+  }
 
-  scope :random, -> do
+  scope :random, lambda {
     order("RANDOM()")
-  end
+  }
 
-  scope :in_the_past, -> do
+  scope :in_the_past, lambda {
     where('activities.end_time < ?', Time.now)
-  end
+  }
 
-  scope :unplanned, -> do
+  scope :unplanned, lambda {
     where(start_time: nil, end_time: nil)
-  end
+  }
 
-  scope :incomplete, -> do
+  scope :incomplete, lambda {
     where(is_complete: false)
-  end
+  }
 
   def self.during(start_time, end_time)
     where('start_time >= ? AND end_time <= ?', start_time, end_time)

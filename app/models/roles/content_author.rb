@@ -1,2 +1,4 @@
-class Roles::ContentAuthor
+module Roles
+  class ContentAuthor
+  end
 end

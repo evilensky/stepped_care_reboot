@@ -25,10 +25,6 @@ class ContentProviders::PastActivityForm < BitPlayer::ContentProvider
     'Activity'
   end
 
-  def has_more_content?
-    false
-  end
-
   def show_nav_link?
     false
   end

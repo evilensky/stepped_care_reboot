@@ -14,7 +14,7 @@ describe ParticipantDataController do
     it 'should build the desired association' do
       sign_in_participant participant
       expect(participant).to receive(:build_data_record)
-        .with('my_data_classes', { 'attr1' => '1', 'attr2' => '2' })
+        .with('my_data_classes', 'attr1' => '1', 'attr2' => '2')
       post :create, my_data_class: { attr1: 1, attr2: 2 }
     end
   end

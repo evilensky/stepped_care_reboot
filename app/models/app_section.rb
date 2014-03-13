@@ -7,6 +7,8 @@ class AppSection
     messages: 'MESSAGES'
   }
 
+  attr_reader :slug
+
   def self.by_name(name)
     new(name)
   end
@@ -16,18 +18,14 @@ class AppSection
   end
 
   def initialize(name)
-    @name = name.to_s || ''
-  end
-
-  def slug
-    @name
+    @slug = name.to_s || ''
   end
 
   def label
-    SECTIONS[@name.to_sym]
+    SECTIONS[slug.to_sym]
   end
 
   def content_modules
-    BitPlayer::ContentModule.where(context: @name)
+    BitPlayer::ContentModule.where(context: slug)
   end
 end

@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :sent_messages, class_name: 'Message', as: :sender
   has_many :messages, as: :sender
   has_many :received_messages,
-    -> { includes :message },
-    class_name: 'DeliveredMessage',
-    as: :recipient
+           -> { includes :message },
+           class_name: 'DeliveredMessage',
+           as: :recipient
 end
