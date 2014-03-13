@@ -14,7 +14,7 @@ class ContentProviders::NewEmotionFormProvider < BitPlayer::ContentProvider
   end
 
   def data_attributes
-    [:rating]
+    [:activation_level, :intensity, :name, :rating]
   end
 
   def show_nav_link?

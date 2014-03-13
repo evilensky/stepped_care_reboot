@@ -167,7 +167,7 @@ emotion_rate_new:
   position: 3
 
 emotion_rate_energy_and_intensity:
-  type: ContentProviders::EmotionEnergyIntensityFormProvider
+  type: ContentProviders::EditEmotionFormProvider
   content_module: feeling_tracker_module2
   position: 4
 

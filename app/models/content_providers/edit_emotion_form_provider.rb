@@ -1,4 +1,4 @@
-class ContentProviders::EmotionEnergyIntensityFormProvider < BitPlayer::ContentProvider
+class ContentProviders::EditEmotionFormProvider < BitPlayer::ContentProvider
   def render_current(options)
     options.view_context.render(
       template: 'emotions/edit',
@@ -15,7 +15,7 @@ class ContentProviders::EmotionEnergyIntensityFormProvider < BitPlayer::ContentP
   end
 
   def data_attributes
-    [:activation_level, :intensity, :rating]
+    [:activation_level, :intensity, :name, :rating]
   end
 
   def show_nav_link?
