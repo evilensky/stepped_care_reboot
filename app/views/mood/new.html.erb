@@ -2,10 +2,11 @@
 <%= form_for mood, url: create_path, method: "post", html: { role: "form" } do |f| %>
   <%= f.label :rating %>
   <div class="range row">
-    <div class="col-sm-6 left">1</div>
-    <div class="col-sm-6 right">10</div>
+    <div class="col-sm-4 left">-5<br>Bad</div>
+    <div class="col-sm-4 text-center">0<br>Neither</div>
+    <div class="col-sm-4 right">5<br>Good</div>
   </div>
-  <%= f.range_field :rating, in: 0..10, step: 1 %>
+  <%= f.range_field :rating, in: -5..5, step: 1 %>
 
   <%= f.submit "Continue", class: "btn btn-primary" %>
 <% end %>
