@@ -1,0 +1,22 @@
+(function() {
+  var formEl = 'form.multi-page';
+
+  $(document).on('page:change', function() {
+    $(document)
+      .on('ajax:success', formEl, handleSubmitSuccess);
+  });
+
+  function handleSubmitSuccess() {
+    $(this)
+      .hide()
+      .next(formEl).show();
+
+    if (isTheLastForm.bind(this)()) {
+      window.location.replace(window.location.origin + '/navigator/next_content');
+    }
+  }
+
+  function isTheLastForm() {
+    return $(this).next(formEl).length === 0;
+  }
+})();

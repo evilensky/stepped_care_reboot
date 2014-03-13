@@ -184,6 +184,18 @@ think_identifying_intro4:
 
     \"If I work a little harder, I can do better\""
 
+think_identifying_conclusion:
+  slideshow: think_identifying_conclusion
+  position: 1
+  title: Good work.
+  body: "Identify a few more thoughts you’ve had recently.
+
+
+    It's good to practice this for a few days...
+
+
+    Come back tomorrow to log a few more!"
+
 rspec_slide:
   slideshow: rspec_slideshow
   position: 1

@@ -115,6 +115,12 @@ think_identify_new_thoughts_form:
   content_module: think_identifying
   position: 3
 
+think_conclusion:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: think_identifying_conclusion (BitPlayer::Slideshow)
+  content_module: think_identifying
+  position: 4
+
 think_patterns_index:
   type: BitPlayer::ContentProviders::SlideshowProvider
   source_content: think_patterns_intro (BitPlayer::Slideshow)

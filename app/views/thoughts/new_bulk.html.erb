@@ -1,5 +1,40 @@
 <h2>Now list a few more...</h2>
 
-<% thoughts.each do |thought| %>
-  <%= render 'thoughts/form', thought: thought, create_path: create_path %>
+<%
+  placeholders = [
+    'an example thought: "I don\’t know why I\'m filling this out, but maybe it will help"',
+    'another example: "I\'m a terrible friend" or "They\'re all going to laugh at me',
+    'yet another example: "They\'re never going to listen to me"'
+  ]
+%>
+<% thoughts.each_with_index do |thought, i| %>
+  <%=
+    form_for(
+      thought,
+      url: create_path,
+      remote: true,
+      html: {
+        class: "multi-page",
+        style: i == 0 ? '' : 'display: none;',
+        role: "form"
+      }
+    ) do |f|
+  %>
+    <div class="form-group">
+      <%= f.text_area :content, size: "60x5", placeholder: placeholders[i], required: true %>
+    </div>
+
+    <div class="form-group">
+      <label class="radio-inline">
+        This thought is:
+      </label>
+      <% thought.class::EFFECTS.each do |effect| %>
+        <label class="radio-inline">
+          <%= f.radio_button :effect, effect, required: true %> <%= effect %>
+        </label>
+      <% end %>
+    </div>
+
+    <button type="submit" class="btn btn-default">Continue</button>
+  <% end %>
 <% end %>

@@ -5,6 +5,6 @@ $(document).on('page:change', function() {
 
   $(document)
     .on('change', formEl + ' input[name="thought[effect]"]', function(event) {
-      $(formEl + ' button[type="submit"]').show();
+      $(this).parents(formEl).find('button[type="submit"]').show();
     });
 });

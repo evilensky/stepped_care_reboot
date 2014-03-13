@@ -19,6 +19,9 @@ do_congrats:
 think_identifying_intro:
   title: Intro
 
+think_identifying_conclusion:
+  title: Conclusion
+
 think_patterns_intro:
   title: Intro
 
