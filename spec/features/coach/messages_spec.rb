@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'coach messages' do
-  fixtures :users
+  fixtures :users, :participants
 
   before do
     sign_in_user users(:user1)
