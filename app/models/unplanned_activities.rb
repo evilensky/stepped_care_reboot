@@ -8,14 +8,13 @@ class UnplannedActivities
 
   def build(attributes)
     many_attributes = case
-    when attributes[:activity_type_ids]
-      (attributes[:activity_type_ids] || []).map do |type_id|
-        { activity_type_id: type_id }
-      end
-    else
-      attributes.values
-    end
-
+                      when attributes[:activity_type_ids]
+                        (attributes[:activity_type_ids] || []).map do |type_id|
+                          { activity_type_id: type_id }
+                        end
+                      else
+                        attributes.values
+                      end
     build_many(many_attributes)
 
     self

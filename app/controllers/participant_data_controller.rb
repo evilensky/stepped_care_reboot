@@ -24,7 +24,7 @@ class ParticipantDataController < ApplicationController
       flash.now[:alert] = @data.errors.full_messages.join(', ')
 
       respond_to do |format|
-        format.html { render template: 'navigator/show_content'}
+        format.html { render template: 'navigator/show_content' }
         format.js { render status: 400 }
       end
     end

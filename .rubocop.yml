@@ -1,5 +1,25 @@
 AllCops:
   Excludes:
     - db/schema.rb
+
+DotPosition:
+  Enabled: false
+
+FinalNewline:
+  Enabled: false
+
+HandleExceptions:
+  Enabled: false
+
+IfUnlessModifier:
+  Enabled: false
+
+LineLength:
+  Exclude:
+    - spec/**
+
 StringLiterals:
+  Enabled: false
+
+WordArray:
   Enabled: false

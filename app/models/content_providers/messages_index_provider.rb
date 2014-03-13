@@ -8,11 +8,12 @@ class ContentProviders::MessagesIndexProvider < BitPlayer::ContentProvider
     )
 
     show_path = ->(params) { options.view_context.navigator_location_path({
-      context: 'messages',
-      module_id: content_module.id,
-      provider_id: content_module.content_providers.find_by_type('ContentProviders::ShowMessageProvider').id,
-      content_position: 1
-    }.merge(params)) }
+        context: 'messages',
+        module_id: content_module.id,
+        provider_id: content_module.content_providers.find_by_type('ContentProviders::ShowMessageProvider').id,
+        content_position: 1
+      }.merge(params))
+    }
 
     options.view_context.render(
       template: 'messages/index',

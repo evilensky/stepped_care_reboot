@@ -1,5 +1,4 @@
 class AddSlidePositionConstraint < ActiveRecord::Migration
-  
   def up
     remove_index :slides, [:position, :slideshow_id]
     add_index :slides, [:position, :slideshow_id]

@@ -1,7 +1,9 @@
 class ContentProviders::InputNewActivityForm < BitPlayer::ContentProvider
   def render_current(options)
-    options.view_context.render(template: 'activities/input_new_activity_form', locals: {
-        create_path: options.view_context.participant_data_path 
+    options.view_context.render(
+      template: 'activities/input_new_activity_form',
+      locals: {
+        create_path: options.view_context.participant_data_path
       }
     )
   end

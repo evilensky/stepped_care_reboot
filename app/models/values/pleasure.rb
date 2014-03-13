@@ -8,7 +8,7 @@ class Values::Pleasure
       new("Really fun")
     end
   end
-  
+
   def initialize(label)
     @label = label
   end

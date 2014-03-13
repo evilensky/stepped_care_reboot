@@ -4,7 +4,7 @@ class ContentProviders::ImportantActivityChecklist < BitPlayer::ContentProvider
       template: 'activities/important_activity_checklist',
       locals: {
         past_activities: options.participant.activities.accomplished.random.in_the_past.first(5),
-        create_path: options.view_context.participant_data_path 
+        create_path: options.view_context.participant_data_path
       }
     )
   end

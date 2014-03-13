@@ -4,7 +4,7 @@ class ContentProviders::FunActivityChecklist < BitPlayer::ContentProvider
       template: 'activities/fun_activity_checklist',
       locals: {
         past_activities: options.participant.activities.pleasurable.random.in_the_past.first(5),
-        create_path: options.view_context.participant_data_path 
+        create_path: options.view_context.participant_data_path
       }
     )
   end

@@ -13,7 +13,7 @@ class Activity < ActiveRecord::Base
   delegate :title, to: :activity_type, prefix: false, allow_nil: true
 
   before_validation :create_activity_type
-  
+
   scope :pleasurable, -> do
     where('activities.actual_pleasure_intensity >= ?', PLEASURABLE_CUTOFF)
   end
