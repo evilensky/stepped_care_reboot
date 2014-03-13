@@ -196,6 +196,15 @@ think_identifying_conclusion:
 
     Come back tomorrow to log a few more!"
 
+think_patterns_intro1:
+  slideshow: think_patterns_intro
+  position: 1
+  title: Like we said, you are what you think...
+  body: There are lots of different kinds of helpful thoughts.
+
+
+    Harmful thoughts, however, usually fall into a set of ten standard patterns.
+
 rspec_slide:
   slideshow: rspec_slideshow
   position: 1

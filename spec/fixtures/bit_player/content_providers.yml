@@ -122,10 +122,15 @@ think_conclusion:
   position: 4
 
 think_patterns_index:
-  type: BitPlayer::ContentProviders::SlideshowProvider
-  source_content: think_patterns_intro (BitPlayer::Slideshow)
   content_module: think_patterns
   position: 1
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: think_patterns_intro (BitPlayer::Slideshow)
+
+think_harmful_thoughts_form:
+  content_module: think_patterns
+  position: 2
+  type: ContentProviders::HarmfulThoughtsEditFormProvider
 
 think_reshape_index:
   type: BitPlayer::ContentProviders::SlideshowProvider

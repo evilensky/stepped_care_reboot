@@ -1,0 +1,32 @@
+<h2>Let's start by figuring out which thought patterns the harmful thoughts you identified might match.</h2>
+
+<h3>One thought you had:</h3>
+
+<% thoughts.each_with_index do |thought, i| %>
+  <%=
+    form_for(
+      thought,
+      url: update_path,
+      remote: true,
+      html: {
+        class: "multi-page",
+        style: i == 0 ? '' : 'display: none;',
+        role: "form"
+      }
+    ) do |f|
+  %>
+    <%= f.hidden_field :id %>
+
+    <div class="well"><%= thought.content %></div>
+
+    <div class="form-group">
+      <label for="thought_pattern_id">What thought pattern is this an example of?</label>
+      <span class="help-block">(don’t worry if it matches more than one!)</span>
+      <%= f.select(:pattern_id, options_for_select(ThoughtPattern.all.map { |p| [p.title, p.id, { prompt: "Select one..." }, { :"data-description" => p.description }] })) %>
+    </div>
+
+    <p id="thought-pattern-description"></p>
+
+    <button type="submit" class="btn btn-default">Continue</button>
+  <% end %>
+<% end %>
