@@ -35,5 +35,15 @@ describe 'thought tracker' do
     click_on('Continue')
 
     expect(page).to have_text("Now list a few more...")
+
+    fill_in('thought_content', with: 'another thought')
+    choose('thought_effect_neither')
+    click_on('Continue')
+
+    expect(page).to have_text("Good work")
+
+    click_on('Continue')
+
+    expect(page).to have_text("#1 Identifying")
   end
 end

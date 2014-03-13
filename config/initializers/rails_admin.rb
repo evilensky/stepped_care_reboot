@@ -56,6 +56,16 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model 'Thought' do
+    navigation_label 'Participant data'
+
+    list do
+      field :participant
+      field :content
+      field :effect
+    end
+  end
+
   config.model 'ActivityType' do
     list do
       sort_by :participant, :title
