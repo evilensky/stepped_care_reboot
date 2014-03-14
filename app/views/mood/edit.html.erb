@@ -1,0 +1,28 @@
+<h3>Which emotions did you experience over the past 24 hours?</h3>
+
+<% emotions.each do | emotion | %>
+  <%= form_for emotion, url: update_path, method: "post", remote: true, html: { role: "form" } do |f| %>
+    
+    <%= f.hidden_field :rating, value: emotion.rating %>
+
+    <div class="checkbox">
+      <label>
+        <%= check_box_tag "emotion[activation_level]", emotion.activation_level %><%= emotion.name %>
+      </label>
+    </div>
+
+    <%= f.label :intensity, "How intense was this?" %>
+    <div class="range row">
+      <div class="col-xs-6 left">0</div>
+      <div class="col-xs-6 right">10</div>
+    </div>
+    <%= f.range_field :intensity, in: 0..10, step: 1, value: 5 %>
+
+    <%= f.submit "Save", class: "btn btn-primary" %>
+  <% end %>
+<% end %>
+
+<!-- refactor -->
+<div class="btn-toolbar" style="margin-top:10px;">
+  <%= link_to "Continue", "/navigator/contexts/feeling_tracker", class: "btn btn-primary" %>
+</div>

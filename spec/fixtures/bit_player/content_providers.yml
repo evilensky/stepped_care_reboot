@@ -138,38 +138,26 @@ feel_landing:
   content_module: feeling_tracker_landing
   position: 1
 
-feel_identify_index:
-  type: BitPlayer::ContentProviders::SlideshowProvider
-  source_content: feel_identify_intro (BitPlayer::Slideshow)
+feel_past_24_hrs:
+  type: ContentProviders::NewCurrentFeelProvider
   content_module: feeling_tracker_module2
   position: 1
 
-feel_patterns_index:
-  type: BitPlayer::ContentProviders::SlideshowProvider
-  source_content: feel_patterns_intro (BitPlayer::Slideshow)
+feel_current:
+  type: ContentProviders::NewPastFeelProvider
+  type: ContentProviders::NewCurrentFeelProvider
   content_module: feeling_tracker_module3
   position: 1
 
-feel_reshape_index:
-  type: BitPlayer::ContentProviders::SlideshowProvider
-  source_content: feel_reshape_intro (BitPlayer::Slideshow)
-  content_module: feeling_tracker_module4
-  position: 1    
-
-feel_rate_new:
-  type: ContentProviders::NewMoodFormProvider
-  content_module: feeling_tracker_module2
+feel_experiences:
+  type: ContentProviders::EditPastFeelProvider
+  content_module: feeling_tracker_module3
   position: 2
 
-emotion_rate_new:
-  type: ContentProviders::NewEmotionFormProvider
-  content_module: feeling_tracker_module2
-  position: 3
-
-emotion_rate_energy_and_intensity:
-  type: ContentProviders::EditEmotionFormProvider
-  content_module: feeling_tracker_module2
-  position: 4
+feel_display:
+  type: ContentProviders::FeelDisplayProvider
+  content_module: feeling_tracker_module4
+  position: 1
 
 learn_landing:
   type: ContentProviders::ModuleIndexProvider

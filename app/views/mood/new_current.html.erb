@@ -1,6 +1,7 @@
 <h3>What is your mood right now?</h3>
 <%= form_for mood, url: create_path, method: "post", html: { role: "form" } do |f| %>
-  <%= f.label :rating %>
+
+  <%= f.label :rating, "Did you feel bad, good, or neither yesterday?" %>
   <div class="range row">
     <div class="col-sm-4 left">-5<br>Bad</div>
     <div class="col-sm-4 text-center">0<br>Neither</div>

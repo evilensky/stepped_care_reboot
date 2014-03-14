@@ -1,13 +1,5 @@
 <h3>Over the past 24 hours, what emotions did you experience?</h3>
-<%= form_for emotion, url: create_path, method: "post", html: { role: "form" } do |f| %>
-
-  <%= f.label :activation_level, "How energetic were you yesterday?" %>
-  <div class="range row">
-    <div class="col-sm-4 left">-5<br>Passive</div>
-    <div class="col-sm-4 text-center">0<br>Average</div>
-    <div class="col-sm-4 right">5<br>Active</div>
-  </div>
-  <%= f.range_field :activation_level, in: -5..5, step: 1, value: 0 %>
+<%= form_for mood, url: create_path, method: "post", html: { role: "form" } do |f| %>
 
   <%= f.label :rating, "Did you feel bad, good, or neither yesterday?" %>
   <div class="range row">

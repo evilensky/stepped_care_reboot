@@ -1,20 +1,20 @@
-class ContentProviders::NewEmotionFormProvider < BitPlayer::ContentProvider
+class ContentProviders::NewCurrentFeelProvider < BitPlayer::ContentProvider
   def render_current(options)
     options.view_context.render(
-      template: 'emotions/new',
+      template: 'mood/new_current',
       locals: {
-        emotion: options.view_context.current_participant.emotions.build,
+        mood: options.view_context.current_participant.moods.build,
         create_path: options.view_context.participant_data_path
       }
     )
   end
 
   def data_class_name
-    'Emotion'
+    'Mood'
   end
 
   def data_attributes
-    [:activation_level, :intensity, :name, :rating]
+    [:rating]
   end
 
   def show_nav_link?

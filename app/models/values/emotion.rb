@@ -2,12 +2,29 @@ class Values::Emotion
 
   def self.from_activation_level(activation_level)
     return "Not answered" if activation_level.nil?
-    if activation_level < 0
-      new("Passive")
-    elsif activation_level == 0
-      new("Neutral")
-    else
-      new("Active")
+    case activation_level
+    when -5
+      new("Bad")
+    when -4
+      new("Boppy")
+    when -3
+      new("Grumpy")
+    when -2
+      new("Fatigued")
+    when -1
+      new("Depressed")
+    when 0
+      new("Happy")
+    when 1
+      new("Bad")
+    when 2
+      new("Boppy")
+    when 3
+      new("Grumpy")
+    when 4
+      new("Fatigued")
+    when 5
+      new("Depressed")
     end
   end
 
