@@ -11,18 +11,16 @@ class NavigatorController < ApplicationController
   end
 
   def show_location
-    begin
-      @navigator.initialize_location(
-        module_id: params[:module_id],
-        provider_id: params[:provider_id],
-        content_position: params[:content_position]
-      )
-    rescue ActiveRecord::RecordNotFound
-      @navigator.initialize_context('home')
-      flash[:alert] = 'Unable to find that module.'
-    ensure
-      render 'show_content'
-    end
+    @navigator.initialize_location(
+      module_id: params[:module_id],
+      provider_id: params[:provider_id],
+      content_position: params[:content_position]
+    )
+  rescue ActiveRecord::RecordNotFound
+    @navigator.initialize_context('home')
+    flash[:alert] = 'Unable to find that module.'
+  ensure
+    render 'show_content'
   end
 
   def show_next_content

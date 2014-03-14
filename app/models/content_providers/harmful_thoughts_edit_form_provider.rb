@@ -1,27 +1,29 @@
-class ContentProviders::HarmfulThoughtsEditFormProvider < BitPlayer::ContentProvider
-  def render_current(options)
-    thoughts = options.participant.thoughts.harmful.no_pattern
+module ContentProviders
+  class HarmfulThoughtsEditFormProvider < BitPlayer::ContentProvider
+    def render_current(options)
+      thoughts = options.participant.thoughts.harmful.no_pattern
 
-    options.view_context.render(
-      template: 'thoughts/edit_bulk',
-      locals: {
-        thoughts: thoughts,
-        update_path: options.view_context.participant_data_path
-      }
-    )
-  end
+      options.view_context.render(
+        template: 'thoughts/edit_bulk',
+        locals: {
+          thoughts: thoughts,
+          update_path: options.view_context.participant_data_path
+        }
+      )
+    end
 
-  def data_class_name
-    'Thought'
-  end
+    def data_class_name
+      'Thought'
+    end
 
-  def data_attributes
-    [
-      :id, :pattern_id
-    ]
-  end
+    def data_attributes
+      [
+        :id, :pattern_id
+      ]
+    end
 
-  def show_nav_link?
-    false
+    def show_nav_link?
+      false
+    end
   end
 end

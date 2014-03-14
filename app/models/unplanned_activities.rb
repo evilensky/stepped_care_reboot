@@ -23,17 +23,13 @@ class UnplannedActivities
   end
 
   def save
-    begin
-      Activity.transaction do
-        @activities.map(&:save!)
-      end
+    Activity.transaction { @activities.each(&:save!) }
 
-      true
-    rescue => err
-      @errors = Errors.new(Array(err.to_s))
+    true
+  rescue => err
+    @errors = Errors.new(Array(err.to_s))
 
-      false
-    end
+    false
   end
 
   private

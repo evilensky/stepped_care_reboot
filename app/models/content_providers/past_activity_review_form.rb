@@ -1,30 +1,32 @@
-class ContentProviders::PastActivityReviewForm < BitPlayer::ContentProvider
-  def render_current(options)
-    activities = options.participant.activities
-      .in_the_past
-      .incomplete
+module ContentProviders
+  class PastActivityReviewForm < BitPlayer::ContentProvider
+    def render_current(options)
+      activities = options.participant.activities
+        .in_the_past
+        .incomplete
 
-    options.view_context.render(
-      template: 'activities/past_activity_review',
-      locals: {
-        activities: activities,
-        update_path: options.view_context.participant_data_path
-      }
-    )
-  end
+      options.view_context.render(
+        template: 'activities/past_activity_review',
+        locals: {
+          activities: activities,
+          update_path: options.view_context.participant_data_path
+        }
+      )
+    end
 
-  def data_class_name
-    'Activity'
-  end
+    def data_class_name
+      'Activity'
+    end
 
-  def data_attributes
-    [
-      :id, :actual_pleasure_intensity, :actual_accomplishment_intensity,
-      :is_complete, :noncompliance_reason
-    ]
-  end
+    def data_attributes
+      [
+        :id, :actual_pleasure_intensity, :actual_accomplishment_intensity,
+        :is_complete, :noncompliance_reason
+      ]
+    end
 
-  def show_nav_link?
-    false
+    def show_nav_link?
+      false
+    end
   end
 end
