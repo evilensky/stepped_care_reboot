@@ -4,14 +4,13 @@ class SlidesController < ApplicationController
   def new
     @slideshow = BitPlayer::Slideshow.find(params[:slideshow_id])
     @slide = @slideshow.slides.build(params[:slide])
-    @body = markdown.render(@slide.body || '')
   end
 
   def create
     @slideshow = BitPlayer::Slideshow.find(params[:slideshow_id])
     @slide = @slideshow.slides.build(slide_params)
-    @body = markdown.render(@slide.body)
     @slide.position = @slideshow.slides.count + 1
+
     if @slide.save
       flash[:success] = "Successfully created slide for slideshow"
       redirect_to slideshow_path(@slideshow)
@@ -27,12 +26,11 @@ class SlidesController < ApplicationController
 
   def edit
     @slide = BitPlayer::Slide.find(params[:id])
-    @body = markdown.render(@slide.body)
   end
 
   def update
     @slide = BitPlayer::Slide.find(params[:id])
-    @body = markdown.render(@slide.body)
+
     if @slide.update(slide_params)
       flash[:success] = "Successfully updated slide for slideshow"
       redirect_to slideshow_path(@slide.slideshow)
@@ -44,6 +42,7 @@ class SlidesController < ApplicationController
 
   def destroy
     @slide = BitPlayer::Slide.find(params[:id])
+
     if @slide.destroy
       flash[:success] = "Slide deleted."
       redirect_to slideshow_path(@slide.slideshow)
@@ -55,6 +54,7 @@ class SlidesController < ApplicationController
 
   def sort
     slideshow = BitPlayer::Slideshow.find(params[:slideshow_id])
+
     if slideshow.slides.update_positions(params[:slide])
       flash.now[:success] = "Reorder was successful."
       render nothing: true
@@ -68,9 +68,5 @@ class SlidesController < ApplicationController
 
   def slide_params
     params.require(:slide).permit(:body, :position, :title)
-  end
-
-  def markdown
-    Redcarpet::Markdown.new(Redcarpet::Render::HTML, space_after_headers: true)
   end
 end
