@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'Slides' do
-  fixtures :participants, :'bit_player/slideshows', :'bit_player/content_modules'#, :'bit_player/content_providers'
+  fixtures :participants, :'bit_player/slideshows', :'bit_player/content_modules', :'bit_player/content_providers'
 
   let(:participant) { participants(:participant1) }
 
@@ -41,7 +41,7 @@ describe 'Slides' do
     expect(page).to have_text("Emotion saved")
     emotion = Emotion.find_by_participant_id(participant.id)
     expect(emotion).not_to be_nil
-    expect(emotion.activation_level).to eq 0
+    expect(emotion.valence).to eq 0
     expect(emotion.intensity).to eq 5
     expect(emotion.intensity_value).to eq "Average"
     expect(emotion.rating).to eq 0

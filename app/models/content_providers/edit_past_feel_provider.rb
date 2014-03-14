@@ -7,21 +7,21 @@ class ContentProviders::EditPastFeelProvider < BitPlayer::ContentProvider
       mood_related_emotions = ["Anger", "Exasperation", "Rage", "Disgust",
         "Envy", "Torment", "Sadness", "Sadness", "Disappointment", "Shame",
         "Neglect", "Fear", "Nervousness"]
-      activation_level = -1
+      valence = -1
     elsif mood.rating == 0
       mood_related_emotions = ["Longing", "Lust/Sexual desire", "Surprise",
         "Sympathy"]
-      activation_level = 0
+      valence = 0
     else
       mood_related_emotions = ["Contentment", "Enthrallment", "Love", "Joy",
         "Optimism", "Pride", "Relief", "Zest"]
-      activation_level = 1
+      valence = 1
     end
 
     emotions = []
     mood_related_emotions.each do |emotion|
       emotions << options.view_context.current_participant.emotions.build({
-        activation_level: activation_level,
+        valence: valence,
         name: emotion,
         rating: mood.rating
       })
@@ -42,7 +42,7 @@ class ContentProviders::EditPastFeelProvider < BitPlayer::ContentProvider
   end
 
   def data_attributes
-    [:activation_level, :intensity, :rating]
+    [:valence, :intensity, :rating]
   end
 
   def show_nav_link?

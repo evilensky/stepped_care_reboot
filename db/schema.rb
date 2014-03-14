@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313205806) do
+ActiveRecord::Schema.define(version: 20140314203044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -130,18 +130,15 @@ ActiveRecord::Schema.define(version: 20140313205806) do
   add_index "delivered_messages", ["recipient_id", "recipient_type"], name: "index_delivered_messages_on_recipient_id_and_recipient_type", using: :btree
 
   create_table "emotions", force: true do |t|
-    t.integer  "participant_id",   null: false
+    t.integer  "participant_id", null: false
     t.integer  "rating"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "activation_level"
+    t.integer  "valence"
     t.integer  "intensity"
     t.string   "name"
   end
 
-  add_index "emotions", ["activation_level"], name: "index_emotions_on_activation_level", using: :btree
-  add_index "emotions", ["intensity"], name: "index_emotions_on_intensity", using: :btree
-  add_index "emotions", ["name"], name: "index_emotions_on_name", using: :btree
   add_index "emotions", ["participant_id"], name: "index_emotions_on_participant_id", using: :btree
 
   create_table "groups", force: true do |t|
