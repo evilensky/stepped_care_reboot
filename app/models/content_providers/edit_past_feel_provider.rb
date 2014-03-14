@@ -21,9 +21,9 @@ class ContentProviders::EditPastFeelProvider < BitPlayer::ContentProvider
     emotions = []
     mood_related_emotions.each do |emotion|
       emotions << options.view_context.current_participant.emotions.build({
+        activation_level: activation_level,
         name: emotion,
-        rating: mood.rating,
-        activation_level: activation_level
+        rating: mood.rating
       })
     end
 
@@ -31,6 +31,7 @@ class ContentProviders::EditPastFeelProvider < BitPlayer::ContentProvider
       template: 'mood/edit',
       locals: {
         emotions: emotions,
+        count: emotions.count,
         update_path: options.view_context.participant_data_path
       }
     )

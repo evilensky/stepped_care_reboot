@@ -1,7 +1,7 @@
-<h3>Which emotions did you experience over the past 24 hours?</h3>
+<h3>Which emotions have you recently experienced?</h3>
 
 <% emotions.each do | emotion | %>
-  <%= form_for emotion, url: update_path, method: "post", remote: true, html: { role: "form" } do |f| %>
+  <%= form_for emotion, url: update_path, method: "post", remote: true, html: { role: "form", id: "new_emotion_#{count}" } do |f| %>
     
     <%= f.hidden_field :rating, value: emotion.rating %>
 
@@ -20,6 +20,7 @@
 
     <%= f.submit "Save", class: "btn btn-primary" %>
   <% end %>
+  <% count = count - 1 %>
 <% end %>
 
 <!-- refactor -->

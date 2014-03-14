@@ -7,10 +7,6 @@ class Emotion < ActiveRecord::Base
   validates :intensity, presence: true, :inclusion => { :in => 0..10 }
   validates :rating, presence: true, :inclusion => { :in => -5..5 }
 
-  def activation_level_value
-    Values::Emotion.from_activation_level(activation_level).to_s
-  end
-
   def intensity_value
     Values::Emotion.from_intensity(intensity).to_s
   end
