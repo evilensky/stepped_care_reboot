@@ -7,6 +7,8 @@ class Thought < ActiveRecord::Base
   validates :participant, :content, :effect, presence: true
   validates :effect, inclusion: { in: EFFECTS }
 
+  scope :helpful, -> { where(effect: "helpful") }
+
   scope :harmful, -> { where(effect: "harmful") }
 
   scope :no_pattern, -> { where(pattern_id: nil) }

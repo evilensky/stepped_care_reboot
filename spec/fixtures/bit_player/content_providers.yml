@@ -127,10 +127,26 @@ think_patterns_index:
   type: BitPlayer::ContentProviders::SlideshowProvider
   source_content: think_patterns_intro (BitPlayer::Slideshow)
 
-think_harmful_thoughts_form:
+think_patterns_definitions:
   content_module: think_patterns
   position: 2
+  type: ContentProviders::ThoughtPatternsIndexProvider
+
+think_patterns_helpful_index:
+  content_module: think_patterns
+  position: 3
+  type: ContentProviders::HelpfulThoughtsIndexProvider
+
+think_harmful_thoughts_form:
+  content_module: think_patterns
+  position: 4
   type: ContentProviders::HarmfulThoughtsEditFormProvider
+
+think_patterns_conclusion:
+  content_module: think_patterns
+  position: 5
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: think_patterns_conclusion (BitPlayer::Slideshow)
 
 think_reshape_index:
   type: BitPlayer::ContentProviders::SlideshowProvider

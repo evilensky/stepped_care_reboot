@@ -10,8 +10,9 @@ gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'devise'
 gem 'rails_admin'
+# authorization
 gem 'cancan'
-gem 'font-awesome-sass-rails'
+# Markdown interpreter
 gem 'redcarpet', '~> 2.3.0'
 # schedule tasks
 gem 'whenever'

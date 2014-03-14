@@ -1,0 +1,14 @@
+<h2>Helpful Thoughts</h2>
+
+<p>Last time you were here...<br>
+You noted that you’ve been thikning some things that are helpful.</p>
+
+<p>Being aware of these thoughts can be helpful.</p>
+
+<p>In case you’ve forgotten...</p>
+
+<ul>
+  <% thoughts.each do |thought| %>
+    <li><%= thought.content %></li>
+  <% end %>
+</ul>
