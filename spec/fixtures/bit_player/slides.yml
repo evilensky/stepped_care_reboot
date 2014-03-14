@@ -211,6 +211,18 @@ think_patterns_conclusion:
   title: Good work!
   body: We know this can be challenging...
 
+think_reshape_intro:
+  slideshow: think_reshape_intro
+  position: 1
+  title: "Evidence is where it's at."
+  body: "You've logged thoughts that are helpful and thoughts that are harmful.
+
+
+    You've looked at some patterns of harmful thoughts...
+
+
+    Now it's time to do something about it!"
+
 rspec_slide:
   slideshow: rspec_slideshow
   position: 1

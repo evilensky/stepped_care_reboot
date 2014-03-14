@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 4.0.3'
+gem 'rails', '~> 4.0'
 gem 'pg'
-gem 'sass-rails', '~> 4.0.0'
-gem 'bootstrap-sass', '~> 3.1.1'
-gem 'uglifier', '>= 1.3.0'
+gem 'sass-rails', '~> 4.0'
+gem 'bootstrap-sass', '~> 3.1'
+gem 'uglifier', '>= 1.3'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
@@ -13,7 +13,7 @@ gem 'rails_admin'
 # authorization
 gem 'cancan'
 # Markdown interpreter
-gem 'redcarpet', '~> 2.3.0'
+gem 'redcarpet', '~> 2.3'
 # schedule tasks
 gem 'whenever'
 # preview email
@@ -24,7 +24,7 @@ group :development, :test do
 end
 
 group :development do
-  gem 'capistrano', '~> 2.15.5'
+  gem 'capistrano', '~> 2.15'
   gem 'rvm-capistrano'
   gem 'debugger'
 end

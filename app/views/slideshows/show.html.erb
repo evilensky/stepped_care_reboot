@@ -11,7 +11,7 @@
 	<% @slides.each do |slide| %>
 		<li class="slide" id="slide_<%= slide.id %>">
 			<span>
-				<span class="handle"><i class="icon icon-sort icon-lg"></i></span>
+				<span class="handle"><%= fa_icon("sort", class: "fa-lg") %>></span>
 			</span>
 			<span>
 				<%= link_to slide.title, slideshow_slide_path(@slideshow, slide) %>
