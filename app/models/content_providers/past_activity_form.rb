@@ -12,7 +12,13 @@ module ContentProviders
     end
 
     def data_attributes
-      [:start_time, :end_time, :activity_type_title, :actual_pleasure_intensity, :actual_accomplishment_intensity]
+      [
+        :start_time,
+        :end_time,
+        :activity_type_title,
+        :actual_pleasure_intensity,
+        :actual_accomplishment_intensity
+      ]
     end
 
     def data_class_name

@@ -1,7 +1,7 @@
 module Coach
   class MessagesController < ApplicationController
     before_filter :authenticate_user!
-    layout 'coach'
+    layout "coach"
 
     def index
       render(
@@ -27,7 +27,8 @@ module Coach
       if @message.save
         redirect_to coach_messages_url, notice: "Message saved"
       else
-        flash.now[:alert] = "Unable to save message: #{ @message.errors.full_messages.join(', ') }"
+        errors = @message.errors.full_messages.join(", ")
+        flash.now[:alert] = "Unable to save message: #{ errors }"
         render :new
       end
     end
@@ -35,7 +36,9 @@ module Coach
     private
 
     def message_params
-      params.require(:message).permit(:recipient_id, :recipient_type, :subject, :body)
+      params
+        .require(:message)
+        .permit(:recipient_id, :recipient_type, :subject, :body)
     end
   end
 end

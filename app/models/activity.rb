@@ -15,11 +15,14 @@ class Activity < ActiveRecord::Base
   before_validation :create_activity_type
 
   scope :pleasurable, lambda {
-    where('activities.actual_pleasure_intensity >= ?', PLEASURABLE_CUTOFF)
+    where("activities.actual_pleasure_intensity >= ?", PLEASURABLE_CUTOFF)
   }
 
   scope :accomplished, lambda {
-    where('activities.actual_accomplishment_intensity >= ?', ACCOMPLISHED_CUTOFF)
+    where(
+      "activities.actual_accomplishment_intensity >= ?",
+      ACCOMPLISHED_CUTOFF
+    )
   }
 
   scope :random, lambda {
@@ -27,7 +30,7 @@ class Activity < ActiveRecord::Base
   }
 
   scope :in_the_past, lambda {
-    where('activities.end_time < ?', Time.now)
+    where("activities.end_time < ?", Time.now)
   }
 
   scope :unplanned, lambda {
@@ -39,7 +42,7 @@ class Activity < ActiveRecord::Base
   }
 
   def self.during(start_time, end_time)
-    where('start_time >= ? AND end_time <= ?', start_time, end_time)
+    where("start_time >= ? AND end_time <= ?", start_time, end_time)
   end
 
   def actual_pleasure_value
@@ -53,8 +56,12 @@ class Activity < ActiveRecord::Base
   private
 
   def create_activity_type
-    if activity_type_title && participant.activity_types.create(title: activity_type_title)
-      self.activity_type = participant.activity_types.find_by_title(activity_type_title)
+    if activity_type_title
+      activity_types = participant.activity_types
+
+      if activity_types.create(title: activity_type_title)
+        self.activity_type = activity_types.find_by_title(activity_type_title)
+      end
     end
   end
 end

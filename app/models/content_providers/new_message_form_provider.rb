@@ -1,19 +1,17 @@
 module ContentProviders
   class NewMessageFormProvider < BitPlayer::ContentProvider
     def render_current(options)
-      coach = options.participant.coach
-
       options.view_context.render(
-        template: 'messages/new',
+        template: "messages/new",
         locals: {
-          message: options.participant.sent_messages.build(recipient_id: coach.id, recipient_type: coach.class.to_s),
+          message: message(options.participant),
           create_path: options.view_context.participant_data_path
         }
       )
     end
 
     def data_class_name
-      'Message'
+      "Message"
     end
 
     def data_attributes
@@ -22,6 +20,17 @@ module ContentProviders
 
     def show_nav_link?
       false
+    end
+
+    private
+
+    def message(participant)
+      coach = participant.coach
+
+      participant.sent_messages.build(
+        recipient_id: coach.id,
+        recipient_type: coach.class.to_s
+      )
     end
   end
 end

@@ -9,9 +9,18 @@ class Message < ActiveRecord::Base
   after_create :create_delivered_messages
 
   def render_body
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, space_after_headers: true)
+    rendered = ""
 
-    markdown.render(body).html_safe
+    unless body.nil?
+      markdown = Redcarpet::Markdown.new(
+        Redcarpet::Render::HTML,
+        space_after_headers: true
+      )
+
+      rendered += markdown.render(body)
+    end
+
+    rendered.html_safe
   end
 
   private
