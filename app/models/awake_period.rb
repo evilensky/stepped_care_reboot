@@ -3,7 +3,7 @@
 class AwakePeriod < ActiveRecord::Base
   belongs_to :participant
 
-  validates_presence_of :participant, :start_time, :end_time
+  validates :participant, :start_time, :end_time, presence: true
   validate :end_time_after_start_time
   validate :awake_periods_cannot_overlap
 

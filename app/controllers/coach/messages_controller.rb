@@ -1,7 +1,7 @@
 module Coach
   # Manages coach message handling.
   class MessagesController < ApplicationController
-    before_filter :authenticate_user!
+    before_action :authenticate_user!
     layout "coach"
 
     def index

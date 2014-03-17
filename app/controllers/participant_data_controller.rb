@@ -2,7 +2,7 @@
 class ParticipantDataController < ApplicationController
   include Concerns::NavigatorEnabled
 
-  before_filter :authenticate_participant!, :instantiate_navigator
+  before_action :authenticate_participant!, :instantiate_navigator
 
   layout "tool"
 

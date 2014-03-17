@@ -1,6 +1,6 @@
 # Enables Slideshow CRUD functionality.
 class SlideshowsController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @slideshows = BitPlayer::Slideshow.all
@@ -16,7 +16,7 @@ class SlideshowsController < ApplicationController
       flash[:success] = "Successfully created slideshow"
       redirect_to slideshows_path
     else
-      flash[:alert] = @slideshow.errors.full_messages.join(', ')
+      flash[:alert] = @slideshow.errors.full_messages.join(", ")
       render :new
     end
   end
@@ -36,7 +36,7 @@ class SlideshowsController < ApplicationController
       flash[:success] = "Successfully updated slideshow"
       redirect_to slideshows_path
     else
-      flash[:alert] = @slideshow.errors.full_messages.join(', ')
+      flash[:alert] = @slideshow.errors.full_messages.join(", ")
       render :edit
     end
   end

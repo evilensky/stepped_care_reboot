@@ -1,6 +1,6 @@
 # Enables slide CRUD functionality.
 class SlidesController < ApplicationController
-  before_filter :authenticate_user!
+  before_action :authenticate_user!
 
   def new
     @slideshow = BitPlayer::Slideshow.find(params[:slideshow_id])
@@ -16,7 +16,7 @@ class SlidesController < ApplicationController
       flash[:success] = "Successfully created slide for slideshow"
       redirect_to slideshow_path(@slideshow)
     else
-      flash[:alert] = @slide.errors.full_messages.join(', ')
+      flash[:alert] = @slide.errors.full_messages.join(", ")
       render :new
     end
   end
@@ -36,7 +36,7 @@ class SlidesController < ApplicationController
       flash[:success] = "Successfully updated slide for slideshow"
       redirect_to slideshow_path(@slide.slideshow)
     else
-      flash[:alert] = @slide.errors.full_messages.join(', ')
+      flash[:alert] = @slide.errors.full_messages.join(", ")
       render :edit
     end
   end
@@ -60,7 +60,7 @@ class SlidesController < ApplicationController
       flash.now[:success] = "Reorder was successful."
       render nothing: true
     else
-      flash.now[:alert] = slideshow.errors.full_messages.join(', ')
+      flash.now[:alert] = slideshow.errors.full_messages.join(", ")
       render nothing: true
     end
   end
