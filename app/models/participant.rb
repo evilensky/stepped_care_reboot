@@ -9,15 +9,15 @@ class Participant < ActiveRecord::Base
   has_many :awake_periods, dependent: :destroy
   has_many :activity_types, dependent: :destroy
   has_many :thoughts, dependent: :destroy
-  has_many :sent_messages, class_name: 'Message', as: :sender
+  has_many :sent_messages, class_name: "Message", as: :sender
   has_many :messages, as: :sender
   has_many :received_messages,
            -> { includes :message },
-           class_name: 'DeliveredMessage',
+           class_name: "DeliveredMessage",
            as: :recipient
-  has_one :participant_status, class_name: 'BitPlayer::ParticipantStatus'
+  has_one :participant_status, class_name: "BitPlayer::ParticipantStatus"
   has_one :coach_assignment
-  has_one :coach, class_name: 'User', through: :coach_assignment
+  has_one :coach, class_name: "User", through: :coach_assignment
 
   def unplanned_activities
     UnplannedActivities.new(self)
@@ -53,6 +53,6 @@ class Participant < ActiveRecord::Base
   end
 
   def recent_awake_period
-    @recent_awake_period ||= awake_periods.order('start_time').last
+    @recent_awake_period ||= awake_periods.order("start_time").last
   end
 end

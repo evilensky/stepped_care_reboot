@@ -1,4 +1,4 @@
-# Uses the Navigator to direct a participant's flow through the site.
+# Uses the Navigator to direct a participant"s flow through the site.
 class NavigatorController < ApplicationController
   include Concerns::NavigatorEnabled
 
@@ -7,8 +7,8 @@ class NavigatorController < ApplicationController
   layout :switch_layout
 
   def show_context
-    @navigator.initialize_context(params[:context_name] || 'home')
-    render 'show_content'
+    @navigator.initialize_context(params[:context_name] || "home")
+    render "show_content"
   end
 
   def show_location
@@ -18,10 +18,10 @@ class NavigatorController < ApplicationController
       content_position: params[:content_position]
     )
   rescue ActiveRecord::RecordNotFound
-    @navigator.initialize_context('home')
-    flash[:alert] = 'Unable to find that module.'
+    @navigator.initialize_context("home")
+    flash[:alert] = "Unable to find that module."
   ensure
-    render 'show_content'
+    render "show_content"
   end
 
   def show_next_content
@@ -36,10 +36,10 @@ class NavigatorController < ApplicationController
   private
 
   def switch_layout
-    if @navigator.context == 'home' || @navigator.current_module.position == 1
-      'landing'
+    if @navigator.context == "home" || @navigator.current_module.position == 1
+      "landing"
     else
-      'tool'
+      "tool"
     end
   end
 end

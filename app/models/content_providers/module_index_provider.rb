@@ -7,7 +7,7 @@ module ContentProviders
         .where.not(id: bit_player_content_module_id)
 
       options.view_context.render(
-        template: 'content_modules/index',
+        template: "content_modules/index",
         locals: { content_modules: content_modules }
       )
     end

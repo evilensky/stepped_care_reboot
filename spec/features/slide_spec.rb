@@ -1,14 +1,14 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Slides' do
-  fixtures :users, :'bit_player/slideshows', :'bit_player/slides'
+describe "Slides" do
+  fixtures :users, :"bit_player/slideshows", :"bit_player/slides"
 
   before do
     sign_in_user users(:user1)
     visit slideshow_path(bit_player_slideshows(:rspec_slideshow))
   end
 
-  it 'User can create a slide' do
+  it "User can create a slide" do
     expect(BitPlayer::Slide.find_by_title("A great slide!!")).to be_nil
     click_on "New Slide"
     fill_in "Title", with: "A great slide!!"
@@ -19,7 +19,7 @@ describe 'Slides' do
     expect(page).to have_text("A great slide!!")
   end
 
-  it 'User will see error if no title is included' do
+  it "User will see error if no title is included" do
     click_on "New Slide"
     fill_in "Title", with: ""
     click_on "Create"
@@ -27,7 +27,7 @@ describe 'Slides' do
     expect(page).to have_text("Body can't be blank")
   end
 
-  it 'User can view show page of a slide' do
+  it "User can view show page of a slide" do
     slide = BitPlayer::Slide.find_by_title("I'm an rspec slide")
     click_on "I'm an rspec slide"
     expect(current_path).to eq slideshow_slide_path(bit_player_slideshows(:rspec_slideshow), slide)
@@ -64,7 +64,7 @@ describe 'Slides' do
     expect(slide.title).to eq "I'm an rspec slide"
   end
 
-  it 'User can delete a slide' do
+  it "User can delete a slide" do
     expect(page).to have_text("I'm an rspec slide")
     slide = BitPlayer::Slide.find_by_title("I'm an rspec slide")
     expect(slide).not_to eq nil

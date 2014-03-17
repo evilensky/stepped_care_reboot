@@ -1,10 +1,10 @@
-require 'spec_helper'
+require "spec_helper"
 
 describe Activity do
   fixtures [:participants, :activity_types, :activities]
 
   describe "create activity type" do
-    let(:title) { 'prancing in the woods' }
+    let(:title) { "prancing in the woods" }
 
     it "should create an activity type when it has an activity type title" do
       Activity.create(

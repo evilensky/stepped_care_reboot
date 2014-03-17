@@ -3,7 +3,7 @@ module ContentProviders
   class AwakePeriodForm < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(
-        template: 'awake_periods/new',
+        template: "awake_periods/new",
         locals: {
           awake_period: AwakePeriod.new,
           create_path: options.view_context.participant_data_path
@@ -12,7 +12,7 @@ module ContentProviders
     end
 
     def data_class_name
-      'AwakePeriod'
+      "AwakePeriod"
     end
 
     def data_attributes

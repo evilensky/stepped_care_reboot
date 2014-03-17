@@ -4,6 +4,6 @@ class MessageNotifications < ActionMailer::Base
 
   def new_for_coach(coach)
     mail to:      coach.email,
-         subject: 'New message'
+         subject: "New message"
   end
 end

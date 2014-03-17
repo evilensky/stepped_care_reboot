@@ -3,7 +3,7 @@ module ContentProviders
   class ShowMessageProvider < BitPlayer::ContentProvider
     data_class Message
     hide_nav_link
-    view_type 'show'
+    view_type "show"
 
     def render_current(options)
       received_message = options.participant.received_messages

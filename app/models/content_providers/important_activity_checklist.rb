@@ -4,7 +4,7 @@ module ContentProviders
   class ImportantActivityChecklist < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(
-        template: 'activities/important_activity_checklist',
+        template: "activities/important_activity_checklist",
         locals: {
           past_activities: activities(options.participant),
           create_path: options.view_context.participant_data_path
@@ -17,7 +17,7 @@ module ContentProviders
     end
 
     def data_class_name
-      'UnplannedActivities'
+      "UnplannedActivities"
     end
 
     def show_nav_link?

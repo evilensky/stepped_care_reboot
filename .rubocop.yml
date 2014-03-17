@@ -39,7 +39,9 @@ MethodLength:
     - db/**
 
 StringLiterals:
-  Enabled: false
+  EnforcedStyle: double_quotes
+  Exclude:
+    - db/**
 
 WordArray:
   Enabled: false

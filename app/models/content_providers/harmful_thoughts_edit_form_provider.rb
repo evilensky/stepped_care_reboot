@@ -6,7 +6,7 @@ module ContentProviders
       thoughts = options.participant.thoughts.harmful.no_pattern
 
       options.view_context.render(
-        template: 'thoughts/edit_bulk',
+        template: "thoughts/edit_bulk",
         locals: {
           thoughts: thoughts,
           update_path: options.view_context.participant_data_path
@@ -15,7 +15,7 @@ module ContentProviders
     end
 
     def data_class_name
-      'Thought'
+      "Thought"
     end
 
     def data_attributes

@@ -3,7 +3,7 @@ module ContentProviders
   class NewThoughtsFormProvider < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(
-        template: 'thoughts/new_bulk',
+        template: "thoughts/new_bulk",
         locals: {
           thoughts: (1..3).map { options.participant.thoughts.build },
           create_path: options.view_context.participant_data_path
@@ -12,7 +12,7 @@ module ContentProviders
     end
 
     def data_class_name
-      'Thought'
+      "Thought"
     end
 
     def data_attributes
