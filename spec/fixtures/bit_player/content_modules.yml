@@ -68,10 +68,20 @@ feeling_tracker_module4:
   context: feeling_tracker
   position: 4  
 
-learn_landing:
+library_landing:
   title: ''
-  context: learn
+  context: library
   position: 1
+
+library_lessons_module2:
+  title: 'Lessons'
+  context: library
+  position: 2
+
+library_videos_module3:
+  title: 'Videos'
+  context: library
+  position: 3
 
 messages_landing:
   title: ''

@@ -183,10 +183,20 @@ feel_reshape_index:
   content_module: feeling_tracker_module4
   position: 1    
 
-learn_landing:
+library_index_landing:
   type: ContentProviders::ModuleIndexProvider
-  content_module: learn_landing
+  content_module: library_landing
   position: 1
+
+library_lessons:
+  type: ContentProviders::LearnIndexProvider
+  content_module: library_lessons_module2
+  position: 1
+
+# library_videos:
+#   type: ContentProviders::LearnIndexProvider
+#   content_module: library_videos
+#   position: 1
 
 messages_landing:
   type: ContentProviders::MessagesIndexProvider
