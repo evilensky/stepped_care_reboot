@@ -1,8 +1,9 @@
+# The assignment of a Role to a User.
 class UserRole < ActiveRecord::Base
   ROLES = [
-    'Roles::Clinician',
-    'Roles::Researcher',
-    'Roles::ContentAuthor'
+    "Roles::Clinician",
+    "Roles::Researcher",
+    "Roles::ContentAuthor"
   ]
 
   belongs_to :user

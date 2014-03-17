@@ -1,3 +1,4 @@
+# A portion of the Application with distinct functionality.
 class AppSection
   SECTIONS = {
     thought_tracker: 'THINK',

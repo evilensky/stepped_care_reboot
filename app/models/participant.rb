@@ -1,3 +1,4 @@
+# A person enrolled in the intervention.
 class Participant < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable

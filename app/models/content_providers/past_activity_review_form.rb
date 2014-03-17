@@ -1,4 +1,5 @@
 module ContentProviders
+  # Provides a form for a Participant to update previously planned Activities.
   class PastActivityReviewForm < BitPlayer::ContentProvider
     def render_current(options)
       activities = options.participant.activities

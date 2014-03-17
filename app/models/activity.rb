@@ -1,3 +1,4 @@
+# Represents a real-world activity of a participant.
 class Activity < ActiveRecord::Base
   attr_accessor :activity_type_title
 

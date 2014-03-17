@@ -1,5 +1,6 @@
+# A set of Participants.
 class Group < ActiveRecord::Base
-  belongs_to :creator, class_name: 'User'
+  belongs_to :creator, class_name: "User"
 
   has_many :memberships, dependent: :destroy
   has_many :participants, through: :memberships

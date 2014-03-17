@@ -1,4 +1,5 @@
 module ContentProviders
+  # Provides a form for a Participant to enter the most recent AwakePeriod.
   class AwakePeriodForm < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(

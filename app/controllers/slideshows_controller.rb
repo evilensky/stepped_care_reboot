@@ -1,3 +1,4 @@
+# Enables Slideshow CRUD functionality.
 class SlideshowsController < ApplicationController
   before_filter :authenticate_user!
 

@@ -1,4 +1,6 @@
 module ContentProviders
+  # Provides a form for a Participant to identify harmful Thoughts by their
+  # ThoughtPatterns.
   class HarmfulThoughtsEditFormProvider < BitPlayer::ContentProvider
     def render_current(options)
       thoughts = options.participant.thoughts.harmful.no_pattern

@@ -5,11 +5,11 @@
   <%= form_for(
         :activity,
         url: create_path,
-        method: 'post',
+        method: "post",
         remote:  true,
         html: {
-          role: 'form',
-          class: 'activity_form',
+          role: "form",
+          class: "activity_form",
           id: "activity-form-#{ index }",
           style: index > 0 ? "display: none;" : ""
         }
@@ -28,7 +28,7 @@
 					<div class="col-md-4 col-sm-4 col-xs-4 center">5<br>Some</div>
 					<div class="col-md-4 col-sm-4 col-xs-4 right">10<br>A Lot</div>
 				</div>
-				<%= f.range_field :actual_pleasure_intensity, in: 0..10, step: '1', id: "activity_pleasure_#{index}" %>
+				<%= f.range_field :actual_pleasure_intensity, in: 0..10, step: "1", id: "activity_pleasure_#{index}" %>
 			</div>
 
 			<div class="form-group">
@@ -38,7 +38,7 @@
 					<div class="col-md-4 col-sm-4 col-xs-4 center">5<br>Some</div>
 					<div class="col-md-4 col-sm-4 col-xs-4 right">10<br>A Lot</div>
 				</div>	
-				<%= f.range_field :actual_accomplishment_intensity, in: 0..10, step: '1', id: "activity_accomplishment_#{index}" %>
+				<%= f.range_field :actual_accomplishment_intensity, in: 0..10, step: "1", id: "activity_accomplishment_#{index}" %>
 			</div>
 	  <%= f.submit "Continue", class: "btn btn-primary btn-large" %>
 	<% end %>

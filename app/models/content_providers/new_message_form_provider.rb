@@ -1,4 +1,5 @@
 module ContentProviders
+  # Provides a form for a Participant to compose a new Message.
   class NewMessageFormProvider < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(

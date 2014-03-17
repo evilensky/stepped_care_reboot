@@ -1,3 +1,4 @@
+# Enables slide CRUD functionality.
 class SlidesController < ApplicationController
   before_filter :authenticate_user!
 

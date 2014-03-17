@@ -1,4 +1,5 @@
 module Concerns
+  # Provides helpers for managing the Navigator.
   module NavigatorEnabled
     extend ActiveSupport::Concern
 

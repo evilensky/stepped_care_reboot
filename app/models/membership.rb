@@ -1,3 +1,4 @@
+# The relationship of a Participant to a Group.
 class Membership < ActiveRecord::Base
   belongs_to :group
   belongs_to :participant

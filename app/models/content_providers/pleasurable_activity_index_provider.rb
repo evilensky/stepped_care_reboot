@@ -1,4 +1,5 @@
 module ContentProviders
+  # Provides a display of recent pleasurable Activities.
   class PleasurableActivityIndexProvider < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(

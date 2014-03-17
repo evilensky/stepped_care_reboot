@@ -1,4 +1,5 @@
 module ContentProviders
+  # Provides multiple forms for a Participant to enter past Activities.
   class PastActivityForm < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(

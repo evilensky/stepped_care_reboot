@@ -1,3 +1,4 @@
+# A message sent from a Participant or User to a Participant or User.
 class Message < ActiveRecord::Base
   belongs_to :sender, polymorphic: true
   belongs_to :recipient, polymorphic: true

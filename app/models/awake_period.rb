@@ -1,3 +1,5 @@
+# A period of time during which a Participant was awake and may have
+# participated in Activities.
 class AwakePeriod < ActiveRecord::Base
   belongs_to :participant
 

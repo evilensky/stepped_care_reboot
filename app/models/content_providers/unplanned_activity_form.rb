@@ -1,8 +1,9 @@
 module ContentProviders
+  # Provides forms for a Provider to plan Activities.
   class UnplannedActivityForm < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(
-        template: 'activities/unplanned_activity_form',
+        template: "activities/unplanned_activity_form",
         locals: {
           activities: options.participant.activities.random.unplanned.first(4),
           update_path: options.view_context.participant_data_path
@@ -18,7 +19,7 @@ module ContentProviders
     end
 
     def data_class_name
-      'Activity'
+      "Activity"
     end
 
     def show_nav_link?

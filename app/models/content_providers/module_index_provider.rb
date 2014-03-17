@@ -1,4 +1,5 @@
 module ContentProviders
+  # Provides a set of links to ContentModules in the current context.
   class ModuleIndexProvider < BitPlayer::ContentProvider
     def render_current(options)
       content_modules = BitPlayer::ContentModule

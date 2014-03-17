@@ -1,4 +1,5 @@
 module ContentProviders
+  # Provides a list of a Participant's helpful Thoughts.
   class HelpfulThoughtsIndexProvider < BitPlayer::ContentProvider
     data_class Thought
     show_nav_link

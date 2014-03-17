@@ -1,4 +1,5 @@
 module ContentProviders
+  # Provides a UI for viewing sent and received Messages.
   class MessagesIndexProvider < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(

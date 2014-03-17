@@ -1,4 +1,6 @@
 module ContentProviders
+  # Provides a view of Activities that occured during a Participant's most
+  # recent AwakePeriod.
   class ActivityIndexProvider < BitPlayer::ContentProvider
     data_class Activity
     show_nav_link

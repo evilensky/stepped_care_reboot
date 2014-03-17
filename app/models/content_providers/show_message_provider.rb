@@ -1,4 +1,5 @@
 module ContentProviders
+  # Provides a view of a sent or received Message.
   class ShowMessageProvider < BitPlayer::ContentProvider
     data_class Message
     hide_nav_link

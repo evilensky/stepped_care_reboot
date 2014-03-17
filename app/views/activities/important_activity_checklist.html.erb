@@ -1,7 +1,8 @@
 <h2>OK, you also said certain things were important to you.</h2>
+
 <p> Want to do any of these?</p>
 
-<%= form_tag create_path, method: "post", :html => { role: "form", :class => "activity_form", id: "activity-form"} do %>
+<%= form_tag create_path, method: "post", html: { role: "form", class: "activity_form", id: "activity-form"} do %>
 	<% past_activities.each do |activity| %>
 		<div class="checkbox">
 			<label>

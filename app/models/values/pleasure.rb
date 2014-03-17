@@ -1,4 +1,5 @@
 module Values
+  # A value that might be assigned to an Activity.
   class Pleasure
     def self.from_intensity(intensity)
       if intensity < 4

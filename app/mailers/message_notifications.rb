@@ -1,3 +1,4 @@
+# Mailer for notifying of new application messages.
 class MessageNotifications < ActionMailer::Base
   default from: "from@example.com"
 

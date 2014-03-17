@@ -1,3 +1,4 @@
+# A thought recorded by a Participant.
 class Thought < ActiveRecord::Base
   EFFECTS = ["helpful", "harmful", "neither"]
 

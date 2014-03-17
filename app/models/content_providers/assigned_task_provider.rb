@@ -1,4 +1,5 @@
 module ContentProviders
+  # Provides a view of a Participant's AssignedTask.
   class AssignedTaskProvider < BitPlayer::ContentProvider
     data_class AssignedTask
     show_nav_link

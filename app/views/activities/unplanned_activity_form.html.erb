@@ -5,9 +5,9 @@
         :activity,
         url: update_path,
         remote: true,
-        method: 'put',
+        method: "put",
         html: {
-          class: 'unplanned-activity-review',
+          class: "unplanned-activity-review",
           style: index > 0 ? "display: none;" : "",
           id: "activity-#{ activity.id }"
         }
@@ -19,15 +19,15 @@
     <%= datetime_select :activity, :start_time, ampm: true, minute_step: 15 %>
 
     <div class="form-group">
-      <%= render 'activities/shared/intensity_slider', form: f, activity: activity, name: :predicted_pleasure_intensity, label: "How much pleasure do you expect to get from doing this?" %>
+      <%= render "activities/shared/intensity_slider", form: f, activity: activity, name: :predicted_pleasure_intensity, label: "How much pleasure do you expect to get from doing this?" %>
     </div>
 
     <div class="form-group">
-      <%= render 'activities/shared/intensity_slider', form: f, activity: activity, name: :predicted_accomplishment_intensity, label: "How much accomplishment do you expect to get from doing this?" %>
+      <%= render "activities/shared/intensity_slider", form: f, activity: activity, name: :predicted_accomplishment_intensity, label: "How much accomplishment do you expect to get from doing this?" %>
     </div>
 
     <div id="activity-submit-<%= activity.id %>">
-      <%= f.submit 'Continue', class: 'btn btn-default btn-large' %>
+      <%= f.submit "Continue", class: "btn btn-default btn-large" %>
     </div>
   <% end %>
 <% end %>

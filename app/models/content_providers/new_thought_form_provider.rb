@@ -1,8 +1,9 @@
 module ContentProviders
+  # Provides a form for a Participant to enter a Thought.
   class NewThoughtFormProvider < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(
-        template: 'thoughts/new',
+        template: "thoughts/new",
         locals: {
           thought: options.participant.thoughts.build,
           create_path: options.view_context.participant_data_path
@@ -11,7 +12,7 @@ module ContentProviders
     end
 
     def data_class_name
-      'Thought'
+      "Thought"
     end
 
     def data_attributes

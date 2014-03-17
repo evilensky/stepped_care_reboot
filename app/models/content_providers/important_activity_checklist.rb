@@ -1,4 +1,6 @@
 module ContentProviders
+  # Provides a checklist of a random set of Activities for a Participant to
+  # plan.
   class ImportantActivityChecklist < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(

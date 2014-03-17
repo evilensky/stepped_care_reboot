@@ -1,3 +1,4 @@
+# A collection of Activities that have not been scheduled by a Participant.
 class UnplannedActivities
   Errors = Struct.new(:full_messages)
 

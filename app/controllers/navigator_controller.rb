@@ -1,3 +1,4 @@
+# Uses the Navigator to direct a participant's flow through the site.
 class NavigatorController < ApplicationController
   include Concerns::NavigatorEnabled
 

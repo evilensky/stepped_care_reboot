@@ -1,4 +1,5 @@
 module Coach
+  # Enables viewing of messages sent to coaches.
   class ReceivedMessagesController < ApplicationController
     before_filter :authenticate_user!
     layout 'coach'

@@ -1,3 +1,4 @@
+# Provides generic create and update methods for a participant's resources.
 class ParticipantDataController < ApplicationController
   include Concerns::NavigatorEnabled
 
