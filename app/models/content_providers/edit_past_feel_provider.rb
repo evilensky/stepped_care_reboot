@@ -28,7 +28,7 @@ class ContentProviders::EditPastFeelProvider < BitPlayer::ContentProvider
     end
 
     options.view_context.render(
-      template: 'mood/edit',
+      template: 'feel/edit',
       locals: {
         emotions: emotions,
         count: emotions.count,

@@ -19,6 +19,7 @@ class ParticipantDataController < ApplicationController
       respond_to do |format|
         format.html { redirect_to navigator_next_content_url }
         format.js { render status: 201 }
+        format.json  { render :json => { :status => "ok"} }
       end
     else
       flash.now[:alert] = @data.errors.full_messages.join(', ')
@@ -26,6 +27,7 @@ class ParticipantDataController < ApplicationController
       respond_to do |format|
         format.html { render template: 'navigator/show_content'}
         format.js { render status: 400 }
+        format.json  { render :json => { :status => "error" } }
       end
     end
   end
