@@ -143,16 +143,20 @@ feel_past_24_hrs:
   content_module: feeling_tracker_module2
   position: 1
 
-feel_current:
+feel_past:
   type: ContentProviders::NewPastFeelProvider
-  type: ContentProviders::NewCurrentFeelProvider
   content_module: feeling_tracker_module3
   position: 1
 
-feel_experiences:
+feel_edit_past:
   type: ContentProviders::EditPastFeelProvider
   content_module: feeling_tracker_module3
   position: 2
+
+feel_experiences_table:
+  type: ContentProviders::IndexPastFeelProvider
+  content_module: feeling_tracker_module3
+  position: 3
 
 feel_display:
   type: ContentProviders::FeelDisplayProvider

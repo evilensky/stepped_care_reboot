@@ -1,0 +1,26 @@
+<h3>Your Recent Emotions</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Valence</th>
+      <th>Intensity</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% emotions.each do |emotion| %>
+      <tr>
+        <td><%= time_ago_in_words(emotion.created_at) %>ago</td>
+        <td><%= emotion.valence %></td>
+        <td><%= emotion.intensity %></td>
+        <td><%= emotion.rating %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="btn-toolbar" style="margin-top:10px;">
+  <%= link_to "Continue", navigator_next_content_url, class: "btn btn-primary" %>
+</div>

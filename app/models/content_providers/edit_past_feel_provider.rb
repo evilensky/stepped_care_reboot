@@ -27,6 +27,8 @@ class ContentProviders::EditPastFeelProvider < BitPlayer::ContentProvider
       })
     end
 
+    puts "emotions = #{emotions}"
+    
     options.view_context.render(
       template: 'feel/edit',
       locals: {

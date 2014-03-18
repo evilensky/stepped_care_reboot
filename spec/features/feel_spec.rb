@@ -46,6 +46,7 @@ describe 'Slides' do
     expect(emotion.intensity_value).to eq "Average"
     expect(emotion.rating).to eq 0
     expect(emotion.rating_value).to eq "Neither"
+    # Add table display if we think necessary...
   end
 
 end
