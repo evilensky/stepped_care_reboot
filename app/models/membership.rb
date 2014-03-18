@@ -5,5 +5,5 @@ class Membership < ActiveRecord::Base
 
   validates :group, presence: true
   validates :participant, presence: true
-  validates :group_id, scope: :participant_id, uniqueness: true
+  validates :group_id, uniqueness: { scope: :participant_id }
 end
