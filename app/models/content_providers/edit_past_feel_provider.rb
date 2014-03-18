@@ -9,12 +9,12 @@ class ContentProviders::EditPastFeelProvider < BitPlayer::ContentProvider
         "Neglect", "Fear", "Nervousness"]
       valence = -1
     elsif mood.rating == 0
-      mood_related_emotions = ["Longing", "Lust/Sexual desire", "Surprise",
+      mood_related_emotions = ["Longing", "Surprise",
         "Sympathy"]
       valence = 0
     else
-      mood_related_emotions = ["Contentment", "Enthrallment", "Love", "Joy",
-        "Optimism", "Pride", "Relief", "Zest"]
+      mood_related_emotions = ["Contentment", "Enthrallment", "Joy",
+        "Optimism", "Pride", "Relief"]
       valence = 1
     end
 

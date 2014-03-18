@@ -4,7 +4,7 @@ class ContentProviders::IndexPastFeelProvider < BitPlayer::ContentProvider
     options.view_context.render(
       template: 'feel/index',
       locals: {
-        emotions: options.view_context.current_participant.emotions
+        emotions: options.view_context.current_participant.emotions.all(order: 'created_at desc', limit: 8)
       }
     )
   end

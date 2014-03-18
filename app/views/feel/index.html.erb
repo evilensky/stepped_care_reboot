@@ -3,19 +3,17 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Valence</th>
-      <th>Intensity</th>
+      <th>When Recorded</th>
       <th>Rating</th>
+      <th>Intensity</th>
     </tr>
   </thead>
   <tbody>
     <% emotions.each do |emotion| %>
-      <tr>
+      <tr class="<%= emotion_class(emotion) %>">
         <td><%= time_ago_in_words(emotion.created_at) %> ago</td>
-        <td><%= emotion.valence %></td>
-        <td><%= emotion.intensity %></td>
         <td><%= emotion.rating %></td>
+        <td><%= emotion.intensity %></td>
       </tr>
     <% end %>
   </tbody>
