@@ -1,3 +1,4 @@
+# Participant rates their current mood
 class ContentProviders::NewCurrentFeelProvider < BitPlayer::ContentProvider
   def render_current(options)
     options.view_context.render(
@@ -20,5 +21,4 @@ class ContentProviders::NewCurrentFeelProvider < BitPlayer::ContentProvider
   def show_nav_link?
     false
   end
-
 end

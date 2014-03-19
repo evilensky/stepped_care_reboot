@@ -19,5 +19,4 @@ module Values
       @label.to_s
     end
   end
-
 end

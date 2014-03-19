@@ -1,5 +1,5 @@
+# Allows user to submit a feeling from the past 24 hours
 class ContentProviders::NewPastFeelProvider < BitPlayer::ContentProvider
-  
   def render_current(options)
     options.view_context.render(
       template: 'feel/new_past',
@@ -21,5 +21,4 @@ class ContentProviders::NewPastFeelProvider < BitPlayer::ContentProvider
   def show_nav_link?
     false
   end
-
 end

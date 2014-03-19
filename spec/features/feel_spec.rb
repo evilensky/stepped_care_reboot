@@ -14,7 +14,7 @@ describe 'Slides' do
     click_on "#1 Tracking Your Mood"
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).to be_nil
-    click_on "Continue" # Rate mood 
+    click_on "Continue" # Rate mood
     expect(page).to have_text("Mood saved")
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).not_to be_nil
@@ -22,11 +22,11 @@ describe 'Slides' do
     expect(mood.mood_value).to eq "Neither"
   end
 
-  it 'User can set their Emotion'#, :js do
+  it 'User can set their Emotion'# , :js do
   #   click_on "#2 Monitoring Your Emotions"
   #   mood = Mood.find_by_participant_id(participant.id)
   #   expect(mood).to be_nil
-  #   click_on "Continue" # Rate mood 
+  #   click_on "Continue" # Rate mood
   #   expect(page).to have_text("Mood saved")
   #   mood = Mood.find_by_participant_id(participant.id)
   #   expect(mood).not_to be_nil

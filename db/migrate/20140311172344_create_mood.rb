@@ -1,5 +1,5 @@
 class CreateMood < ActiveRecord::Migration
-  
+
   def change
     create_table :moods do |t|
       t.references :participant, index: true, null: false
@@ -7,5 +7,4 @@ class CreateMood < ActiveRecord::Migration
       t.timestamps
     end
   end
-
 end
