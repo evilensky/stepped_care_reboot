@@ -1,6 +1,0 @@
-<h1>Assign</h1>
-<%= form_for @group_slideshow_join, html: {role: "form"} do |f| %>
-  <%= render "group_slideshow_joins/fields", f: f, groups: @groups, slideshows: @slideshows %>
-  <%#= link_to "Cancel", group_slideshow_joins_path, class: "btn btn-default" %>
-  <%= f.submit "Save", class: "btn btn-primary" %>
-<% end %>

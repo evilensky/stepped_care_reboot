@@ -57,4 +57,10 @@ class SlideshowsController < ApplicationController
   def slideshow_params
     params.require(:slideshow).permit(:title)
   end
+
+  def group_slideshow_joins
+    GroupSlideshowJoin.where(bit_player_slideshow_id: params[:id])
+  end
+  helper_method :group_slideshow_joins
+
 end
