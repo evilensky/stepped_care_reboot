@@ -11,7 +11,6 @@ SteppedCareReboot::Application.routes.draw do
     resource :flow, only: :show
   end
 
-
   resources :group_slideshow_joins, only: [:edit, :update, :destroy]
 
   resources :slideshows do
