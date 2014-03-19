@@ -165,23 +165,30 @@ feel_landing:
   content_module: feeling_tracker_landing
   position: 1
 
-feel_identify_index:
-  type: BitPlayer::ContentProviders::SlideshowProvider
-  source_content: feel_identify_intro (BitPlayer::Slideshow)
+feel_past_24_hrs:
+  type: ContentProviders::NewCurrentFeelProvider
   content_module: feeling_tracker_module2
   position: 1
 
-feel_patterns_index:
-  type: BitPlayer::ContentProviders::SlideshowProvider
-  source_content: feel_patterns_intro (BitPlayer::Slideshow)
+feel_past:
+  type: ContentProviders::NewPastFeelProvider
   content_module: feeling_tracker_module3
   position: 1
 
-feel_reshape_index:
-  type: BitPlayer::ContentProviders::SlideshowProvider
-  source_content: feel_reshape_intro (BitPlayer::Slideshow)
+feel_edit_past:
+  type: ContentProviders::EditPastFeelProvider
+  content_module: feeling_tracker_module3
+  position: 2
+
+feel_experiences_table:
+  type: ContentProviders::IndexPastFeelProvider
+  content_module: feeling_tracker_module3
+  position: 3
+
+feel_display:
+  type: ContentProviders::FeelDisplayProvider
   content_module: feeling_tracker_module4
-  position: 1    
+  position: 1
 
 learn_landing:
   type: ContentProviders::ModuleIndexProvider

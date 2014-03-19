@@ -223,6 +223,13 @@ think_reshape_intro:
 
     Now it's time to do something about it!"
 
+feel_identifying_intro1:
+  slideshow: feel_identify_intro
+  position: 1
+  title: Some quick examples...
+  body: "What is mood?"
+
+
 rspec_slide:
   slideshow: rspec_slideshow
   position: 1

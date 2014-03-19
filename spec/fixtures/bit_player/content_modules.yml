@@ -66,7 +66,7 @@ feeling_tracker_module3:
 feeling_tracker_module4:
   title: '#3 Making Changes'
   context: feeling_tracker
-  position: 4  
+  position: 4
 
 learn_landing:
   title: ''

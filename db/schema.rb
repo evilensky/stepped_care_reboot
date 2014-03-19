@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313192408) do
+ActiveRecord::Schema.define(version: 20140314203044) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,6 +129,18 @@ ActiveRecord::Schema.define(version: 20140313192408) do
   add_index "delivered_messages", ["message_id"], name: "index_delivered_messages_on_message_id", using: :btree
   add_index "delivered_messages", ["recipient_id", "recipient_type"], name: "index_delivered_messages_on_recipient_id_and_recipient_type", using: :btree
 
+  create_table "emotions", force: true do |t|
+    t.integer  "participant_id", null: false
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "valence"
+    t.integer  "intensity"
+    t.string   "name"
+  end
+
+  add_index "emotions", ["participant_id"], name: "index_emotions_on_participant_id", using: :btree
+
   create_table "groups", force: true do |t|
     t.string   "title",      null: false
     t.integer  "creator_id", null: false
@@ -163,6 +175,15 @@ ActiveRecord::Schema.define(version: 20140313192408) do
 
   add_index "messages", ["recipient_id", "recipient_type"], name: "index_messages_on_recipient_id_and_recipient_type", using: :btree
   add_index "messages", ["sender_id", "sender_type"], name: "index_messages_on_sender_id_and_sender_type", using: :btree
+
+  create_table "moods", force: true do |t|
+    t.integer  "participant_id", null: false
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "moods", ["participant_id"], name: "index_moods_on_participant_id", using: :btree
 
   create_table "participants", force: true do |t|
     t.string   "email",                  default: "", null: false
