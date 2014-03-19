@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20140318163703) do
     t.datetime "updated_at"
   end
 
-  add_index "bit_player_slides", ["bit_player_slideshow_id", "position"], name: "slide_position", unique: true, using: :btree
+  add_index "bit_player_slides", ["bit_player_slideshow_id", "position"], name: "bit_player_slide_position", unique: true, using: :btree
   add_index "bit_player_slides", ["bit_player_slideshow_id"], name: "index_bit_player_slides_on_bit_player_slideshow_id", using: :btree
   add_index "bit_player_slides", ["position", "bit_player_slideshow_id"], name: "index_bit_player_slides_on_position_and_bit_player_slideshow_id", using: :btree
 
