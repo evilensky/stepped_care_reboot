@@ -1,5 +1,6 @@
 # Enables users to edit group_slideshows
-# This code may need to be moved out and refactored if we nest slideshows also within Groups
+# This code may need to be moved out and refactored
+# if we nest slideshows also within Groups
 class GroupSlideshowJoinsController < ApplicationController
   before_action :authenticate_user!
 
@@ -11,7 +12,7 @@ class GroupSlideshowJoinsController < ApplicationController
       # Not sure how this redirect will work out in the future
       # when we are updating slideshows nested within groups
       # Maybe just move this out into the slideshow_groups_controller
-      redirect_to slideshow_path(group_slideshow_join.bit_player_slideshow), notice: "Updated successfully."
+      redirect_to slideshow_path(slideshow), notice: "Updated successfully."
     else
       errors = group_slideshow_join.errors.full_messages.join(", ")
       flash.now[:alert] = "Unable to assign slideshow to group: #{ errors }"
@@ -20,7 +21,7 @@ class GroupSlideshowJoinsController < ApplicationController
   end
 
   def destroy
-    slideshow_for_after_delete = group_slideshow_join.bit_player_slideshow
+    slideshow_for_after_delete = slideshow
     group_slideshow_join.destroy
     flash.now[:success] = "Slideshow unassigned form group."
     # Not sure how this redirect will work out in the future
@@ -32,7 +33,8 @@ class GroupSlideshowJoinsController < ApplicationController
   private
 
   def group_slideshow_join_params
-    params.require(:group_slideshow_join).permit(:bit_player_slideshow_id, :group_id, :release_day)
+    params.require(:group_slideshow_join)
+      .permit(:bit_player_slideshow_id, :group_id, :release_day)
   end
 
   def group_slideshow_join
@@ -49,5 +51,4 @@ class GroupSlideshowJoinsController < ApplicationController
     group_slideshow_join.bit_player_slideshow
   end
   helper_method :slideshow
-
 end

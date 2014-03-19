@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :coach_assignments, inverse_of: :coach, foreign_key: :coach_id
   has_many :participants, through: :coach_assignments
   has_many :sent_messages, class_name: "Message", as: :sender
-  has_many :group_slideshow_joins, :foreign_key => :creator_id
+  has_many :group_slideshow_joins, foreign_key: :creator_id
   has_many :messages, as: :sender
   has_many :received_messages,
            -> { includes :message },

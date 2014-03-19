@@ -1,9 +1,7 @@
 module ContentProviders
   # Provides a view of current learning tools: videos and lessons
   class LearnLessonsIndexProvider < BitPlayer::ContentProvider
-
     def render_current(options)
-
       content_modules = BitPlayer::ContentModule
 
       options.view_context.render(
@@ -15,6 +13,5 @@ module ContentProviders
     def show_nav_link?
       false
     end
-
   end
 end
