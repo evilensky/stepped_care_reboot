@@ -10,7 +10,7 @@ describe 'Slides' do
 
   it 'User can create a slide' do
     expect(BitPlayer::Slide.find_by_title("A great slide!!")).to be_nil
-    click_on "New Slide"
+    click_on "Add Slide"
     fill_in "Title", with: "A great slide!!"
     fill_in "Body", with: "The greatest content ever!"
     click_on "Create"
@@ -20,7 +20,7 @@ describe 'Slides' do
   end
 
   it 'User will see error if no title is included' do
-    click_on "New Slide"
+    click_on "Add Slide"
     fill_in "Title", with: ""
     click_on "Create"
     expect(page).to have_text("Title can't be blank")
@@ -69,7 +69,7 @@ describe 'Slides' do
     slide = BitPlayer::Slide.find_by_title("I'm an rspec slide")
     expect(slide).not_to eq nil
     with_scope "#slide_#{slide.id}" do
-      click_on "Delete"
+      click_on "Remove"
     end
     expect(BitPlayer::Slide.find_by_title("I'm an rspec slide")).to eq nil
     expect(page).not_to have_text("I'm an rspec slide")

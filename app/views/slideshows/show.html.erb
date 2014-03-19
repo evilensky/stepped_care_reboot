@@ -1,27 +1,27 @@
-<h1>Slideshow <small><%= @slideshow.title %></small></h1>
+<h1>Slideshow <small><%= slideshow.title %></small></h1>
 
 <div class="btn btn-toolbar" style="padding: 0px;">
 	<%= link_to "Slideshows", slideshows_path, class: "btn btn-default" %>
-  <%= link_to "Edit", edit_slideshow_path(@slideshow), class: "btn btn-default" %>
-	<%= link_to "<i class='fa fa-share-square-o'></i> Assign".html_safe, new_slideshow_group_path(@slideshow), class: "btn btn-default" %>
-	<%= link_to "<i class='fa fa-plus'></i> Slide".html_safe, new_slideshow_slide_path(@slideshow), class: "btn btn-default" %>
+  <%= link_to "Edit", edit_slideshow_path(slideshow), class: "btn btn-default" %>
+	<%= link_to "<i class='fa fa-share-square-o'></i> Assign".html_safe, new_slideshow_group_path(slideshow), class: "btn btn-default" %>
+	<%= link_to "<i class='fa fa-plus'></i> Add Slide".html_safe, new_slideshow_slide_path(slideshow), class: "btn btn-default" %>
 </div>
 
 <h3>Slides</h3>
-<ol id="sortable-slides" data-update-url="<%= sort_slideshow_slides_url(@slideshow) %>">
-	<% @slides.each do |slide| %>
+<ol id="sortable-slides" data-update-url="<%= sort_slideshow_slides_url(slideshow) %>">
+	<% slideshow.slides.each do |slide| %>
 		<li class="slide" id="slide_<%= slide.id %>">
 			<span>
 				<span class="handle"><%= fa_icon("sort", class: "fa-lg") %></span>
 			</span>
 
 			<span>
-				<%= link_to slide.title, slideshow_slide_path(@slideshow, slide) %>
+				<%= link_to slide.title, slideshow_slide_path(slideshow, slide) %>
 			</span>
 
 			<span>
-				<%= link_to "Edit", edit_slideshow_slide_path(@slideshow, slide), class: "btn btn-default" %>
-				<%= link_to "Remove", slideshow_slide_path(@slideshow, slide), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+				<%= link_to "Edit", edit_slideshow_slide_path(slideshow, slide), class: "btn btn-default" %>
+				<%= link_to "Remove", slideshow_slide_path(slideshow, slide), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
 			</span>
 		</li>
 	<% end %>

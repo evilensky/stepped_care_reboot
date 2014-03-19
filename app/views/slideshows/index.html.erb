@@ -14,7 +14,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<% @slideshows.each do |slideshow| %>
+		<% slideshows.each do |slideshow| %>
 			<tr id="slideshow-<%= slideshow.id %>">
 				<td>
 					<%= link_to slideshow.title, slideshow_path(slideshow) %>

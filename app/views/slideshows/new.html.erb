@@ -1,5 +1,5 @@
 <h1>New Slideshow</h1>
-<%= form_for(@slideshow) do |f| %>
+<%= form_for(slideshow, as: :slideshow) do |f| %>
 	<%= render "slideshows/fields", f: f %>
 	<%= f.submit "Create", class: "btn btn-primary" %>
 	<%= link_to "Cancel", slideshows_path, class: "btn btn-default" %>
