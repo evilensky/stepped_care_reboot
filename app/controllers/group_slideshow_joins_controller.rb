@@ -36,7 +36,7 @@ class GroupSlideshowJoinsController < ApplicationController
   end
 
   def group_slideshow_join
-    GroupSlideshowJoin.find(params[:id])
+    @group_slideshow_join ||= GroupSlideshowJoin.find(params[:id])
   end
   helper_method :group_slideshow_join
 

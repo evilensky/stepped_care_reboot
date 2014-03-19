@@ -30,9 +30,9 @@ class SlideshowGroupsController < ApplicationController
 
   def slideshow
     if params[:slideshow_id]
-      BitPlayer::Slideshow.find(params[:slideshow_id])
+      @slideshow ||= BitPlayer::Slideshow.find(params[:slideshow_id])
     else
-      BitPlayer::Slideshow.new
+      @slideshow ||= BitPlayer::Slideshow.new
     end
   end
   helper_method :slideshow
