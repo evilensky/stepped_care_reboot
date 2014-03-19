@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 20140318163703) do
 
   add_index "bit_player_slides", ["bit_player_slideshow_id", "position"], name: "bit_player_slide_position", unique: true, using: :btree
   add_index "bit_player_slides", ["bit_player_slideshow_id"], name: "index_bit_player_slides_on_bit_player_slideshow_id", using: :btree
-  add_index "bit_player_slides", ["position", "bit_player_slideshow_id"], name: "index_bit_player_slides_on_position_and_bit_player_slideshow_id", using: :btree
 
   create_table "bit_player_slideshows", force: true do |t|
     t.string   "title",      null: false
