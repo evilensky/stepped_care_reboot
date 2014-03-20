@@ -101,7 +101,6 @@ describe 'learning for users' do
     # I couldn't get group_slideshow_joins.yml to create the correct group_slideshow_join -Wehrley 3/20/14
     user = users(:user1)
     group1 = groups(:group1)
-    group2 = groups(:group2)
     bit_player_slideshow = bit_player_slideshows(:rspec_slideshow2)
     gsj = GroupSlideshowJoin.create(
       bit_player_slideshow_id: bit_player_slideshow.id,
