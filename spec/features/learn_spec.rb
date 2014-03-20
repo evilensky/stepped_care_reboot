@@ -19,10 +19,13 @@ describe 'learning for participants' do
 
   it 'can view assigned slideshow that are released' do
     click_on "Lessons"
-    expect(page).to have_link('1 Learning is wonderful!')
+    expect(page).to have_link('0 Learning is wonderful!')
   end
 
-  it 'can view assigned slideshows that are not released yet'
+  it 'can view assigned slideshows that are not released yet' do
+    click_on "Lessons"
+    expect(page).not_to have_link('0 This slide is NOT AVAILABLE YET!')
+  end
 
 end
 
@@ -58,7 +61,7 @@ describe 'learning for users' do
     expect(page).to have_text(1)
   end
 
-  it 'can update slideshow to group'
+  it 'can update slideshow to group' # do # Not sure why failing!
   #   gsj = group_slideshow_joins(:group_slideshow_join1)
   #   expect(gsj.group_id).to eq groups(:group1).id
   #   expect(gsj.release_day).to eq 1

@@ -1,9 +1,9 @@
 <h1>Lessons</h1>
 <div class="list-group">
-  <% content_modules.each do |m| %>
-    <a href="<%= navigator_location_path(module_id: m.id) %>" class="list-group-item">
-      <span class="badge">1</span>
-      <%= m.title %>
+  <% group_slideshow_joins.each do |join| %>
+    <a href="#" class="list-group-item">
+      <span class="badge"><%= join.bit_player_slideshow.slides.count %></span>
+      <%= join.bit_player_slideshow.title %>
     </a>
   <% end %>
 </div>

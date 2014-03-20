@@ -18,6 +18,8 @@ gem 'redcarpet', '~> 2.3'
 gem 'whenever'
 # preview email
 gem 'mail_view'
+# help determine what lessons are available
+gem 'time_difference'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.0.0.beta2'
