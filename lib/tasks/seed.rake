@@ -8,7 +8,8 @@ namespace :seed do
       :participants, :'bit_player/slideshows', :'bit_player/slides',
       :'bit_player/content_modules', :'bit_player/content_providers', :users,
       :activity_types, :activities, :coach_assignments, :groups,
-      :messages, :delivered_messages, :thought_patterns, :thoughts
+      :messages, :delivered_messages, :thought_patterns, :thoughts,
+      :group_slideshow_joins
     ]
   end
 end

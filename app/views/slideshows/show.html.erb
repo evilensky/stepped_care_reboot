@@ -38,7 +38,7 @@
 	</thead>
 	<tbody>
 	<% group_slideshow_joins.each do |gsj| %>
-		<tr>
+		<tr id="group-slide-show-<%= gsj.id %>">
 			<td><%= gsj.group.title %></td>
 			<td><%= gsj.release_day %></td>
 			<td>
