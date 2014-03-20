@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>When Recorded</th>
+      <!-- <th>Emotion/Valence</th> -->
       <th>Rating</th>
       <th>Intensity</th>
     </tr>
@@ -12,6 +13,9 @@
     <% emotions.each do |emotion| %>
       <tr class="<%= emotion_class(emotion) %>">
         <td><%= time_ago_in_words(emotion.created_at) %> ago</td>
+        <!-- <td> -->
+          <%#= emotion.valence %>
+        <!-- </td> -->
         <td><%= emotion.rating %></td>
         <td><%= emotion.intensity %></td>
       </tr>
