@@ -1,0 +1,9 @@
+membership1:
+  participant: participant1
+  group: group1
+  start_date: <%= Time.new %>
+
+membership2:
+  participant: participant2
+  group: group1
+  start_date: <%= Time.new %>

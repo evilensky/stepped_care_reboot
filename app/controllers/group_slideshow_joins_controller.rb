@@ -8,6 +8,7 @@ class GroupSlideshowJoinsController < ApplicationController
   end
 
   def update
+    puts "group_slideshow_join = #{group_slideshow_join.creator_id}"
     if group_slideshow_join.update(group_slideshow_join_params)
       # Not sure how this redirect will work out in the future
       # when we are updating slideshows nested within groups
@@ -15,6 +16,7 @@ class GroupSlideshowJoinsController < ApplicationController
       redirect_to slideshow_path(slideshow), notice: "Updated successfully."
     else
       errors = group_slideshow_join.errors.full_messages.join(", ")
+      puts "errors = #{errors}"
       flash.now[:alert] = "Unable to assign slideshow to group: #{ errors }"
       render :edit
     end
