@@ -3,19 +3,19 @@ module ContentProviders
   # the mood selected in the previous page
   class EditPastFeelProvider < BitPlayer::ContentProvider
     def render_current(options)
-      emotions_array = emotions(options)
+      participant_emotions_array = determine_participant_emotions(options)
 
       options.view_context.render(
         template: 'feel/edit',
         locals: {
-          emotions: emotions_array,
-          count: emotions_array.count,
+          emotions: participant_emotions_array,
+          count: participant_emotions_array.count,
           update_path: options.view_context.participant_data_path
         }
       )
     end
 
-    def emotions(options)
+    def determine_participant_emotions(options)
       participant = options.view_context.current_participant
       mood = participant.moods.last if participant
       valence_value = valence(mood) if mood
