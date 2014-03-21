@@ -1,11 +1,9 @@
 <h1>Lessons</h1>
 <div class="list-group">
   <% group_slideshow_joins.each do |join| %>
-    <% content_provider = join.bit_player_slideshow.content_provider %>
-    <% content_module = content_provider.content_module %>
     <% path = navigator_location_path(
-      module_id: content_module.id,
-      provider_id: content_provider.id,
+      module_id: join.bit_player_slideshow.content_provider.content_module.id,
+      provider_id: join.bit_player_slideshow.content_provider.id,
       content_position: 1
     ) %>
     <a href="<%= path %>" class="list-group-item">

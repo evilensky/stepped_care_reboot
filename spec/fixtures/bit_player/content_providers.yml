@@ -223,17 +223,17 @@ messages_compose:
 rspec_learning_provider2:
   type: BitPlayer::ContentProviders::SlideshowProvider
   source_content: rspec_slideshow2 (BitPlayer::Slideshow)
-  content_module: rspec_learning_module
+  content_module: rspec_learning_module1
   position: 1
 
 rspec_learning_provider3:
   type: BitPlayer::ContentProviders::SlideshowProvider
   source_content: rspec_slideshow3 (BitPlayer::Slideshow)
-  content_module: rspec_learning_module
-  position: 1
+  content_module: rspec_learning_module1
+  position: 2
 
 rspec_learning_provider4:
   type: BitPlayer::ContentProviders::SlideshowProvider
   source_content: rspec_slideshow4 (BitPlayer::Slideshow)
-  content_module: rspec_learning_module
+  content_module: rspec_learning_module2
   position: 1

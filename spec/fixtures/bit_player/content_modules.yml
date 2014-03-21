@@ -88,7 +88,12 @@ messages_landing:
   context: messages
   position: 1
 
-rspec_learning_module:
+rspec_learning_module1:
   title: 'Something Here'
-  context: rspec_learning
+  context: rspec_learning1
+  position: 1
+
+rspec_learning_module2:
+  title: 'Something Here 2'
+  context: rspec_learning2
   position: 1
