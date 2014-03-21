@@ -1,0 +1,6 @@
+<h1>Assign Slide <small><%= slideshow.title %></small></h1>
+<%= form_for group_slideshow_join, as: :group_slideshow_join, url: slideshow_groups_path(slideshow), html: {role: "form"} do |f| %>
+  <%= render "group_slideshow_joins/fields", f: f %>
+  <%= f.submit "Save", class: "btn btn-primary" %>
+  <%= link_to "Cancel", slideshows_path, class: "btn btn-default" %>
+<% end %>

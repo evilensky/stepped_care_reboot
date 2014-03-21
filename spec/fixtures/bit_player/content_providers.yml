@@ -190,9 +190,19 @@ feel_display:
   content_module: feeling_tracker_module4
   position: 1
 
-learn_landing:
+library_index_landing:
   type: ContentProviders::ModuleIndexProvider
-  content_module: learn_landing
+  content_module: library_landing
+  position: 1
+
+library_lessons:
+  type: ContentProviders::LearnLessonsIndexProvider
+  content_module: library_lessons_module2
+  position: 1
+
+library_videos:
+  type: ContentProviders::LearnVideosIndexProvider
+  content_module: library_videos_module3
   position: 1
 
 messages_landing:
