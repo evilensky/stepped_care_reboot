@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'participants partake in learning via slideshows' do
+describe 'participant1 learns via slideshows' do
   fixtures(
     :participants, :'bit_player/slideshows', :'bit_player/slides',
     :'bit_player/content_modules', :'bit_player/content_providers',
@@ -19,12 +19,30 @@ describe 'participants partake in learning via slideshows' do
 
   it 'can view assigned slideshow that are released' do
     click_on "Lessons"
-    expect(page).to have_link('0 Learning is wonderful!')
+    expect(page).to have_link('Learning is wonderful!')
+    expect(page).to have_link('Happiness')
+    expect(page).not_to have_link('This slide is ONLY AVAILABLE ON DAY 3!')
   end
 
-  it 'can view assigned slideshows that are not released yet' do
+end
+
+describe 'participant3 learns via slideshows' do
+  fixtures(
+    :participants, :'bit_player/slideshows', :'bit_player/slides',
+    :'bit_player/content_modules', :'bit_player/content_providers',
+    :groups, :memberships, :group_slideshow_joins
+  )
+
+  before do
+    sign_in_participant participants(:participant3)
+    visit '/navigator/contexts/library'
+  end
+
+  it 'participant3 can view assigned slideshow that are released because their start date was earlier' do
     click_on "Lessons"
-    expect(page).not_to have_link('0 This slide is NOT AVAILABLE YET!')
+    expect(page).to have_link('Learning is wonderful!')
+    expect(page).to have_link('Happiness')
+    expect(page).to have_link('This slide is ONLY AVAILABLE ON DAY 3!')
   end
 
 end
