@@ -229,9 +229,14 @@ feel_identifying_intro1:
   title: Some quick examples...
   body: "What is mood?"
 
-
 rspec_slide:
   slideshow: rspec_slideshow
   position: 1
   title: "I'm an rspec slide"
   body: "I'm serious!"
+
+# rspec_slide2:
+#   slideshow: rspec_slideshow2
+#   position: 1
+#   title: "Here is the slide"
+#   body: "I'm am H-A-P-P-Y-!"
