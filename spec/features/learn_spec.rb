@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'learning for participants' do
+describe 'participants partake in learning via slideshows' do
   fixtures(
     :participants, :'bit_player/slideshows', :'bit_player/slides',
     :'bit_player/content_modules', :'bit_player/content_providers',
@@ -29,7 +29,7 @@ describe 'learning for participants' do
 
 end
 
-describe 'learning for users' do
+describe 'users CRUDing learning by assigning learning slideshows to groups' do
   fixtures(
     :users, :'bit_player/slideshows', :'bit_player/slides',
     :'bit_player/content_modules', :'bit_player/content_providers',
@@ -61,22 +61,21 @@ describe 'learning for users' do
     expect(page).to have_text(1)
   end
 
-  it 'can update slideshow to group' # do # Not sure why failing!
-  #   gsj = group_slideshow_joins(:group_slideshow_join1)
-  #   expect(gsj.group_id).to eq groups(:group1).id
-  #   expect(gsj.release_day).to eq 1
-  #   visit slideshow_path(gsj.bit_player_slideshow)
-  #   with_scope "#group-slide-show-#{gsj.id}" do
-  #     click_on "Edit"
-  #   end
-  #   select('Group 2', from: "Select Group")
-  #   fill_in('Select number of days into intervention to make available', with: 2)
-  #   click_on 'Update'
-  #   # gsj = GroupSlideshowJoin.find(group_slideshow_joins(:group_slideshow_join1).id)
-  #   gsj.reload
-  #   expect(gsj.group_id).to eq groups(:group2).id
-  #   expect(gsj.release_day).to eq 2
-  # end
+  it 'can update slideshow to group' do
+    gsj = group_slideshow_joins(:group_slideshow_join1)
+    expect(gsj.group_id).to eq groups(:group1).id
+    expect(gsj.release_day).to eq 1
+    visit slideshow_path(gsj.bit_player_slideshow)
+    with_scope "#group-slide-show-#{gsj.id}" do
+      click_on "Edit"
+    end
+    select('Group 2', from: "Select Group")
+    fill_in('Select number of days into intervention to make available', with: 2)
+    click_on 'Update'
+    gsj.reload
+    expect(gsj.group_id).to eq groups(:group2).id
+    expect(gsj.release_day).to eq 2
+  end
 
   it "validation that the same slideshow can't be assigned more than once" do
     visit slideshow_path(group_slideshow_joins(:group_slideshow_join1).bit_player_slideshow)

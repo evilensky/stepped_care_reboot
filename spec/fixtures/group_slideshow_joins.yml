@@ -1,11 +1,11 @@
 group_slideshow_join1:
   bit_player_slideshow: rspec_slideshow2
-  creator: user1 (User)
+  creator: user1
   group: group1
   release_day: 1
 
 group_slideshow_join2:
   bit_player_slideshow: rspec_slideshow2
-  creator: user1 (User)
+  creator: user1
   group: group1
   release_day: 2

@@ -17,8 +17,9 @@ module ContentProviders
     end
 
     def days_into_intervention(membership)
-      TimeDifference.between(membership.start_date, Time.now)
-      .in_days.ceil
+      time_diff = Time.now - membership.start_date
+      days = time_diff / (3600 * 24)
+      days.ceil
     end
 
     def show_nav_link?

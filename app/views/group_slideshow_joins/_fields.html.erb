@@ -1,6 +1,6 @@
 <div class="form-group">
   <%= f.label :group_id, "Select Group" %><br/>
-  <%= f.select :group_id, groups.all.collect {|g| [ g.title, g.id ] }, {}, class: "form-control" %>
+  <%= f.select :group_id, groups.collect {|g| [ g.title, g.id ] }, {}, class: "form-control" %>
 </div>
 <%= f.hidden_field :bit_player_slideshow_id, :value => slideshow.id %>
 <div class="form-group">
