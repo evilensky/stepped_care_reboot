@@ -15,4 +15,10 @@ describe 'learn' do
     expect(page).to have_link('Videos')
   end
 
+  it 'should be able to view assigned slideshow'
+
+  # USERS
+  it 'should be able to assign slideshow to group'
+  it 'should be able to unassign slideshow to group'
+
 end

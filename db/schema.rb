@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313192408) do
+ActiveRecord::Schema.define(version: 20140318163703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -128,6 +128,15 @@ ActiveRecord::Schema.define(version: 20140313192408) do
 
   add_index "delivered_messages", ["message_id"], name: "index_delivered_messages_on_message_id", using: :btree
   add_index "delivered_messages", ["recipient_id", "recipient_type"], name: "index_delivered_messages_on_recipient_id_and_recipient_type", using: :btree
+
+  create_table "group_slideshow_joins", force: true do |t|
+    t.integer  "release_day",             default: 1, null: false
+    t.integer  "creator_id",                          null: false
+    t.integer  "group_id",                            null: false
+    t.integer  "bit_player_slideshow_id",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "groups", force: true do |t|
     t.string   "title",      null: false

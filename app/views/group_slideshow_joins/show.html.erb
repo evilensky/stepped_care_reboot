@@ -1,0 +1,11 @@
+<h1>Assigned Slide</h1>
+<div class="btn-toolbar">
+  <%= link_to "Slideshow", slideshow_path(@group_slideshow_join.bit_player_slideshow), class: "btn btn-default" %>
+  <%= link_to "Edit", edit_group_slideshow_join_path(@group_slideshow_join), class: "btn btn-default" %>
+</div>
+<h3>Group</h3>
+<%= @group_slideshow_join.group.title %>
+<h3>Slideshow</h3>
+<%= link_to @group_slideshow_join.bit_player_slideshow.title, slideshow_path(@group_slideshow_join.bit_player_slideshow) %>
+<h3>Day of Release</h3>
+<%= @group_slideshow_join.release_day %>
