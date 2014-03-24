@@ -1,0 +1,13 @@
+<h1>Videos</h1>
+<div class="list-group">
+  <% videos.each do |video| %>
+    <% path = navigator_location_path(
+      module_id: video.slideshow.content_provider.content_module.id,
+      provider_id: video.slideshow.content_provider.id,
+      content_position: video.position
+    ) %>
+    <a href="<%= path %>" class="list-group-item">
+      <%= video.title %>
+    </a>
+  <% end %>
+</div>
