@@ -7,7 +7,7 @@
     <div class="col-sm-4 text-center">0<br>Neither</div>
     <div class="col-sm-4 right">5<br>Good</div>
   </div>
-  <%= f.range_field :rating, in: -5..5, step: 1, value: 0 %>
+  <%= f.range_field :rating, in: 0..10, step: 1, value: 5 %>
 
   <%= f.submit "Continue", class: "btn btn-primary" %>
 <% end %>
