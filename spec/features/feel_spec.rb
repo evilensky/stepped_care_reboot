@@ -18,7 +18,7 @@ describe 'Slides' do
     expect(page).to have_text("Mood saved")
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).not_to be_nil
-    expect(mood.rating).to eq 0
+    expect(mood.rating).to eq 5
     expect(mood.mood_value).to eq "Neither"
   end
 

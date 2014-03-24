@@ -3,9 +3,9 @@
 
   <%= f.label :rating, "Did you feel bad, good, or neither yesterday?" %>
   <div class="range row">
-    <div class="col-sm-4 left">-5<br>Bad</div>
-    <div class="col-sm-4 text-center">0<br>Neither</div>
-    <div class="col-sm-4 right">5<br>Good</div>
+    <div class="col-sm-4 left">0<br>Bad</div>
+    <div class="col-sm-4 text-center">5<br>Neither</div>
+    <div class="col-sm-4 right">10<br>Good</div>
   </div>
   <%= f.range_field :rating, in: 0..10, step: 1, value: 5 %>
 
