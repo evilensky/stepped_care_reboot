@@ -17,6 +17,7 @@ class Participant < ActiveRecord::Base
            -> { includes :message },
            class_name: 'DeliveredMessage',
            as: :recipient
+  has_many :participant_emails, dependent: :destroy
   has_one :participant_status, class_name: 'BitPlayer::ParticipantStatus'
   has_one :coach_assignment
   has_one :coach, class_name: 'User', through: :coach_assignment
@@ -57,4 +58,8 @@ class Participant < ActiveRecord::Base
   def recent_awake_period
     @recent_awake_period ||= awake_periods.order('start_time').last
   end
+
+  scope :active, lambda {
+    where('participant.end_date IS NULL OR participant.end_date > ?', Time.now)
+  }
 end

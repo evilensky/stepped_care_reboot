@@ -1,3 +1,4 @@
+# encoding: utf-8 
 require 'spec_helper'
 
 describe 'activity tracker' do
@@ -25,7 +26,7 @@ describe 'activity tracker' do
 
     find('input[type="submit"]').click
 
-    expect(page).to have_text("Let’s break it down hour by hour...")
+    expect(page).to have_text("Let's break it down hour by hour...")
 
     fill_in('What did you do from 12am to 1am?', with: 'ate cheeseburgers')
     fill_in('How much pleasure did you get from doing this?', with: 9)

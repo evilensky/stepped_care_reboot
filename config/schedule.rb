@@ -18,3 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
+#every :thursday, at => '12pm' do
+every '*/10 * * * *' do
+  rake 'email_reminder:drip_email'
+end
