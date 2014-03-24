@@ -78,10 +78,10 @@ library_lessons_module2:
   context: library
   position: 2
 
-library_videos_module3:
-  title: 'Videos'
-  context: library
-  position: 3
+# library_videos_module3:
+#   title: 'Videos'
+#   context: library
+#   position: 3
 
 messages_landing:
   title: ''
