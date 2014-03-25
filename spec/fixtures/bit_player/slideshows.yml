@@ -40,8 +40,20 @@ feel_emotions_intro:
 feel_changes_intro:
   title: Intro
 
+feel_identify_intro:
+  title: Intro
+
 learn_thoughts_intro:
   title: Intro
 
 rspec_slideshow:
   title: "I'm a test!"
+
+rspec_slideshow2:
+  title: "Learning is wonderful!"
+
+rspec_slideshow3:
+  title: "Happiness"
+
+rspec_slideshow4:
+  title: "This slide is ONLY AVAILABLE ON DAY 3!"

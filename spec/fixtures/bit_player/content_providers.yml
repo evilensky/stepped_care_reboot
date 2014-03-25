@@ -165,27 +165,44 @@ feel_landing:
   content_module: feeling_tracker_landing
   position: 1
 
-feel_identify_index:
-  type: BitPlayer::ContentProviders::SlideshowProvider
-  source_content: feel_identify_intro (BitPlayer::Slideshow)
+feel_past_24_hrs:
+  type: ContentProviders::NewCurrentFeelProvider
   content_module: feeling_tracker_module2
   position: 1
 
-feel_patterns_index:
-  type: BitPlayer::ContentProviders::SlideshowProvider
-  source_content: feel_patterns_intro (BitPlayer::Slideshow)
+feel_past:
+  type: ContentProviders::NewPastFeelProvider
   content_module: feeling_tracker_module3
   position: 1
 
-feel_reshape_index:
-  type: BitPlayer::ContentProviders::SlideshowProvider
-  source_content: feel_reshape_intro (BitPlayer::Slideshow)
-  content_module: feeling_tracker_module4
-  position: 1    
+feel_edit_past:
+  type: ContentProviders::EditPastFeelProvider
+  content_module: feeling_tracker_module3
+  position: 2
 
-learn_landing:
+feel_experiences_table:
+  type: ContentProviders::IndexPastFeelProvider
+  content_module: feeling_tracker_module3
+  position: 3
+
+feel_display:
+  type: ContentProviders::FeelDisplayProvider
+  content_module: feeling_tracker_module4
+  position: 1
+
+library_index_landing:
   type: ContentProviders::ModuleIndexProvider
-  content_module: learn_landing
+  content_module: library_landing
+  position: 1
+
+library_lessons:
+  type: ContentProviders::LearnLessonsIndexProvider
+  content_module: library_lessons_module2
+  position: 1
+
+library_videos:
+  type: ContentProviders::LearnVideosIndexProvider
+  content_module: library_videos_module3
   position: 1
 
 messages_landing:
@@ -202,3 +219,21 @@ messages_compose:
   type: ContentProviders::NewMessageFormProvider
   content_module: messages_landing
   position: 3
+
+rspec_learning_provider2:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: rspec_slideshow2 (BitPlayer::Slideshow)
+  content_module: rspec_learning_module1
+  position: 1
+
+rspec_learning_provider3:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: rspec_slideshow3 (BitPlayer::Slideshow)
+  content_module: rspec_learning_module1
+  position: 2
+
+rspec_learning_provider4:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: rspec_slideshow4 (BitPlayer::Slideshow)
+  content_module: rspec_learning_module2
+  position: 1

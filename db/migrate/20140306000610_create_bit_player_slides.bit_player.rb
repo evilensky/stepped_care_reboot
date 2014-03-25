@@ -13,8 +13,6 @@ class CreateBitPlayerSlides < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :bit_player_slides, [:position, :bit_player_slideshow_id]
-
     reversible do |dir|
       dir.up do
         execute <<-SQL
@@ -28,7 +26,7 @@ class CreateBitPlayerSlides < ActiveRecord::Migration
         # updated
         execute <<-SQL
           ALTER TABLE bit_player_slides
-            ADD CONSTRAINT slide_position UNIQUE (bit_player_slideshow_id, position)
+            ADD CONSTRAINT bit_player_slide_position UNIQUE (bit_player_slideshow_id, position)
             DEFERRABLE INITIALLY IMMEDIATE
         SQL
       end
@@ -41,7 +39,7 @@ class CreateBitPlayerSlides < ActiveRecord::Migration
 
         execute <<-SQL
           ALTER TABLE bit_player_slides
-            DROP CONSTRAINT IF EXISTS slide_position
+            DROP CONSTRAINT IF EXISTS bit_player_slide_position
         SQL
       end
     end

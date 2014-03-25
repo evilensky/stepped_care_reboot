@@ -1,0 +1,28 @@
+<h3>Your Recent Emotions</h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>When Recorded</th>
+      <!-- <th>Emotion/Valence</th> -->
+      <th>Rating</th>
+      <th>Intensity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% emotions.each do |emotion| %>
+      <tr class="<%= emotion_class(emotion) %>">
+        <td><%= time_ago_in_words(emotion.created_at) %> ago</td>
+        <!-- <td> -->
+          <%#= emotion.valence %>
+        <!-- </td> -->
+        <td><%= emotion.rating %></td>
+        <td><%= emotion.intensity %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="btn-toolbar" style="margin-top:10px;">
+  <%= link_to "Continue", navigator_next_content_url, class: "btn btn-primary" %>
+</div>

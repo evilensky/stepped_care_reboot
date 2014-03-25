@@ -1,0 +1,29 @@
+<h3>Which emotions have you recently experienced?</h3>
+
+<% emotions.each do | emotion | %>
+  <%= form_for emotion, url: update_path, method: "post", html: { role: "form", class: "edit-emotion-form", id: "edit-emotion-#{count}" } do |f| %>
+    
+    <%= f.hidden_field :rating, value: emotion.rating %>
+
+    <div class="checkbox">
+      <label>
+        <%= check_box_tag "emotion[valence]", emotion.valence %><%= emotion.name %>
+      </label>
+    </div>
+
+    <div style="display:none;" class="intensity-scale">
+      <%= f.label :intensity, "How intense was this?" %>
+      <div class="range row">
+        <div class="col-xs-6 left">0</div>
+        <div class="col-xs-6 right">10</div>
+      </div>
+      <%= f.range_field :intensity, in: 0..10, step: 1, value: 5 %>
+    </div>
+
+  <% end %>
+  <% count = count - 1 %>
+<% end %>
+
+<div class="btn-toolbar" style="margin-top:10px;">
+  <%= link_to "Save Emotions", navigator_next_content_url, class: "btn btn-primary", id: "update-emotions" %>
+</div>

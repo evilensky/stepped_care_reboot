@@ -5,3 +5,7 @@ participant1:
 participant2:
   email: participant2@example.com
   encrypted_password: <%= Participant.new.send(:password_digest, 'secrets!') %>
+
+participant3:
+  email: participant3@example.com
+  encrypted_password: <%= Participant.new.send(:password_digest, 'secrets!') %>

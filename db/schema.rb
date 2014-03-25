@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140313192408) do
+ActiveRecord::Schema.define(version: 20140320183600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,9 +97,8 @@ ActiveRecord::Schema.define(version: 20140313192408) do
     t.datetime "updated_at"
   end
 
-  add_index "bit_player_slides", ["bit_player_slideshow_id", "position"], name: "slide_position", unique: true, using: :btree
+  add_index "bit_player_slides", ["bit_player_slideshow_id", "position"], name: "bit_player_slide_position", unique: true, using: :btree
   add_index "bit_player_slides", ["bit_player_slideshow_id"], name: "index_bit_player_slides_on_bit_player_slideshow_id", using: :btree
-  add_index "bit_player_slides", ["position", "bit_player_slideshow_id"], name: "index_bit_player_slides_on_position_and_bit_player_slideshow_id", using: :btree
 
   create_table "bit_player_slideshows", force: true do |t|
     t.string   "title",      null: false
@@ -129,6 +128,27 @@ ActiveRecord::Schema.define(version: 20140313192408) do
   add_index "delivered_messages", ["message_id"], name: "index_delivered_messages_on_message_id", using: :btree
   add_index "delivered_messages", ["recipient_id", "recipient_type"], name: "index_delivered_messages_on_recipient_id_and_recipient_type", using: :btree
 
+  create_table "emotions", force: true do |t|
+    t.integer  "participant_id", null: false
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "valence"
+    t.integer  "intensity"
+    t.string   "name"
+  end
+
+  add_index "emotions", ["participant_id"], name: "index_emotions_on_participant_id", using: :btree
+
+  create_table "group_slideshow_joins", force: true do |t|
+    t.integer  "release_day",             default: 1, null: false
+    t.integer  "creator_id",                          null: false
+    t.integer  "group_id",                            null: false
+    t.integer  "bit_player_slideshow_id",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "groups", force: true do |t|
     t.string   "title",      null: false
     t.integer  "creator_id", null: false
@@ -143,6 +163,7 @@ ActiveRecord::Schema.define(version: 20140313192408) do
     t.integer  "participant_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "start_date"
   end
 
   add_index "memberships", ["group_id", "participant_id"], name: "index_memberships_on_group_id_and_participant_id", unique: true, using: :btree
@@ -163,6 +184,15 @@ ActiveRecord::Schema.define(version: 20140313192408) do
 
   add_index "messages", ["recipient_id", "recipient_type"], name: "index_messages_on_recipient_id_and_recipient_type", using: :btree
   add_index "messages", ["sender_id", "sender_type"], name: "index_messages_on_sender_id_and_sender_type", using: :btree
+
+  create_table "moods", force: true do |t|
+    t.integer  "participant_id", null: false
+    t.integer  "rating"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "moods", ["participant_id"], name: "index_moods_on_participant_id", using: :btree
 
   create_table "participants", force: true do |t|
     t.string   "email",                  default: "", null: false
