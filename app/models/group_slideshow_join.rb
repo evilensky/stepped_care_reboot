@@ -5,11 +5,14 @@ class GroupSlideshowJoin < ActiveRecord::Base
   belongs_to :creator, class_name: "User"
   belongs_to :group
 
-  validates_presence_of :bit_player_slideshow, :creator, :group, :release_day
+  validates :bit_player_slideshow, :creator, :group, :release_day,
+            presence: true
   # This validation makes sure that a slideshow can't be assigned
   # to a group on the same release day more than once
-  validates_uniqueness_of :release_day,
-                          message: %q(This slideshow has already been assigned
-                            and set to be released on this day to this group.),
-                          scope: [:bit_player_slideshow, :group]
+  validates :release_day,
+            uniqueness: {
+              scope: [:bit_player_slideshow, :group],
+              message: %q(This slideshow has already been assigned and set to
+                          be released on this day to this group.)
+            }
 end
