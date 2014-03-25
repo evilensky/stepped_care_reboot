@@ -1,16 +1,16 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Slides' do
-  fixtures :participants, :'bit_player/slideshows', :'bit_player/content_modules', :'bit_player/content_providers'
+describe "Slides" do
+  fixtures :participants, :"bit_player/slideshows", :"bit_player/content_modules", :"bit_player/content_providers"
 
   let(:participant) { participants(:participant1) }
 
   before do
     sign_in_participant participant
-    visit '/navigator/contexts/feeling_tracker'
+    visit "/navigator/contexts/feeling_tracker"
   end
 
-  it 'User can rate their Mood' do
+  it "User can rate their Mood" do
     click_on "#1 Tracking Your Mood"
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).to be_nil
@@ -22,7 +22,7 @@ describe 'Slides' do
     expect(mood.mood_value).to eq "Neither"
   end
 
-  it 'User can set their Emotion'# , :js do
+  it "User can set their Emotion"# , :js do
   #   click_on "#2 Monitoring Your Emotions"
   #   mood = Mood.find_by_participant_id(participant.id)
   #   expect(mood).to be_nil

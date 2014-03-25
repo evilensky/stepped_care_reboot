@@ -3,19 +3,19 @@ module ContentProviders
   class IndexPastFeelProvider < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(
-        template: 'feel/index',
+        template: "feel/index",
         locals: {
           emotions: options
             .view_context
             .current_participant
             .emotions
-            .all(order: 'created_at desc', limit: 8)
+            .all(order: "created_at desc", limit: 8)
         }
       )
     end
 
     def data_class_name
-      'Emotion'
+      "Emotion"
     end
 
     def show_nav_link?
