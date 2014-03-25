@@ -1,6 +1,5 @@
 $(document).on("page:change", function() {
   var forms;
-  forms = $("form.edit_emotion_form");
   $("form.edit-emotion-form .checkbox input").on("change", function(event) {
     var form, target;
     target = $(event.currentTarget);
@@ -20,7 +19,7 @@ $(document).on("page:change", function() {
         type: $(form).attr("method"),
         url: $(form).attr("action"),
         data: data,
-        dataType: "json",
+        dataType: "script",
         success: function(response) {
           numberOfForms = numberOfForms - 1;
           if (numberOfForms === 0) {
