@@ -17,7 +17,6 @@ class Participant < ActiveRecord::Base
            -> { includes :message },
            class_name: 'DeliveredMessage',
            as: :recipient
-  has_many :participant_emails, dependent: :destroy
   has_one :participant_status, class_name: 'BitPlayer::ParticipantStatus'
   has_one :coach_assignment
   has_one :coach, class_name: 'User', through: :coach_assignment
@@ -62,12 +61,4 @@ class Participant < ActiveRecord::Base
   scope :active, lambda {
     where('participant.end_date IS NULL OR participant.end_date > ?', Time.now)
   }
-
-  after_save :create_phq_reminder, on: :create
-
-  protected
-  def create_phq_reminder
-    self.participant_emails << ParticipantEmail.create(:participant_id => self.id, :email_type => ParticipantEmail.phq9, :enabled => true, :last_email => DateTime.current)
-    self.save
-  end
 end
