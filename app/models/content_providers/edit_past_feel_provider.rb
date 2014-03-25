@@ -62,7 +62,6 @@ module ContentProviders
     end
 
     def valence(mood)
-      puts "mood.rating = #{mood.rating}"
       if mood.rating < 5
         -1
       elsif mood.rating == 5
