@@ -3,7 +3,7 @@ module ContentProviders
   class LearnVideosIndexProvider < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(
-        template: 'learn/videos_index',
+        template: "learn/videos_index",
         locals: { videos: BitPlayer::VideoSlide.all }
       )
     end

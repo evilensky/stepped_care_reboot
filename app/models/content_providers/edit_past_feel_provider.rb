@@ -6,7 +6,7 @@ module ContentProviders
       participant_emotions_array = determine_participant_emotions(options)
 
       options.view_context.render(
-        template: 'feel/edit',
+        template: "feel/edit",
         locals: {
           emotions: participant_emotions_array,
           count: participant_emotions_array.count,
@@ -24,7 +24,7 @@ module ContentProviders
     end
 
     def data_class_name
-      'Emotion'
+      "Emotion"
     end
 
     def data_attributes
