@@ -7,9 +7,9 @@ module ContentProviders
 
     def render_current(options)
       received_message = options.participant.received_messages
-        .find_by_message_id(options.view_context.params[:message_id])
+        .where(message_id: options.view_context.params[:message_id]).first
       sent_message = options.participant.messages
-        .find(options.view_context.params[:message_id])
+        .where(id: options.view_context.params[:message_id]).first
       message = received_message || sent_message
       message.try(:mark_read)
 

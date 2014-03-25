@@ -21,7 +21,7 @@
 
     function checkMessages() {
       $.ajax({
-        url: "<%= url.participant_received_messages_path %>"
+        url: "<%= url.participants_received_messages_path %>"
       })
         .always(scheduleCheck);
     }
