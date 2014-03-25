@@ -15,7 +15,6 @@ class ParticipantDataController < ApplicationController
       respond_to do |format|
         format.html { redirect_to navigator_next_content_url }
         format.js { render status: 201 }
-        format.json  { render json: { status: "success" } }
       end
     else
       respond_with_error

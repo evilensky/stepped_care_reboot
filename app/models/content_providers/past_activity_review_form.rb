@@ -7,7 +7,7 @@ module ContentProviders
         .incomplete
 
       options.view_context.render(
-        template: 'activities/past_activity_review',
+        template: "activities/past_activity_review",
         locals: {
           activities: activities,
           update_path: options.view_context.participant_data_path
@@ -16,7 +16,7 @@ module ContentProviders
     end
 
     def data_class_name
-      'Activity'
+      "Activity"
     end
 
     def data_attributes

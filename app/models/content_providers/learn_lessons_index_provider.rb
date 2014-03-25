@@ -11,7 +11,7 @@ module ContentProviders
       )
 
       options.view_context.render(
-        template: 'learn/lessons_index',
+        template: "learn/lessons_index",
         locals: { group_slideshow_joins: joins }
       )
     end

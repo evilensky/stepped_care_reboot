@@ -1,11 +1,11 @@
 # A portion of the Application with distinct functionality.
 class AppSection
   SECTIONS = {
-    thought_tracker: 'THINK',
-    feeling_tracker: 'FEEL',
-    activity_tracker: 'DO',
-    library: 'LEARN',
-    messages: 'MESSAGES'
+    thought_tracker: "THINK",
+    feeling_tracker: "FEEL",
+    activity_tracker: "DO",
+    library: "LEARN",
+    messages: "MESSAGES"
   }
 
   attr_reader :slug
@@ -19,7 +19,7 @@ class AppSection
   end
 
   def initialize(name)
-    @slug = name.to_s || ''
+    @slug = name.to_s || ""
   end
 
   def label

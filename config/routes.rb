@@ -26,7 +26,7 @@ SteppedCareReboot::Application.routes.draw do
     resources :sent_messages, only: :show
   end
 
-  namespace :participant do
+  namespace :participants do
     resources :received_messages, only: :index
   end
 

@@ -25,6 +25,10 @@ server "deploy@cbits-railsapps.nubic.northwestern.edu", :web, :db, :primary => t
 
 before "deploy", "deploy:create_vhost"
 
+# remove all but the last 10 releases
+set :keep_releases, 10
+after "deploy:update_code", "deploy:cleanup"
+
 before "bundle:install" do
   run "cd #{fetch(:latest_release)} && bundle config build.pg --with-pg-config=/usr/pgsql-9.3/bin/pg_config"
 end

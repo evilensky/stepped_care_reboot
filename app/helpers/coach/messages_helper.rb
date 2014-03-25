@@ -15,7 +15,7 @@ module Coach
     private
 
     def modules_for_context(c)
-      BitPlayer::ContentModule.where(context: c).where.not(title: '')
+      BitPlayer::ContentModule.where(context: c).where.not(title: "")
     end
   end
 end

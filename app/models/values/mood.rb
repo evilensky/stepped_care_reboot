@@ -2,9 +2,9 @@ module Values
   # Users rate their mood
   class Mood
     def self.from_rating(rating)
-      if rating < 0
+      if rating < 5
         new("Bad")
-      elsif rating == 0
+      elsif rating == 5
         new("Neither")
       else
         new("Good")

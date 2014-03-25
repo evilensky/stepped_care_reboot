@@ -3,7 +3,7 @@ module ContentProviders
   class PastActivityForm < BitPlayer::ContentProvider
     def render_current(options)
       options.view_context.render(
-        template: 'activities/past_activity_form',
+        template: "activities/past_activity_form",
         locals: {
           timestamps: timestamps,
           activity: Activity.new,
@@ -23,7 +23,7 @@ module ContentProviders
     end
 
     def data_class_name
-      'Activity'
+      "Activity"
     end
 
     def show_nav_link?

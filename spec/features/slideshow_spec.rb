@@ -1,14 +1,14 @@
-require 'spec_helper'
+require "spec_helper"
 
-describe 'Slideshow' do
-  fixtures :users, :'bit_player/slideshows'
+describe "Slideshow" do
+  fixtures :users, :"bit_player/slideshows"
 
   before do
     sign_in_user users(:user1)
     visit slideshows_path
   end
 
-  it 'User can create a slideshow' do
+  it "User can create a slideshow" do
     expect(BitPlayer::Slideshow.find_by_title("My favorite Slideshow")).to be_nil
     click_on "New"
     fill_in "Title", with: "My favorite Slideshow"
@@ -18,21 +18,21 @@ describe 'Slideshow' do
     expect(page).to have_text("My favorite Slideshow")
   end
 
-  it 'User will see error if no title is included' do
+  it "User will see error if no title is included" do
     click_on "New"
     fill_in "Title", with: ""
     click_on "Create"
     expect(page).to have_text("Title can't be blank")
   end
 
-  it 'User can view show page of a slideshow' do
+  it "User can view show page of a slideshow" do
     click_on "I'm a test!"
     slideshow = BitPlayer::Slideshow.find_by_title("I'm a test!")
     expect(current_path).to eq slideshow_path(slideshow)
     expect(page).to have_text("I'm a test!")
   end
 
-  it 'User can update slideshow\'s title' do
+  it "User can update slideshow\"s title" do
     slideshow = BitPlayer::Slideshow.find_by_title("I'm a test!")
     with_scope "#slideshow-#{slideshow.id}" do
       click_on "Edit"
@@ -45,7 +45,7 @@ describe 'Slideshow' do
     expect(current_path).to eq slideshows_path
   end
 
-  it 'User can\'t update a slideshow without a title' do
+  it "User can\"t update a slideshow without a title" do
     slideshow = BitPlayer::Slideshow.find_by_title("I'm a test!")
     with_scope "#slideshow-#{slideshow.id}" do
       click_on "Edit"
@@ -58,7 +58,7 @@ describe 'Slideshow' do
     expect(slideshow.title).to eq "I'm a test!"
   end
 
-  it 'User can delete a slideshow' do
+  it "User can delete a slideshow" do
     expect(page).to have_text("I'm a test!")
     expect(BitPlayer::Slideshow.find_by_title("I'm a test!")).not_to eq nil
     slideshow = BitPlayer::Slideshow.find_by_title("I'm a test!")
