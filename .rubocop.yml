@@ -43,3 +43,6 @@ StringLiterals:
 
 WordArray:
   Enabled: false
+
+Encoding:
+  Enabled: false

@@ -1,3 +1,4 @@
+# Sends a PHQ9 email reminder to a given participant.
 class PhqMailer < ActionMailer::Base
   layout 'email'
 
@@ -6,7 +7,7 @@ class PhqMailer < ActionMailer::Base
   def reminder_email(participant)
     @participant = participant
 
-    mail(      to: @participant.email,
-          subject: 'PHQ-9 Reminder')
+    mail(to: @participant.email,
+         subject: 'PHQ-9 Reminder')
   end
 end
