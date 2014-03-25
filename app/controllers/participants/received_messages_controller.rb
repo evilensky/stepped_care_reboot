@@ -1,4 +1,4 @@
-module Participant
+module Participants
   # Enables viewing of a participant's received messages.
   class ReceivedMessagesController < ApplicationController
     before_action :authenticate_participant!
