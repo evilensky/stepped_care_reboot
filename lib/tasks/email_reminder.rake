@@ -10,7 +10,7 @@ namespace :email_reminder do
 
         case email.email_type
           when ParticipantEmail.phq9
-            if (DateTime.current - 7.days) > email.last_email
+            if (DateTime.current - 7.days) > email.last_email and email.enabled
               PhqMailer.reminder_email(participant).deliver
               email.last_email = DateTime.current
               email.save
