@@ -45,11 +45,11 @@ module ContentProviders
     end
 
     def mood_related_emotions(mood)
-      if mood.rating < 0
+      if mood.rating < 5
         ["Anger", "Exasperation", "Rage", "Disgust",
          "Envy", "Torment", "Sadness", "Sadness", "Neglect",
          "Disappointment", "Shame", "Fear", "Nervousness"]
-      elsif mood.rating == 0
+      elsif mood.rating == 5
         ["Longing", "Surprise", "Sympathy"]
       else
         ["Contentment", "Enthrallment", "Joy",
@@ -62,9 +62,10 @@ module ContentProviders
     end
 
     def valence(mood)
-      if mood.rating < 0
+      puts "mood.rating = #{mood.rating}"
+      if mood.rating < 5
         -1
-      elsif mood.rating == 0
+      elsif mood.rating == 5
         0
       else
         1
