@@ -3,6 +3,8 @@ class Participant < ActiveRecord::Base
   devise :database_authenticatable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :phq9s, dependent: :destroy
+  has_many :participant_tokens, dependent: :destroy
   has_many :memberships, dependent: :destroy
   has_many :groups, through: :memberships
   has_many :activities, dependent: :destroy

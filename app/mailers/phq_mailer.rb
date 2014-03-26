@@ -6,6 +6,7 @@ class PhqMailer < ActionMailer::Base
 
   def reminder_email(participant)
     @participant = participant
+    @participant_token = ParticipantToken.create(participant_id: participant.id, token_type: "phq9", release_date: DateTime.now.to_i)
 
     mail(to: @participant.email,
          subject: 'PHQ-9 Reminder')

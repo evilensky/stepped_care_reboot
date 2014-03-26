@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325181653) do
+ActiveRecord::Schema.define(version: 20140326205140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,9 +97,8 @@ ActiveRecord::Schema.define(version: 20140325181653) do
     t.datetime "updated_at"
   end
 
-  add_index "bit_player_slides", ["bit_player_slideshow_id", "position"], name: "slide_position", unique: true, using: :btree
+  add_index "bit_player_slides", ["bit_player_slideshow_id", "position"], name: "bit_player_slide_position", unique: true, using: :btree
   add_index "bit_player_slides", ["bit_player_slideshow_id"], name: "index_bit_player_slides_on_bit_player_slideshow_id", using: :btree
-  add_index "bit_player_slides", ["position", "bit_player_slideshow_id"], name: "index_bit_player_slides_on_position_and_bit_player_slideshow_id", using: :btree
 
   create_table "bit_player_slideshows", force: true do |t|
     t.string   "title",      null: false
@@ -195,16 +194,16 @@ ActiveRecord::Schema.define(version: 20140325181653) do
 
   add_index "moods", ["participant_id"], name: "index_moods_on_participant_id", using: :btree
 
-  create_table "participant_emails", force: true do |t|
+  create_table "participant_tokens", force: true do |t|
     t.integer  "participant_id"
-    t.string   "email_type"
-    t.datetime "last_email"
-    t.boolean  "enabled"
+    t.datetime "release_date"
+    t.string   "token_type"
+    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "participant_emails", ["participant_id"], name: "index_participant_emails_on_participant_id", using: :btree
+  add_index "participant_tokens", ["participant_id"], name: "index_participant_tokens_on_participant_id", using: :btree
 
   create_table "participants", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -225,6 +224,23 @@ ActiveRecord::Schema.define(version: 20140325181653) do
 
   add_index "participants", ["email"], name: "index_participants_on_email", unique: true, using: :btree
   add_index "participants", ["reset_password_token"], name: "index_participants_on_reset_password_token", unique: true, using: :btree
+
+  create_table "phq9s", force: true do |t|
+    t.integer  "q1"
+    t.integer  "q2"
+    t.integer  "q3"
+    t.integer  "q4"
+    t.integer  "q5"
+    t.integer  "q6"
+    t.integer  "q7"
+    t.integer  "q8"
+    t.integer  "q9"
+    t.integer  "participant_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "phq9s", ["participant_id"], name: "index_phq9s_on_participant_id", using: :btree
 
   create_table "thought_patterns", force: true do |t|
     t.string   "title",       null: false

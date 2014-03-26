@@ -76,6 +76,7 @@ GEM
       railties (>= 3.2, < 5.0)
     haml (4.0.5)
       tilt
+    hashids (0.3.0)
     highline (1.6.21)
     hike (1.2.3)
     i18n (0.6.9)
@@ -216,6 +217,7 @@ DEPENDENCIES
   capybara
   debugger
   devise
+  hashids
   jquery-rails
   jquery-ui-rails
   mail_view
