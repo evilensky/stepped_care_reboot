@@ -14,9 +14,9 @@ module Values
 
     def self.from_rating(rating)
       return "Not answered" if rating.nil?
-      if rating < 0
+      if rating < 5
         new("Bad")
-      elsif rating == 0
+      elsif rating == 5
         new("Neither")
       else
         new("Good")

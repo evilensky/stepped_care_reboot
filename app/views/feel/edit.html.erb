@@ -12,12 +12,12 @@
     </div>
 
     <div style="display:none;" class="intensity-scale">
-      <%= f.label :intensity, "How intense was this?" %>
+      <%= f.label :intensity, "How intense was this?", for: "emotion-intensity-#{count}" %>
       <div class="range row">
         <div class="col-xs-6 left">0</div>
         <div class="col-xs-6 right">10</div>
       </div>
-      <%= f.range_field :intensity, in: 0..10, step: 1, value: 5 %>
+      <%= f.range_field :intensity, in: 0..10, step: 1, value: 5, id: "emotion-intensity-#{count}" %>
     </div>
 
   <% end %>

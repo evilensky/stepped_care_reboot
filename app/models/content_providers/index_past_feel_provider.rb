@@ -8,8 +8,7 @@ module ContentProviders
           emotions: options
             .view_context
             .current_participant
-            .emotions
-            .all(order: "created_at desc", limit: 8)
+            .emotions(order: "created_at desc", limit: 8)
         }
       )
     end

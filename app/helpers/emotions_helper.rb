@@ -2,9 +2,9 @@
 module EmotionsHelper
   def emotion_class(emotion)
     case emotion.rating
-    when -5..-1
+    when 0..4
       "danger"
-    when 1..5
+    when 6..10
       "success"
     else
       ""
