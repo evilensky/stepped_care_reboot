@@ -1,0 +1,79 @@
+require "spec_helper"
+
+describe Participants::PhqAssessmentsController do
+  shared_context "missing token" do
+    before { allow(ParticipantToken).to receive(:find_by_token) { nil } }
+  end
+
+  shared_context "valid token" do
+    let(:token) do
+      stub_model(ParticipantToken, participant_id: 7, release_date: Date.new)
+    end
+    let(:phq9) { double("PHQ9") }
+    let(:participant) { stub_model(Participant, build_phq9: phq9) }
+
+    before do
+      allow(ParticipantToken).to receive(:find_by_token).with("T") { token }
+      allow(Participant).to receive(:find) { participant }
+    end
+  end
+
+  shared_examples "token authorizer" do
+    it("should redirect to root") { expect(response).to redirect_to(root_url) }
+  end
+
+  describe "GET new" do
+    describe "when the token is not found" do
+      include_context "missing token"
+      before { get :new }
+      it_behaves_like "token authorizer"
+    end
+
+    describe "when the token is found" do
+      include_context "valid token"
+
+      it "should render the 'new' view" do
+        get :new, phq9: { token: "T" }
+
+        expect(response).to render_template(:new)
+      end
+    end
+  end
+
+  describe "POST create" do
+    describe "when the token is not found" do
+      include_context "missing token"
+      before { post :create }
+      it_behaves_like "token authorizer"
+    end
+
+    describe "when the token is found" do
+      include_context "valid token"
+
+      describe "and the assessment saves" do
+        before { allow(phq9).to receive(:save) { true } }
+
+        it "should render success" do
+          post :create, phq9: { q1: 1, q2: 2, q3: 3, q4: 4, q5: 5, q6: 6,
+                                q7: 7, q8: 8, q9: 9, token: "T" }
+
+          expect(response).to render_template(:success)
+        end
+      end
+
+      describe "and the assessment does not save" do
+        before do
+          allow(phq9).to receive(:save) { false }
+          allow(phq9).to receive_message_chain(:errors, :full_messages) { [] }
+        end
+
+        it "should render new" do
+          post :create, phq9: { q1: 1, q2: 2, q3: 3, q4: 4, q5: 5, q6: 6,
+                                q7: 7, q8: 8, q9: 9, token: "T" }
+
+          expect(response).to render_template(:new)
+        end
+      end
+    end
+  end
+end

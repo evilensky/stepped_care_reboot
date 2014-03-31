@@ -1,0 +1,75 @@
+<div class="col-md-12">
+  <h1>PHQ-9</h1>
+  <h3>Over the last 2 weeks, how often have you been bothered by any of the following problems?</h3>
+
+  <%= form_for [:participant, @phq9], :html => {:class=>'phq9-form'} do |f| %>
+    <ol>
+      <li class="radio-question-group">
+        <strong>Little interest or pleasure in doing things</strong><br>
+        <%= f.radio_button :q1, 0 %> Not at all<br>    
+        <%= f.radio_button :q1, 1 %> Several days<br>
+        <%= f.radio_button :q1, 2 %> More than half the days<br>
+        <%= f.radio_button :q1, 3 %> Nearly every day
+      </li>
+      <li class="radio-question-group">
+        <strong>Feeling down, depressed, or hopeless</strong><br>
+        <%= f.radio_button :q2, 0 %> Not at all<br>    
+        <%= f.radio_button :q2, 1 %> Several days<br>
+        <%= f.radio_button :q2, 2 %> More than half the days<br>
+        <%= f.radio_button :q2, 3 %> Nearly every day
+      </li>
+      <li class="radio-question-group">
+        <strong>Trouble falling or staying asleep, or sleeping too much</strong><br>
+        <%= f.radio_button :q3, 0 %> Not at all<br>    
+        <%= f.radio_button :q3, 1 %> Several days<br>
+        <%= f.radio_button :q3, 2 %> More than half the days<br>
+        <%= f.radio_button :q3, 3 %> Nearly every day
+      </li>
+      <li class="radio-question-group">
+        <strong>Feeling tired or having little energy</strong><br>
+        <%= f.radio_button :q4, 0 %> Not at all<br>    
+        <%= f.radio_button :q4, 1 %> Several days<br>
+        <%= f.radio_button :q4, 2 %> More than half the days<br>
+        <%= f.radio_button :q4, 3 %> Nearly every day
+      </li>
+      <li class="radio-question-group">
+        <strong>Poor appetite or overeating</strong><br>
+        <%= f.radio_button :q5, 0 %> Not at all<br>    
+        <%= f.radio_button :q5, 1 %> Several days<br>
+        <%= f.radio_button :q5, 2 %> More than half the days<br>
+        <%= f.radio_button :q5, 3 %> Nearly every day
+      </li>
+      <li class="radio-question-group">
+        <strong>Feeling bad about yourself or that you are a failure or have let yourself or your family down</strong><br>
+        <%= f.radio_button :q6, 0 %> Not at all<br>    
+        <%= f.radio_button :q6, 1 %> Several days<br>
+        <%= f.radio_button :q6, 2 %> More than half the days<br>
+        <%= f.radio_button :q6, 3 %> Nearly every day
+      </li>
+      <li class="radio-question-group">
+        <strong>Trouble concentrating on things, such as reading the newspaper or watching television</strong><br>
+        <%= f.radio_button :q7, 0 %> Not at all<br>    
+        <%= f.radio_button :q7, 1 %> Several days<br>
+        <%= f.radio_button :q7, 2 %> More than half the days<br>
+        <%= f.radio_button :q7, 3 %> Nearly every day
+      </li>
+      <li class="radio-question-group">
+        <strong>Moving or speaking so slowly that other people could have noticed. Or the opposite being so fidgety or restless that you have been moving around a lot more than usual</strong><br>
+        <%= f.radio_button :q8, 0 %> Not at all<br>    
+        <%= f.radio_button :q8, 1 %> Several days<br>
+        <%= f.radio_button :q8, 2 %> More than half the days<br>
+        <%= f.radio_button :q8, 3 %> Nearly every day
+      </li>
+      <li class="radio-question-group">
+        <strong>Thoughts that you would be better off dead, or of hurting yourself</strong><br>
+        <%= f.radio_button :q9, 0 %> Not at all<br>    
+        <%= f.radio_button :q9, 1 %> Several days<br>
+        <%= f.radio_button :q9, 2 %> More than half the days<br>
+        <%= f.radio_button :q9, 3 %> Nearly every day
+      </li>
+    </ol>
+    <input name="phq9[token]" type="hidden" value=<%=@token%> />
+    <%= f.submit "submit", :class => "btn btn-primary btn-block" %>
+      
+  <% end %>
+</div>

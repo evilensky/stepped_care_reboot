@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320183600) do
+ActiveRecord::Schema.define(version: 20140331165739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -164,6 +164,7 @@ ActiveRecord::Schema.define(version: 20140320183600) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "start_date"
+    t.date     "end_date"
   end
 
   add_index "memberships", ["group_id", "participant_id"], name: "index_memberships_on_group_id_and_participant_id", unique: true, using: :btree
@@ -194,6 +195,18 @@ ActiveRecord::Schema.define(version: 20140320183600) do
 
   add_index "moods", ["participant_id"], name: "index_moods_on_participant_id", using: :btree
 
+  create_table "participant_tokens", force: true do |t|
+    t.integer  "participant_id", null: false
+    t.datetime "release_date"
+    t.string   "token_type",     null: false
+    t.string   "token",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "participant_tokens", ["participant_id", "token"], name: "index_participant_tokens_on_participant_id_and_token", unique: true, using: :btree
+  add_index "participant_tokens", ["participant_id"], name: "index_participant_tokens_on_participant_id", using: :btree
+
   create_table "participants", force: true do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -207,10 +220,31 @@ ActiveRecord::Schema.define(version: 20140320183600) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "end_date"
+    t.datetime "start_date"
   end
 
   add_index "participants", ["email"], name: "index_participants_on_email", unique: true, using: :btree
   add_index "participants", ["reset_password_token"], name: "index_participants_on_reset_password_token", unique: true, using: :btree
+
+  create_table "phq9s", force: true do |t|
+    t.date     "release_date",   null: false
+    t.integer  "q1"
+    t.integer  "q2"
+    t.integer  "q3"
+    t.integer  "q4"
+    t.integer  "q5"
+    t.integer  "q6"
+    t.integer  "q7"
+    t.integer  "q8"
+    t.integer  "q9"
+    t.integer  "participant_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "phq9s", ["participant_id", "release_date"], name: "index_phq9s_on_participant_id_and_release_date", unique: true, using: :btree
+  add_index "phq9s", ["participant_id"], name: "index_phq9s_on_participant_id", using: :btree
 
   create_table "thought_patterns", force: true do |t|
     t.string   "title",       null: false

@@ -17,9 +17,14 @@ class Participant < ActiveRecord::Base
            -> { includes :message },
            class_name: "DeliveredMessage",
            as: :recipient
+  has_many :phq_assessments, dependent: :destroy
   has_one :participant_status, class_name: "BitPlayer::ParticipantStatus"
   has_one :coach_assignment
   has_one :coach, class_name: "User", through: :coach_assignment
+
+  def self.active
+    joins(:memberships).merge(Membership.active)
+  end
 
   def unplanned_activities
     UnplannedActivities.new(self)
