@@ -1,0 +1,15 @@
+<h1>Select the group you wish to manage</h1>
+<table class="table table-bordered table-striped table-hover">
+  <tr>
+    <th>Title</th>
+    <th>Creator</th>
+    <th> </th>
+  </tr>
+  <% groups.each do |group| %>
+    <tr>
+      <td><%= group.title %></td>
+      <td><%= group.creator.email %></td>
+      <td><%= link_to "manage group", edit_group_path(group), :class => "btn btn-primary" %></td>
+    </tr>
+  <%end%>
+</table>

@@ -20,6 +20,8 @@ SteppedCareReboot::Application.routes.draw do
     resources :groups, :controller => "slideshow_groups", only: [:new, :create]
   end
 
+  resources :groups, only: [:index, :edit, :update, :create, :destroy]
+
   namespace :coach do
     resources :messages, only: [:index, :new, :create]
     resources :received_messages, only: [:index, :show]

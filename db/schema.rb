@@ -196,15 +196,14 @@ ActiveRecord::Schema.define(version: 20140331165739) do
   add_index "moods", ["participant_id"], name: "index_moods_on_participant_id", using: :btree
 
   create_table "participant_tokens", force: true do |t|
-    t.integer  "participant_id", null: false
-    t.date     "release_date"
-    t.string   "token_type",     null: false
-    t.string   "token",          null: false
+    t.integer  "participant_id"
+    t.datetime "release_date"
+    t.string   "token_type"
+    t.string   "token"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "participant_tokens", ["participant_id", "token"], name: "index_participant_tokens_on_participant_id_and_token", unique: true, using: :btree
   add_index "participant_tokens", ["participant_id"], name: "index_participant_tokens_on_participant_id", using: :btree
 
   create_table "participants", force: true do |t|
@@ -220,13 +219,14 @@ ActiveRecord::Schema.define(version: 20140331165739) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "end_date"
+    t.datetime "start_date"
   end
 
   add_index "participants", ["email"], name: "index_participants_on_email", unique: true, using: :btree
   add_index "participants", ["reset_password_token"], name: "index_participants_on_reset_password_token", unique: true, using: :btree
 
-  create_table "phq_assessments", force: true do |t|
-    t.date     "release_date",   null: false
+  create_table "phq9s", force: true do |t|
     t.integer  "q1"
     t.integer  "q2"
     t.integer  "q3"
@@ -236,13 +236,12 @@ ActiveRecord::Schema.define(version: 20140331165739) do
     t.integer  "q7"
     t.integer  "q8"
     t.integer  "q9"
-    t.integer  "participant_id", null: false
+    t.integer  "participant_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "phq_assessments", ["participant_id", "release_date"], name: "index_phq_assessments_on_participant_id_and_release_date", unique: true, using: :btree
-  add_index "phq_assessments", ["participant_id"], name: "index_phq_assessments_on_participant_id", using: :btree
+  add_index "phq9s", ["participant_id"], name: "index_phq9s_on_participant_id", using: :btree
 
   create_table "thought_patterns", force: true do |t|
     t.string   "title",       null: false

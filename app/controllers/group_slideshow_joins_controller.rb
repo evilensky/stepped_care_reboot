@@ -21,13 +21,9 @@ class GroupSlideshowJoinsController < ApplicationController
   end
 
   def destroy
-    slideshow_for_after_delete = slideshow
     group_slideshow_join.destroy
     flash.now[:success] = "Slideshow unassigned form group."
-    # Not sure how this redirect will work out in the future
-    # when we are updating slideshows nested within groups
-    # Maybe just move this out into the slideshow_groups_controller
-    redirect_to slideshow_path(slideshow_for_after_delete)
+    render nothing: true
   end
 
   private
