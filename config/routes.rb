@@ -11,16 +11,15 @@ SteppedCareReboot::Application.routes.draw do
     resource :flow, only: :show
   end
 
-  resources :group_slideshow_joins, only: [:edit, :update, :destroy]
+  resources :group_slideshow_joins, except: [:new, :show]
 
   resources :slideshows do
     resources :slides do
       collection { post :sort }
     end
-    resources :groups, :controller => "slideshow_groups", only: [:new, :create]
   end
 
-  resources :groups, only: [:index, :edit, :update, :create, :destroy]
+  resources :groups
 
   namespace :coach do
     resources :messages, only: [:index, :new, :create]

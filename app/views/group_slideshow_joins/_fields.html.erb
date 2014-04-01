@@ -1,8 +1,8 @@
 <div class="form-group">
-  <%= f.label :group_id, "Select Group" %><br/>
-  <%= f.select :group_id, groups.collect {|g| [ g.title, g.id ] }, {}, class: "form-control" %>
+  <%= f.label :bit_player_slideshow_id, "Select Slideshow" %><br/>
+  <%= f.select :bit_player_slideshow_id, slideshows.collect {|ss| [ ss.title, ss.id ] }, {}, class: "form-control" %>
 </div>
-<%= f.hidden_field :bit_player_slideshow_id, :value => slideshow.id %>
+<%= f.hidden_field :group_id, :value => group.id %>
 <div class="form-group">
   <%= f.label :release_day, "Select number of days into intervention to make available" %><br/>
   <%= f.number_field :release_day, class: "form-control" %>

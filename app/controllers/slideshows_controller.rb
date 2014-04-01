@@ -58,11 +58,12 @@ class SlideshowsController < ApplicationController
   helper_method :group_slideshow_joins
 
   def slideshow
-    @slideshow  ||= if params[:id]
-                      BitPlayer::Slideshow.find(params[:id])
-                    else
-                      BitPlayer::Slideshow.new(slideshow_params)
-                    end
+    @slideshow ||=
+      if params[:id]
+        BitPlayer::Slideshow.find(params[:id])
+      else
+        BitPlayer::Slideshow.new(slideshow_params)
+      end
   end
   helper_method :slideshow
 

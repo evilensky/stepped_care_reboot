@@ -2,5 +2,5 @@
 <%= form_for group_slideshow_join, html: {role: "form"} do |f| %>
   <%= render "group_slideshow_joins/fields", f: f %>
   <%= f.submit "Update", class: "btn btn-primary" %>
-  <%= link_to "Cancel", slideshow_path(slideshow), class: "btn btn-default" %>
+  <%= link_to "Cancel", edit_group_path(group), class: "btn btn-default" %>
 <% end %>

@@ -1,50 +1,66 @@
-# Enables users to edit group_slideshows
-# This code may need to be moved out and refactored
-# if we nest slideshows also within Groups
+# Enables users to edit the slideshows for each group
 class GroupSlideshowJoinsController < ApplicationController
   before_action :authenticate_user!
+
+  def create
+    if group_slideshow_join.save
+      redirect_to edit_group_path(group), notice: "Slideshow was assigned."
+    else
+      errors = group_slideshow_join.errors.full_messages.join(", ")
+      flash[:alert] = "Unable to assign slideshow: #{ errors }"
+      redirect_to edit_group_path(group_slideshow_join.group)
+    end
+  end
 
   def edit
   end
 
   def update
-    if group_slideshow_join.update(group_slideshow_join_params)
-      # Not sure how this redirect will work out in the future
-      # when we are updating slideshows nested within groups
-      # Maybe just move this out into the slideshow_groups_controller
-      redirect_to slideshow_path(slideshow), notice: "Updated successfully."
+    if group_slideshow_join.update(_params)
+      redirect_to edit_group_path(group), notice: "Updated successfully."
     else
       errors = group_slideshow_join.errors.full_messages.join(", ")
-      flash.now[:alert] = "Unable to assign slideshow to group: #{ errors }"
+      flash[:alert] = "Unable to assign slideshow to group: #{ errors }"
       render :edit
     end
   end
 
   def destroy
-    group_slideshow_join.destroy
-    flash.now[:success] = "Slideshow unassigned form group."
-    render nothing: true
+    deleted_group = group_slideshow_join.group
+    if group_slideshow_join.destroy
+      flash.now[:success] = "Slideshow unassigned from group."
+      redirect_to edit_group_path(deleted_group)
+    else
+      errors = group_slideshow_join.errors.full_messages.join(", ")
+      flash[:error] = "Unable to assign slideshow to group: #{ errors }"
+      redirect_to edit_group_path(deleted_group)
+    end
   end
 
   private
 
-  def group_slideshow_join_params
+  def _params
     params.require(:group_slideshow_join)
       .permit(:bit_player_slideshow_id, :group_id, :release_day)
   end
 
   def group_slideshow_join
-    @group_slideshow_join ||= GroupSlideshowJoin.find(params[:id])
+    @group_slideshow_join ||=
+      if params[:id]
+        GroupSlideshowJoin.find(params[:id])
+      else
+        current_user.group_slideshow_joins.build(_params)
+      end
   end
   helper_method :group_slideshow_join
 
-  def groups
-    Group.all
+  def group
+    @group ||= group_slideshow_join.group
   end
-  helper_method :groups
+  helper_method :group
 
-  def slideshow
-    group_slideshow_join.bit_player_slideshow
+  def slideshows
+    @slideshows ||= BitPlayer::Slideshow.all
   end
-  helper_method :slideshow
+  helper_method :slideshows
 end

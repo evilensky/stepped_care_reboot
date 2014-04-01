@@ -1,24 +1,12 @@
+# Users can view groups to CRUD and assign slideshows
 class GroupsController < ApplicationController
   before_action :authenticate_user!
-  layout 'manage'
+  layout "manage"
 
   def index
   end
 
   def edit
-  end
-
-  def create
-    if group_slideshow_join.save
-      redirect_to edit_group_path(group), notice: "Slideshow was assigned."
-    else
-      errors = group_slideshow_join.errors.full_messages.join(", ")
-      flash.now[:alert] = "Unable to assign slideshow: #{ errors }"
-      redirect_to edit_group_path(group)
-    end
-  end
-
-  def destroy
   end
 
   private
@@ -51,12 +39,12 @@ class GroupsController < ApplicationController
   helper_method :groups
 
   def group
-    if params[:id].present?
-      Group.find(params[:id])
-    else
-      Group.find(params[:group_slideshow_join][:group_id])
-    end
+    @group ||=
+      if params[:id]
+        Group.find(params[:id])
+      else
+        current_user.groups.build(_params)
+      end
   end
   helper_method :group
-
 end
