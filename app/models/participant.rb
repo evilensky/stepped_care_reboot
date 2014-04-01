@@ -18,6 +18,7 @@ class Participant < ActiveRecord::Base
            class_name: "DeliveredMessage",
            as: :recipient
   has_many :phq_assessments, dependent: :destroy
+  has_many :participant_tokens, dependent: :destroy
   has_one :participant_status, class_name: "BitPlayer::ParticipantStatus"
   has_one :coach_assignment
   has_one :coach, class_name: "User", through: :coach_assignment
@@ -61,5 +62,9 @@ class Participant < ActiveRecord::Base
 
   def recent_awake_period
     @recent_awake_period ||= awake_periods.order("start_time").last
+  end
+
+  def build_phq_assessment(attributes)
+    phq_assessments.build(attributes)
   end
 end

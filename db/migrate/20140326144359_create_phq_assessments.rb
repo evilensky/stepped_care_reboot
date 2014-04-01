@@ -1,6 +1,6 @@
 class CreatePhqAssessments < ActiveRecord::Migration
   def change
-    create_table :phq_assessment do |t|
+    create_table :phq_assessments do |t|
       t.date :release_date, null: false
       t.integer :q1
       t.integer :q2
@@ -16,13 +16,13 @@ class CreatePhqAssessments < ActiveRecord::Migration
       t.timestamps
     end
 
-    add_index :phq_assessment, [:participant_id, :release_date], unique: true
+    add_index :phq_assessments, [:participant_id, :release_date], unique: true
 
     reversible do |dir|
       dir.up do
         execute <<-SQL
-          ALTER TABLE phq_assessment
-            ADD CONSTRAINT fk_phq_assessment_participants
+          ALTER TABLE phq_assessments
+            ADD CONSTRAINT fk_phq_assessments_participants
             FOREIGN KEY (participant_id)
             REFERENCES participants(id)
         SQL
@@ -30,8 +30,8 @@ class CreatePhqAssessments < ActiveRecord::Migration
 
       dir.down do
         execute <<-SQL
-          ALTER TABLE phq_assessment
-            DROP CONSTRAINT fk_phq_assessment_participants
+          ALTER TABLE phq_assessments
+            DROP CONSTRAINT fk_phq_assessments_participants
         SQL
       end
     end

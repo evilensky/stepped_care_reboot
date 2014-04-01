@@ -12,7 +12,7 @@ RailsAdmin.config do |config|
   # config.authorize_with :cancan
 
   ## == PaperTrail ==
-  # config.audit_with :paper_trail, 'User', 'PaperTrail::Version' # PaperTrail >= 3.0.0
+  # config.audit_with :paper_trail, "User", "PaperTrail::Version" # PaperTrail >= 3.0.0
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
@@ -32,8 +32,8 @@ RailsAdmin.config do |config|
     # history_show
   end
 
-  config.model 'Activity' do
-    navigation_label 'Participant data'
+  config.model "Activity" do
+    navigation_label "Participant data"
 
     list do
       sort_by :participant_id, :start_time
@@ -46,8 +46,8 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model 'AwakePeriod' do
-    navigation_label 'Participant data'
+  config.model "AwakePeriod" do
+    navigation_label "Participant data"
 
     list do
       field :participant
@@ -56,8 +56,8 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model 'Thought' do
-    navigation_label 'Participant data'
+  config.model "Thought" do
+    navigation_label "Participant data"
 
     list do
       field :participant
@@ -66,7 +66,7 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model 'ActivityType' do
+  config.model "ActivityType" do
     list do
       sort_by :participant, :title
 
@@ -75,7 +75,7 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model 'ContentProvider' do
+  config.model "ContentProvider" do
     list do
       field :context
       field :content_module
@@ -83,7 +83,7 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model 'ContentProviders::SlideshowProvider' do
+  config.model "ContentProviders::SlideshowProvider" do
     edit do
       field :content_module
       field :position
@@ -91,7 +91,7 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model 'ContentModule' do
+  config.model "ContentModule" do
     list do
       sort_by :context, :position
 
@@ -102,14 +102,18 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model 'Participant' do
+  config.model "Participant" do
+    object_label_method do
+      :email
+    end
+
     list do
       field :email
       field :groups
     end
   end
 
-  config.model 'Slide' do
+  config.model "Slide" do
     list do
       sort_by :slideshow_id, :position
 
@@ -120,7 +124,7 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model 'Slideshow' do
+  config.model "Slideshow" do
     list do
       field :title
       field :slides

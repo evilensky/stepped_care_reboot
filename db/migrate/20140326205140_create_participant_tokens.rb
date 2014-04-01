@@ -2,7 +2,7 @@ class CreateParticipantTokens < ActiveRecord::Migration
   def change
     create_table :participant_tokens do |t|
       t.references :participant, index: true, null: false
-      t.datetime :release_date
+      t.date :release_date
       t.string :token_type, null: false
       t.string :token, null: false
 

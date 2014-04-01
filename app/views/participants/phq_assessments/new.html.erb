@@ -2,7 +2,7 @@
   <h1>PHQ-9</h1>
   <h3>Over the last 2 weeks, how often have you been bothered by any of the following problems?</h3>
 
-  <%= form_for [:participant, @phq9], :html => {:class=>'phq9-form'} do |f| %>
+  <%= form_for [:participants, @phq_assessment], html: { class: "phq9-form" } do |f| %>
     <ol>
       <li class="radio-question-group">
         <strong>Little interest or pleasure in doing things</strong><br>
@@ -68,7 +68,7 @@
         <%= f.radio_button :q9, 3 %> Nearly every day
       </li>
     </ol>
-    <input name="phq9[token]" type="hidden" value=<%=@token%> />
+    <input name="phq_assessment[token]" type="hidden" value=<%=@token%> />
     <%= f.submit "submit", :class => "btn btn-primary btn-block" %>
       
   <% end %>
