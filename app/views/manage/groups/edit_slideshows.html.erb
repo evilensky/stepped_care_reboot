@@ -15,7 +15,7 @@
     <th></th>
   </tr>
   <% group_slideshow_joins.each do |join|%>
-    <tr>
+    <tr id="group-slideshow-join-<%= join.id %>">
       <td><%= join.bit_player_slideshow.title %></td>
       <td><%= join.release_day %></td>
       <td>
