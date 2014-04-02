@@ -1,3 +1,11 @@
 <% content_modules.each do |m| %>
-  <h2><%= link_to m.title, navigator_location_path(module_id: m.id) %></h2>
+  <h2><%= link_to "#{ fa_icon("asterisk") if assign_module(current_participant.current_group, m.title)} #{m.title}".html_safe, navigator_location_path(module_id: m.id), :data => {:id => get_task_id(current_participant.current_group, m.title), :class => "module"} %></h2>
 <% end %>
+<script>
+  $('[data-class="module"]').on("click", function (ev){
+    $.ajax({
+      type: "PUT",
+      url: "/manage/tasks/"+$(this).data("id")+"/update_status"
+    });
+  });
+</script>

@@ -3,49 +3,52 @@ module Manage
     before_action :authenticate_user!
 
     def create
-        if task.save
-            redirect_to manage_tasks_group_path(group), notice: "Task was assigned."
-        else
-          errors = task.errors.full_messages.join(", ")
-          flash[:alert] = "Unable to assign task: #{ errors }"
-          redirect_to manage_tasks_group_path(task.group)
-        end
+      if task.save
+        redirect_to manage_tasks_group_path(group), notice: "Task was assigned."
+      else
+        errors = task.errors.full_messages.join(", ")
+        flash[:alert] = "Unable to assign task: #{ errors }"
+        redirect_to manage_tasks_group_path(task.group)
+      end
     end
 
-    def update
+    def update_status
+      task.is_complete = true
+      task.save
+      render nothing: true
     end
 
     def destroy
-        deleted_group = task.group
-        if task.destroy
-          flash.now[:success] = "Task unassigned from group."
-          redirect_to manage_tasks_group_path(deleted_group)
-        else
-          errors = task.errors.full_messages.join(", ")
-          flash[:error] = "Unable to delete task from group: #{ errors }"
-          redirect_to manage_tasks_group_path(deleted_group)
-        end
+      deleted_group = task.group
+      if task.destroy
+        flash.now[:success] = "Task unassigned from group."
+        redirect_to manage_tasks_group_path(deleted_group)
+      else
+        errors = task.errors.full_messages.join(", ")
+        flash[:error] = "Unable to delete task from group: #{ errors }"
+        redirect_to manage_tasks_group_path(deleted_group)
+      end
     end
 
     private
 
     def _params
-        params.require(:task)
-          .permit(:bit_player_content_module_id, :group_id)
+      params.require(:task)
+        .permit(:bit_player_content_module_id, :group_id)
     end
 
     def task
-        @task ||=
-        if params[:id]
-            Task.find(params[:id])
-        else
-            current_user.tasks.build(_params)
-        end
+      @task ||=
+      if params[:id]
+          Task.find(params[:id])
+      else
+          current_user.tasks.build(_params)
+      end
     end
     helper_method :task
 
     def group
-        @group ||= task.group
+      @group ||= task.group
     end
     helper_method :group
     

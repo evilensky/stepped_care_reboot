@@ -23,7 +23,8 @@ SteppedCareReboot::Application.routes.draw do
     get 'groups/:id/edit_slideshows', to: 'groups#edit_slideshows', as: 'slideshows_group'
     get 'groups/:id/edit_tasks', to: 'groups#edit_tasks', as: 'tasks_group'
     resources :groups, only: [:index]
-    resources :tasks
+    resources :tasks, only: [:create, :destroy]
+    put 'tasks/:id/update_status', to: 'tasks#update_status', as: 'update_task'
   end
 
   namespace :coach do
