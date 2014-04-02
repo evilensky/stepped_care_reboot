@@ -1,0 +1,32 @@
+<%= link_to '<i class="fa fa-chevron-left"></i> Back to Group Index'.html_safe, manage_groups_path, :class => 'btn btn-default'%>
+<h1><%= group.title %></h1>
+
+<h3>Assign New Task</h3>
+<%= form_for Task.new, as: :task, url: manage_tasks_path, html: { role: "form" } do |f| %>
+  <div class='form-group'>
+    <%= f.label :bit_player_content_module_id, "Select Module" %>
+    <%= f.select :bit_player_content_module_id, content_modules.collect {|m| [ m.title, m.id ] }, {}, class: "form-control" %>
+  </div>
+  <%= f.hidden_field :group_id, :value => group.id %>
+  <%= f.submit "Assign", class: "btn btn-primary" %>
+<% end %>
+
+<h3>Currently assigned tasks</h3>
+<table class="table table-bordered table-striped table-hover">
+  <tr>
+    <th>Title</th>
+    <th>Context</th>
+    <th>Completed</th>
+    <th></th>
+  </tr>
+  <% tasks.each do |task|%>
+    <tr>
+      <td><%= task.bit_player_content_module.title %></td>
+      <td><%= task.bit_player_content_module.context %></td>
+      <td><%= task.is_complete %></td>
+      <td>
+        <%= link_to "Remove", manage_task_path(task), method: :delete, :class => "btn btn-danger" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

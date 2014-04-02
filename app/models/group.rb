@@ -6,6 +6,7 @@ class Group < ActiveRecord::Base
   has_many :bit_player_slideshows, through: :group_slideshow_joins
   has_many :memberships, dependent: :destroy
   has_many :participants, through: :memberships
+  has_many :tasks
 
   validates :title, presence: true, length: { maximum: 50 }
   validates :creator, presence: true

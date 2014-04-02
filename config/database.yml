@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: stepped_care_reboot_development
   pool: 5
-  username: usabilitymonitor
+  username: stepped_care_reboot
   password:
   host: localhost
 

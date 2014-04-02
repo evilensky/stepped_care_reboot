@@ -1,5 +1,5 @@
-<%= link_to '<i class="fa fa-chevron-left"></i> Back to Group Index'.html_safe, groups_path, :class => 'btn btn-default'%>
-<h1><%= group.title %> Management</h1>
+<%= link_to '<i class="fa fa-chevron-left"></i> Back to Group Index'.html_safe, manage_groups_path, :class => 'btn btn-default'%>
+<h1><%= group.title %></h1>
 
 <h3>Assign New Slideshow</h3>
 <%= form_for group_slideshow_join, as: :group_slideshow_join, url: group_slideshow_joins_path, html: { role: "form" } do |f| %>

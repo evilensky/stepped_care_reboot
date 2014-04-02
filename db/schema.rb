@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140331165739) do
+ActiveRecord::Schema.define(version: 20140402170153) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -196,14 +196,15 @@ ActiveRecord::Schema.define(version: 20140331165739) do
   add_index "moods", ["participant_id"], name: "index_moods_on_participant_id", using: :btree
 
   create_table "participant_tokens", force: true do |t|
-    t.integer  "participant_id"
-    t.datetime "release_date"
-    t.string   "token_type"
-    t.string   "token"
+    t.integer  "participant_id", null: false
+    t.date     "release_date"
+    t.string   "token_type",     null: false
+    t.string   "token",          null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "participant_tokens", ["participant_id", "token"], name: "index_participant_tokens_on_participant_id_and_token", unique: true, using: :btree
   add_index "participant_tokens", ["participant_id"], name: "index_participant_tokens_on_participant_id", using: :btree
 
   create_table "participants", force: true do |t|
@@ -219,14 +220,13 @@ ActiveRecord::Schema.define(version: 20140331165739) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.datetime "end_date"
-    t.datetime "start_date"
   end
 
   add_index "participants", ["email"], name: "index_participants_on_email", unique: true, using: :btree
   add_index "participants", ["reset_password_token"], name: "index_participants_on_reset_password_token", unique: true, using: :btree
 
-  create_table "phq9s", force: true do |t|
+  create_table "phq_assessments", force: true do |t|
+    t.date     "release_date",   null: false
     t.integer  "q1"
     t.integer  "q2"
     t.integer  "q3"
@@ -236,12 +236,25 @@ ActiveRecord::Schema.define(version: 20140331165739) do
     t.integer  "q7"
     t.integer  "q8"
     t.integer  "q9"
-    t.integer  "participant_id"
+    t.integer  "participant_id", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "phq9s", ["participant_id"], name: "index_phq9s_on_participant_id", using: :btree
+  add_index "phq_assessments", ["participant_id", "release_date"], name: "index_phq_assessments_on_participant_id_and_release_date", unique: true, using: :btree
+  add_index "phq_assessments", ["participant_id"], name: "index_phq_assessments_on_participant_id", using: :btree
+
+  create_table "tasks", force: true do |t|
+    t.integer  "group_id"
+    t.integer  "bit_player_content_module_id"
+    t.boolean  "is_complete",                  default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "creator_id"
+  end
+
+  add_index "tasks", ["bit_player_content_module_id"], name: "index_tasks_on_bit_player_content_module_id", using: :btree
+  add_index "tasks", ["group_id"], name: "index_tasks_on_group_id", using: :btree
 
   create_table "thought_patterns", force: true do |t|
     t.string   "title",       null: false

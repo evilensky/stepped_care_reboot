@@ -4,11 +4,11 @@ class GroupSlideshowJoinsController < ApplicationController
 
   def create
     if group_slideshow_join.save
-      redirect_to edit_group_path(group), notice: "Slideshow was assigned."
+      redirect_to manage_slideshows_group_path(group), notice: "Slideshow was assigned."
     else
       errors = group_slideshow_join.errors.full_messages.join(", ")
       flash[:alert] = "Unable to assign slideshow: #{ errors }"
-      redirect_to edit_group_path(group_slideshow_join.group)
+      redirect_to manage_slideshows_group_path(group_slideshow_join.group)
     end
   end
 
@@ -17,7 +17,7 @@ class GroupSlideshowJoinsController < ApplicationController
 
   def update
     if group_slideshow_join.update(_params)
-      redirect_to edit_group_path(group), notice: "Updated successfully."
+      redirect_to manage_slideshows_group_path(group), notice: "Updated successfully."
     else
       errors = group_slideshow_join.errors.full_messages.join(", ")
       flash[:alert] = "Unable to assign slideshow to group: #{ errors }"
@@ -29,11 +29,11 @@ class GroupSlideshowJoinsController < ApplicationController
     deleted_group = group_slideshow_join.group
     if group_slideshow_join.destroy
       flash.now[:success] = "Slideshow unassigned from group."
-      redirect_to edit_group_path(deleted_group)
+      redirect_to manage_slideshows_group_path(deleted_group)
     else
       errors = group_slideshow_join.errors.full_messages.join(", ")
       flash[:error] = "Unable to assign slideshow to group: #{ errors }"
-      redirect_to edit_group_path(deleted_group)
+      redirect_to manage_slideshows_group_path(deleted_group)
     end
   end
 
