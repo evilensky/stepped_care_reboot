@@ -1,7 +1,5 @@
 # Sends a PHQ9 email reminder to a given participant.
 class PhqAssessmentMailer < ActionMailer::Base
-  layout "email"
-
   default from: "stepcare@northwestern.edu"
 
   def reminder_email(participant)

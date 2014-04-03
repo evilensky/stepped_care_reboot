@@ -1,5 +1,6 @@
 <div class="col-md-12">
   <h1>PHQ-9</h1>
+
   <h3>Over the last 2 weeks, how often have you been bothered by any of the following problems?</h3>
 
   <%= form_for [:participants, @phq_assessment], html: { class: "phq9-form" } do |f| %>
@@ -68,8 +69,7 @@
         <%= f.radio_button :q9, 3 %> Nearly every day
       </li>
     </ol>
-    <input name="phq_assessment[token]" type="hidden" value=<%=@token%> />
-    <%= f.submit "submit", :class => "btn btn-primary btn-block" %>
-      
+    <input name="phq_assessment[token]" type="hidden" value="<%= @token %>" />
+    <%= f.submit "submit", class: "btn btn-primary" %>
   <% end %>
 </div>

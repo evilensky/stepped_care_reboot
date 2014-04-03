@@ -4,4 +4,9 @@ class MailPreview < MailView
     coach = User.first
     MessageNotifications.new_for_coach coach
   end
+
+  def phq_reminder_email
+    participant = Participant.first
+    PhqAssessmentMailer.reminder_email participant
+  end
 end

@@ -23,7 +23,7 @@
                         <tr>
                           <td>
 
-                            <h1>You have a new message</h1>
+                            <h1><%= yield :title %></h1>
 
                           </td>
                           <td class="expander"></td>
@@ -43,13 +43,7 @@
                         <tr>
                           <td>
 
-                            <table class="button">
-                              <tr>
-                                <td>
-                                  <%= link_to 'View messages', coach_messages_url %>
-                                </td>
-                              </tr>
-                            </table>
+                            <%= yield %>
 
                           </td>
                           <td class="expander"></td>

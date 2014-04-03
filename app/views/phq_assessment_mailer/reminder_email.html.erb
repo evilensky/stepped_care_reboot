@@ -1,2 +1,11 @@
-<p>Please remember to complete your PHQ form! </p>
-<!-- link to participant phq9 form -->
+<%= content_for :title do %>
+  Please remember to complete your PHQ assessment!
+<% end %>
+
+<table class="button">
+  <tr>
+    <td>
+      <%= link_to "view assessment", new_participants_phq_assessment_path(:"phq_assessment[token]" => @participant_token.to_s) %>
+    </td>
+  </tr>
+</table>
