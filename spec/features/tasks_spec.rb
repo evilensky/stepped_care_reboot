@@ -17,6 +17,7 @@ describe "Tasks" do
   end
 
   # TASK MODELS SHOULD NOT HOLD STATUS! - that needs to be in a different MODEL!
+  # Create a TASK_STATUS model!
   it "User should see notifications on the 'Landing Page' and 'Contenxt Page' until modules have been 'activated'" do
     expect(page.html).to include("<a href=\"/navigator/contexts/activity_tracker\"><i class=\"fa fa-asterisk\"></i> DO</a>")
     visit "/navigator/contexts/activity_tracker"
