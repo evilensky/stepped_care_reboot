@@ -13,7 +13,14 @@
       <div class="row">
         <div class="col-md-5 col-sm-5 main-nav">
           <% AppSection.all.each do |s| %>
-            <%= link_to "#{ fa_icon("asterisk") if assign_tool(current_participant.memberships.first.group, s.slug) and @navigator.context != s.slug }#{ s.label }#{ fa_icon("caret-right") if @navigator.context == s.slug }".html_safe, navigator_context_path(context_name: s.slug) %>
+            <% if @navigator.context == s.slug %>
+              <% text = "#{s.label} #{fa_icon('caret-right')}" %>
+            <% elsif @navigator.context != s.slug and assign_tool(current_participant, s.slug)%>
+              <% text = "#{fa_icon('asterisk')} #{s.label}" %>
+            <% else %>
+              <% text = "#{s.label}" %>
+            <% end %>
+            <%= link_to text.html_safe, navigator_context_path(context_name: s.slug) %>
           <% end %>
         </div>
         

@@ -1,6 +1,7 @@
 module Manage
   class TasksController < ApplicationController
-    before_action :authenticate_user!
+    before_action :authenticate_user!, only: [:create, :destory]
+    before_action :authenticate_participant!, only: [:update]
 
     def create
       if task.save
@@ -12,10 +13,12 @@ module Manage
       end
     end
 
-    def update_status
-      task.is_complete = true
-      task.save
-      render nothing: true
+    def update
+      if task.update(params.require(:tasks).permit(:is_complete))
+        render nothing: true
+      else
+        render nothing: true
+      end
     end
 
     def destroy

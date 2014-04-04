@@ -26,7 +26,6 @@ end
 group :development do
   gem 'capistrano', '~> 2.15'
   gem 'rvm-capistrano'
-  gem 'debugger'
 end
 
 group :test do

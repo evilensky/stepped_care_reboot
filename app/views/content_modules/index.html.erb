@@ -1,11 +1,28 @@
 <% content_modules.each do |m| %>
-  <h2><%= link_to "#{ fa_icon("asterisk") if assign_module(current_participant.current_group, m.title)} #{m.title}".html_safe, navigator_location_path(module_id: m.id), :data => {:id => get_task_id(current_participant.current_group, m.title), :class => "module"} %></h2>
+  <h2>
+    <% text = assign_module(current_participant, m.title) ? "#{fa_icon('asterisk')} #{m.title}" : "#{m.title}" %>
+    <% path = navigator_location_path(module_id: m.id) %>
+    <% task_id = get_task_id(current_participant, m.title) %>
+    <%= link_to text.html_safe, path, data: { id: task_id }, class: "module" %>
+  </h2>
 <% end %>
 <script>
-  $('[data-class="module"]').on("click", function (ev){
-    $.ajax({
-      type: "PUT",
-      url: "/manage/tasks/"+$(this).data("id")+"/update_status"
+  $(document).ready(function() {
+    return $("a.module").on("click", function(event) {
+      var $target, id;
+      $target = $(event.currentTarget);
+      id = $target.data("id");
+      if (id !== false) {
+        return $.ajax({
+          type: "PUT",
+          url: "/manage/tasks/" + id,
+          data: {
+            tasks: {
+              is_complete: true
+            }
+          }
+        });
+      }
     });
   });
 </script>

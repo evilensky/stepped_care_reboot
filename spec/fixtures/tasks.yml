@@ -1,0 +1,9 @@
+task1:
+  creator: user1
+  group: group1
+  bit_player_content_module: do_awareness
+
+task2:
+  creator: user1
+  group: group1
+  bit_player_content_module: do_planning
