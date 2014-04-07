@@ -28,7 +28,7 @@ module Manage
 
     def _params
       params.require(:task)
-        .permit(:created_at, :group_id, :bit_player_content_module_id)
+        .permit(:created_at, :group_id, :bit_player_content_module_id, :release_day)
     end
 
     def task
