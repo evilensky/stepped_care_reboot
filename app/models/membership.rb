@@ -2,6 +2,7 @@
 class Membership < ActiveRecord::Base
   belongs_to :group
   belongs_to :participant
+  has_many :tasks, class_name: "TaskStatus"
 
   validates :group, presence: true
   validates :participant, presence: true

@@ -16,14 +16,12 @@
   <tr>
     <th>Title</th>
     <th>Context</th>
-    <th>Completed</th>
     <th></th>
   </tr>
   <% tasks.each do |task|%>
     <tr>
       <td><%= task.bit_player_content_module.title %></td>
       <td><%= task.bit_player_content_module.context %></td>
-      <td><%= task.is_complete %></td>
       <td>
         <%= link_to "Remove", manage_task_path(task), method: :delete, :class => "btn btn-danger" %>
       </td>

@@ -2,8 +2,10 @@ task1:
   creator: user1
   group: group1
   bit_player_content_module: do_awareness
+  release_day: 1
 
 task2:
   creator: user1
   group: group1
   bit_player_content_module: do_planning
+  release_day: 1
