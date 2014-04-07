@@ -1,3 +1,7 @@
 assignment1:
   participant: participant1
   coach: user1
+
+assignment2:
+  participant: participant2
+  coach: user2
