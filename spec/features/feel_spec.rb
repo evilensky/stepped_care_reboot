@@ -1,7 +1,8 @@
 require "spec_helper"
 
 describe "Slides" do
-  fixtures :participants, :"bit_player/slideshows", :"bit_player/content_modules", :"bit_player/content_providers"
+  fixtures :participants, :"bit_player/slideshows", :"bit_player/tools",
+           :"bit_player/content_modules", :"bit_player/content_providers"
 
   let(:participant) { participants(:participant1) }
 

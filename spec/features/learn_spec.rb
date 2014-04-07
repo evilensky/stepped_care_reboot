@@ -3,6 +3,7 @@ require "spec_helper"
 describe "participant1 learns via slideshows" do
   fixtures(
     :participants, :"bit_player/slideshows", :"bit_player/slides",
+    :"bit_player/tools",
     :"bit_player/content_modules", :"bit_player/content_providers",
     :groups, :memberships, :group_slideshow_joins
   )

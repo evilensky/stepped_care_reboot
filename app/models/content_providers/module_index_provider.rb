@@ -3,7 +3,8 @@ module ContentProviders
   class ModuleIndexProvider < BitPlayer::ContentProvider
     def render_current(options)
       content_modules = BitPlayer::ContentModule
-        .where(context: options.app_context)
+        .joins(:tool)
+        .where("bit_player_tools.title = ?", options.app_context)
         .where.not(id: bit_player_content_module_id)
 
       options.view_context.render(

@@ -35,4 +35,4 @@ group :test do
   gem 'poltergeist'
 end
 
-gem 'bit_player', '~> 0.1'
+gem 'bit_player', '~> 0.2'

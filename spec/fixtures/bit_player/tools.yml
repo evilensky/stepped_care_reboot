@@ -1,0 +1,31 @@
+home:
+  position: 0
+  title: home
+
+thought_tracker:
+  position: 1
+  title: thought_tracker
+
+feeling_tracker:
+  position: 2
+  title: feeling_tracker
+
+activity_tracker:
+  position: 3
+  title: activity_tracker
+
+library:
+  position: 4
+  title: library
+
+messages:
+  position: 5
+  title: messages
+
+rspec_learning1:
+  position: 6
+  title: rspec_learning1
+
+rspec_learning2:
+  position: 7
+  title: rspec_learning2

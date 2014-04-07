@@ -200,11 +200,6 @@ library_lessons:
   content_module: library_lessons_module2
   position: 1
 
-#library_videos:
-#  type: ContentProviders::LearnVideosIndexProvider
-#  content_module: library_videos_module3
-#  position: 1
-
 messages_landing:
   type: ContentProviders::MessagesIndexProvider
   content_module: messages_landing
