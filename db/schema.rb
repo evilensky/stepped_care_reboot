@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140402170153) do
+ActiveRecord::Schema.define(version: 20140331165739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -243,18 +243,6 @@ ActiveRecord::Schema.define(version: 20140402170153) do
 
   add_index "phq_assessments", ["participant_id", "release_date"], name: "index_phq_assessments_on_participant_id_and_release_date", unique: true, using: :btree
   add_index "phq_assessments", ["participant_id"], name: "index_phq_assessments_on_participant_id", using: :btree
-
-  create_table "tasks", force: true do |t|
-    t.integer  "group_id"
-    t.integer  "bit_player_content_module_id"
-    t.boolean  "is_complete",                  default: false, null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "creator_id"
-  end
-
-  add_index "tasks", ["bit_player_content_module_id"], name: "index_tasks_on_bit_player_content_module_id", using: :btree
-  add_index "tasks", ["group_id"], name: "index_tasks_on_group_id", using: :btree
 
   create_table "thought_patterns", force: true do |t|
     t.string   "title",       null: false
