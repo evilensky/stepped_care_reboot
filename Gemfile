@@ -24,6 +24,8 @@ group :development, :test do
 end
 
 group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem 'capistrano', '~> 2.15'
   gem 'rvm-capistrano'
 end

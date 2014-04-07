@@ -5,10 +5,9 @@ module ContentProviders
       content_modules = BitPlayer::ContentModule
         .where(context: options.app_context)
         .where.not(id: bit_player_content_module_id)
-
       options.view_context.render(
         template: "content_modules/index",
-        locals: { content_modules: content_modules }
+        locals: { content_modules: content_modules, tasks_to_be_completed: TaskStatus.to_complete(options.participant, content_modules) }
       )
     end
 

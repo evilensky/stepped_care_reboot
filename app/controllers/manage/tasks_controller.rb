@@ -1,8 +1,7 @@
 module Manage
   class TasksController < ApplicationController
     before_action :authenticate_user!, only: [:create, :destory]
-    before_action :authenticate_participant!, only: [:update]
-
+    
     def create
       if task.save
         redirect_to manage_tasks_group_path(group), notice: "Task was assigned."
@@ -10,14 +9,6 @@ module Manage
         errors = task.errors.full_messages.join(", ")
         flash[:alert] = "Unable to assign task: #{ errors }"
         redirect_to manage_tasks_group_path(task.group)
-      end
-    end
-
-    def update
-      if task.update(params.require(:tasks).permit(:is_complete))
-        render nothing: true
-      else
-        render nothing: true
       end
     end
 
@@ -37,15 +28,15 @@ module Manage
 
     def _params
       params.require(:task)
-        .permit(:bit_player_content_module_id, :group_id)
+        .permit(:created_at, :group_id, :bit_player_content_module_id)
     end
 
     def task
       @task ||=
       if params[:id]
-          Task.find(params[:id])
+        Task.find(params[:id])
       else
-          current_user.tasks.build(_params)
+        current_user.tasks.build(_params)
       end
     end
     helper_method :task

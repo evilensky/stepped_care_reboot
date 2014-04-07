@@ -23,9 +23,4 @@ describe TaskStatus do
     status = TaskStatus.where(membership_id: membership.id, task: task).first
     expect(status).not_to be_nil
   end
-
-  # depended destroy on task..
-
-  # delegate :release_day
-
 end

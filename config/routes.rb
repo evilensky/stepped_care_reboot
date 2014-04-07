@@ -23,7 +23,7 @@ SteppedCareReboot::Application.routes.draw do
     get 'groups/:id/edit_slideshows', to: 'groups#edit_slideshows', as: 'slideshows_group'
     get 'groups/:id/edit_tasks', to: 'groups#edit_tasks', as: 'tasks_group'
     resources :groups, only: [:index]
-    resources :tasks, only: [:create, :update, :destroy]
+    resources :tasks, only: [:create, :update]
   end
 
   namespace :coach do
@@ -33,8 +33,9 @@ SteppedCareReboot::Application.routes.draw do
   end
 
   namespace :participants do
-    resources :received_messages, only: :index
     resources :phq_assessments, only: [:new, :create]
+    resources :received_messages, only: :index
+    resources :task_status, only: [:update]
   end
 
   root to: 'navigator#show_context'

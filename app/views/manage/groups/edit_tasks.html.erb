@@ -23,7 +23,7 @@
       <td><%= task.bit_player_content_module.title %></td>
       <td><%= task.bit_player_content_module.context %></td>
       <td>
-        <%= link_to "Remove", manage_task_path(task), method: :delete, :class => "btn btn-danger" %>
+        <%= link_to "Unassign", manage_task_path(task), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
       </td>
     </tr>
   <% end %>
