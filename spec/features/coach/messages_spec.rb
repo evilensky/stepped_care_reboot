@@ -27,7 +27,7 @@ describe "coach messages" do
   end
 
   it "should not allow a coach to compose a message to another coach's participants" do
-    CoachAssignment.create(:coach_id => users(:user2).id, :participant_id => participants(:participant2).id)
+    CoachAssignment.create(coach_id: users(:user2).id, participant_id: participants(:participant2).id)
     click_on("Compose")
     expect(page).to_not have_text(participants(:participant2).email)
   end
