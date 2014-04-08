@@ -14,9 +14,8 @@ class Task < ActiveRecord::Base
   private
 
   def assign_task_status_to_each_participant
-    self.group.memberships.each do |membership|
-      TaskStatus.create!(membership_id: membership.id, task_id: self.id)
+    group.memberships.each do |membership|
+      TaskStatus.create!(membership_id: membership.id, task_id: id)
     end
   end
-
 end

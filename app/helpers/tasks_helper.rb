@@ -10,12 +10,12 @@ module TasksHelper
 
   def content_module_link(content_module, tasks_to_be_completed)
     tasks_for_content_module = tasks_to_be_completed.for_content_module(content_module)
-    unless tasks_for_content_module.empty?
-      title = "#{fa_icon('asterisk')} #{content_module.title}".html_safe
-      task_id = tasks_for_content_module.first.id
-    else
+    if tasks_for_content_module.empty?
       title = content_module.title
       task_id = false
+    else
+      title = "#{fa_icon('asterisk')} #{content_module.title}".html_safe
+      task_id = tasks_for_content_module.first.id
     end
     link_to title, navigator_location_path(module_id: content_module.id), data: { taskstatusid: task_id }, class: "module"
   end

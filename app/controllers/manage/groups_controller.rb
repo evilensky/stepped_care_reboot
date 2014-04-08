@@ -1,12 +1,14 @@
-# Users can view groups to CRUD and assign slideshows
 module Manage
+
+  # Users can view groups to CRUD and assign slideshows
+
   class GroupsController < ApplicationController
     before_action :authenticate_user!
     layout "manage_group"
 
     def index
       respond_to do |format|
-        format.html { render layout: 'basic' }
+        format.html { render layout: "basic" }
       end
     end
 
@@ -43,7 +45,7 @@ module Manage
     helper_method :slideshows
 
     def content_modules
-        @content_modules ||= BitPlayer::ContentModule.all
+      @content_modules ||= BitPlayer::ContentModule.all
     end
     helper_method :content_modules
 
