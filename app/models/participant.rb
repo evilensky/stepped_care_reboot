@@ -4,7 +4,14 @@ class Participant < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :memberships, dependent: :destroy
+  has_one :active_membership,
+          -> { active },
+          class_name: "Membership",
+          foreign_key: :participant_id,
+          dependent: :destroy,
+          inverse_of: :active_participant
   has_many :groups, through: :memberships
+  has_one :active_group, through: :active_membership
   has_many :activities, dependent: :destroy
   has_many :awake_periods, dependent: :destroy
   has_many :activity_types, dependent: :destroy
