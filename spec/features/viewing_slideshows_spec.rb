@@ -37,24 +37,43 @@ describe "participant1 learns via slideshows" do
   #   )
   # end
 
-end
+  describe "participant3 learns via slideshows" do
+    fixtures(
+      :participants, :"bit_player/slideshows", :"bit_player/slides",
+      :"bit_player/content_modules", :"bit_player/content_providers",
+      :groups, :memberships, :group_slideshow_joins
+    )
 
-describe "participant3 learns via slideshows" do
-  fixtures(
-    :participants, :"bit_player/slideshows", :"bit_player/slides",
-    :"bit_player/content_modules", :"bit_player/content_providers",
-    :groups, :memberships, :group_slideshow_joins
-  )
+    before do
+      sign_in_participant participants(:participant3)
+      visit "/navigator/contexts/library"
+    end
 
-  before do
-    sign_in_participant participants(:participant3)
-    visit "/navigator/contexts/library"
+    it "participant3 can view assigned slideshow that are released because their start date was earlier" do
+      click_on "Lessons"
+      expect(page).to have_link("Learning is wonderful!")
+      expect(page).to have_link("Happiness")
+      expect(page).to have_link("This slide is ONLY AVAILABLE ON DAY 3!")
+    end
   end
 
-  it "participant3 can view assigned slideshow that are released because their start date was earlier" do
-    click_on "Lessons"
-    expect(page).to have_link("Learning is wonderful!")
-    expect(page).to have_link("Happiness")
-    expect(page).to have_link("This slide is ONLY AVAILABLE ON DAY 3!")
+  describe "users CRUDing learning by assigning learning slideshows to groups" do
+    fixtures(
+      :users, :"bit_player/slideshows", :"bit_player/slides",
+      :"bit_player/content_modules", :"bit_player/content_providers",
+      :groups, :group_slideshow_joins
+    )
+
+    before do
+      sign_in_user users(:user1)
+    end
+
+    it "can assign slideshow to group"
+
+    it "can update the slideshow and date assigned to a group"
+
+    it "validation that the same slideshow can't be assigned more than once"
+
+    it "can unassign slideshow to group"
   end
 end
