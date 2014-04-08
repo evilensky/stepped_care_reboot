@@ -1,7 +1,10 @@
 module Manage
+
+  # User manages task creation, destruction, and assignment for groups
+
   class TasksController < ApplicationController
     before_action :authenticate_user!, only: [:create, :destory]
-    
+
     def create
       if task.save
         redirect_to manage_tasks_group_path(group), notice: "Task was assigned."
@@ -46,5 +49,5 @@ module Manage
     end
     helper_method :group
     
-    end
+  end
 end

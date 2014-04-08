@@ -1,3 +1,4 @@
+#Updates the completion of assigned tasks for a participant
 module Participants
   class TaskStatusController < ApplicationController
     before_action :authenticate_participant!

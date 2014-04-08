@@ -5,12 +5,12 @@ class TaskStatus < ActiveRecord::Base
 
   delegate :title, to: :task
 
-  scope :for_content_module, lambda { |m| joins(:task).where(:tasks => {:bit_player_content_module_id => m.id }) }
-  scope :for_content_modules, lambda { |ids| joins(:task).where(:tasks => {:bit_player_content_module_id => ids }) }
-  scope :for_participant, lambda { |p| joins(:membership).where(:memberships => {:participant_id => p.id }) }
-  scope :is_completed_for_participant, lambda { |p| where.not(completed_at: nil).for_participant(p) }
-  scope :to_be_completed_by_participant, lambda { |p| where(completed_at: nil).for_participant(p) }
-  scope :today, lambda { |p| joins(:task).where("tasks.release_day = ?", p.memberships.first.day_in_study).to_be_completed_by_participant(p) }
+  scope :for_content_module, -> (m) { joins(:task).where(tasks: { bit_player_content_module_id: m.id }) }
+  scope :for_content_modules, -> (ids) { joins(:task).where(tasks: { bit_player_content_module_id: ids }) }
+  scope :for_participant, -> (p) { joins(:membership).where(memberships: { participant_id: p.id }) }
+  scope :is_completed_for_participant, -> (p) { where.not(completed_at: nil).for_participant(p) }
+  scope :to_be_completed_by_participant, -> (p) { where(completed_at: nil).for_participant(p) }
+  scope :today, -> (p) { joins(:task).where("tasks.release_day = ?", p.memberships.first.day_in_study).to_be_completed_by_participant(p) }
 
   def self.to_complete(participant, content_modules)
     TaskStatus
