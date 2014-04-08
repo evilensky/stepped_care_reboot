@@ -11,9 +11,14 @@
 
     <div class="container" id="main-layout">
       <div class="row">
-        <div class="col-md-5 col-sm-5 main-nav">
+        <div class="col-md-4 col-sm-4 main-nav">
           <% AppSection.all.each do |s| %>
-            <%= link_to "#{ fa_icon("asterisk") if @navigator.context == 'home' && s.label == 'DO' }#{ s.label }#{ fa_icon("caret-right") if @navigator.context == s.slug }".html_safe, navigator_context_path(context_name: s.slug) %>
+          <%= link_to "#{ fa_icon("asterisk") if @navigator.context == 'home' && s.label == 'DO' }#{ s.label }".html_safe, navigator_context_path(context_name: s.slug) %>
+          <% end %>
+        </div>
+        <div class="col-md-1 col-sm-1 main-nav chevron">
+          <% AppSection.all.each do |s| %>
+          <%= link_to "#{ fa_icon("asterisk") if @navigator.context == 'home' && s.label == 'DO' }#{ s.label }#{ fa_icon("caret-right") if @navigator.context == s.slug }".html_safe, navigator_context_path(context_name: s.slug) %>
           <% end %>
         </div>
         

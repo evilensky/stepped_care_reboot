@@ -60,12 +60,32 @@ footer {position:fixed; bottom:15px; left:15px;}
 
 .fa-asterisk {
   color: $do-color;
+  float: right;
 }
 
 .icon-caret-right {
   color: $feel-color;
   margin-right: -30px;
   width: 30px;
+}
+
+.chevron.main-nav {
+	border: none;
+}
+.chevron.main-nav a {
+	visibility: hidden;
+}
+
+.chevron.col-md-1 {
+	width: 1%;
+}
+
+.fa-caret-right {
+	visibility: visible;
+	display: block !important;
+	position: relative;
+	right: 45px;
+	top: -50px;
 }
 
 a {
