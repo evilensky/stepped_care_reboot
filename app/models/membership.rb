@@ -16,4 +16,8 @@ class Membership < ActiveRecord::Base
 
     where(sql, Date.today, Date.today)
   end
+
+  def day_in_study
+    Date.now - start_date
+  end
 end
