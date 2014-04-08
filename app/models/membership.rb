@@ -18,6 +18,6 @@ class Membership < ActiveRecord::Base
   end
 
   def day_in_study
-    Date.now - start_date
+    (Time.zone.now - start_date).to_i / 1.day
   end
 end
