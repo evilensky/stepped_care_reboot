@@ -19,8 +19,8 @@ development:
   encoding: unicode
   database: stepped_care_reboot_development
   pool: 5
-  # username: stepped_care_reboot
-  username: usabilitymonitor
+  username: stepped_care_reboot
+  # username: usabilitymonitor
   password:
   host: localhost
 
@@ -52,7 +52,7 @@ test:
   pool: 5
   username: postgres
   password:
-  host: localhost
+  # host: localhost
 
 production:
   adapter: postgresql
