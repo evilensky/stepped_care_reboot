@@ -1,5 +1,5 @@
-#Updates the completion of assigned tasks for a participant
 module Participants
+  # Updates the completion of assigned tasks for a participant
   class TaskStatusController < ApplicationController
     before_action :authenticate_participant!
 
@@ -11,6 +11,5 @@ module Participants
         render nothing: true, status: 500
       end
     end
-
   end
 end

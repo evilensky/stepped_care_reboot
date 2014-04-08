@@ -1,13 +1,11 @@
 module Manage
-
   # User manages task creation, destruction, and assignment for groups
-
   class TasksController < ApplicationController
     before_action :authenticate_user!, only: [:create, :destory]
 
     def create
       if task.save
-        redirect_to manage_tasks_group_path(group), notice: "Task was assigned."
+        redirect_to manage_tasks_group_path(group), notice: "Task assigned."
       else
         errors = task.errors.full_messages.join(", ")
         flash[:alert] = "Unable to assign task: #{ errors }"
@@ -31,7 +29,12 @@ module Manage
 
     def _params
       params.require(:task)
-        .permit(:created_at, :group_id, :bit_player_content_module_id, :release_day)
+        .permit(
+          :created_at,
+          :group_id,
+          :bit_player_content_module_id,
+          :release_day
+        )
     end
 
     def task
@@ -48,6 +51,5 @@ module Manage
       @group ||= task.group
     end
     helper_method :group
-    
   end
 end
