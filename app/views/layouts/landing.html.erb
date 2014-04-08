@@ -12,15 +12,8 @@
     <div class="container" id="main-layout">
       <div class="row">
         <div class="col-md-5 col-sm-5 main-nav">
-          <% AppSection.all.each do |s| %>
-            <% if @navigator.context == s.slug %>
-              <% text = "#{s.label} #{fa_icon('caret-right')}" %>
-            <% elsif @navigator.context != s.slug and assign_tool(current_participant, s.slug)%>
-              <% text = "#{fa_icon('asterisk')} #{s.label}" %>
-            <% else %>
-              <% text = "#{s.label}" %>
-            <% end %>
-            <%= link_to text.html_safe, navigator_context_path(context_name: s.slug) %>
+          <% AppSection.all.each do |section| %>
+            <%= assign_tool(@navigator.context, section) %>
           <% end %>
         </div>
         
