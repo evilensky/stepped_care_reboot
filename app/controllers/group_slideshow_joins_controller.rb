@@ -4,7 +4,8 @@ class GroupSlideshowJoinsController < ApplicationController
 
   def create
     if group_slideshow_join.save
-      redirect_to manage_slideshows_group_path(group), notice: "Slideshow was assigned."
+      redirect_to manage_slideshows_group_path(group),
+                  notice: "Slideshow was assigned."
     else
       errors = group_slideshow_join.errors.full_messages.join(", ")
       flash[:alert] = "Unable to assign slideshow: #{ errors }"
@@ -17,7 +18,8 @@ class GroupSlideshowJoinsController < ApplicationController
 
   def update
     if group_slideshow_join.update(_params)
-      redirect_to manage_slideshows_group_path(group), notice: "Updated successfully."
+      redirect_to manage_slideshows_group_path(group),
+                  notice: "Updated successfully."
     else
       errors = group_slideshow_join.errors.full_messages.join(", ")
       flash[:alert] = "Unable to assign slideshow to group: #{ errors }"

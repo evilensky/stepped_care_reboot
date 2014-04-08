@@ -1,7 +1,5 @@
 module Manage
-
   # Users can view groups to CRUD and assign slideshows
-
   class GroupsController < ApplicationController
     before_action :authenticate_user!
     layout "manage_group"
@@ -50,7 +48,9 @@ module Manage
     helper_method :content_modules
 
     def group_slideshow_join
-      @group_slideshow_join ||= current_user.group_slideshow_joins.build(_slideshow_params)
+      @group_slideshow_join ||= current_user
+        .group_slideshow_joins
+        .build(_slideshow_params)
     end
     helper_method :group_slideshow_join
 

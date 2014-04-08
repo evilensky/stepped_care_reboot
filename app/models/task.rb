@@ -7,7 +7,10 @@ class Task < ActiveRecord::Base
   validates :release_day,
             uniqueness: {
               scope: [:bit_player_content_module, :group],
-              message: %q(This task has already been assigned and set to be released on this day to this group.)
+              message: %q(
+                This task has already been assigned and set
+                to be released on this day to this group.
+              )
             }
   delegate :title, to: :bit_player_content_module, null: false
 

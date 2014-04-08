@@ -13,9 +13,9 @@ describe "Tasks" do
   let(:task_status1) { task_status(:task_status1) }
   let(:task2) { tasks(:task2) }
   let(:task_status2) { task_status(:task_status2) }
-  let(:do_awareness) { bit_player_content_modules(:do_awareness)}
-  let(:do_planning) { bit_player_content_modules(:do_planning)}
-  let(:do_doing) { bit_player_content_modules(:do_doing)}
+  let(:do_awareness) { bit_player_content_modules(:do_awareness) }
+  let(:do_planning) { bit_player_content_modules(:do_planning) }
+  let(:do_doing) { bit_player_content_modules(:do_doing) }
 
   before do
     sign_in_user user
