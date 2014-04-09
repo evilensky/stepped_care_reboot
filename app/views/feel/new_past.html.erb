@@ -1,13 +1,28 @@
 <h3>Over the past 24 hours, what emotions did you experience?</h3>
+
 <%= form_for mood, url: create_path, method: "post", html: { role: "form" } do |f| %>
-
-  <%= f.label :rating, "Did you feel bad, good, or neither yesterday?" %>
-  <div class="range row">
-    <div class="col-sm-4 left">0<br>Bad</div>
-    <div class="col-sm-4 text-center">5<br>Neither</div>
-    <div class="col-sm-4 right">10<br>Good</div>
+  <div class="form-group">
+    <%= f.label :rating, "Did you feel bad, good, or neither yesterday?" %>
   </div>
-  <%= f.range_field :rating, in: 0..10, step: 1, value: 5 %>
+  <div class="form-group">
+    <div class="radio-inline">
+      <label>
+        <%= f.radio_button :rating, 0 %> Bad
+      </label>
+    </div>
+    <div class="radio-inline">
+      <label>
+        <%= f.radio_button :rating, 10 %> Good
+      </label>
+    </div>
+    <div class="radio-inline">
+      <label>
+        <%= f.radio_button :rating, 5 %> Neither
+      </label>
+    </div>
+  </div>
 
-  <%= f.submit "Continue", class: "btn btn-primary" %>
+  <div class="form-group">
+    <%= f.submit "Continue", class: "btn btn-primary" %>
+  </div>
 <% end %>

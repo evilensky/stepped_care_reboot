@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Slides" do
+describe "Feel" do
   fixtures(
     :participants, :"bit_player/slideshows", :"bit_player/tools",
     :"bit_player/content_modules", :"bit_player/content_providers",
@@ -18,6 +18,7 @@ describe "Slides" do
     click_on "#1 Tracking Your Mood"
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).to be_nil
+    choose "mood_rating_5"
     click_on "Continue" # Rate mood
     expect(page).to have_text("Mood saved")
     mood = Mood.find_by_participant_id(participant.id)
@@ -30,7 +31,8 @@ describe "Slides" do
     click_on "#2 Monitoring Your Emotions"
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).to be_nil
-    click_on "Continue" # This rates the mood @ 5
+    choose "mood_rating_5"
+    click_on "Continue"
     expect(page).to have_text("Mood saved")
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).not_to be_nil
@@ -63,11 +65,11 @@ describe "Slides" do
     click_on "#2 Monitoring Your Emotions"
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).to be_nil
-    page.execute_script(%Q($('#mood_rating').attr('value', "8"))) # Rate mood
+    choose "mood_rating_10"
     click_on "Continue"
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).not_to be_nil
-    expect(mood.rating).to eq 8
+    expect(mood.rating).to eq 10
     expect(mood.mood_value).to eq "Good"
     emotion = Emotion.find_by_participant_id(participant.id)
     expect(emotion).to be_nil
@@ -82,9 +84,9 @@ describe "Slides" do
     expect(emotion.valence).to eq 1
     expect(emotion.intensity).to eq 9
     expect(emotion.intensity_value).to eq "High"
-    expect(emotion.rating).to eq 8
+    expect(emotion.rating).to eq 10
     expect(emotion.rating_value).to eq "Good"
-    expect(page).to have_text "8"
+    expect(page).to have_text "10"
     expect(page).to have_text "9"
   end
 
@@ -92,11 +94,11 @@ describe "Slides" do
     click_on "#2 Monitoring Your Emotions"
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).to be_nil
-    page.execute_script(%Q($('#mood_rating').attr('value', "2"))) # Rate mood
+    choose "mood_rating_0"
     click_on "Continue"
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).not_to be_nil
-    expect(mood.rating).to eq 2
+    expect(mood.rating).to eq 0
     expect(mood.mood_value).to eq "Bad"
     emotion = Emotion.find_by_participant_id(participant.id)
     expect(emotion).to be_nil
@@ -111,10 +113,9 @@ describe "Slides" do
     expect(emotion.valence).to eq(-1)
     expect(emotion.intensity).to eq 3
     expect(emotion.intensity_value).to eq "Low"
-    expect(emotion.rating).to eq 2
+    expect(emotion.rating).to eq 0
     expect(emotion.rating_value).to eq "Bad"
-    expect(page).to have_text "2"
+    expect(page).to have_text "0"
     expect(page).to have_text "3"
   end
-
 end
