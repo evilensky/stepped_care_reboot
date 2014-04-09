@@ -9,7 +9,7 @@ module ContentProviders
         template: "content_modules/index",
         locals: {
           content_modules: content_modules,
-          tasks: TaskStatus.to_complete(options.participant, content_modules)
+          tasks: options.participant.tasks_to_complete(content_modules)
         }
       )
     end

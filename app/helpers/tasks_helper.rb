@@ -15,14 +15,14 @@ module TasksHelper
   def tasks_to_complete?(tool)
     content_modules = BitPlayer::ContentModule
       .where(bit_player_tool_id: tool.id)
-    TaskStatus.to_complete(current_participant, content_modules).count > 0
+    current_participant.tasks_to_complete(content_modules).count > 0
   end
 
   def content_module_link(content_module, tasks)
     if tasks.for_content_module(content_module).empty?
       title = content_module.title
       task_id = false
-    else # == 1
+    else # Can there be more than one task status for a content module?
       title = fa_icon("asterisk") + " " + content_module.title
       task_id = tasks.for_content_module(content_module).first.id
     end

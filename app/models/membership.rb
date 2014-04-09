@@ -10,7 +10,8 @@ class Membership < ActiveRecord::Base
              class_name: "Participant",
              foreign_key: :participant_id,
              inverse_of: :active_membership
-
+  has_many  :task_statuses
+  has_many  :tasks, through: :task_statuses
   validates :group, presence: true
   validates :participant, presence: true
   validates :group_id, uniqueness: { scope: :participant_id }

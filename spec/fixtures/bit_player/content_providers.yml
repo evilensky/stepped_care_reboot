@@ -190,14 +190,9 @@ feel_experiences_table:
 #  content_module: feeling_tracker_module4
 #  position: 1
 
-library_index_landing:
-  type: ContentProviders::ModuleIndexProvider
-  content_module: library_landing
-  position: 1
-
 library_lessons:
   type: ContentProviders::LearnLessonsIndexProvider
-  content_module: library_lessons_module2
+  content_module: library_landing
   position: 1
 
 messages_landing:
@@ -214,3 +209,99 @@ messages_compose:
   type: ContentProviders::NewMessageFormProvider
   content_module: messages_landing
   position: 3
+
+content_provider_slideshow_1:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: home_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_1
+  position: 1
+
+content_provider_slideshow_2:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: do_awareness_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_2
+  position: 1
+
+content_provider_slideshow_3:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: do_planning_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_3
+  position: 1
+
+content_provider_slideshow_4:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: do_planning_transition (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_4
+  position: 1
+
+content_provider_slideshow_5:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: do_doing_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_5
+  position: 1
+
+content_provider_slideshow_6:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: do_congrats (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_6
+  position: 1
+
+content_provider_slideshow_7:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: think_identifying_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_7
+  position: 1
+
+content_provider_slideshow_8:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: think_identifying_conclusion (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_8
+  position: 1
+
+content_provider_slideshow_9:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: think_patterns_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_9
+  position: 1
+
+content_provider_slideshow_10:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: think_patterns_conclusion (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_10
+  position: 1
+
+content_provider_slideshow_11:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: think_reshape_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_11
+  position: 1
+
+content_provider_slideshow_12:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: feel_mood_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_12
+  position: 1
+
+content_provider_slideshow_13:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: feel_emotions_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_13
+  position: 1
+
+content_provider_slideshow_14:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: feel_changes_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_14
+  position: 1
+
+content_provider_slideshow_15:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: feel_identify_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_15
+  position: 1
+
+content_provider_slideshow_16:
+  type: BitPlayer::ContentProviders::SlideshowProvider
+  source_content: learn_thoughts_intro (BitPlayer::Slideshow)
+  content_module: slideshow_content_module_16
+  position: 1

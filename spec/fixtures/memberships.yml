@@ -6,9 +6,4 @@ membership1:
 membership2:
   participant: participant2
   group: group1
-  start_date: <%= Time.now - 3600 * 24 %>
-
-membership3:
-  participant: participant3
-  group: group1
-  start_date: <%= Time.now - (3600 * 24 * 3) %>
+  start_date: <%= Time.now - 3600 * 24 * 2 %>

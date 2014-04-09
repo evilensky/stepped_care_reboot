@@ -31,7 +31,7 @@ class Participant < ActiveRecord::Base
   has_one :coach, class_name: "User", through: :coach_assignment
 
   def current_group
-    memberships.first.group
+    membership.group
   end
 
   def self.active
@@ -48,6 +48,11 @@ class Participant < ActiveRecord::Base
 
   def fetch_data_record(association, id)
     send(association).find(id)
+  end
+
+  def membership
+    # Currently, a participant is assigned to 1 group
+    memberships.first
   end
 
   def navigation_status
@@ -77,5 +82,13 @@ class Participant < ActiveRecord::Base
 
   def build_phq_assessment(attributes)
     phq_assessments.build(attributes)
+  end
+
+  def tasks_to_complete(content_modules)
+    membership.task_statuses
+      .where(completed_at: nil)
+      .joins(:task)
+      .where("tasks.release_day <= ?", membership.day_in_study)
+      .for_content_modules(content_modules.map(&:id))
   end
 end

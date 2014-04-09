@@ -4,7 +4,7 @@ describe TaskStatus do
   fixtures(
     :users, :participants, :"bit_player/slideshows", :"bit_player/slides",
     :"bit_player/content_modules", :"bit_player/content_providers",
-    :groups, :memberships, :group_slideshow_joins, :tasks
+    :groups, :memberships, :tasks
   )
 
   let(:task1) { tasks(:task1) }
