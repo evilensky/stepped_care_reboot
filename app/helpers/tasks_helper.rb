@@ -22,12 +22,12 @@ module TasksHelper
     if tasks.for_content_module(content_module).empty?
       title = content_module.title
       task_id = false
-    else
+    else # == 1
       title = fa_icon("asterisk") + " " + content_module.title
-      task_id = tasks.first.id
+      task_id = tasks.for_content_module(content_module).first.id
     end
     link_to title.html_safe, navigator_location_path(
         module_id: content_module.id
-      ), data: { task_status_id: task_id }, class: "module"
+      ), data: { task_status_id: task_id }, class: "content-module"
   end
 end

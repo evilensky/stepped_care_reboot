@@ -21,7 +21,6 @@ describe "learning via slideshows" do
 
     it "can view assigned slideshow that are released" do
       click_on "Lessons"
-      save_and_open_page
       expect(page).to have_link("Home Intro")
       expect(page).not_to have_link("Congrats")
     end

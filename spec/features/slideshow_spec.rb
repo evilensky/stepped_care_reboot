@@ -26,7 +26,6 @@ describe "Slideshow" do
   end
 
   it "User can view show page of a slideshow" do
-    save_and_open_page
     click_on "Home Intro"
     slideshow = BitPlayer::Slideshow.find_by_title("Home Intro")
     expect(current_path).to eq slideshow_path(slideshow)
