@@ -15,16 +15,15 @@ describe "learning via slideshows" do
     end
 
     it "can select what to learn" do
-      save_and_open_page
       expect(page).to have_link("Lessons")
       # expect(page).to have_link("Videos")
     end
 
     it "can view assigned slideshow that are released" do
       click_on "Lessons"
-      expect(page).to have_link("Learning is wonderful!")
-      expect(page).to have_link("Happiness")
-      expect(page).not_to have_link("This slide is ONLY AVAILABLE ON DAY 3!")
+      save_and_open_page
+      expect(page).to have_link("Home Intro")
+      expect(page).not_to have_link("Congrats")
     end
 
     it "can view videos"# do
@@ -50,9 +49,8 @@ describe "learning via slideshows" do
 
     it "participant3 can view assigned slideshow that are released because their start date was earlier" do
       click_on "Lessons"
-      expect(page).to have_link("Learning is wonderful!")
-      expect(page).to have_link("Happiness")
-      expect(page).to have_link("This slide is ONLY AVAILABLE ON DAY 3!")
+      expect(page).to have_link("Home Intro")
+      expect(page).to have_link("Congrats")
     end
 
   end

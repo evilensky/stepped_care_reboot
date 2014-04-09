@@ -1,5 +1,5 @@
 $(document).on("page:change", function() {
-  return $("a.module").on("click", function(event) {
+  return $("a.content-module").on("click", function(event) {
     var $target, taskStatusId;
     $target = $(event.currentTarget);
     taskStatusId = $target.data("task-status-id");

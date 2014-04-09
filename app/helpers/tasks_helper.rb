@@ -18,8 +18,8 @@ module TasksHelper
     TaskStatus.to_complete(current_participant, content_modules).count > 0
   end
 
-  def content_module_link(content_module, tasks_to_be_completed)
-    if tasks_to_be_completed.for_content_module(content_module).empty?
+  def content_module_link(content_module, tasks)
+    if tasks.for_content_module(content_module).empty?
       title = content_module.title
       task_id = false
     else

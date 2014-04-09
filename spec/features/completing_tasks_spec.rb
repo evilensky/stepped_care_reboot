@@ -20,9 +20,9 @@ describe "Tasks" do
 
   it "User should see notifications on the 'Landing Page' and 'Context Page' until modules have been 'activated'", :js do
     expect(page.html).to include("<a href=\"/navigator/contexts/DO\"><i class=\"fa fa-asterisk\"></i> DO</a>")
-    visit navigator_context_path(context_name: "DO")
-    expect(page.html).to include("<a class=\"module\" data-task-status-id=\"#{task_status1.id}\" href=\"/navigator/modules/#{task_status1.task.bit_player_content_module.id}\"><i class=\"fa fa-asterisk\"></i> #1 Awareness</a>")
-    expect(page.html).to include("<a class=\"module\" data-task-status-id=\"#{task_status2.id}\" href=\"/navigator/modules/#{task_status2.task.bit_player_content_module.id}\"><i class=\"fa fa-asterisk\"></i> #2 Planning</a>")
+    visit "/navigator/contexts/DO"
+    expect(page.html).to include("<a class=\"content-module\" data-task-status-id=\"#{task_status1.id}\" href=\"/navigator/modules/#{task_status1.task.bit_player_content_module.id}\"><i class=\"fa fa-asterisk\"></i> #1 Awareness</a>")
+    expect(page.html).to include("<a class=\"content-module\" data-task-status-id=\"#{task_status2.id}\" href=\"/navigator/modules/#{task_status2.task.bit_player_content_module.id}\"><i class=\"fa fa-asterisk\"></i> #2 Planning</a>")
     click_on("#1 Awareness")
     visit "/navigator/contexts/DO"
     click_on("#2 Planning")
