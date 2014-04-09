@@ -1,23 +1,20 @@
 # Used to display asterisks if tasks and tools have been assigned to a group
 module TasksHelper
   def assign_tool(context, tool)
-    if tool.title != 'home'
-      title = tool.title
-      if context == title
-        text = tool.title
-      elsif (context != tool.title) && tasks_to_complete?(tool)
-        text = fa_icon("asterisk") + " " + title
+    if tool.title != "home"
+      if (context != tool.title) && tasks_to_complete?(tool)
+        text = fa_icon("asterisk") + " " + tool.title
       else
-        text = title
+        text = tool.title
       end
-      link_to text.html_safe, navigator_context_path(context_name: title)
+      link_to text.html_safe, navigator_context_path(context_name: tool.title)
     end
   end
 
   def caret(context, tool)
-    if tool.title != 'home'
+    if tool.title != "home"
       if context == tool.title
-        text = fa_icon("caret-right")
+        fa_icon("caret-right")
       end
     end
   end
