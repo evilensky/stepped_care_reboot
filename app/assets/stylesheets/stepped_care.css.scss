@@ -99,23 +99,14 @@ footer {
   width: 30px;
 }
 
-.chevron.main-nav {
-	border: none;
-}
-.chevron.main-nav a {
-	visibility: hidden;
-}
-
-.chevron.col-md-1 {
-	/*width: 1%;*/
-}
-
 .fa-caret-right {
-/*	visibility: visible;
-	display: block !important;
-	position: relative;
-	right: 45px;
-	top: -50px;*/
+  font-size: 4em;
+  visibility: visible;
+  display: block !important;
+  position: relative;
+  right: 8px;
+  top: -28px;
+  line-height: 0px;
 }
 
 a {
