@@ -10,10 +10,12 @@ class Membership < ActiveRecord::Base
              class_name: "Participant",
              foreign_key: :participant_id,
              inverse_of: :active_membership
-
+  validates :start_date, presence: true
+  validates :end_date, presence: true
   validates :group, presence: true
   validates :participant, presence: true
   validates :group_id, uniqueness: { scope: :participant_id }
+  validate :single_active_membership
 
   def self.active
     sql = <<-SQL
@@ -22,5 +24,11 @@ class Membership < ActiveRecord::Base
           SQL
 
     where(sql, Date.today, Date.today)
+  end
+
+  def single_active_membership
+    if participant.memberships.where("start_date <= ? AND end_date >= ?", Date.today, Date.today).exists?
+      errors.add(:base, "There can be only one active membership")
+    end
   end
 end
