@@ -113,6 +113,16 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model "PhqAssessment" do
+
+    list do
+      field :participant
+      field :release_date
+      field :created_at
+      field :q9
+    end
+  end
+
   config.model "Slide" do
     list do
       sort_by :slideshow_id, :position
