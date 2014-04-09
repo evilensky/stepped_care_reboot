@@ -91,3 +91,9 @@ footer {position:fixed; bottom:15px; left:15px;}
 a {
   color: $think-color;
 }
+
+// forms
+
+.radio-inline label {
+  cursor: pointer;
+}
