@@ -120,6 +120,7 @@ RailsAdmin.config do |config|
       field :release_date
       field :created_at
       field :q9
+      field :score
     end
   end
 
