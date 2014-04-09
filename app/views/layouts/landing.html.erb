@@ -11,7 +11,7 @@
 
     <div class="container" id="main-layout">
       <div class="row">
-        <div class="col-md-5 col-sm-5 main-nav">
+        <div class="col-sm-5 main-nav">
           <% BitPlayer::Tool.all.each do |tool| %>
             <%= assign_tool(@navigator.context, tool) %>
           <% end %>
