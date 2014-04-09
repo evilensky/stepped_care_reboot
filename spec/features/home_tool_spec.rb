@@ -2,8 +2,8 @@ require "spec_helper"
 
 describe "home tool" do
   fixtures(
-    :participants, :"bit_player/slideshows", :"bit_player/slides",
-    :"bit_player/tools",
+    :participants, :memberships, :"bit_player/slideshows",
+    :"bit_player/slides", :"bit_player/tools",
     :"bit_player/content_modules", :"bit_player/content_providers"
   )
 

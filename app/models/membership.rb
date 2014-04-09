@@ -31,4 +31,8 @@ class Membership < ActiveRecord::Base
       errors.add(:base, "There can be only one active membership")
     end
   end
+
+  def day_in_study
+    (Time.zone.now - start_date).to_i / 1.day
+  end
 end

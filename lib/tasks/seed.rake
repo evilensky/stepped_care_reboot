@@ -18,10 +18,11 @@ namespace :seed do
     path = File.join(File.dirname(__FILE__), '..', '..', 'spec', 'fixtures')
     ActiveRecord::FixtureSet.create_fixtures path, [
       :participants, :'bit_player/slideshows', :'bit_player/slides',
-      'bit_player/tools', :'bit_player/content_modules',
+      :'bit_player/tools', :'bit_player/content_modules',
       :'bit_player/content_providers', :users, :activity_types, :activities,
       :coach_assignments, :groups, :memberships, :messages,
-      :delivered_messages, :thought_patterns, :thoughts, :group_slideshow_joins
+      :delivered_messages, :thought_patterns, :thoughts, :group_slideshow_joins,
+      :tasks, :task_status
     ]
   end
 end

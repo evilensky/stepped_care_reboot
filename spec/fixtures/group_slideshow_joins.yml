@@ -1,17 +1,11 @@
 group_slideshow_join1:
-  bit_player_slideshow: rspec_slideshow2
+  bit_player_slideshow: home_intro
   creator: user1
   group: group1
   release_day: 1
 
 group_slideshow_join2:
-  bit_player_slideshow: rspec_slideshow3
-  creator: user1
-  group: group1
-  release_day: 2
-
-group_slideshow_join3:
-  bit_player_slideshow: rspec_slideshow4
+  bit_player_slideshow: do_congrats
   creator: user1
   group: group1
   release_day: 3

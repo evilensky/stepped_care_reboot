@@ -1,3 +1,5 @@
-<% content_modules.each do |m| %>
-  <h2><%= link_to m.title, navigator_location_path(module_id: m.id) %></h2>
+<% content_modules.each do |content_module| %>
+  <h2>
+    <%= content_module_link(content_module, tasks) %>
+  </h2>
 <% end %>
