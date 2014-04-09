@@ -26,4 +26,3 @@ describe Membership do
     end
   end
 end
-      

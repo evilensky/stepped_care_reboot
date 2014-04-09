@@ -27,7 +27,10 @@ class Membership < ActiveRecord::Base
   end
 
   def single_active_membership
-    if participant.memberships.where("start_date <= ? AND end_date >= ?", Date.today, Date.today).exists?
+    if participant.memberships.where(
+      "start_date <= ? AND end_date >= ?", Date.today, Date.today
+      )
+      .exists?
       errors.add(:base, "There can be only one active membership")
     end
   end
