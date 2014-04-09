@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407150122) do
+ActiveRecord::Schema.define(version: 20140407202027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,11 +54,11 @@ ActiveRecord::Schema.define(version: 20140407150122) do
   add_index "awake_periods", ["participant_id"], name: "index_awake_periods_on_participant_id", using: :btree
 
   create_table "bit_player_content_modules", force: true do |t|
-    t.string   "title",                  null: false
-    t.string   "context",                null: false
-    t.integer  "position",   default: 1, null: false
+    t.string   "title",                          null: false
+    t.integer  "position",           default: 1, null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "bit_player_tool_id",             null: false
   end
 
   create_table "bit_player_content_providers", force: true do |t|
@@ -105,6 +105,17 @@ ActiveRecord::Schema.define(version: 20140407150122) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "bit_player_tools", force: true do |t|
+    t.string   "title",                      null: false
+    t.integer  "position"
+    t.boolean  "is_home",    default: false, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bit_player_tools", ["position"], name: "index_bit_player_tools_on_position", unique: true, using: :btree
+  add_index "bit_player_tools", ["title"], name: "index_bit_player_tools_on_title", unique: true, using: :btree
 
   create_table "coach_assignments", force: true do |t|
     t.integer  "participant_id", null: false

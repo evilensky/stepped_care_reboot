@@ -2,15 +2,16 @@ require "spec_helper"
 
 describe "Slides" do
   fixtures(
-    :participants, :"bit_player/slideshows", :"bit_player/content_modules",
-    :"bit_player/content_providers", :groups, :memberships
+    :participants, :"bit_player/slideshows", :"bit_player/tools",
+    :"bit_player/content_modules", :"bit_player/content_providers",
+    :groups, :memberships
   )
 
   let(:participant) { participants(:participant1) }
 
   before do
     sign_in_participant participant
-    visit "/navigator/contexts/feeling_tracker"
+    visit "/navigator/contexts/FEEL"
   end
 
   it "User can rate their Mood" do

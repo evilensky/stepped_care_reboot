@@ -3,8 +3,9 @@ require "spec_helper"
 describe "Tasks" do
   fixtures(
     :participants, :users, :"bit_player/slideshows", :"bit_player/slides",
-    :"bit_player/content_modules", :"bit_player/content_providers",
-    :groups, :memberships, :group_slideshow_joins, :tasks, :task_status
+    :"bit_player/tools", :"bit_player/content_modules",
+    :"bit_player/content_providers", :groups, :memberships,
+    :group_slideshow_joins, :tasks, :task_status
   )
 
   let(:user) { users(:user1) }

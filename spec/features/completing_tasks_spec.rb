@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "Tasks" do
   fixtures(
-    :participants, :"bit_player/slideshows", :"bit_player/slides",
+    :participants, :"bit_player/slideshows", :"bit_player/slides", :"bit_player/tools",
     :"bit_player/content_modules", :"bit_player/content_providers",
     :groups, :memberships, :group_slideshow_joins, :tasks, :task_status
   )
@@ -19,12 +19,12 @@ describe "Tasks" do
   end
 
   it "User should see notifications on the 'Landing Page' and 'Context Page' until modules have been 'activated'", :js do
-    expect(page.html).to include("<a href=\"/navigator/contexts/activity_tracker\"><i class=\"fa fa-asterisk\"></i> DO</a>")
-    visit navigator_context_path(context_name: "activity_tracker")
+    expect(page.html).to include("<a href=\"/navigator/contexts/DO\"><i class=\"fa fa-asterisk\"></i> DO</a>")
+    visit navigator_context_path(context_name: "DO")
     expect(page.html).to include("<a class=\"module\" data-task-status-id=\"#{task_status1.id}\" href=\"/navigator/modules/#{task_status1.task.bit_player_content_module.id}\"><i class=\"fa fa-asterisk\"></i> #1 Awareness</a>")
     expect(page.html).to include("<a class=\"module\" data-task-status-id=\"#{task_status2.id}\" href=\"/navigator/modules/#{task_status2.task.bit_player_content_module.id}\"><i class=\"fa fa-asterisk\"></i> #2 Planning</a>")
     click_on("#1 Awareness")
-    visit "/navigator/contexts/activity_tracker"
+    visit "/navigator/contexts/DO"
     click_on("#2 Planning")
     click_on "Home"
     expect(page.html).not_to include("<i class=\"fa fa-asterisk\">")

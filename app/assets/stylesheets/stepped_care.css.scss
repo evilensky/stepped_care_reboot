@@ -8,7 +8,7 @@ body, html {
 
 .container {width:90%;}
 .main-nav {text-align: right; border-right: 1px solid black;}
-.main-nav a {display:block; font-size:3em; text-transform: uppercase; color:black;margin:0;padding-right:40px;}
+.main-nav a {display:block; font-size:3em; color:black;margin:0;padding-right:40px;}
 .main-nav a:hover {text-decoration: none; color:#AAA;}
 .main-content {text-align: left;}
 .main-content h2 {margin-top:.5em; display:block;}
@@ -60,12 +60,32 @@ footer {position:fixed; bottom:15px; left:15px;}
 
 .fa-asterisk {
   color: $do-color;
+  float: right;
 }
 
 .icon-caret-right {
   color: $feel-color;
   margin-right: -30px;
   width: 30px;
+}
+
+.chevron.main-nav {
+	border: none;
+}
+.chevron.main-nav a {
+	visibility: hidden;
+}
+
+.chevron.col-md-1 {
+	width: 1%;
+}
+
+.fa-caret-right {
+	visibility: visible;
+	display: block !important;
+	position: relative;
+	right: 45px;
+	top: -50px;
 }
 
 a {

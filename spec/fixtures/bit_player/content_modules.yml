@@ -1,99 +1,94 @@
 home_landing:
   title: Landing 
-  context: home
+  tool: home
   position: 1
 
 do_landing:
-  title: ''
-  context: activity_tracker
+  title: Do landing
+  tool: activity_tracker
   position: 1
 
 do_awareness:
   title: '#1 Awareness'
-  context: activity_tracker
+  tool: activity_tracker
   position: 2
 
 do_planning:
   title: '#2 Planning'
-  context: activity_tracker
+  tool: activity_tracker
   position: 3
 
 do_doing:
   title: '#3 Doing'
-  context: activity_tracker
+  tool: activity_tracker
   position: 4
 
 think_landing:
-  title: ''
-  context: thought_tracker
+  title: Think landing
+  tool: thought_tracker
   position: 1
 
 think_identifying:
   title: '#1 Identifying'
-  context: thought_tracker
+  tool: thought_tracker
   position: 2
 
 think_patterns:
   title: '#2 Patterns'
-  context: thought_tracker
+  tool: thought_tracker
   position: 3
 
 think_reshape:
   title: '#3 Reshape'
-  context: thought_tracker
+  tool: thought_tracker
   position: 4  
 
 think_module5:
   title: Add a New Thought
-  context: thought_tracker
+  tool: thought_tracker
   position: 5  
 
 feeling_tracker_landing:
-  title: ''
-  context: feeling_tracker
+  title: Feeling tracker landing
+  tool: feeling_tracker
   position: 1
 
 feeling_tracker_module2:
   title: '#1 Tracking Your Mood'
-  context: feeling_tracker
+  tool: feeling_tracker
   position: 2
 
 feeling_tracker_module3:
   title: '#2 Monitoring Your Emotions'
-  context: feeling_tracker
+  tool: feeling_tracker
   position: 3
 
 feeling_tracker_module4:
   title: '#3 Making Changes'
-  context: feeling_tracker
+  tool: feeling_tracker
   position: 4
 
 library_landing:
-  title: ''
-  context: library
+  title: Library landing
+  tool: library
   position: 1
 
 library_lessons_module2:
   title: 'Lessons'
-  context: library
+  tool: library
   position: 2
 
-# library_videos_module3:
-#   title: 'Videos'
-#   context: library
-#   position: 3
-
 messages_landing:
-  title: ''
-  context: messages
+  title: Messages landing
+  tool: messages
   position: 1
 
 rspec_learning_module1:
   title: 'Something Here'
-  context: rspec_learning1
+  tool: rspec_learning1
   position: 1
 
 rspec_learning_module2:
   title: 'Something Here 2'
-  context: rspec_learning2
+  tool: rspec_learning2
   position: 1

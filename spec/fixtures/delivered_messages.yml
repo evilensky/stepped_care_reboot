@@ -7,3 +7,8 @@ coach_to_participant1:
   recipient: participant1 (Participant)
   message: coach_to_participant1
   is_read: false
+
+participant_to_coach2:
+  recipient: user2 (User)
+  message: participant_to_coach2
+  is_read: false

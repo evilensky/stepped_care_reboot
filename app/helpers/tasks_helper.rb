@@ -1,24 +1,25 @@
 # Used to display asterisks if tasks and tools have been assigned to a group
 module TasksHelper
-  def assign_tool(context, section)
-    if context == section.slug
-      text = section.label + " " + fa_icon("caret-right")
-    elsif (context != section.slug) && tasks_to_complete!(section)
-      text = fa_icon("asterisk") + " " + section.label
+  def assign_tool(context, tool)
+    title = tool.title
+    if context == title
+      text = tool.title + " " + fa_icon("caret-right")
+    elsif (context != tool.title) && tasks_to_complete?(tool)
+      text = fa_icon("asterisk") + " " + title
     else
-      text = section.label
+      text = title
     end
-    link_to text.html_safe, navigator_context_path(context_name: section.slug)
+    link_to text.html_safe, navigator_context_path(context_name: title)
   end
 
-  def tasks_to_complete!(section)
-    content_modules = BitPlayer::ContentModule.where(context: section.slug)
+  def tasks_to_complete?(tool)
+    content_modules = BitPlayer::ContentModule
+      .where(bit_player_tool_id: tool.id)
     TaskStatus.to_complete(current_participant, content_modules).count > 0
   end
 
   def content_module_link(content_module, tasks_to_be_completed)
-    tasks = tasks_to_be_completed.for_content_module(content_module)
-    if tasks.empty?
+    if tasks_to_be_completed.for_content_module(content_module).empty?
       title = content_module.title
       task_id = false
     else
