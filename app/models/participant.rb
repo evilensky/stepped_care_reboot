@@ -80,15 +80,18 @@ class Participant < ActiveRecord::Base
   def tasks_to_complete(content_modules)
     membership.task_statuses
       .where(completed_at: nil)
-      .joins(:task)
-      .where("tasks.release_day <= ?", membership.day_in_study)
+      .available(membership)
+      .for_content_modules(content_modules.map(&:id))
+  end
+
+  def completed_tasks(content_modules)
+    membership.task_statuses
+      .where.not(completed_at: nil)
       .for_content_modules(content_modules.map(&:id))
   end
 
   def learning_tasks(content_modules)
     membership.task_statuses
-      .joins(:task)
-      .where("tasks.release_day <= ?", membership.day_in_study)
       .for_content_modules(content_modules.map(&:id))
   end
 

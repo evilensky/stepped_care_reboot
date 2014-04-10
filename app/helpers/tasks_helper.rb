@@ -51,7 +51,11 @@ module TasksHelper
       ), data: { task_status_id: task_id }, class: "content-module"
   end
 
-  def active_task?(task)
-    "<i class=\"fa fa-asterisk\"></i> ".html_safe unless task.completed_at?
+  def unread_task?(task)
+    " <em class=\"pull-right\">unread</em>".html_safe unless task.completed_at?
+  end
+
+  def todays_lesson(task_status, response)
+    response if task_status.release_day == current_participant.membership.day_in_study
   end
 end
