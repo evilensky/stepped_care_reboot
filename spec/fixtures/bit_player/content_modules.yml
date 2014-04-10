@@ -78,7 +78,9 @@ library_landing:
   tool: library
   position: 1
 
-# To Do: determine these positions...?
+# I am not comfortable with that these modules seem
+# to be 'stand-alone' modules, but that they each
+# have to have different positions: I'm confused. -W
 
 slideshow_content_module_1:
   title: Home Introduction
@@ -88,74 +90,74 @@ slideshow_content_module_1:
 slideshow_content_module_2:
   title: Do - Awareness Introduction
   tool: library
-  position: 2
+  position: 3
 
 slideshow_content_module_3:
   title: Do - Planning Introduction
   tool: library
-  position: 2
+  position: 4
 
 slideshow_content_module_4:
   title: Do - Planning Slideshow 3 of 4
   tool: library
-  position: 2
+  position: 5
 
 slideshow_content_module_5:
   title: Do - Doing Introduction
   tool: library
-  position: 2
+  position: 6
 
 slideshow_content_module_6:
   title: Do - Congrats
   tool: library
-  position: 2
+  position: 7
 
 slideshow_content_module_7:
   title: Think - Identifying Introduction
   tool: library
-  position: 2
+  position: 8
 
 slideshow_content_module_8:
   title: Think - Identifying Conclusion
   tool: library
-  position: 2
+  position: 9
 
 slideshow_content_module_9:
   title: Think - Patterns Introduction
   tool: library
-  position: 2
+  position: 10
 
 slideshow_content_module_10:
   title: Think - Patterns Conclusion
   tool: library
-  position: 2
+  position: 11
 
 slideshow_content_module_11:
   title: Think - Reshape Introduction
   tool: library
-  position: 2
+  position: 12
 
 slideshow_content_module_12:
   title: Feel - Mood Introduction
   tool: library
-  position: 2
+  position: 13
 
 slideshow_content_module_13:
   title: Feel - Emotions Introduction
   tool: library
-  position: 2
+  position: 14
 
 slideshow_content_module_14:
   title: Feel - Changes Introduction
   tool: library
-  position: 2
+  position: 15
 
 slideshow_content_module_15:
   title: Feel - Identify Introduction
   tool: library
-  position: 2
+  position: 16
 
 slideshow_content_module_16:
   title: Learn - Thoughts Introduction
   tool: library
-  position: 2
+  position: 17

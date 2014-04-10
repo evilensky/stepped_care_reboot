@@ -22,7 +22,7 @@ module TasksHelper
     if tasks.for_content_module(content_module).empty?
       title = content_module.title
       task_id = false
-    else # Can there be more than one task status for a content module?
+    else # Would we ever not want the first task status of a content module?
       title = fa_icon("asterisk") + " " + content_module.title
       task_id = tasks.for_content_module(content_module).first.id
     end
