@@ -11,13 +11,19 @@ SteppedCareReboot::Application.routes.draw do
     resource :flow, only: :show
   end
 
-  resources :group_slideshow_joins, only: [:edit, :update, :destroy]
+  resources :group_slideshow_joins, except: [:new, :show]
 
   resources :slideshows do
     resources :slides do
       collection { post :sort }
     end
-    resources :groups, :controller => "slideshow_groups", only: [:new, :create]
+  end
+
+  namespace :manage do
+    get 'groups/:id/edit_slideshows', to: 'groups#edit_slideshows', as: 'slideshows_group'
+    get 'groups/:id/edit_tasks', to: 'groups#edit_tasks', as: 'tasks_group'
+    resources :groups, only: [:index]
+    resources :tasks, only: [:create, :update, :destroy]
   end
 
   namespace :coach do
@@ -27,8 +33,9 @@ SteppedCareReboot::Application.routes.draw do
   end
 
   namespace :participants do
-    resources :received_messages, only: :index
     resources :phq_assessments, only: [:new, :create]
+    resources :received_messages, only: :index
+    resources :task_status, only: [:update]
   end
 
   root to: 'navigator#show_context'

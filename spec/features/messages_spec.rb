@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "messages" do
   fixtures(
-    :participants, :users, :messages, :delivered_messages,
+    :participants, :memberships, :users, :messages, :delivered_messages,
     :"bit_player/tools",
     :"bit_player/content_modules", :"bit_player/content_providers",
     :"bit_player/slideshows", :"bit_player/slides", :coach_assignments
@@ -10,7 +10,7 @@ describe "messages" do
 
   before do
     sign_in_participant participants(:participant1)
-    visit "/navigator/contexts/messages"
+    visit "/navigator/contexts/MESSAGES"
   end
 
   it "should allow a participant to compose and submit a new message" do

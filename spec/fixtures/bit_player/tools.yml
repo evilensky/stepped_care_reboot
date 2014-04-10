@@ -4,28 +4,20 @@ home:
 
 thought_tracker:
   position: 1
-  title: thought_tracker
+  title: THINK
 
 feeling_tracker:
   position: 2
-  title: feeling_tracker
+  title: FEEL
 
 activity_tracker:
   position: 3
-  title: activity_tracker
+  title: DO
 
 library:
   position: 4
-  title: library
+  title: LEARN
 
 messages:
   position: 5
-  title: messages
-
-rspec_learning1:
-  position: 6
-  title: rspec_learning1
-
-rspec_learning2:
-  position: 7
-  title: rspec_learning2
+  title: MESSAGES

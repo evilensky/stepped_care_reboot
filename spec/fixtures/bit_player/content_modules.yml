@@ -87,13 +87,3 @@ messages_landing:
   title: Messages landing
   tool: messages
   position: 1
-
-rspec_learning_module1:
-  title: 'Something Here'
-  tool: rspec_learning1
-  position: 1
-
-rspec_learning_module2:
-  title: 'Something Here 2'
-  tool: rspec_learning2
-  position: 1

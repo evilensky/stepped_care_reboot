@@ -6,12 +6,35 @@ body, html {
   font-family: 'Archivo Narrow', sans-serif !important;
 }
 
-.container {width:90%;}
-.main-nav {text-align: right; border-right: 1px solid black;}
-.main-nav a {display:block; font-size:3em; text-transform: uppercase; color:black;margin:0;padding-right:40px;}
-.main-nav a:hover {text-decoration: none; color:#AAA;}
-.main-content {text-align: left;}
-.main-content h2 {margin-top:.5em; display:block;}
+.container {
+  width:90%;
+}
+
+.main-nav {
+  text-align: right;
+  border-right: 1px solid black;
+}
+
+.main-nav a {
+  display:block;
+  font-size:3em;
+  color:black;margin:0;
+  padding-right:40px;
+}
+
+.main-nav a:hover {
+  text-decoration: none;
+  color:#AAA;
+}
+
+.main-content {
+  text-align: left;
+}
+
+.main-content h2 {
+  margin-top:.5em;
+  display:block;
+}
 
 input.form-button {
 	margin-top: 8px;
@@ -42,9 +65,16 @@ input.form-button {
 .range.row .center {text-align:center}
 .range.row .right {text-align:right}
 
-footer {position:fixed; bottom:15px; left:15px;}
+footer {
+  position:fixed;
+  bottom:15px;
+  left:15px;
+}
 
-.logo{font-weight:bold;font-size:4em;}
+.logo{
+  font-weight:bold;
+  font-size:4em;
+}
 
 .think {
   color: $think-color;
@@ -60,7 +90,7 @@ footer {position:fixed; bottom:15px; left:15px;}
 
 .fa-asterisk {
   color: $do-color;
-  float: right;
+  /*float: right;*/
 }
 
 .icon-caret-right {
@@ -69,23 +99,14 @@ footer {position:fixed; bottom:15px; left:15px;}
   width: 30px;
 }
 
-.chevron.main-nav {
-	border: none;
-}
-.chevron.main-nav a {
-	visibility: hidden;
-}
-
-.chevron.col-md-1 {
-	width: 1%;
-}
-
 .fa-caret-right {
-	visibility: visible;
-	display: block !important;
-	position: relative;
-	right: 45px;
-	top: -50px;
+  font-size: 4em;
+  visibility: visible;
+  display: block !important;
+  position: relative;
+  right: 8px;
+  top: -28px;
+  line-height: 0px;
 }
 
 a {

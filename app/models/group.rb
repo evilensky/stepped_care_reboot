@@ -11,7 +11,7 @@ class Group < ActiveRecord::Base
            foreign_key: :group_id,
            dependent: :destroy,
            inverse_of: :active_group
-  has_many :participants, through: :memberships
+  has_many :tasks
   has_many :active_participants, through: :active_memberships
 
   validates :title, presence: true, length: { maximum: 50 }

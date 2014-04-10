@@ -22,7 +22,6 @@
 				<td><%= slideshow.created_at.to_s :date_time_with_meridian %></td>
 				<td><%= slideshow.updated_at.to_s :date_time_with_meridian %></td>
 				<td>
-					<%= link_to "<i class='fa fa-share-square-o'></i> Assign".html_safe, new_slideshow_group_path(slideshow), class: "btn btn-default" %>
 					<%= link_to "Edit", edit_slideshow_path(slideshow), class: "btn btn-default" %>
 					<%= link_to "Delete", slideshow_path(slideshow), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
 				</td>

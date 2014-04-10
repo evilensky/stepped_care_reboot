@@ -5,7 +5,7 @@ describe "Slides" do
 
   before do
     sign_in_user users(:user1)
-    visit slideshow_path(bit_player_slideshows(:rspec_slideshow))
+    visit slideshow_path(bit_player_slideshows(:home_intro))
   end
 
   it "User can create a slide" do
@@ -14,7 +14,7 @@ describe "Slides" do
     fill_in "Title", with: "A great slide!!"
     fill_in "Body", with: "The greatest content ever!"
     click_on "Create"
-    expect(current_path).to eq slideshow_path(bit_player_slideshows(:rspec_slideshow))
+    expect(current_path).to eq slideshow_path(bit_player_slideshows(:home_intro))
     expect(BitPlayer::Slide.find_by_title("A great slide!!")).not_to be_nil
     expect(page).to have_text("A great slide!!")
   end
@@ -28,51 +28,51 @@ describe "Slides" do
   end
 
   it "User can view show page of a slide" do
-    slide = BitPlayer::Slide.find_by_title("I'm an rspec slide")
-    click_on "I'm an rspec slide"
-    expect(current_path).to eq slideshow_slide_path(bit_player_slideshows(:rspec_slideshow), slide)
-    expect(page).to have_text("I'm an rspec slide")
+    slide = BitPlayer::Slide.find_by_title("It's simple.")
+    click_on "It's simple."
+    expect(current_path).to eq slideshow_slide_path(bit_player_slideshows(:home_intro), slide)
+    expect(page).to have_text("It's simple.")
   end
 
   it "User can update slide's title (and body)" do
-    slide = BitPlayer::Slide.find_by_title("I'm an rspec slide")
+    slide = BitPlayer::Slide.find_by_title("It's simple.")
     with_scope "#slide_#{slide.id}" do
       expect(page).to have_text("Edit")
     end
-    click_on "I'm an rspec slide"
+    click_on "It's simple."
     click_on "Edit"
-    fill_in "Title", with: "This is no longer rspec, it is rspoo"
+    fill_in "Title", with: "This is no longer home, it is..."
     fill_in "Body", with: "BIG BODY!"
     click_on "Update"
     slide.reload
-    expect(slide.title).not_to eq "I'm an rspec slide"
-    expect(slide.title).to eq "This is no longer rspec, it is rspoo"
+    expect(slide.title).not_to eq "It's simple."
+    expect(slide.title).to eq "This is no longer home, it is..."
     expect(slide.body).not_to eq "I'm serious!"
     expect(slide.body).to eq "BIG BODY!"
-    expect(current_path).to eq slideshow_path(bit_player_slideshows(:rspec_slideshow))
+    expect(current_path).to eq slideshow_path(bit_player_slideshows(:home_intro))
   end
 
   it "User can't update a slide without a title" do
-    slide = BitPlayer::Slide.find_by_title("I'm an rspec slide")
-    click_on "I'm an rspec slide"
+    slide = BitPlayer::Slide.find_by_title("It's simple.")
+    click_on "It's simple."
     click_on "Edit"
     fill_in "Title", with: ""
     click_on "Update"
     expect(page).to have_text("Title can't be blank")
     slide.reload
     expect(slide.title).not_to eq ""
-    expect(slide.title).to eq "I'm an rspec slide"
+    expect(slide.title).to eq "It's simple."
   end
 
   it "User can delete a slide" do
-    expect(page).to have_text("I'm an rspec slide")
-    slide = BitPlayer::Slide.find_by_title("I'm an rspec slide")
+    expect(page).to have_text("It's simple.")
+    slide = BitPlayer::Slide.find_by_title("It's simple.")
     expect(slide).not_to eq nil
     with_scope "#slide_#{slide.id}" do
       click_on "Remove"
     end
-    expect(BitPlayer::Slide.find_by_title("I'm an rspec slide")).to eq nil
-    expect(page).not_to have_text("I'm an rspec slide")
+    expect(BitPlayer::Slide.find_by_title("It's simple.")).to eq nil
+    expect(page).not_to have_text("It's simple.")
   end
 
 end

@@ -30,6 +30,10 @@ class Participant < ActiveRecord::Base
   has_one :coach_assignment
   has_one :coach, class_name: "User", through: :coach_assignment
 
+  def current_group
+    memberships.first.group
+  end
+
   def self.active
     joins(:memberships).merge(Membership.active)
   end

@@ -4,4 +4,8 @@ class PhqAssessment < ActiveRecord::Base
 
   validates :participant, :release_date, presence: true
   validates :release_date, uniqueness: { scope: :participant_id }
+
+  def score
+    q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8 + q9
+  end
 end

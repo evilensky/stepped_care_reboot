@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= render 'shared/head' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <h1 class="logo"><span class="think">Think</span><span class="feel">Feel</span><span class="do">Do</span></h1>
+      </div>
+
+      <div class="row" id="alerts">
+        <%= render 'shared/alerts' %>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-lg-2">
+          <div class="sidebar well">
+            <%= link_to "Tasks", manage_tasks_group_path %>
+          </div>
+        </div>
+        <div class="col-md-10 col-lg-10">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

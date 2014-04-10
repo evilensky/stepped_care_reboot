@@ -1,0 +1,11 @@
+task_status1:
+  membership: membership1
+  task: task1
+
+task_status2:
+  membership: membership1
+  task: task2
+
+task_status3:
+  membership: membership2
+  task: task1

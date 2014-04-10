@@ -255,6 +255,26 @@ ActiveRecord::Schema.define(version: 20140407202027) do
   add_index "phq_assessments", ["participant_id", "release_date"], name: "index_phq_assessments_on_participant_id_and_release_date", unique: true, using: :btree
   add_index "phq_assessments", ["participant_id"], name: "index_phq_assessments_on_participant_id", using: :btree
 
+  create_table "task_statuses", force: true do |t|
+    t.integer  "membership_id"
+    t.integer  "task_id"
+    t.datetime "completed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", force: true do |t|
+    t.integer  "group_id"
+    t.integer  "bit_player_content_module_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "creator_id"
+    t.integer  "release_day"
+  end
+
+  add_index "tasks", ["bit_player_content_module_id"], name: "index_tasks_on_bit_player_content_module_id", using: :btree
+  add_index "tasks", ["group_id"], name: "index_tasks_on_group_id", using: :btree
+
   create_table "thought_patterns", force: true do |t|
     t.string   "title",       null: false
     t.text     "description", null: false
