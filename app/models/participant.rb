@@ -30,6 +30,8 @@ class Participant < ActiveRecord::Base
   has_one :coach_assignment
   has_one :coach, class_name: "User", through: :coach_assignment
 
+  accepts_nested_attributes_for :coach_assignment
+
   def current_group
     membership.group
   end
