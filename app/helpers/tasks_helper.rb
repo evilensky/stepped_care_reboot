@@ -1,4 +1,5 @@
 # Used to display asterisks if tasks and tools have been assigned to a group
+# and to hide unassigned links
 module TasksHelper
   def assign_tool(context, tool)
     if tool.title != "home"
@@ -23,6 +24,18 @@ module TasksHelper
     content_modules = BitPlayer::ContentModule
       .where(bit_player_tool_id: tool.id)
     TaskStatus.to_complete(current_participant, content_modules).count > 0
+  end
+
+  def module_not_assigned?(content_module, tasks, participant)
+    if Task.joins(:bit_player_content_module)
+        .where(tasks:
+          { bit_player_content_module_id: content_module.id,
+            group_id: participant.active_group.id }
+        ).empty?
+      true
+    else
+      false
+    end
   end
 
   def content_module_link(content_module, tasks)

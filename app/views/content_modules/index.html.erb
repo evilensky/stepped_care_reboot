@@ -1,5 +1,5 @@
 <% content_modules.each do |content_module| %>
   <h2>
-    <%= content_module_link(content_module, tasks) %>
+    <%= content_module_link(content_module, tasks) unless module_not_assigned?(content_module, tasks, current_participant) %>
   </h2>
 <% end %>

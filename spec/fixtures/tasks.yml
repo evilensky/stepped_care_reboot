@@ -4,8 +4,92 @@ task1:
   bit_player_content_module: do_awareness
   release_day: 1
 
+task_doing:
+  creator: user1
+  group: group1
+  bit_player_content_module: do_doing
+  release_day: 1
+
 task2:
   creator: user1
   group: group1
   bit_player_content_module: do_planning
+  release_day: 1
+
+task3:
+  creator: user1
+  group: group1
+  bit_player_content_module: do_landing
+  release_day: 1
+
+task4:
+  creator: user1
+  group: group1
+  bit_player_content_module: think_landing
+  release_day: 1
+
+task5:
+  creator: user1
+  group: group1
+  bit_player_content_module: think_identifying
+  release_day: 1
+
+task6:
+  creator: user1
+  group: group1
+  bit_player_content_module: think_patterns
+  release_day: 1
+
+task7:
+  creator: user1
+  group: group1
+  bit_player_content_module: think_reshape
+  release_day: 1
+
+task8:
+  creator: user1
+  group: group1
+  bit_player_content_module: think_module5
+  release_day: 1
+
+task9:
+  creator: user1
+  group: group1
+  bit_player_content_module: feeling_tracker_landing
+  release_day: 1
+
+task10:
+  creator: user1
+  group: group1
+  bit_player_content_module: feeling_tracker_module2
+  release_day: 1
+
+task11:
+  creator: user1
+  group: group1
+  bit_player_content_module: feeling_tracker_module3
+  release_day: 1
+
+task12:
+  creator: user1
+  group: group1
+  bit_player_content_module: feeling_tracker_module4
+  release_day: 1
+
+task13:
+  creator: user1
+  group: group1
+  bit_player_content_module: library_landing
+  release_day: 1
+
+task14:
+  creator: user1
+  group: group1
+  bit_player_content_module: library_lessons_module2
+  release_day: 1
+
+task15:
+  creator: user1
+  group: group1
+  bit_player_content_module: messages_landing
   release_day: 1

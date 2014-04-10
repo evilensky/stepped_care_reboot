@@ -4,7 +4,7 @@ describe "learning via slideshows" do
   fixtures(
     :participants, :"bit_player/slideshows", :"bit_player/slides",
     :"bit_player/tools", :"bit_player/content_modules", :"bit_player/content_providers",
-    :groups, :memberships, :group_slideshow_joins
+    :groups, :memberships, :group_slideshow_joins, :tasks
   )
 
   describe "participant1 is logged in" do

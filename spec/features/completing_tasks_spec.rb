@@ -13,6 +13,14 @@ describe "Tasks" do
   let(:task2) { tasks(:task2) }
   let(:task_status2) { task_status(:task_status2) }
 
+  let(:unassigned_module) do
+    BitPlayer::ContentModule.create(
+      title: "#4 Doing",
+      tool_id: bit_player_tools(:activity_tracker),
+      position: 5
+    )
+  end
+
   before do
     sign_in_participant participant
     visit ""
@@ -30,6 +38,12 @@ describe "Tasks" do
     expect(page.html).not_to include("<i class=\"fa fa-asterisk\">")
     click_on "DO"
     expect(page.html).not_to include("<i class=\"fa fa-asterisk\">")
+  end
+
+  it "User should not see unassigned content modules", :js do
+    visit "/navigator/contexts/DO"
+    expect(page.html).to include("#3 Doing")
+    expect(page.html).not_to include("#4 Doing")
   end
 
 end

@@ -4,13 +4,13 @@ describe TaskStatus do
   fixtures(
     :users, :participants, :"bit_player/slideshows", :"bit_player/slides",
     :"bit_player/content_modules", :"bit_player/content_providers",
-    :groups, :memberships, :group_slideshow_joins, :tasks
+    :groups, :memberships, :group_slideshow_joins
   )
 
   let(:user) { users(:user1) }
-  let(:group) { groups(:group1) }
-  let(:participant) { participants(:participant1) }
-  let(:membership) { memberships(:membership1) }
+  let(:group) { groups(:group2) }
+  let(:participant) { participants(:active_participant) }
+  let(:membership) { memberships(:active_membership) }
   let(:think_identifying) { bit_player_content_modules(:think_identifying) }
 
   it "should be created and assigned to members when a task is assigned to a group" do
