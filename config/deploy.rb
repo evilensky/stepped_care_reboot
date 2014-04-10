@@ -3,7 +3,7 @@ require 'rvm/capistrano'
 set :whenever_command, "bundle exec whenever"
 require "whenever/capistrano"
 
-set :rvm_ruby_string, 'ruby-2.0.0-p353'
+set :rvm_ruby_string, 'ruby-2.1.1'
 set :rvm_type, :system
 
 set :application, "stepped_care_reboot"
@@ -76,7 +76,7 @@ namespace :deploy do
 </VirtualHost>
 <VirtualHost *:443>
 
-  PassengerRuby /usr/local/rvm/wrappers/ruby-2.0.0-p353/ruby
+  PassengerRuby /usr/local/rvm/wrappers/ruby-2.1.1/ruby
 
   ServerName steppedcare.northwestern.edu
 
