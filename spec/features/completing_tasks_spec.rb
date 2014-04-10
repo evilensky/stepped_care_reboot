@@ -4,7 +4,7 @@ describe "Tasks" do
   fixtures(
     :participants, :"bit_player/slideshows", :"bit_player/slides", :"bit_player/tools",
     :"bit_player/content_modules", :"bit_player/content_providers",
-    :groups, :memberships, :group_slideshow_joins, :tasks, :task_status
+    :groups, :memberships, :tasks, :task_status
   )
 
   let(:participant) { participants(:participant1) }
@@ -27,9 +27,10 @@ describe "Tasks" do
     visit "/navigator/contexts/DO"
     click_on("#2 Planning")
     click_on "Home"
-    expect(page.html).not_to include("<i class=\"fa fa-asterisk\">")
+    expect(page.html).to include("<a href=\"/navigator/contexts/DO\">DO</a>")
     click_on "DO"
-    expect(page.html).not_to include("<i class=\"fa fa-asterisk\">")
+    expect(page.html).to include("<a class=\"content-module\" data-task-status-id=\"false\" href=\"/navigator/modules/#{task_status1.task.bit_player_content_module.id}\">#1 Awareness</a>")
+    expect(page.html).to include("<a class=\"content-module\" data-task-status-id=\"false\" href=\"/navigator/modules/#{task_status2.task.bit_player_content_module.id}\">#2 Planning</a>")
   end
 
 end

@@ -1,14 +1,14 @@
 <h1>Lessons</h1>
 <div class="list-group">
-  <% group_slideshow_joins.each do |join| %>
+  <% task_statuses.each do |ts| %>
     <% path = navigator_location_path(
-      module_id: join.bit_player_slideshow.content_provider.content_module.id,
-      provider_id: join.bit_player_slideshow.content_provider.id,
+      module_id: ts.bit_player_content_module_id,
+      # Is there a change we wouldn't want the first content provider of each module?
+      provider_id: ts.bit_player_content_module.content_providers.find_by_position(1).id,
       content_position: 1
     ) %>
     <a href="<%= path %>" class="list-group-item">
-      <span class="badge"><%= join.bit_player_slideshow.slides.count %></span>
-      <%= join.bit_player_slideshow.title %>
+      <%= ts.title %>
     </a>
   <% end %>
 </div>

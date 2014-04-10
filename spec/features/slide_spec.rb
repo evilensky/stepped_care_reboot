@@ -37,10 +37,8 @@ describe "Slides" do
   it "User can update slide's title (and body)" do
     slide = BitPlayer::Slide.find_by_title("It's simple.")
     with_scope "#slide_#{slide.id}" do
-      expect(page).to have_text("Edit")
+      click_on "Edit"
     end
-    click_on "It's simple."
-    click_on "Edit"
     fill_in "Title", with: "This is no longer home, it is..."
     fill_in "Body", with: "BIG BODY!"
     click_on "Update"
@@ -54,8 +52,9 @@ describe "Slides" do
 
   it "User can't update a slide without a title" do
     slide = BitPlayer::Slide.find_by_title("It's simple.")
-    click_on "It's simple."
-    click_on "Edit"
+    with_scope "#slide_#{slide.id}" do
+      click_on "Edit"
+    end
     fill_in "Title", with: ""
     click_on "Update"
     expect(page).to have_text("Title can't be blank")

@@ -5,7 +5,7 @@ describe "Slideshow" do
 
   before do
     sign_in_user users(:user1)
-    visit slideshows_path
+    visit "/slideshows"
   end
 
   it "User can create a slideshow" do
@@ -26,27 +26,27 @@ describe "Slideshow" do
   end
 
   it "User can view show page of a slideshow" do
-    click_on "Home Intro"
-    slideshow = BitPlayer::Slideshow.find_by_title("Home Intro")
+    click_on "Home Introduction"
+    slideshow = BitPlayer::Slideshow.find_by_title("Home Introduction")
     expect(current_path).to eq slideshow_path(slideshow)
-    expect(page).to have_text("Home Intro")
+    expect(page).to have_text("Home Introduction")
   end
 
   it "User can update slideshow\"s title" do
-    slideshow = BitPlayer::Slideshow.find_by_title("Home Intro")
+    slideshow = BitPlayer::Slideshow.find_by_title("Home Introduction")
     with_scope "#slideshow-#{slideshow.id}" do
       click_on "Edit"
     end
     fill_in "Title", with: "This is no longer a TEST!"
     click_on "Update"
     slideshow.reload
-    expect(slideshow.title).not_to eq "Home Intro"
+    expect(slideshow.title).not_to eq "Home Introduction"
     expect(slideshow.title).to eq "This is no longer a TEST!"
     expect(current_path).to eq slideshows_path
   end
 
   it "User can\"t update a slideshow without a title" do
-    slideshow = BitPlayer::Slideshow.find_by_title("Home Intro")
+    slideshow = BitPlayer::Slideshow.find_by_title("Home Introduction")
     with_scope "#slideshow-#{slideshow.id}" do
       click_on "Edit"
     end
@@ -55,18 +55,18 @@ describe "Slideshow" do
     expect(page).to have_text("Title can't be blank")
     slideshow.reload
     expect(slideshow.title).not_to eq ""
-    expect(slideshow.title).to eq "Home Intro"
+    expect(slideshow.title).to eq "Home Introduction"
   end
 
   it "User can delete a slideshow" do
-    expect(page).to have_text("Home Intro")
-    expect(BitPlayer::Slideshow.find_by_title("Home Intro")).not_to eq nil
-    slideshow = BitPlayer::Slideshow.find_by_title("Home Intro")
+    expect(page).to have_text("Home Introduction")
+    expect(BitPlayer::Slideshow.find_by_title("Home Introduction")).not_to eq nil
+    slideshow = BitPlayer::Slideshow.find_by_title("Home Introduction")
     with_scope "#slideshow-#{slideshow.id}" do
       click_on "Delete"
     end
-    expect(BitPlayer::Slideshow.find_by_title("Home Intro")).to eq nil
-    expect(page).to_not have_text("Home Intro")
+    expect(BitPlayer::Slideshow.find_by_title("Home Introduction")).to eq nil
+    expect(page).to_not have_text("Home Introduction")
   end
 
 end

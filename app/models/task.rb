@@ -11,7 +11,9 @@ class Task < ActiveRecord::Base
                 This task has already been assigned and set
                 to be released on this day to this group.
               )
-            }
+            },
+            presence: true
+
   delegate :title, to: :bit_player_content_module, null: false
 
   private
