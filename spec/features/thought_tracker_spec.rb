@@ -3,7 +3,7 @@ require "spec_helper"
 describe "thought tracker" do
   fixtures(
     :participants, :memberships, :"bit_player/slideshows", :"bit_player/slides",
-    :"bit_player/tools",
+    :"bit_player/tools", :tasks,
     :"bit_player/content_modules", :"bit_player/content_providers"
   )
 
@@ -51,8 +51,8 @@ describe "thought tracker" do
   end
 
   it "should implement #2 Patterns" do
-    click_on bit_player_content_modules(:think_patterns).title
+    click_on "#2 Patterns"
 
-    expect(page).to have_text(bit_player_slides(:think_patterns_intro1).title)
+    expect(page).to have_text "Like we said, you are what you think..."
   end
 end
