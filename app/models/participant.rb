@@ -51,12 +51,7 @@ class Participant < ActiveRecord::Base
   end
 
   def recent_activities
-    # when no awake period return an empty set to allow chaining
-    now = Time.new
-    start_time = recent_awake_period.try(:start_time) || now
-    end_time = recent_awake_period.try(:end_time) || now
-
-    activities.during(start_time, end_time)
+    activities.during(recent_period[:start_time], recent_period[:end_time])
   end
 
   def recent_pleasurable_activities
@@ -67,11 +62,24 @@ class Participant < ActiveRecord::Base
     recent_activities.accomplished
   end
 
-  def recent_awake_period
-    @recent_awake_period ||= awake_periods.order("start_time").last
-  end
-
   def build_phq_assessment(attributes)
     phq_assessments.build(attributes)
+  end
+
+  private
+
+  def recent_period
+    @recent_period ||= (
+      # when no awake period return an empty set to allow chaining
+      now = Time.new
+      start_time = recent_awake_period.try(:start_time) || now
+      end_time = recent_awake_period.try(:end_time) || now
+
+      { start_time: start_time, end_time: end_time }
+    )
+  end
+
+  def recent_awake_period
+    @recent_awake_period ||= awake_periods.order("start_time").last
   end
 end

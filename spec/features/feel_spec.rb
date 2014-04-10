@@ -21,7 +21,7 @@ describe "Feel" do
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).not_to be_nil
     expect(mood.rating).to eq 5
-    expect(mood.mood_value).to eq "Neither"
+    expect(mood.rating_value).to eq "Neither"
   end
 
   it "User can set their Emotion", :js do
@@ -34,7 +34,7 @@ describe "Feel" do
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).not_to be_nil
     expect(mood.rating).to eq 5
-    expect(mood.mood_value).to eq "Neither"
+    expect(mood.rating_value).to eq "Neither"
     emotion = Emotion.find_by_participant_id(participant.id)
     expect(emotion).to be_nil
     with_scope "#edit-emotion-1" do
@@ -45,17 +45,15 @@ describe "Feel" do
     emotion = Emotion.find_by_participant_id(participant.id)
     expect(emotion).not_to be_nil
     expect(emotion.valence).to eq 0
-    expect(emotion.intensity).to eq 5
-    expect(emotion.intensity_value).to eq "Average"
     expect(emotion.rating).to eq 5
     expect(emotion.rating_value).to eq "Neither"
+    expect(emotion.name).to eq "Sympathy"
     expect(page).to have_text "Your Recent Emotions"
-    expect(page).to have_text "When Recorded"
+    expect(page).to have_text "Recorded"
     expect(page).to have_text "less than a minute ago"
     expect(page).to have_text "Rating"
     expect(page).to have_text "5"
-    expect(page).to have_text "Intensity"
-    expect(page).to have_text "5"
+    expect(page).to have_text "Sympathy"
   end
 
   it "User can set their Emotion to be 'Good' with 'High' intensity", :js do
@@ -67,7 +65,7 @@ describe "Feel" do
     mood = Mood.find_by_participant_id(participant.id)
     expect(mood).not_to be_nil
     expect(mood.rating).to eq 10
-    expect(mood.mood_value).to eq "Good"
+    expect(mood.rating_value).to eq "Good"
     emotion = Emotion.find_by_participant_id(participant.id)
     expect(emotion).to be_nil
     with_scope "#edit-emotion-1" do
@@ -79,26 +77,20 @@ describe "Feel" do
     emotion = Emotion.find_by_participant_id(participant.id)
     expect(emotion).not_to be_nil
     expect(emotion.valence).to eq 1
-    expect(emotion.intensity).to eq 9
-    expect(emotion.intensity_value).to eq "High"
     expect(emotion.rating).to eq 10
     expect(emotion.rating_value).to eq "Good"
+    expect(emotion.name).to eq "Relief"
     expect(page).to have_text "10"
-    expect(page).to have_text "9"
+    expect(page).to have_text "Relief"
   end
 
   it "User can set their Emotion to be 'Bad' with 'Low' intensity", :js do
     click_on "#2 Monitoring Your Emotions"
-    mood = Mood.find_by_participant_id(participant.id)
-    expect(mood).to be_nil
     choose "mood_rating_0"
     click_on "Continue"
-    mood = Mood.find_by_participant_id(participant.id)
-    expect(mood).not_to be_nil
+    mood = participant.moods.last
     expect(mood.rating).to eq 0
-    expect(mood.mood_value).to eq "Bad"
-    emotion = Emotion.find_by_participant_id(participant.id)
-    expect(emotion).to be_nil
+    expect(mood.rating_value).to eq "Bad"
     with_scope "#edit-emotion-1" do
       check "Nervousness"
       page.execute_script(%Q($('#emotion-intensity-1').attr('value', "3"))) # Rate Emotion's Intensity
@@ -108,11 +100,20 @@ describe "Feel" do
     emotion = Emotion.find_by_participant_id(participant.id)
     expect(emotion).not_to be_nil
     expect(emotion.valence).to eq(-1)
-    expect(emotion.intensity).to eq 3
-    expect(emotion.intensity_value).to eq "Low"
     expect(emotion.rating).to eq 0
     expect(emotion.rating_value).to eq "Bad"
+    expect(emotion.name).to eq "Nervousness"
     expect(page).to have_text "0"
-    expect(page).to have_text "3"
+    expect(page).to have_text "Nervousness"
+  end
+
+  context "when Emotions have been recorded" do
+    fixtures :emotions
+
+    it "A Participant should be able to view a list of recent Emotions" do
+      click_on "View Your Recent Emotions"
+
+      expect(page).to have_text "Longing"
+    end
   end
 end

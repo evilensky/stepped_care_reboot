@@ -4,7 +4,7 @@ class Mood < ActiveRecord::Base
   validates :participant, presence: true
   validates :rating, presence: true, inclusion: { in: 0..10 }
 
-  def mood_value
+  def rating_value
     Values::Mood.from_rating(rating).to_s
   end
 end

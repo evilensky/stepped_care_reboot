@@ -68,6 +68,11 @@ feeling_tracker_module4:
   tool: feeling_tracker
   position: 4
 
+feeling_tracker_emotions_list:
+  title: View Your Recent Emotions
+  tool: feeling_tracker
+  position: 5
+
 library_landing:
   title: Library landing
   tool: library

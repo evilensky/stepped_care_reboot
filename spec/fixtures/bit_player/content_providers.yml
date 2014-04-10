@@ -185,10 +185,10 @@ feel_experiences_table:
   content_module: feeling_tracker_module3
   position: 3
 
-#feel_display:
-#  type: ContentProviders::FeelDisplayProvider
-#  content_module: feeling_tracker_module4
-#  position: 1
+feel_emotions_list:
+  type: ContentProviders::IndexPastFeelProvider
+  content_module: feeling_tracker_emotions_list
+  position: 1
 
 library_index_landing:
   type: ContentProviders::ModuleIndexProvider

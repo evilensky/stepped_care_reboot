@@ -1,0 +1,5 @@
+<tr class="<%= emotion_class(emotion) %>">
+  <td><%= emotion.name %></td>
+  <td><%= time_ago_in_words(emotion.created_at) %> ago</td>
+  <td><%= emotion.rating %></td>
+</tr>

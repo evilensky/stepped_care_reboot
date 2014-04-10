@@ -4,20 +4,12 @@
   <%= form_for emotion, url: update_path, method: "post", html: { role: "form", class: "edit-emotion-form", id: "edit-emotion-#{count}" } do |f| %>
     
     <%= f.hidden_field :rating, value: emotion.rating %>
+    <%= f.hidden_field :name, value: emotion.name %>
 
     <div class="checkbox">
       <label>
         <%= check_box_tag "emotion[valence]", emotion.valence %><%= emotion.name %>
       </label>
-    </div>
-
-    <div style="display:none;" class="intensity-scale">
-      <%= f.label :intensity, "How intense was this?", for: "emotion-intensity-#{count}" %>
-      <div class="range row">
-        <div class="col-xs-6 left">0</div>
-        <div class="col-xs-6 right">10</div>
-      </div>
-      <%= f.range_field :intensity, in: 0..10, step: 1, value: 5, id: "emotion-intensity-#{count}" %>
     </div>
 
   <% end %>
