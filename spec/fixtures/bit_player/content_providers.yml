@@ -4,11 +4,6 @@ home_slideshow:
   content_module: home_landing
   position: 1
 
-home_task:
-  type: ContentProviders::AssignedTaskProvider
-  content_module: home_landing
-  position: 2
-
 module_index_provider:
   type: ContentProviders::ModuleIndexProvider
   content_module: do_landing
