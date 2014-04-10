@@ -2,17 +2,35 @@ module ContentProviders
   # Provides a view of current learning tools: videos and lessons
   class LearnLessonsIndexProvider < BitPlayer::ContentProvider
     def render_current(options)
-      participant = options.participant
-      content_modules = BitPlayer::ContentModule.joins(:tool)
-        .where("bit_player_tools.title = ?", options.app_context)
-        .where.not(id: bit_player_content_module_id)
-      tasks = participant.learning_tasks(content_modules)
-      completed_tasks = participant.completed_tasks(content_modules)
-      task_statuses = tasks.available(participant.membership)
+      assign_variables(options)
       options.view_context.render(
         template: "learn/lessons_index",
-        locals: { task_statuses: task_statuses, tasks_count: tasks.count, completed_tasks_count: completed_tasks.count }
+        locals: {
+          all_tasks: @all_tasks,
+          all_available_tasks: @all_available_tasks
+        }
       )
+    end
+
+    def all_tasks
+      @participant.learning_tasks(@content_modules)
+    end
+
+    def all_available_tasks
+      all_tasks.available(@participant.membership)
+    end
+
+    def assign_variables(options)
+      @participant = options.participant
+      @content_modules = content_modules(options)
+      @all_tasks = all_tasks
+      @all_available_tasks = all_available_tasks
+    end
+
+    def content_modules(options)
+      BitPlayer::ContentModule.joins(:tool)
+        .where("bit_player_tools.title = ?", options.app_context)
+        .where.not(id: bit_player_content_module_id)
     end
 
     def days_into_intervention(membership)

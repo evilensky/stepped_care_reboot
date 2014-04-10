@@ -16,12 +16,11 @@ describe "learn via slideshows" do
 
     it "can view assigned slideshow that are released" do
       expect(page).to have_link("Do - Awareness Introduction")
-      # ??? this task is released on day 1 so the link is visible
-      # expect(page).not_to have_link("Do - Planning Introduction")
+      expect(page).not_to have_link("Do - Planning Introduction")
       click_on "Do - Awareness Introduction"
       content_module = bit_player_content_modules(:slideshow_content_module_2)
       provider = bit_player_content_providers(:content_provider_slideshow_2)
-      expect(current_path).to eq "/navigator/modules/" + "#{content_module.id}" + "/providers/" + "#{provider.id}" + "/1"
+      expect(current_path).to eq "/navigator/modules/#{content_module.id}/providers/#{provider.id}/1"
       expect(page).to have_text("LEARN")
       expect(page).to have_text("Do - Awareness Introduction")
       expect(page).to have_text("This is just the beginning...")
@@ -48,7 +47,8 @@ describe "learn via slideshows" do
       expect(page).to have_text("The last few times you were here...")
     end
 
-    it "should see unread notification and the correct count of read and unread lessons", :js do
+    it "should see unread notification and the correct count of lessons", :js do
+      expect(page).to have_text("You are on lesson 2 of 2.")
       with_scope "#task-status-#{ts7.id}" do
         expect(page).to have_text("unread")
         expect(page).not_to have_text("today's lesson")
@@ -57,7 +57,6 @@ describe "learn via slideshows" do
         expect(page).to have_text("unread")
         expect(page).to have_text("today's lesson")
       end
-      expect(page).to have_text("You have completed 0 lessons of 2.")
       click_on "Do - Awareness Introduction"
       visit "/navigator/contexts/LEARN"
       with_scope "#task-status-#{ts7.id}" do
@@ -66,7 +65,6 @@ describe "learn via slideshows" do
       with_scope "#task-status-#{ts8.id}" do
         expect(page).to have_text("unread")
       end
-      expect(page).to have_text("You have completed 1 lesson of 2.")
     end
 
   end
