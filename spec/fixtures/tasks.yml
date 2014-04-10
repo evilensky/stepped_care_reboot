@@ -9,3 +9,15 @@ task2:
   group: group1
   bit_player_content_module: do_planning
   release_day: 1
+
+task3:
+  creator: user1
+  group: group1
+  bit_player_content_module: slideshow_content_module_2
+  release_day: 1
+
+task4:
+  creator: user1
+  group: group1
+  bit_player_content_module: slideshow_content_module_3
+  release_day: 2

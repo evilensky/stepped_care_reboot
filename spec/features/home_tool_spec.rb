@@ -8,7 +8,7 @@ describe "home tool" do
   )
 
   it "should have the correct content" do
-    sign_in_participant participants(:participant3)
+    sign_in_participant participants(:participant2)
     visit "/"
 
     expect(page).to have_text("It's simple")

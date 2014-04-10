@@ -1,47 +1,44 @@
 home_intro:
-  title: Home Intro
+  title: Home Introduction
 
 do_awareness_intro:
-  title: Intro
+  title: Do - Awareness Introduction
 
 do_planning_intro:
-  title: Intro
+  title: Do - Planning Introduction
 
 do_planning_transition:
-  title: 3 of 4
+  title: Do - Planning Slideshow 3 of 4
 
 do_doing_intro:
-  title: Intro
+  title: Do - Doing Introduction
 
 do_congrats:
-  title: Congrats
+  title: Do - Congratulations
 
 think_identifying_intro:
-  title: Intro
+  title: Think - Identifying Introduction
 
 think_identifying_conclusion:
-  title: Conclusion
+  title: Think - Identifying Conclusion
 
 think_patterns_intro:
-  title: Intro
+  title: Think - Patterns Introduction
 
 think_patterns_conclusion:
-  title: Conclusion
+  title: Think - Patterns Conclusion
 
 think_reshape_intro:
-  title: Intro
+  title: Think - Reshape Introduction
 
 feel_mood_intro:
-  title: Intro
+  title: Feel - Mood Introduction
 
 feel_emotions_intro:
-  title: Intro
+  title: Feel - Emotions Introduction
 
 feel_changes_intro:
-  title: Intro
+  title: Feel - Changes Introduction
 
 feel_identify_intro:
-  title: Intro
-
-learn_thoughts_intro:
-  title: Intro
+  title: Feel - Identify Introduction
