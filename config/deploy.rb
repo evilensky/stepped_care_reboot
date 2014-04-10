@@ -72,6 +72,17 @@ namespace :deploy do
     vhost_config = <<-EOF
 <VirtualHost *:80>
   ServerName steppedcare.northwestern.edu
+  Redirect permanent / https://steppedcare.northwestern.edu/
+</VirtualHost>
+<VirtualHost *:443>
+
+  PassengerRuby /usr/local/rvm/wrappers/ruby-2.0.0-p353/ruby
+
+  ServerName steppedcare.northwestern.edu
+
+  SSLEngine On
+  SSLCertificateFile /etc/pki/tls/private/communicationbridge.northwestern.edu.cer
+  SSLCertificateKeyFile /etc/pki/tls/private/communicationbridge.northwestern.edu.key
 
   DocumentRoot #{deploy_to}/current/public
   RailsBaseURI /
