@@ -8,17 +8,25 @@ describe "home tool" do
   )
 
   it "should have the correct content" do
-    sign_in_participant participants(:participant1)
+    sign_in_participant participants(:participant2)
     visit "/"
 
     expect(page).to have_text("It's simple")
 
-    find(".next-button").click
+    click_on "Continue"
 
     expect(page).to have_text("Log in once a day")
 
-    find(".next-button").click
+    click_on "Continue"
 
     expect(page).to have_text("Come back every day")
+
+    click_on "Continue"
+
+    # video page
+
+    click_on "Continue"
+
+    expect(page).to have_text("It's simple")
   end
 end

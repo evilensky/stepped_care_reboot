@@ -76,16 +76,16 @@ task12:
   bit_player_content_module: feeling_tracker_module4
   release_day: 1
 
+task120:
+  creator: user1
+  group: group1
+  bit_player_content_module: feeling_tracker_emotions_list
+  release_day: 1
+
 task13:
   creator: user1
   group: group1
   bit_player_content_module: library_landing
-  release_day: 1
-
-task14:
-  creator: user1
-  group: group1
-  bit_player_content_module: library_lessons_module2
   release_day: 1
 
 task15:
@@ -93,3 +93,15 @@ task15:
   group: group1
   bit_player_content_module: messages_landing
   release_day: 1
+
+task16:
+  creator: user1
+  group: group1
+  bit_player_content_module: slideshow_content_module_2
+  release_day: 1
+
+task17:
+  creator: user1
+  group: group1
+  bit_player_content_module: slideshow_content_module_3
+  release_day: 2

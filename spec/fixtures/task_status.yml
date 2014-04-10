@@ -7,5 +7,25 @@ task_status2:
   task: task2
 
 task_status3:
+  membership: membership1
+  task: task16
+
+task_status4:
+  membership: membership1
+  task: task17
+
+task_status5:
   membership: membership2
   task: task1
+
+task_status6:
+  membership: membership2
+  task: task2
+
+task_status7:
+  membership: membership2
+  task: task16
+
+task_status8:
+  membership: membership2
+  task: task17

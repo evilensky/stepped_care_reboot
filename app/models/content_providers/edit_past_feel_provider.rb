@@ -6,7 +6,7 @@ module ContentProviders
       participant_emotions_array = determine_participant_emotions(options)
 
       options.view_context.render(
-        template: "feel/edit",
+        template: "feel/edit_emotion",
         locals: {
           emotions: participant_emotions_array,
           count: participant_emotions_array.count,
@@ -28,21 +28,24 @@ module ContentProviders
     end
 
     def data_attributes
-      [:valence, :intensity, :rating]
+      [:valence, :intensity, :rating, :name]
     end
 
     def participant_emotions_array(participant, mood, valence)
-      emotions = []
-
-      mood_related_emotions(mood).each do |emotion|
-        emotions << participant.emotions.build(
+      mood_related_emotions(mood).map do |emotion|
+        participant.emotions.build(
           valence: valence,
           name: emotion,
           rating: mood.rating
         )
       end
-      emotions
     end
+
+    def show_nav_link?
+      false
+    end
+
+    private
 
     def mood_related_emotions(mood)
       if mood.rating < 5
@@ -55,10 +58,6 @@ module ContentProviders
         ["Contentment", "Enthrallment", "Joy",
          "Optimism", "Pride", "Relief"]
       end
-    end
-
-    def show_nav_link?
-      false
     end
 
     def valence(mood)

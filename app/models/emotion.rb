@@ -3,7 +3,6 @@ class Emotion < ActiveRecord::Base
   belongs_to :participant
   validates :participant, presence: true
   validates :valence, presence: true, inclusion: { in: -1..1 }
-  validates :intensity, presence: true, inclusion: { in: 0..10 }
   validates :rating, presence: true, inclusion: { in: 0..10 }
 
   def intensity_value

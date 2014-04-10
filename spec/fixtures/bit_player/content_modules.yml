@@ -68,17 +68,101 @@ feeling_tracker_module4:
   tool: feeling_tracker
   position: 4
 
-library_landing:
-  title: Library landing
-  tool: library
-  position: 1
-
-library_lessons_module2:
-  title: 'Lessons'
-  tool: library
-  position: 2
+feeling_tracker_emotions_list:
+  title: View Your Recent Emotions
+  tool: feeling_tracker
+  position: 5
 
 messages_landing:
   title: Messages landing
   tool: messages
   position: 1
+
+library_landing:
+  title: Library landing
+  tool: library
+  position: 1
+
+# I am not comfortable with that these modules seem
+# to be 'stand-alone' modules, but that they each
+# have to have different positions: I'm confused. -W
+
+slideshow_content_module_1:
+  title: Home Introduction
+  tool: library
+  position: 2
+
+slideshow_content_module_2:
+  title: Do - Awareness Introduction
+  tool: library
+  position: 3
+
+slideshow_content_module_3:
+  title: Do - Planning Introduction
+  tool: library
+  position: 4
+
+slideshow_content_module_4:
+  title: Do - Planning Slideshow 3 of 4
+  tool: library
+  position: 5
+
+slideshow_content_module_5:
+  title: Do - Doing Introduction
+  tool: library
+  position: 6
+
+slideshow_content_module_6:
+  title: Do - Congrats
+  tool: library
+  position: 7
+
+slideshow_content_module_7:
+  title: Think - Identifying Introduction
+  tool: library
+  position: 8
+
+slideshow_content_module_8:
+  title: Think - Identifying Conclusion
+  tool: library
+  position: 9
+
+slideshow_content_module_9:
+  title: Think - Patterns Introduction
+  tool: library
+  position: 10
+
+slideshow_content_module_10:
+  title: Think - Patterns Conclusion
+  tool: library
+  position: 11
+
+slideshow_content_module_11:
+  title: Think - Reshape Introduction
+  tool: library
+  position: 12
+
+slideshow_content_module_12:
+  title: Feel - Mood Introduction
+  tool: library
+  position: 13
+
+slideshow_content_module_13:
+  title: Feel - Emotions Introduction
+  tool: library
+  position: 14
+
+slideshow_content_module_14:
+  title: Feel - Changes Introduction
+  tool: library
+  position: 15
+
+slideshow_content_module_15:
+  title: Feel - Identify Introduction
+  tool: library
+  position: 16
+
+slideshow_content_module_16:
+  title: Learn - Thoughts Introduction
+  tool: library
+  position: 17

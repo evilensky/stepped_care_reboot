@@ -29,8 +29,8 @@ describe "activity tracker" do
     expect(page).to have_text("Let’s break it down hour by hour...")
 
     fill_in("What did you do from 12am to 1am?", with: "ate cheeseburgers")
-    fill_in("How much pleasure did you get from doing this?", with: 9)
-    fill_in("How much did doing this give you a sense of accomplishment?", with: 4)
+    choose "activity_actual_pleasure_intensity_9"
+    choose "activity_actual_accomplishment_intensity_4"
 
     find('input[type="submit"]').click
 

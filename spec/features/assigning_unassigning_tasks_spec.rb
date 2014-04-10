@@ -5,7 +5,7 @@ describe "Tasks" do
     :participants, :users, :"bit_player/slideshows", :"bit_player/slides",
     :"bit_player/tools", :"bit_player/content_modules",
     :"bit_player/content_providers", :groups, :memberships,
-    :group_slideshow_joins, :tasks, :task_status
+    :tasks, :task_status
   )
 
   let(:user) { users(:user1) }
@@ -27,7 +27,7 @@ describe "Tasks" do
     visit manage_tasks_group_path(group2)
     task = Task.where(bit_player_content_module_id: do_doing.id, release_day: 1, group_id: group2.id).first
     expect(task).to be_nil
-    select("Doing", from: "Select Module")
+    select("#3 Doing", from: "Select Module")
     fill_in "Release day", with: 1
     click_on "Assign"
     task = Task.where(bit_player_content_module_id: do_doing.id, release_day: 1, group_id: group2.id).first

@@ -31,7 +31,7 @@ class Participant < ActiveRecord::Base
   has_one :coach, class_name: "User", through: :coach_assignment
 
   def current_group
-    memberships.first.group
+    membership.group
   end
 
   def self.active
@@ -50,17 +50,17 @@ class Participant < ActiveRecord::Base
     send(association).find(id)
   end
 
+  def membership
+    # Currently, a participant is assigned to 1 group
+    memberships.first
+  end
+
   def navigation_status
     participant_status || build_participant_status
   end
 
   def recent_activities
-    # when no awake period return an empty set to allow chaining
-    now = Time.new
-    start_time = recent_awake_period.try(:start_time) || now
-    end_time = recent_awake_period.try(:end_time) || now
-
-    activities.during(start_time, end_time)
+    activities.during(recent_period[:start_time], recent_period[:end_time])
   end
 
   def recent_pleasurable_activities
@@ -71,11 +71,39 @@ class Participant < ActiveRecord::Base
     recent_activities.accomplished
   end
 
-  def recent_awake_period
-    @recent_awake_period ||= awake_periods.order("start_time").last
-  end
-
   def build_phq_assessment(attributes)
     phq_assessments.build(attributes)
+  end
+
+  def tasks_to_complete(content_modules)
+    membership.task_statuses
+      .where(completed_at: nil)
+      .joins(:task)
+      .where("tasks.release_day <= ?", membership.day_in_study)
+      .for_content_modules(content_modules.map(&:id))
+  end
+
+  def learning_tasks(content_modules)
+    membership.task_statuses
+      .joins(:task)
+      .where("tasks.release_day <= ?", membership.day_in_study)
+      .for_content_modules(content_modules.map(&:id))
+  end
+
+  private
+
+  def recent_period
+    @recent_period ||= (
+      # when no awake period return an empty set to allow chaining
+      now = Time.new
+      start_time = recent_awake_period.try(:start_time) || now
+      end_time = recent_awake_period.try(:end_time) || now
+
+      { start_time: start_time, end_time: end_time }
+    )
+  end
+
+  def recent_awake_period
+    @recent_awake_period ||= awake_periods.order("start_time").last
   end
 end

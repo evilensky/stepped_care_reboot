@@ -23,7 +23,7 @@ module TasksHelper
   def tasks_to_complete?(tool)
     content_modules = BitPlayer::ContentModule
       .where(bit_player_tool_id: tool.id)
-    TaskStatus.to_complete(current_participant, content_modules).count > 0
+    current_participant.tasks_to_complete(content_modules).count > 0
   end
 
   def module_not_assigned?(content_module, tasks, participant)
@@ -42,12 +42,16 @@ module TasksHelper
     if tasks.for_content_module(content_module).empty?
       title = content_module.title
       task_id = false
-    else # == 1
+    else # Would we ever not want the first task status of a content module?
       title = fa_icon("asterisk") + " " + content_module.title
       task_id = tasks.for_content_module(content_module).first.id
     end
     link_to title.html_safe, navigator_location_path(
         module_id: content_module.id
       ), data: { task_status_id: task_id }, class: "content-module"
+  end
+
+  def active_task?(task)
+    "<i class=\"fa fa-asterisk\"></i> ".html_safe unless task.completed_at?
   end
 end

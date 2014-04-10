@@ -2,12 +2,6 @@
 <% if slide.is_title_visible %>
   <div class="slide">
     <h1><%= slide.title %></h1>
-
-    <% if current_user %>
-      <div class="btn-toolbar">
-        <%= link_to "Edit", edit_slideshow_slide_path(slide.slideshow, slide), class: "btn btn-default" %>
-      </div>
-    <% end %>
   </div>
 <% end %>
 

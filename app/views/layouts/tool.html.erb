@@ -12,8 +12,7 @@
     <div class="container" id="tool-layout">
       <div class="row">
         <div class="col-md-2 col-sm-2 tool-nav">
-          <h1><%= AppSection.by_name(@navigator.context).label %></h1>
-
+          <h1><%= BitPlayer::Tool.find_by_title(@navigator.context).title %></h1>
           <h2><%= @navigator.current_module.title %></h2>
         </div>
 

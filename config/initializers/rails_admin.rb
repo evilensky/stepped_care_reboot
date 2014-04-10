@@ -91,14 +91,18 @@ RailsAdmin.config do |config|
     end
   end
 
-  config.model "ContentModule" do
+  config.model "BitPlayer::ContentModule" do
     list do
-      sort_by :context, :position
+      sort_by :tool, :position
 
-      field :context
+      field :tool
       field :position
       field :title
-      field :providers
+      field :content_providers do
+        pretty_value do
+          value.count
+        end
+      end
     end
   end
 
@@ -139,6 +143,14 @@ RailsAdmin.config do |config|
     list do
       field :title
       field :slides
+    end
+  end
+
+  config.model "TaskStatus" do
+    list do
+      field :task
+      field :participant
+      field :completed_at
     end
   end
 end

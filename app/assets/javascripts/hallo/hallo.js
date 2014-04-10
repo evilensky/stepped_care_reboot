@@ -41,7 +41,7 @@
       $buttonHolder = $('<span>');
       $buttonHolder.hallobutton({
         label: this.texts.title,
-        icon: 'icon-list-alt',
+        icon: 'fa fa-list-alt',
         editable: this.options.editable,
         command: null,
         queryState: false,
@@ -120,7 +120,7 @@
             editable: _this.options.editable,
             label: label,
             command: "insert" + type + "List",
-            icon: "icon-list-" + (label.toLowerCase()),
+            icon: "fa fa-list-" + (label.toLowerCase()),
             cssClass: _this.options.buttonCssClass
           });
           return buttonset.append(buttonElement);
@@ -259,7 +259,7 @@
           buttonHolder = jQuery('<span></span>');
           buttonHolder.hallobutton({
             label: 'Link',
-            icon: 'icon-link',
+            icon: 'fa fa-link',
             editable: _this.options.editable,
             command: null,
             queryState: false,
@@ -385,7 +385,7 @@
       $buttonHolder = $('<span>');
       $buttonHolder.hallobutton({
         label: this.texts.title_insert,
-        icon: 'icon-picture',
+        icon: 'fa fa-picture',
         editable: this.options.editable,
         command: null,
         queryState: false,
@@ -744,7 +744,7 @@
           uuid: this.options.uuid,
           editable: this.options.editable,
           label: 'block',
-          icon: 'icon-text-height',
+          icon: 'fa fa-text-height',
           target: target,
           cssClass: this.options.buttonCssClass
         });
@@ -835,7 +835,7 @@
             uuid: _this.options.uuid,
             editable: _this.options.editable,
             label: label,
-            icon: cmd === 'undo' ? 'icon-undo' : 'icon-repeat',
+            icon: cmd === 'undo' ? 'fa fa-undo' : 'fa fa-repeat',
             command: cmd,
             queryState: false,
             cssClass: _this.options.buttonCssClass
@@ -912,7 +912,7 @@
         buttonHolder = jQuery('<span></span>');
         buttonHolder.hallobutton({
           label: 'Images',
-          icon: 'icon-picture',
+          icon: 'fa fa-picture',
           editable: this.options.editable,
           command: null,
           queryState: false,
@@ -1175,7 +1175,7 @@
       populateToolbar: function() {},
       buildIndicator: function() {
         var editButton;
-        editButton = jQuery('<div><i class="icon-edit"></i> Edit</div>');
+        editButton = jQuery('<div><i class="fa fa-edit"></i> Edit</div>');
         editButton.addClass(this.options.className);
         editButton.hide();
         this.element.before(editButton);
@@ -1266,7 +1266,7 @@
         buttonHolder = jQuery("<span class=\"" + this.widgetName + "\"></span>");
         this.button = buttonHolder.hallobutton({
           label: 'Annotate',
-          icon: 'icon-tags',
+          icon: 'fa fa-tags',
           editable: this.options.editable,
           command: null,
           uuid: this.options.uuid,
@@ -2017,7 +2017,7 @@
             editable: _this.options.editable,
             label: alignment,
             command: "justify" + alignment,
-            icon: "icon-align-" + (alignment.toLowerCase()),
+            icon: "fa fa-align-" + (alignment.toLowerCase()),
             cssClass: _this.options.buttonCssClass
           });
           return buttonset.append(buttonElement);
@@ -2113,7 +2113,7 @@
         var hoverclass, id, opts, _base, _ref,
           _this = this;
         if ((_ref = (_base = this.options).icon) == null) {
-          _base.icon = "icon-" + (this.options.label.toLowerCase());
+          _base.icon = "fa fa-" + (this.options.label.toLowerCase());
         }
         id = "" + this.options.uuid + "-" + this.options.label;
         opts = this.options;
@@ -2254,7 +2254,7 @@
       },
       _create: function() {
         var _base, _ref;
-        return (_ref = (_base = this.options).icon) != null ? _ref : _base.icon = "icon-" + (this.options.label.toLowerCase());
+        return (_ref = (_base = this.options).icon) != null ? _ref : _base.icon = "fa fa-" + (this.options.label.toLowerCase());
       },
       _init: function() {
         var target,
