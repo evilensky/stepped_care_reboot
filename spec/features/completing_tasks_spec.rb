@@ -51,10 +51,8 @@ describe "Participant accessing tasks" do
 
   it "should continue to see lesson slideshows even after they have been activated", :js do
     visit "/navigator/contexts/LEARN"
-    expect(page.html).to include("<a href=\"/navigator/modules/#{learning_ts_module.id}/providers/#{learning_ts_provider.id}/1\" class=\"list-group-item content-module\" data-task-status-id=\"#{learning_ts.id}\"><i class=\"fa fa-asterisk\"></i> Do - Awareness Introduction</a>")
     click_on "Do - Awareness Introduction"
     visit "/navigator/contexts/LEARN"
     expect(page).to have_link("Do - Awareness Introduction")
-    expect(page.html).to include("<a href=\"/navigator/modules/#{learning_ts_module.id}/providers/#{learning_ts_provider.id}/1\" class=\"list-group-item content-module\" data-task-status-id=\"#{learning_ts.id}\">Do - Awareness Introduction</a>")
   end
 end
