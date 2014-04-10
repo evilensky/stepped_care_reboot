@@ -145,4 +145,12 @@ RailsAdmin.config do |config|
       field :slides
     end
   end
+
+  config.model "TaskStatus" do
+    list do
+      field :task
+      field :participant
+      field :completed_at
+    end
+  end
 end

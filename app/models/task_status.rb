@@ -1,6 +1,7 @@
 # Holds the completion status of a task for each participant
 class TaskStatus < ActiveRecord::Base
   belongs_to :membership
+  has_one :participant, through: :membership
   belongs_to :task, dependent: :destroy
 
   delegate  :title,
