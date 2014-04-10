@@ -10,6 +10,7 @@ gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'devise'
 gem 'rails_admin'
+gem 'coffee-script', '>= 2.2.0'
 # authorization
 gem 'cancan'
 # Markdown interpreter
