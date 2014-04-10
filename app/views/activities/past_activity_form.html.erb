@@ -22,23 +22,23 @@
 			</div>
 
 			<div class="form-group">
-				<%= f.label :actual_pleasure_intensity, "How much pleasure did you get from doing this?", for: "activity_pleasure_#{index}" %><br>
-				<div class="range row">
-					<div class="col-md-4 col-sm-4 col-xs-4 left">1<br>None</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 center">5<br>Some</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 right">10<br>A Lot</div>
-				</div>
-				<%= f.range_field :actual_pleasure_intensity, in: 0..10, step: "1", id: "activity_pleasure_#{index}" %>
+        <%= render(
+              "activities/shared/intensity_selector",
+              form: f,
+              name: :actual_pleasure_intensity,
+              label: "How much pleasure did you get from doing this?",
+              activity: Activity.new
+        ) %>
 			</div>
 
 			<div class="form-group">
-				<%= f.label :actual_accomplishment_intensity, "How much did doing this give you a sense of accomplishment?", for: "activity_accomplishment_#{index}" %>	
-					<div class="range row">
-					<div class="col-md-4 col-sm-4 col-xs-4 left">1<br>None</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 center">5<br>Some</div>
-					<div class="col-md-4 col-sm-4 col-xs-4 right">10<br>A Lot</div>
-				</div>	
-				<%= f.range_field :actual_accomplishment_intensity, in: 0..10, step: "1", id: "activity_accomplishment_#{index}" %>
+        <%= render(
+              "activities/shared/intensity_selector",
+              form: f,
+              name: :actual_accomplishment_intensity,
+              label: "How much did doing this give you a sense of accomplishment?",
+              activity: Activity.new
+        ) %>
 			</div>
 	  <%= f.submit "Continue", class: "btn btn-primary btn-large" %>
 	<% end %>
