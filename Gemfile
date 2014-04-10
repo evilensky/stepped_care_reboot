@@ -29,7 +29,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'capistrano', '~> 2.15'
   gem 'rvm-capistrano'
-  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 group :test do
