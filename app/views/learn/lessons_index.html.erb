@@ -7,8 +7,6 @@
       provider_id: ts.bit_player_content_module.content_providers.find_by_position(1).id,
       content_position: 1
     ) %>
-    <a href="<%= path %>" class="list-group-item">
-      <%= ts.title %>
-    </a>
+    <a href="<%= path %>" class="list-group-item content-module" data-task-status-id="<%= ts.id %>"><%= active_task?(ts) %><%= ts.title %></a>
   <% end %>
 </div>

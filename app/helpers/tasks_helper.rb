@@ -37,4 +37,8 @@ module TasksHelper
         module_id: content_module.id
       ), data: { task_status_id: task_id }, class: "content-module"
   end
+
+  def active_task?(task)
+    "<i class=\"fa fa-asterisk\"></i> ".html_safe unless task.completed_at?
+  end
 end

@@ -83,6 +83,13 @@ class Participant < ActiveRecord::Base
       .for_content_modules(content_modules.map(&:id))
   end
 
+  def learning_tasks(content_modules)
+    membership.task_statuses
+      .joins(:task)
+      .where("tasks.release_day <= ?", membership.day_in_study)
+      .for_content_modules(content_modules.map(&:id))
+  end
+
   private
 
   def recent_period

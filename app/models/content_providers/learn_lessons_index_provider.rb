@@ -5,7 +5,7 @@ module ContentProviders
       content_modules = BitPlayer::ContentModule.joins(:tool)
         .where("bit_player_tools.title = ?", options.app_context)
         .where.not(id: bit_player_content_module_id)
-      task_statuses = options.participant.tasks_to_complete(content_modules)
+      task_statuses = options.participant.learning_tasks(content_modules)
       options.view_context.render(
         template: "learn/lessons_index",
         locals: { task_statuses: task_statuses }
