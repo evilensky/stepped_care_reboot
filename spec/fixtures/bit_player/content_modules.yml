@@ -71,7 +71,7 @@ feeling_tracker_module4:
 messages_landing:
   title: Messages landing
   tool: messages
-  position: 2
+  position: 1
 
 library_landing:
   title: Library landing
