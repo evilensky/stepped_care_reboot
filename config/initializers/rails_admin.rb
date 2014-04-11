@@ -178,6 +178,15 @@ RailsAdmin.config do |config|
       field :email
       field :groups
     end
+
+    edit do
+      field :email
+      field :password
+      field :password_confirmation
+      field :groups
+      field :participant_tokens
+      field :coach_assignment
+    end
   end
 
   config.model "PhqAssessment" do
