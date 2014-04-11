@@ -9,9 +9,20 @@ module ContentProviders
       options.view_context.render(
         template: template,
         locals: {
+          title: "Helpful Thoughts",
+          introduction: introduction,
           thoughts: options.participant.thoughts.helpful
         }
       )
+    end
+
+    private
+
+    def introduction
+      "<p>Last time you were here...<br>" \
+        "You noted that you’ve been thikning some things that are helpful." \
+        "<p>Being aware of these thoughts can be helpful." \
+        "<p>In case you’ve forgotten...".html_safe
     end
   end
 end

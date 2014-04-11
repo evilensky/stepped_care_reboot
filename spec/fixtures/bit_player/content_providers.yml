@@ -147,13 +147,18 @@ think_reshape_index:
   type: BitPlayer::ContentProviders::SlideshowProvider
   source_content: think_reshape_intro (BitPlayer::Slideshow)
   content_module: think_reshape
-  position: 1    
+  position: 1
+
+think_reshape_unhelpful_thoughts_list:
+  type: ContentProviders::UnhelpfulThoughtsListProvider
+  content_module: think_reshape
+  position: 2
 
 thought_add_index:
   type: BitPlayer::ContentProviders::SlideshowProvider
   source_content: think_add_intro (BitPlayer::Slideshow)
   content_module: think_module5
-  position: 1   
+  position: 1
 
 feel_landing:
   type: ContentProviders::ModuleIndexProvider

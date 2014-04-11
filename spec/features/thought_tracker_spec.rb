@@ -4,7 +4,7 @@ describe "thought tracker" do
   fixtures(
     :participants, :groups, :memberships, :"bit_player/slideshows",
     :"bit_player/slides", :"bit_player/tools", :"bit_player/content_modules",
-    :"bit_player/content_providers", :tasks
+    :"bit_player/content_providers", :tasks, :thoughts
   )
 
   before do
@@ -54,5 +54,16 @@ describe "thought tracker" do
     click_on "#2 Patterns"
 
     expect(page).to have_text "Like we said, you are what you think..."
+  end
+
+  it "should implement #3 Reshape" do
+    click_on "#3 Reshape"
+
+    expect(page).to have_text "Evidence is where it's at."
+
+    click_on "Continue"
+
+    expect(page).to have_text "You said you had the following unhelpful thoughts:"
+    expect(page).to have_text "I am useless"
   end
 end
