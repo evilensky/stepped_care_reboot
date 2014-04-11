@@ -9,7 +9,7 @@ module TasksHelper
   end
 
   def icon_div(context, tool)
-    if (context != tool.title) && tasks_to_complete?(tool)
+    if (context != tool.title) && @current_participant.incompleted?(tool)
       "<div class=\"fa-container\">#{fa_icon("asterisk")}</div>"
     elsif context == tool.title
       "<div class=\"fa-container\">#{fa_icon("caret-right")}</div>"
@@ -18,43 +18,27 @@ module TasksHelper
     end
   end
 
-  def tasks_to_complete?(tool)
-    content_modules = BitPlayer::ContentModule
-      .where(bit_player_tool_id: tool.id)
-    current_participant.tasks_to_complete(content_modules).count > 0
-  end
-
-  def module_not_assigned?(content_module, tasks, participant)
-    if Task.joins(:bit_player_content_module)
-        .where(tasks:
-          { bit_player_content_module_id: content_module.id,
-            group_id: participant.active_group.id }
-        ).empty?
-      true
-    else
-      false
-    end
-  end
-
-  def content_module_link(content_module, tasks)
-    if tasks.for_content_module(content_module).empty?
+  def content_module_link(content_module)
+    if @current_participant.completed?(content_module)
       title = content_module.title
-      task_id = false
-    else # Would we ever not want the first task status of a content module?
+      task_status_id = false
+    else
       title = "#{content_module.title} #{fa_icon("asterisk")}"
-      task_id = tasks.for_content_module(content_module).first.id
+      task_status_id = @current_participant.task_status_for(content_module).id
     end
     link_to title.html_safe, navigator_location_path(
         module_id: content_module.id
-      ), data: { task_status_id: task_id }, class: "content-module"
+      ), data: { task_status_id: task_status_id }, class: "content-module"
   end
 
-  def unread_task?(ts)
-    " <em class=\"pull-right\">unread</em>".html_safe unless ts.completed_at?
+  def unread_task?(task_status)
+    unless task_status.completed_at?
+      " <em class=\"pull-right\">unread</em>".html_safe
+    end
   end
 
-  def todays_lesson(ts, response)
+  def todays_lesson(task_status, response)
     membership = current_participant.membership
-    response.html_safe if ts.release_day == membership.day_in_study
+    response.html_safe if task_status.release_day == membership.day_in_study
   end
 end

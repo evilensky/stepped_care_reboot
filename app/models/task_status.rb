@@ -4,6 +4,8 @@ class TaskStatus < ActiveRecord::Base
   has_one :participant, through: :membership
   belongs_to :task, dependent: :destroy
 
+  validates :is_recurring, inclusion: { in: [true, false] }
+
   delegate  :bit_player_content_module,
             :bit_player_content_module_id,
             :release_day,
