@@ -59,9 +59,4 @@ module TasksHelper
     membership = current_participant.membership
     response.html_safe if ts.release_day == membership.day_in_study
   end
-
-  def current_lesson(all_tasks_count)
-    current_position = 1 # To be udpated when clarified!
-    "You are on lesson <span>#{current_position}</span> of #{all_tasks_count}."
-  end
 end

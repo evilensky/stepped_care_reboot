@@ -1,23 +1,15 @@
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">
-    <h3 class="panel-title">Lessons</h3>
-  </div>
-  <div class="list-group">
-    <% all_available_tasks.each do |ts| %>
-      <% path = navigator_location_path(
-        module_id: ts.bit_player_content_module_id,
-        # Is there a chance we wouldn't want the first content provider of each module?
-        provider_id: ts.bit_player_content_module.content_providers.find_by_position(1).id,
-        content_position: 1
-      ) %>
-      <a href="<%= path %>" class="list-group-item content-module <%= todays_lesson(ts, "active") %>" id="task-status-<%= ts.id %>" data-task-status-id="<%= ts.id %>">
-        <h4 class="list-group-item-heading" style="margin-bottom: 0px;"><%= ts.title %><%= unread_task?(ts) %></h4>
-        <%= todays_lesson(ts, "<p style=\"margin-top: 5px;margin-bottom:0px;\">today's lesson</p>") %>
-      </a>
-    <% end %>
-  </div>
-  <div class="panel-footer">
-    <%= current_lesson(all_tasks.count).html_safe %>
-  </div>
+<h1>Lessons</h1>
+<div class="list-group">
+  <% all_available_tasks.each do |ts| %>
+    <% path = navigator_location_path(
+      module_id: ts.bit_player_content_module_id,
+      # Is there a chance we wouldn't want the first content provider of each module?
+      provider_id: ts.bit_player_content_module.content_providers.find_by_position(1).id,
+      content_position: 1
+    ) %>
+    <a href="<%= path %>" class="list-group-item content-module <%= todays_lesson(ts, "active") %>" id="task-status-<%= ts.id %>" data-task-status-id="<%= ts.id %>">
+      <h4 class="list-group-item-heading" style="margin-bottom: 0px;"><%= ts.title %><%= unread_task?(ts) %></h4>
+      <%= todays_lesson(ts, "<p style=\"margin-top: 5px;margin-bottom:0px;\">today's lesson</p>") %>
+    </a>
+  <% end %>
 </div>
