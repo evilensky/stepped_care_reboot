@@ -106,6 +106,69 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model "DeliveredMessage" do
+    object_label_method do
+      :recipient_email
+    end
+    list do
+      field :recipient
+      field :is_read
+      field :message
+      field :created_at
+    end
+  end
+
+  def recipient_email
+    "#{recipient.email}"
+  end
+
+  config.model "Group" do
+    list do
+      field :title
+      field :creator
+      field :created_at
+    end
+
+    edit do
+      field :title
+      field :creator
+      field :active_participants
+    end
+  end
+
+  config.model "Membership" do
+    list do
+      field :group
+      field :participant
+      field :start_date
+      field :end_date
+    end
+
+    edit do
+      field :group
+      field :participant
+      field :start_date
+      field :end_date
+    end
+  end
+
+   config.model "Message" do
+    object_label_method do
+      :sender_email
+    end
+
+    list do
+      field :sender
+      field :subject
+      field :sent_at
+      field :delivered_messages
+    end
+  end
+  
+  def sender_email
+    "#{sender.email}"
+  end
+
   config.model "Participant" do
     object_label_method do
       :email
@@ -151,6 +214,24 @@ RailsAdmin.config do |config|
       field :task
       field :participant
       field :completed_at
+    end
+  end
+
+  config.model "User" do
+    object_label_method do
+      :email
+    end
+
+    list do
+      field :email
+      field :last_sign_in_at
+    end
+
+    edit do
+      field :email
+      field :password
+      field :password_confirmation
+      field :coach_assignments
     end
   end
 end
