@@ -15,6 +15,7 @@ describe "learn via slideshows" do
     end
 
     it "can view assigned slideshow that are released" do
+      expect(page).to have_text("You are on lesson 1 of 2.")
       expect(page).to have_link("Do - Awareness Introduction")
       expect(page).not_to have_link("Do - Planning Introduction")
       click_on "Do - Awareness Introduction"
@@ -39,6 +40,7 @@ describe "learn via slideshows" do
     end
 
     it "participant2 can view assigned slideshows (with the correct slides) based on released day" do
+      expect(page).to have_text("You are on lesson 2 of 2.")
       expect(page).to have_link("Do - Awareness Introduction")
       expect(page).to have_link("Do - Planning Introduction")
       click_on "Do - Planning Introduction"

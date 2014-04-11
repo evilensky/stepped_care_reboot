@@ -1,4 +1,4 @@
-<h1>Lessons</h1>
+<h1>Lessons <small>You are on lesson <%= all_available_tasks.count %> of <%= all_tasks.count %>.</small></h1>
 <div class="list-group">
   <% all_available_tasks.each do |ts| %>
     <% path = navigator_location_path(
