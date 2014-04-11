@@ -9,7 +9,7 @@
 
   <ul class="list-unstyled">
     <% sent_messages.each do |msg| %>
-      <li><%= link_to msg.subject, coach_sent_message_path(msg), class: 'text-muted' %></li>
+      <li><strong><%= msg.recipient.email%></strong> : <%= link_to msg.subject, coach_sent_message_path(msg), class: 'text-muted' %> </li>
     <% end %>
   </ul>
 <% end %>
