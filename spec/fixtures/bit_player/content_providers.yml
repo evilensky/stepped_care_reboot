@@ -154,6 +154,11 @@ think_reshape_unhelpful_thoughts_list:
   content_module: think_reshape
   position: 2
 
+think_reshape_unhelpful_thoughts_reflect:
+  type: ContentProviders::UnhelpfulThoughtsReflectionProvider
+  content_module: think_reshape
+  position: 3
+
 thought_add_index:
   type: ContentProviders::NewThoughtFormProvider
   content_module: think_module5

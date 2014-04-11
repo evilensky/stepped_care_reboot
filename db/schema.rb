@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407202027) do
+ActiveRecord::Schema.define(version: 20140411195804) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -280,15 +280,19 @@ ActiveRecord::Schema.define(version: 20140407202027) do
     t.text     "description", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "explanation"
+    t.string   "question"
   end
 
   create_table "thoughts", force: true do |t|
-    t.text     "content",        null: false
-    t.string   "effect",         null: false
-    t.integer  "participant_id", null: false
+    t.text     "content",             null: false
+    t.string   "effect",              null: false
+    t.integer  "participant_id",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "pattern_id"
+    t.text     "challenging_thought"
+    t.text     "act_as_if"
   end
 
   add_index "thoughts", ["participant_id"], name: "index_thoughts_on_participant_id", using: :btree

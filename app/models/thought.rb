@@ -13,4 +13,8 @@ class Thought < ActiveRecord::Base
   scope :harmful, -> { where(effect: "harmful") }
 
   scope :no_pattern, -> { where(pattern_id: nil) }
+
+  scope :unreflected, lambda {
+    where("challenging_thought IS NULL OR act_as_if IS NULL")
+  }
 end

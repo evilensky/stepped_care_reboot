@@ -1,0 +1,30 @@
+<% thoughts.each_with_index do |thought, index| %>
+  <p>You said that you thought:</p>
+  <p><%= thought.content %></p>
+  <p>And that this relates to this unhelpful thought pattern:</p>
+  <p><%= thought.pattern.title %></p>
+  <br>
+  <p>Thought <%= index + 1 %> of <%= thoughts.count %></p>
+  <p><%= thought.pattern.explanation || "Mark! Add something here!" %>
+  <p>Thinking about:</p>
+  <p><%= thought.content %></p>
+  <br>
+  <p><%= thought.pattern.question || "Mark! Add the question!" %>
+  <%= form_for thought, url: update_path, remote: true do |f| %>
+    <%= f.text_area :challenging_thought %><br>
+    <%= f.hidden_field :id %>
+    <%= f.submit %>
+  <% end %>
+  <br>
+  <p>You thought:</p>
+  <p><%= thought.content %></p>
+  <br>
+  <p>A challenging thought was:</p>
+  <p><%= thought.challenging_thought %></p>
+  <p>What could you do to ACT AS IF you believe this?</p>
+  <%= form_for thought, url: update_path, remote: true do |f| %>
+    <%= f.text_area :act_as_if %><br>
+    <%= f.hidden_field :id %>
+    <%= f.submit %>
+  <% end %>
+<% end %>

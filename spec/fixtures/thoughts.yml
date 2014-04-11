@@ -2,3 +2,4 @@ participant1_harmful:
   participant: participant1
   content: I am useless
   effect: harmful
+  pattern: labeling
