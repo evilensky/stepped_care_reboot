@@ -66,4 +66,16 @@ describe "thought tracker" do
     expect(page).to have_text "You said you had the following unhelpful thoughts:"
     expect(page).to have_text "I am useless"
   end
+
+  it "should implement 'Add a New Thought'" do
+    click_on "Add a New Thought"
+
+    expect(page).to have_text "Now, your turn..."
+
+    fill_in("thought_content", with: "I like tomatoes")
+    choose("thought_effect_neither")
+    click_on("Continue")
+
+    expect(page).to have_text("Add a New Thought")
+  end
 end
