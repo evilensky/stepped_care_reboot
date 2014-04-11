@@ -16,7 +16,7 @@ module Coach
     def new
       render(
         locals: {
-          message: current_user.sent_messages.build,
+          message: current_user.build_sent_message,
           participants: current_user.participants
         }
       )

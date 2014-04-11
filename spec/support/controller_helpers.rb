@@ -1,12 +1,23 @@
 module ControllerHelpers
   def sign_in_participant(participant = double("participant"))
-    if participant.nil?
+    sign_in_resource(participant, "participant")
+  end
+
+  def sign_in_user(user = double("user"))
+    sign_in_resource(user, "user")
+  end
+
+  private
+
+  def sign_in_resource(resource, name)
+    if resource.nil?
       expect(request.env["warden"]).to receive(:authenticate!)
-        .and_throw(:warden, scope: :participant)
-      controller.stub current_participant: nil
+        .and_throw(:warden, scope: :"#{ name }")
+      controller.stub :"current_#{ name }" => nil
     else
-      expect(request.env["warden"]).to receive(:authenticate!) { participant }
-      expect(controller).to receive(:current_participant).at_least(:once) { participant }
+      expect(request.env["warden"]).to receive(:authenticate!) { resource }
+      expect(controller).to receive("current_#{ name }").at_least(:once)
+        .and_return(resource)
     end
   end
 end
