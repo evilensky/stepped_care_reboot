@@ -29,18 +29,24 @@ describe "Participant accessing tasks" do
   end
 
   it "should see notifications on the 'Landing Page' and 'Context Page' until modules have been 'activated'", :js do
-    expect(page.html).to include("<a href=\"/navigator/contexts/DO\"><i class=\"fa fa-asterisk\"></i> DO</a>")
+    do_icon_count = find_link("DO").all("i.fa-asterisk").count
+    expect(do_icon_count).to eq 1
     visit "/navigator/contexts/DO"
-    expect(page.html).to include("<a class=\"content-module\" data-task-status-id=\"#{ts1.id}\" href=\"/navigator/modules/#{ts1_module.id}\"><i class=\"fa fa-asterisk\"></i> #1 Awareness</a>")
-    expect(page.html).to include("<a class=\"content-module\" data-task-status-id=\"#{ts2.id}\" href=\"/navigator/modules/#{ts2_module.id}\"><i class=\"fa fa-asterisk\"></i> #2 Planning</a>")
+    awareness_icon_count = find_link("#1 Awareness").all("i.fa-asterisk").count
+    expect(awareness_icon_count).to eq 1
+    planning_icon_count = find_link("#2 Planning").all("i.fa-asterisk").count
+    expect(planning_icon_count).to eq 1
     click_on("#1 Awareness")
     visit "/navigator/contexts/DO"
     click_on("#2 Planning")
     click_on "Home"
-    expect(page.html).to include("<a href=\"/navigator/contexts/DO\">DO</a>")
+    do_icon_count = find_link("DO").all("i.fa-asterisk").count
+    expect(do_icon_count).to eq 0
     click_on "DO"
-    expect(page.html).to include("<a class=\"content-module\" data-task-status-id=\"false\" href=\"/navigator/modules/#{ts1_module.id}\">#1 Awareness</a>")
-    expect(page.html).to include("<a class=\"content-module\" data-task-status-id=\"false\" href=\"/navigator/modules/#{ts2_module.id}\">#2 Planning</a>")
+    awareness_icon_count = find_link("#1 Awareness").all("i.fa-asterisk").count
+    expect(awareness_icon_count).to eq 0
+    planning_icon_count = find_link("#2 Planning").all("i.fa-asterisk").count
+    expect(planning_icon_count).to eq 0
   end
 
   it "User should not see unassigned content modules", :js do

@@ -18,8 +18,7 @@ body, html {
 .main-nav a {
   display:block;
   font-size:3em;
-  color:black;margin:0;
-  padding-right:40px;
+  color:black;
 }
 
 .main-nav a:hover {
@@ -71,46 +70,36 @@ footer {
   left:15px;
 }
 
-.logo{
+.logo {
   font-weight:bold;
   font-size:4em;
 }
 
-.think {
+a, .think {
   color: $think-color;
 }
 
-.feel {
+.feel, .icon-caret-right {
   color: $feel-color;
-}
-
-.do {
-  color: $do-color;
-}
-
-.fa-asterisk {
-  color: $do-color;
-  /*float: right;*/
-}
-
-.icon-caret-right {
-  color: $feel-color;
-  margin-right: -30px;
-  width: 30px;
 }
 
 .fa-caret-right {
-  font-size: 4em;
-  visibility: visible;
-  display: block !important;
-  position: relative;
-  right: 8px;
-  top: -28px;
-  line-height: 0px;
+  /* strangely needed b/c icon default size is 'small' than others */
+  position: absolute;
+  font-size: 65px;
+  top: -45px;
+  right: 5px;
 }
 
-a {
-  color: $think-color;
+.do, .fa-asterisk  {
+  color: $do-color;
+}
+
+div.fa-container {
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  width:40px;
 }
 
 // forms

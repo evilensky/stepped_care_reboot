@@ -11,10 +11,9 @@
 
     <div class="container" id="main-layout">
       <div class="row">
-        <div class="col-md-4 col-sm-4 main-nav" style="position:relative;">
+        <div class="col-md-5 col-sm-7 main-nav">
           <% BitPlayer::Tool.all.each do |tool|  %>
             <%= assign_tool(@navigator.context, tool)%>
-            <%= caret(@navigator.context, tool) %>
           <% end %>
         </div>
         <div class="col-md-7 col-sm-5 main-content">

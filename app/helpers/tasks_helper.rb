@@ -3,20 +3,18 @@
 module TasksHelper
   def assign_tool(context, tool)
     if tool.title != "home"
-      if (context != tool.title) && tasks_to_complete?(tool)
-        text = fa_icon("asterisk") + " " + tool.title
-      else
-        text = tool.title
-      end
-      link_to text.html_safe, navigator_context_path(context_name: tool.title)
+      title = "#{tool.title} #{icon_div(context, tool)}".html_safe
+      link_to title, navigator_context_path(context_name: tool.title)
     end
   end
 
-  def caret(context, tool)
-    if tool.title != "home"
-      if context == tool.title
-        fa_icon("caret-right")
-      end
+  def icon_div(context, tool)
+    if (context != tool.title) && tasks_to_complete?(tool)
+      "<div class=\"fa-container\">#{fa_icon("asterisk")}</div>"
+    elsif context == tool.title
+      "<div class=\"fa-container\">#{fa_icon("caret-right")}</div>"
+    else
+      "<div class=\"fa-container\"></div>"
     end
   end
 
@@ -43,7 +41,7 @@ module TasksHelper
       title = content_module.title
       task_id = false
     else # Would we ever not want the first task status of a content module?
-      title = fa_icon("asterisk") + " " + content_module.title
+      title = "#{content_module.title} #{fa_icon("asterisk")}"
       task_id = tasks.for_content_module(content_module).first.id
     end
     link_to title.html_safe, navigator_location_path(
