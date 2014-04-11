@@ -1,0 +1,14 @@
+<%= form.label name, label, for: "#{ name }_#{ mood.id }" %><br>
+<div class="range row">
+  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-left">Bad</div>
+  <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5 text-center">Neither</div>
+  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 text-right">Good</div>
+</div>
+
+<div class="row">
+  <% (0..10).each do |value| %>
+    <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1 text-center">
+      <label><%= form.radio_button name, value %> <%= value %></label>
+    </div>
+  <% end %>
+</div>

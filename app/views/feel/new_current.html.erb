@@ -1,23 +1,7 @@
-<h3>What is your mood right now?</h3>
+<h3>Rate your mood</h3>
 
 <%= form_for mood, url: create_path, method: "post", html: { role: "form" } do |f| %>
-  <div class="form-group">
-    <div class="radio-inline">
-      <label>
-        <%= f.radio_button :rating, 0 %> Bad
-      </label>
-    </div>
-    <div class="radio-inline">
-      <label>
-        <%= f.radio_button :rating, 10 %> Good
-      </label>
-    </div>
-    <div class="radio-inline">
-      <label>
-        <%= f.radio_button :rating, 5 %> Neither
-      </label>
-    </div>
-  </div>
+  <%= render "moods/rating_selector", form: f, name: "rating", label: "What is your mood right now?", mood: mood %>
 
   <div class="form-group">
     <%= f.submit "Continue", class: "btn btn-primary" %>

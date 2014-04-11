@@ -16,11 +16,16 @@ describe "Feel" do
   it "User can rate their Mood" do
     click_on "#1 Tracking Your Mood"
     mood = Mood.find_by_participant_id(participant.id)
+
     expect(mood).to be_nil
+
     choose "mood_rating_5"
-    click_on "Continue" # Rate mood
+    click_on "Continue"
+
     expect(page).to have_text("Mood saved")
+
     mood = Mood.find_by_participant_id(participant.id)
+
     expect(mood).not_to be_nil
     expect(mood.rating).to eq 5
     expect(mood.rating_value).to eq "Neither"
