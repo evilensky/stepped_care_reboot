@@ -23,7 +23,7 @@ module Coach
     end
 
     def create
-      @message = current_user.sent_messages.build(message_params)
+      @message = current_user.build_sent_message(message_params)
 
       if @message.save
         redirect_to coach_messages_url, notice: "Message saved"

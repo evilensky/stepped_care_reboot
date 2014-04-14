@@ -1,4 +1,4 @@
-module ControllerHelpers
+module ControllerSpecHelpers
   def sign_in_participant(participant = double("participant"))
     sign_in_resource(participant, "participant")
   end
@@ -24,5 +24,13 @@ end
 
 RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
-  config.include ControllerHelpers, type: :controller
+  config.include ControllerSpecHelpers, type: :controller
+end
+
+# Shared examples
+
+shared_examples "a rejected user action" do
+  it "should redirect to the user login" do
+    expect(response).to redirect_to "#{ root_url }users/sign_in"
+  end
 end
