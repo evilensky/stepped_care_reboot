@@ -38,6 +38,8 @@ describe "Participant accessing tasks" do
       expect(awareness_icon_count).to eq 1
       planning_icon_count = find_link("#2 Planning").all("i.fa-asterisk").count
       expect(planning_icon_count).to eq 1
+      planning_icon_count = find_link("#3 Doing").all("i.fa-asterisk").count
+      expect(planning_icon_count).to eq 1
       click_on("#1 Awareness")
       visit "/navigator/contexts/DO"
       click_on("#2 Planning")
@@ -45,12 +47,13 @@ describe "Participant accessing tasks" do
       click_on("#3 Doing")
       click_on "Home"
       do_icon_count = find_link("DO").all("i.fa-asterisk").count
-      save_and_open_page
       expect(do_icon_count).to eq 0
       click_on "DO"
       awareness_icon_count = find_link("#1 Awareness").all("i.fa-asterisk").count
       expect(awareness_icon_count).to eq 0
       planning_icon_count = find_link("#2 Planning").all("i.fa-asterisk").count
+      expect(planning_icon_count).to eq 0
+      planning_icon_count = find_link("#3 Doing").all("i.fa-asterisk").count
       expect(planning_icon_count).to eq 0
     end
 
@@ -75,13 +78,13 @@ describe "Participant accessing tasks" do
       visit ""
     end
   
-    it "if content module is assigned twice, the participant should see both tasks and each should have asterisks", :js do
+    it "if content module is assigned twice, only the most recent should be visible" do
       visit "/navigator/contexts/THINK"
-      think_link_count = page.all('a', :text => "#1 Identifying").count
-      expect(think_link_count).to eq 2
-      page.all('a', :text => "#1 Identifying").each do |link|
-        expect(link.all("i.fa-asterisk").count).to eq 1
-      end
+      expect(task_status(:task_status9).bit_player_content_module_id).to eq task_status(:task_status10).bit_player_content_module_id
+      expect(task_status(:task_status9).release_day).to eq 1
+      expect(page.all("a#task-status-#{task_status(:task_status9).id}").count).to eq 0
+      expect(task_status(:task_status10).release_day).to eq 2
+      expect(page.all("a#task-status-#{task_status(:task_status10).id}").count).to eq 1
     end
   end
 end

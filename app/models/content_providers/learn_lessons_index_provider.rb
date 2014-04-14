@@ -17,7 +17,7 @@ module ContentProviders
     end
 
     def all_available_tasks
-      all_tasks.available(@participant.membership)
+      all_tasks.available_for_learning(@participant.membership)
     end
 
     def assign_variables(options)

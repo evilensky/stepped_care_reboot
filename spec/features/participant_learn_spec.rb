@@ -46,7 +46,7 @@ describe "learn via slideshows" do
       expect(page).to have_text("The last few times you were here...")
     end
 
-    it "should see unread notification and the correct count of lessons", :js do
+    it "should see unread notification, the correct count of lessons, and lessons from the past", :js do
       with_scope "#task-status-#{task_status(:task_status7).id}" do
         expect(page).to have_text("unread")
         expect(page).not_to have_text("today's lesson")

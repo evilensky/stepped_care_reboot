@@ -22,6 +22,10 @@ class TaskStatus < ActiveRecord::Base
   }
   scope :available, lambda { |membership|
     joins(:task)
+    .where("tasks.release_day = ?", membership.day_in_study)
+  }
+  scope :available_for_learning, lambda { |membership|
+    joins(:task)
     .where("tasks.release_day <= ?", membership.day_in_study)
   }
 

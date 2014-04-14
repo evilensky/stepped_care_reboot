@@ -19,7 +19,6 @@ module TasksHelper
   end
 
   def task_status_link(task_status)
-    # need to check
     if task_status.is_completed?
       title = task_status.title
     else
@@ -27,7 +26,7 @@ module TasksHelper
     end
     link_to title.html_safe, navigator_location_path(
         module_id: task_status.bit_player_content_module_id
-      ), data: { task_status_id: task_status.id }, class: "task-status"
+      ), class: "task-status", id: "task-status-#{task_status.id}", :"data-task-status-id" => "#{task_status.id}"
   end
 
   def unread_task?(task_status)

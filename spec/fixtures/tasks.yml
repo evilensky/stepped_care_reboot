@@ -16,18 +16,6 @@ task2:
   bit_player_content_module: do_planning
   release_day: 1
 
-# task3:
-#   creator: user1
-#   group: group1
-#   bit_player_content_module: do_landing
-#   release_day: 1
-
-# task4:
-#   creator: user1
-#   group: group1
-#   bit_player_content_module: think_landing
-#   release_day: 1
-
 task5_day1:
   creator: user1
   group: group1
