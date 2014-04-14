@@ -18,17 +18,16 @@ module TasksHelper
     end
   end
 
-  def content_module_link(content_module)
-    if @current_participant.completed?(content_module)
-      title = content_module.title
-      task_status_id = false
+  def task_status_link(task_status)
+    # need to check
+    if task_status.is_completed?
+      title = task_status.title
     else
-      title = "#{content_module.title} #{fa_icon("asterisk")}"
-      task_status_id = @current_participant.task_status_for(content_module).id
+      title = "#{task_status.title} #{fa_icon("asterisk")}"
     end
     link_to title.html_safe, navigator_location_path(
-        module_id: content_module.id
-      ), data: { task_status_id: task_status_id }, class: "content-module"
+        module_id: task_status.bit_player_content_module_id
+      ), data: { task_status_id: task_status.id }, class: "task-status"
   end
 
   def unread_task?(task_status)

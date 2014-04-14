@@ -5,11 +5,17 @@ module ContentProviders
       content_modules = BitPlayer::Tool.find_by_title(options.app_context)
         .content_modules
         .where.not(id: bit_player_content_module_id)
+      membership = options.participant.membership
+      task_statuses = membership.task_statuses
+        .for_content_module_ids([content_modules.all.map(&:id)])
+        .available(membership)
+        .order("tasks.release_day ASC")
+        # also order by content module priority?
       options.view_context.render(
         template: "content_modules/index",
         locals: {
           participant: options.participant,
-          content_modules: content_modules
+          task_statuses: task_statuses
         }
       )
     end

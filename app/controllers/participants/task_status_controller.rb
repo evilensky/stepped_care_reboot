@@ -5,7 +5,7 @@ module Participants
 
     def update
       @task_status = TaskStatus.find(params[:id])
-      if @task_status.update(completed_at: DateTime.new)
+      if @task_status.is_completed? || @task_status.update(completed_at: DateTime.new)
         render nothing: true, status: 200
       else
         render nothing: true, status: 500

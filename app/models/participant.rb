@@ -40,12 +40,8 @@ class Participant < ActiveRecord::Base
   def incompleted?(tool)
     !membership.task_statuses
       .available(membership)
-      .for_content_modules(tool.content_modules.map(&:id))
+      .for_content_module_ids(tool.content_modules.map(&:id))
       .where(completed_at: nil).empty?
-  end
-
-  def task_status_for(content_module)
-    membership.task_statuses.for_content_module(content_module).first
   end
 
   accepts_nested_attributes_for :coach_assignment
@@ -71,7 +67,6 @@ class Participant < ActiveRecord::Base
   end
 
   def membership
-    # Currently, a participant is assigned to 1 group
     memberships.first
   end
 
@@ -98,12 +93,12 @@ class Participant < ActiveRecord::Base
   def completed_tasks(content_modules)
     membership.task_statuses
       .where.not(completed_at: nil)
-      .for_content_modules(content_modules.map(&:id))
+      .for_content_module_ids(content_modules.map(&:id))
   end
 
   def learning_tasks(content_modules)
     membership.task_statuses
-      .for_content_modules(content_modules.map(&:id))
+      .for_content_module_ids(content_modules.map(&:id))
   end
 
   private

@@ -16,7 +16,7 @@ class TaskStatus < ActiveRecord::Base
     joins(:task)
     .where(tasks: { bit_player_content_module_id: content_module.id })
   }
-  scope :for_content_modules, lambda { |ids|
+  scope :for_content_module_ids, lambda { |ids|
     joins(:task)
     .where(tasks: { bit_player_content_module_id: ids })
   }
@@ -24,4 +24,13 @@ class TaskStatus < ActiveRecord::Base
     joins(:task)
     .where("tasks.release_day <= ?", membership.day_in_study)
   }
+
+  def is_completed?
+    if is_recurring
+      completed_at > (Date.today - 1.days)
+    else
+      !!completed_at
+    end
+  end
+
 end
