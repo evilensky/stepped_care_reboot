@@ -36,6 +36,7 @@ group :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem 'timecop'
 end
 
 gem 'bit_player', '~> 0.2'

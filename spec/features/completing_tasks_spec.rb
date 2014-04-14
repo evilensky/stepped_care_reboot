@@ -23,42 +23,65 @@ describe "Participant accessing tasks" do
     )
   end
 
-  before do
-    sign_in_participant participants(:participant1)
-    visit ""
+  describe "Participant 1 Logs in" do
+
+    before do
+      sign_in_participant participants(:participant1)
+      visit ""
+    end
+
+    it "should see notifications on the 'Landing Page' and 'Context Page' until modules have been 'activated'", :js do
+      do_icon_count = find_link("DO").all("i.fa-asterisk").count
+      expect(do_icon_count).to eq 1
+      visit "/navigator/contexts/DO"
+      awareness_icon_count = find_link("#1 Awareness").all("i.fa-asterisk").count
+      expect(awareness_icon_count).to eq 1
+      planning_icon_count = find_link("#2 Planning").all("i.fa-asterisk").count
+      expect(planning_icon_count).to eq 1
+      click_on("#1 Awareness")
+      visit "/navigator/contexts/DO"
+      click_on("#2 Planning")
+      visit "/navigator/contexts/DO"
+      click_on("#3 Doing")
+      click_on "Home"
+      do_icon_count = find_link("DO").all("i.fa-asterisk").count
+      save_and_open_page
+      expect(do_icon_count).to eq 0
+      click_on "DO"
+      awareness_icon_count = find_link("#1 Awareness").all("i.fa-asterisk").count
+      expect(awareness_icon_count).to eq 0
+      planning_icon_count = find_link("#2 Planning").all("i.fa-asterisk").count
+      expect(planning_icon_count).to eq 0
+    end
+
+    it "User should not see unassigned content modules", :js do
+      visit "/navigator/contexts/DO"
+      expect(page.html).to include("#3 Doing")
+      expect(page.html).not_to include("#4 Doing")
+    end
+
+    it "should continue to see lesson slideshows even after they have been activated", :js do
+      visit "/navigator/contexts/LEARN"
+      click_on "Do - Awareness Introduction"
+      visit "/navigator/contexts/LEARN"
+      expect(page).to have_link("Do - Awareness Introduction")
+    end
   end
 
-  it "should see notifications on the 'Landing Page' and 'Context Page' until modules have been 'activated'", :js do
-    do_icon_count = find_link("DO").all("i.fa-asterisk").count
-    expect(do_icon_count).to eq 1
-    visit "/navigator/contexts/DO"
-    awareness_icon_count = find_link("#1 Awareness").all("i.fa-asterisk").count
-    expect(awareness_icon_count).to eq 1
-    planning_icon_count = find_link("#2 Planning").all("i.fa-asterisk").count
-    expect(planning_icon_count).to eq 1
-    click_on("#1 Awareness")
-    visit "/navigator/contexts/DO"
-    click_on("#2 Planning")
-    click_on "Home"
-    do_icon_count = find_link("DO").all("i.fa-asterisk").count
-    expect(do_icon_count).to eq 0
-    click_on "DO"
-    awareness_icon_count = find_link("#1 Awareness").all("i.fa-asterisk").count
-    expect(awareness_icon_count).to eq 0
-    planning_icon_count = find_link("#2 Planning").all("i.fa-asterisk").count
-    expect(planning_icon_count).to eq 0
-  end
+  describe "Participant 2" do
 
-  it "User should not see unassigned content modules", :js do
-    visit "/navigator/contexts/DO"
-    expect(page.html).to include("#3 Doing")
-    expect(page.html).not_to include("#4 Doing")
-  end
-
-  it "should continue to see lesson slideshows even after they have been activated", :js do
-    visit "/navigator/contexts/LEARN"
-    click_on "Do - Awareness Introduction"
-    visit "/navigator/contexts/LEARN"
-    expect(page).to have_link("Do - Awareness Introduction")
+    before do
+      sign_in_participant participants(:participant2)
+      visit ""
+    end
+  
+    it "if content module is assigned twice, the participant should see both tasks and each should have asterisks", :js do
+      visit "/navigator/contexts/THINK"
+      think_link_count = page.all('a', :text => "#1 Identifying").count
+      expect(think_link_count).to eq 2
+      page.all('a', :text => "#1 Identifying").each do |link|
+        expect(link.all("i.fa-asterisk").count).to eq 1
+      end
+    end
   end
 end

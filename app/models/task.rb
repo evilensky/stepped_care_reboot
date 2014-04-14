@@ -3,6 +3,7 @@ class Task < ActiveRecord::Base
   belongs_to :group
   belongs_to :bit_player_content_module, class_name: "BitPlayer::ContentModule"
   belongs_to :creator, class_name: "User"
+  has_many :task_statuses
   after_create :assign_task_status_to_each_participant
   validates :release_day,
             uniqueness: {

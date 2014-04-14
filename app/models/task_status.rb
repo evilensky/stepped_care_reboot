@@ -26,8 +26,10 @@ class TaskStatus < ActiveRecord::Base
   }
 
   def is_completed?
-    if is_recurring
-      completed_at > (Date.today - 1.days)
+    if is_recurring && !!completed_at
+      completed_at < (Date.today - 1.days)
+    elsif is_recurring
+      false
     else
       !!completed_at
     end

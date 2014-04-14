@@ -29,3 +29,65 @@ task_status7:
 task_status8:
   membership: membership2
   task: task17
+
+task_status9:
+  membership: membership2
+  task: task5_day1
+
+task_status10:
+  membership: membership2
+  task: task5_day2
+
+task_status11_a:
+  membership: membership2
+  task: task10
+  is_recurring: true
+
+task_status11_b:
+  membership: membership2
+  task: task10
+  is_recurring: true
+
+task_status12_0:
+  membership: membership1
+  task: task4
+
+task_status12_1:
+  membership: membership2
+  task: task4
+
+task_status13:
+  membership: membership1
+  task: task5_day1
+
+task_status14:
+  membership: membership1
+  task: task6
+
+task_status15:
+  membership: membership1
+  task: task7
+
+task_status16:
+  membership: membership1
+  task: task8
+
+task_status17:
+  membership: membership1
+  task: task9
+
+task_status18:
+  membership: membership1
+  task: task10
+
+task_status19:
+  membership: membership1
+  task: task11
+
+task_status20:
+  membership: membership1
+  task: task120
+
+task_status21:
+  membership: membership1
+  task: task_doing
