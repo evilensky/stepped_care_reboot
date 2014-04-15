@@ -10,7 +10,7 @@ module ContentProviders
         template: template,
         locals: {
           title: "You said you had the following unhelpful thoughts:",
-          thoughts: options.participant.thoughts.harmful,
+          thoughts: options.participant.thoughts.unreflected.last(3),
           postscript: "We’re going to ask you to challenge each thought:"
         }
       )

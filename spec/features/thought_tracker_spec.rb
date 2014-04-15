@@ -56,7 +56,7 @@ describe "thought tracker" do
     expect(page).to have_text "Like we said, you are what you think..."
   end
 
-  it "should implement #3 Reshape" do
+  it "should implement #3 Reshape", :js do
     click_on "#3 Reshape"
 
     expect(page).to have_text "Evidence is where it's at."
@@ -65,6 +65,14 @@ describe "thought tracker" do
 
     expect(page).to have_text "You said you had the following unhelpful thoughts:"
     expect(page).to have_text "I am useless"
+
+    click_on "Continue"
+
+    expect(page).to have_text "And that this relates to this unhelpful thought pattern"
+
+    find(".next-page").click
+
+    expect(page).to have_text "1 of 1"
   end
 
   it "should implement 'Add a New Thought'" do

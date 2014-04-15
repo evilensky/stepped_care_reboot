@@ -16,7 +16,7 @@ module ContentProviders
     end
 
     def data_attributes
-      [:content, :effect]
+      [:content, :effect, :pattern_id]
     end
 
     def show_nav_link?

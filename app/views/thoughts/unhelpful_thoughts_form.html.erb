@@ -1,4 +1,4 @@
-<% if thoughts %>
+<% if thoughts.count >= 1 %>
   <% thoughts.each_with_index do |thought, index| %>
     <div class="multi-form" style="<%= index == 0 ? '' : 'display: none;' %>">
       <p>You said that you thought:</p>
@@ -7,28 +7,27 @@
       <p><%= thought.pattern.title rescue 'Mark! add a title for this pattern!' %></p>
       <div class="next-page btn btn-default">Continue</div>
     </div>
-    <%= form_for thought, url: update_path, html: { class: "multi-form", style: "display: none;" }, remote: true do |f| %>
+    <%= form_for thought, url: update_path, html: { class: "multi-form", style: "display: none;", id: index}, remote: true do |f| %>
       <p>Thought <%= index + 1 %> of <%= thoughts.count %></p>
-      <p><%= thought.pattern.explanation rescue "Mark! Add an explanation for this pattern!" %>
+      <p><%#= thought.pattern.explanation%>"Mark! Add an explanation for this pattern!"</p>
       <p>Thinking about:</p>
       <p><%= thought.content %></p>
-      <br>
-      <p><%= thought.pattern.question rescue "Mark! Add the question for this pattern!" %>
-      <%= f.text_area :challenging_thought %><br>
+      <p><%#= thought.pattern.question rescue %>"Mark! Add the question for this pattern!"</p>
+      <%= f.text_area :challenging_thought, id: "challenge#{index}" %><br>
       <%= f.hidden_field :id %>
-      <%= f.submit %>
+      <%= f.submit "Continue", class: "btn btn-default challenging" %>
     <% end %>
     <%= form_for thought, url: update_path, html: { class: "multi-form", style: "display: none;" }, remote: true do |f| %>
       <p>You thought:</p>
       <p><%= thought.content %></p>
       <br>
       <p>A challenging thought was:</p>
-      <p><%= thought.challenging_thought %></p>
+      <p id="challenging-thought<%= index %>"></p>
       <p>What could you do to ACT AS IF you believe this?</p>
 
       <%= f.text_area :act_as_if %><br>
       <%= f.hidden_field :id %>
-      <%= f.submit %>
+      <%= f.submit "Continue", class: "btn btn-default" %>
     <% end %>
   <% end %>
 <% else %>
