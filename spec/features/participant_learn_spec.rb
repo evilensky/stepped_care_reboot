@@ -31,9 +31,6 @@ describe "learn via slideshows" do
 
   describe "participant2" do
 
-    let(:ts7) { task_status(:task_status7) }
-    let(:ts8) { task_status(:task_status8) }
-
     before do
       sign_in_participant participants(:participant2)
       visit "/navigator/contexts/LEARN"
@@ -49,21 +46,21 @@ describe "learn via slideshows" do
       expect(page).to have_text("The last few times you were here...")
     end
 
-    it "should see unread notification and the correct count of lessons", :js do
-      with_scope "#task-status-#{ts7.id}" do
+    it "should see unread notification, the correct count of lessons, and lessons from the past", :js do
+      with_scope "#task-status-#{task_status(:task_status7).id}" do
         expect(page).to have_text("unread")
         expect(page).not_to have_text("today's lesson")
       end
-      with_scope "#task-status-#{ts8.id}" do
+      with_scope "#task-status-#{task_status(:task_status8).id}" do
         expect(page).to have_text("unread")
         expect(page).to have_text("today's lesson")
       end
       click_on "Do - Awareness Introduction"
       visit "/navigator/contexts/LEARN"
-      with_scope "#task-status-#{ts7.id}" do
+      with_scope "#task-status-#{task_status(:task_status7).id}" do
         expect(page).not_to have_text("unread")
       end
-      with_scope "#task-status-#{ts8.id}" do
+      with_scope "#task-status-#{task_status(:task_status8).id}" do
         expect(page).to have_text("unread")
       end
     end

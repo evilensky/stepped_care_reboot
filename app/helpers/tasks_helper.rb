@@ -9,7 +9,7 @@ module TasksHelper
   end
 
   def icon_div(context, tool)
-    if (context != tool.title) && tasks_to_complete?(tool)
+    if (context != tool.title) && @current_participant.incompleted?(tool)
       "<div class=\"fa-container\">#{fa_icon("asterisk")}</div>"
     elsif context == tool.title
       "<div class=\"fa-container\">#{fa_icon("caret-right")}</div>"
@@ -18,43 +18,27 @@ module TasksHelper
     end
   end
 
-  def tasks_to_complete?(tool)
-    content_modules = BitPlayer::ContentModule
-      .where(bit_player_tool_id: tool.id)
-    current_participant.tasks_to_complete(content_modules).count > 0
-  end
-
-  def module_not_assigned?(content_module, tasks, participant)
-    if Task.joins(:bit_player_content_module)
-        .where(tasks:
-          { bit_player_content_module_id: content_module.id,
-            group_id: participant.active_group.id }
-        ).empty?
-      true
+  def task_status_link(task_status)
+    if task_status.completed?
+      title = task_status.title
     else
-      false
-    end
-  end
-
-  def content_module_link(content_module, tasks)
-    if tasks.for_content_module(content_module).empty?
-      title = content_module.title
-      task_id = false
-    else # Would we ever not want the first task status of a content module?
-      title = "#{content_module.title} #{fa_icon("asterisk")}"
-      task_id = tasks.for_content_module(content_module).first.id
+      title = "#{task_status.title} #{fa_icon("asterisk")}"
     end
     link_to title.html_safe, navigator_location_path(
-        module_id: content_module.id
-      ), data: { task_status_id: task_id }, class: "content-module"
+        module_id: task_status.bit_player_content_module_id
+    ),  class: "task-status",
+        data: { task_status_id: "#{task_status.id}" },
+        id: "task-status-#{task_status.id}"
   end
 
-  def unread_task?(ts)
-    " <em class=\"pull-right\">unread</em>".html_safe unless ts.completed_at?
+  def unread_task?(task_status)
+    unless task_status.completed_at?
+      " <em class=\"pull-right\">unread</em>".html_safe
+    end
   end
 
-  def todays_lesson(ts, response)
+  def todays_lesson(task_status, response)
     membership = current_participant.membership
-    response.html_safe if ts.release_day == membership.day_in_study
+    response.html_safe if task_status.release_day == membership.day_in_study
   end
 end

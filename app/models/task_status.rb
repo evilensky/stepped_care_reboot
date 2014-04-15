@@ -2,7 +2,7 @@
 class TaskStatus < ActiveRecord::Base
   belongs_to :membership
   has_one :participant, through: :membership
-  belongs_to :task, dependent: :destroy
+  belongs_to :task
 
   delegate  :bit_player_content_module,
             :bit_player_content_module_id,
@@ -14,12 +14,18 @@ class TaskStatus < ActiveRecord::Base
     joins(:task)
     .where(tasks: { bit_player_content_module_id: content_module.id })
   }
-  scope :for_content_modules, lambda { |ids|
+  scope :for_content_module_ids, lambda { |ids|
     joins(:task)
     .where(tasks: { bit_player_content_module_id: ids })
   }
   scope :available, lambda { |membership|
-    joins(:task)
-    .where("tasks.release_day <= ?", membership.day_in_study)
+    where("start_day = ?", membership.day_in_study)
   }
+  scope :available_for_learning, lambda { |membership|
+    where("start_day <= ?", membership.day_in_study)
+  }
+
+  def completed?
+    !completed_at.nil?
+  end
 end

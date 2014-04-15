@@ -5,7 +5,7 @@ describe "activity tracker" do
     :participants, :"bit_player/slideshows", :"bit_player/slides",
     :"bit_player/tools",
     :"bit_player/content_modules", :"bit_player/content_providers",
-    :activity_types, :activities, :groups, :memberships, :tasks
+    :activity_types, :activities, :groups, :memberships, :tasks, :task_status
   )
 
   before do

@@ -4,7 +4,7 @@ describe "thought tracker" do
   fixtures(
     :participants, :groups, :memberships, :"bit_player/slideshows",
     :"bit_player/slides", :"bit_player/tools", :"bit_player/content_modules",
-    :"bit_player/content_providers", :tasks, :thoughts
+    :"bit_player/content_providers", :tasks, :thoughts, :task_status
   )
 
   before do

@@ -3,7 +3,7 @@ require "spec_helper"
 describe "Feel" do
   fixtures(
     :participants, :groups, :memberships, :"bit_player/slideshows", :"bit_player/tools",
-    :"bit_player/content_modules", :"bit_player/content_providers", :tasks
+    :"bit_player/content_modules", :"bit_player/content_providers", :tasks, :task_status
   )
 
   let(:participant) { participants(:participant1) }

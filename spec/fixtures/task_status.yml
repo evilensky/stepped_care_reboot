@@ -1,31 +1,114 @@
 task_status1:
   membership: membership1
   task: task1
+  start_day: 1
 
 task_status2:
   membership: membership1
   task: task2
+  start_day: 1
 
 task_status3:
   membership: membership1
   task: task16
+  start_day: 1
 
 task_status4:
   membership: membership1
   task: task17
+  start_day: 2
 
 task_status5:
   membership: membership2
   task: task1
+  start_day: 1
 
 task_status6:
   membership: membership2
   task: task2
+  start_day: 1
 
 task_status7:
   membership: membership2
   task: task16
+  start_day: 1
 
 task_status8:
   membership: membership2
   task: task17
+  start_day: 2
+
+task_status9:
+  membership: membership2
+  task: task5_day1
+  start_day: 1
+
+task_status10:
+  membership: membership2
+  task: task5_day2
+  start_day: 2
+
+task_status11_1:
+  membership: membership2
+  task: task10
+  start_day: 1
+
+task_status11_2:
+  membership: membership2
+  task: task10
+  start_day: 2
+
+task_status12_0:
+  membership: membership1
+  task: task4
+  start_day: 1
+
+task_status12_1:
+  membership: membership2
+  task: task4
+  start_day: 1
+
+task_status13:
+  membership: membership1
+  task: task5_day1
+  start_day: 1
+
+task_status14:
+  membership: membership1
+  task: task6
+  start_day: 1
+
+task_status15:
+  membership: membership1
+  task: task7
+  start_day: 1
+
+task_status16:
+  membership: membership1
+  task: task8
+  start_day: 1
+
+task_status17:
+  membership: membership1
+  task: task9
+  start_day: 1
+
+task_status18:
+  membership: membership1
+  task: task10
+  start_day: 1
+
+task_status19:
+  membership: membership1
+  task: task11
+  start_day: 1
+
+task_status20:
+  membership: membership1
+  task: task120
+  start_day: 1
+
+task_status21:
+  membership: membership1
+  task: task_doing
+  start_day: 1

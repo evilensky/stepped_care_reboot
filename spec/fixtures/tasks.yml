@@ -16,23 +16,17 @@ task2:
   bit_player_content_module: do_planning
   release_day: 1
 
-task3:
-  creator: user1
-  group: group1
-  bit_player_content_module: do_landing
-  release_day: 1
-
-task4:
-  creator: user1
-  group: group1
-  bit_player_content_module: think_landing
-  release_day: 1
-
-task5:
+task5_day1:
   creator: user1
   group: group1
   bit_player_content_module: think_identifying
   release_day: 1
+
+task5_day2:
+  creator: user1
+  group: group1
+  bit_player_content_module: think_identifying
+  release_day: 2
 
 task6:
   creator: user1
@@ -50,12 +44,6 @@ task8:
   creator: user1
   group: group1
   bit_player_content_module: think_module5
-  release_day: 1
-
-task9:
-  creator: user1
-  group: group1
-  bit_player_content_module: feeling_tracker_landing
   release_day: 1
 
 task10:
@@ -80,18 +68,6 @@ task120:
   creator: user1
   group: group1
   bit_player_content_module: feeling_tracker_emotions_list
-  release_day: 1
-
-task13:
-  creator: user1
-  group: group1
-  bit_player_content_module: library_landing
-  release_day: 1
-
-task15:
-  creator: user1
-  group: group1
-  bit_player_content_module: messages_landing
   release_day: 1
 
 task16:

@@ -30,6 +30,20 @@ class Participant < ActiveRecord::Base
   has_one :coach_assignment
   has_one :coach, class_name: "User", through: :coach_assignment
 
+  def completed?(content_module)
+    membership.task_statuses
+      .available(membership)
+      .for_content_module(content_module)
+      .where(completed_at: nil).empty?
+  end
+
+  def incompleted?(tool)
+    !membership.task_statuses
+      .available(membership)
+      .for_content_module_ids(tool.content_modules.map(&:id))
+      .where(completed_at: nil).empty?
+  end
+
   accepts_nested_attributes_for :coach_assignment
 
   def current_group
@@ -53,7 +67,6 @@ class Participant < ActiveRecord::Base
   end
 
   def membership
-    # Currently, a participant is assigned to 1 group
     memberships.first
   end
 
@@ -77,22 +90,15 @@ class Participant < ActiveRecord::Base
     phq_assessments.build(attributes)
   end
 
-  def tasks_to_complete(content_modules)
-    membership.task_statuses
-      .where(completed_at: nil)
-      .available(membership)
-      .for_content_modules(content_modules.map(&:id))
-  end
-
   def completed_tasks(content_modules)
     membership.task_statuses
       .where.not(completed_at: nil)
-      .for_content_modules(content_modules.map(&:id))
+      .for_content_module_ids(content_modules.map(&:id))
   end
 
   def learning_tasks(content_modules)
     membership.task_statuses
-      .for_content_modules(content_modules.map(&:id))
+      .for_content_module_ids(content_modules.map(&:id))
   end
 
   private
