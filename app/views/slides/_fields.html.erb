@@ -2,7 +2,7 @@
 	<%= f.label :title %>
   <%= f.text_field :title, class: "form-control", contenteditable: true %>
 	<%= f.label :body, for: "source" %>
-  <div class="editable" contenteditable="true" style="border: 1px solid #cccccc;height:200px;padding: 6px 12px;">
+  <div class="editable" contenteditable="true" style="border: 1px solid #cccccc;min-height:200px;padding: 6px 12px;">
     <%= @slide.render_body %>
   </div>
   <% if Rails.env.test? %>
