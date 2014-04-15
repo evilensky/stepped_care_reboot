@@ -1,9 +1,0 @@
-<div class="form-group">
-  <%= f.label :bit_player_slideshow_id, "Select Slideshow" %><br/>
-  <%= f.select :bit_player_slideshow_id, slideshows.collect {|ss| [ ss.title, ss.id ] }, {}, class: "form-control" %>
-</div>
-<%= f.hidden_field :group_id, :value => group.id %>
-<div class="form-group">
-  <%= f.label :release_day, "Select number of days into intervention to make available" %><br/>
-  <%= f.number_field :release_day, class: "form-control" %>
-</div>

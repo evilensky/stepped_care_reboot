@@ -18,13 +18,6 @@ module Manage
 
     private
 
-    def _slideshow_params
-      if params[:group_slideshow_join]
-        params.require(:group_slideshow_join)
-          .permit(:bit_player_slideshow_id, :group_id, :release_day)
-      end
-    end
-
     def _task_params
       if params[:task]
         params.require(:task)
@@ -47,18 +40,6 @@ module Manage
     end
     helper_method :content_modules
 
-    def group_slideshow_join
-      @group_slideshow_join ||= current_user
-        .group_slideshow_joins
-        .build(_slideshow_params)
-    end
-    helper_method :group_slideshow_join
-
-    def group_slideshow_joins
-      group.group_slideshow_joins.order("release_day ASC").all
-    end
-    helper_method :group_slideshow_joins
-
     def groups
       Group.all
     end
@@ -68,8 +49,6 @@ module Manage
       @group ||=
         if params[:id]
           Group.find(params[:id])
-        elsif params[:group_slideshow_join]
-          current_user.groups.build(_slideshow_params)
         else
           current_user.groups.build(_task_params)
         end

@@ -50,13 +50,6 @@ class SlideshowsController < ApplicationController
     params.require(:slideshow).permit(:title) if params[:slideshow]
   end
 
-  def group_slideshow_joins
-    @group_slideshow_joins ||= GroupSlideshowJoin
-      .where(bit_player_slideshow_id: params[:id])
-      .joins(:group).order("groups.title asc, release_day asc")
-  end
-  helper_method :group_slideshow_joins
-
   def slideshow
     @slideshow ||=
       if params[:id]

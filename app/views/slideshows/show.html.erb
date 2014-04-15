@@ -26,26 +26,3 @@
 	<% end %>
 </ol>
 
-<h3>Groups & Release Dates</h3>
-<table class="table">
-	<thead>
-		<tr>
-			<th>Group</th>
-			<th>Release Day</th>
-			<th></th>
-		</tr>
-	</thead>
-	<tbody>
-	<% group_slideshow_joins.each do |gsj| %>
-		<tr id="group-slide-show-<%= gsj.id %>">
-			<td><%= gsj.group.title %></td>
-			<td><%= gsj.release_day %></td>
-			<td>
-				<%= link_to "Edit", edit_group_slideshow_join_path(gsj), class: "btn btn-default" %>
-				<%= link_to "Remove", group_slideshow_join_path(gsj), :method => :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
-			</td>
-		</tr>
-	</tbody>
-	<% end %>
-</table>
-

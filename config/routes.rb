@@ -11,8 +11,6 @@ SteppedCareReboot::Application.routes.draw do
     resource :flow, only: :show
   end
 
-  resources :group_slideshow_joins, except: [:new, :show]
-
   resources :slideshows do
     resources :slides do
       collection { post :sort }
