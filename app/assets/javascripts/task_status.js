@@ -3,7 +3,6 @@ $(document).on("page:change", function() {
     var $target, taskStatusId;
     $target = $(event.currentTarget);
     taskStatusId = $target.data("task-status-id");
-    debugger
     return $.ajax({
       async: false,
       dataType: "script",

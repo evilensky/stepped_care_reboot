@@ -38,12 +38,7 @@ task_status10:
   membership: membership2
   task: task5_day2
 
-task_status11_a:
-  membership: membership2
-  task: task10
-  is_recurring: true
-
-task_status11_b:
+task_status11:
   membership: membership2
   task: task10
   is_recurring: true
@@ -79,6 +74,7 @@ task_status17:
 task_status18:
   membership: membership1
   task: task10
+  is_recurring: true
 
 task_status19:
   membership: membership1
