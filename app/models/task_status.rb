@@ -2,9 +2,7 @@
 class TaskStatus < ActiveRecord::Base
   belongs_to :membership
   has_one :participant, through: :membership
-  belongs_to :task, dependent: :destroy
-
-  validates :is_recurring, inclusion: { in: [true, false] }
+  belongs_to :task
 
   delegate  :bit_player_content_module,
             :bit_player_content_module_id,
@@ -21,22 +19,14 @@ class TaskStatus < ActiveRecord::Base
     .where(tasks: { bit_player_content_module_id: ids })
   }
   scope :available, lambda { |membership|
-    joins(:task)
-    .where("tasks.release_day = ?", membership.day_in_study)
+    where("start_day = ?", membership.day_in_study)
   }
   scope :available_for_learning, lambda { |membership|
-    joins(:task)
-    .where("tasks.release_day <= ?", membership.day_in_study)
+    where("start_day <= ?", membership.day_in_study)
   }
 
   def is_completed?
-    if is_recurring && !!completed_at
-      completed_at < (Date.today - 1.days)
-    elsif is_recurring
-      false
-    else
-      !!completed_at
-    end
+    !!completed_at
   end
 
 end

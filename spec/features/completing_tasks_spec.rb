@@ -71,7 +71,7 @@ describe "Participant accessing tasks" do
     end
   end
 
-  describe "Participant 2 logs in" do
+  describe "Participant 2 logs in today" do
   
     it "should only see the most recent task if a content module has been assigned twice" do
       sign_in_participant participants(:participant2)
@@ -84,10 +84,10 @@ describe "Participant accessing tasks" do
     end
   end
 
-  describe "Participant 2 logs in over a day ago" do
+  describe "Participant 2 logs in on the first day of the trial" do
 
-    it "on day one he/she records mood, and then on day 2, an asterisk should be visible", :js do
-      new_time = Time.now - (3600 * 18)
+    it "on day 1 when he/she records mood, and then on day 2, an asterisk should be visible", :js do
+      new_time = Time.now - (3600 * 24)
       Timecop.travel(new_time)
       sign_in_participant participants(:participant2)
       visit "/navigator/contexts/FEEL"
@@ -97,8 +97,7 @@ describe "Participant accessing tasks" do
       visit "/navigator/contexts/FEEL"
       feel_icon_count = find_link("#1 Tracking Your Mood").all("i.fa-asterisk").count
       expect(feel_icon_count).to eq 0
-      new_time = Time.now + (3600 * 36)
-      Timecop.travel(new_time)
+      Timecop.return
       visit "/navigator/contexts/FEEL"
       feel_icon_count = find_link("#1 Tracking Your Mood").all("i.fa-asterisk").count
       expect(feel_icon_count).to eq 1

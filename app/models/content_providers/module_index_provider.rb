@@ -9,8 +9,6 @@ module ContentProviders
       task_statuses = membership.task_statuses
         .for_content_module_ids([content_modules.all.map(&:id)])
         .available(membership)
-        .order("tasks.release_day ASC")
-        # also order by content module priority?
       options.view_context.render(
         template: "content_modules/index",
         locals: {

@@ -2,13 +2,13 @@ membership1:
   participant: participant1
   group: group1
   start_date: <%= Date.yesterday %>
-  end_date: <%= Date.today %>
+  end_date: <%= Date.today + 4.days %>
 
 membership2:
   participant: participant2
   group: group1
   start_date: <%= Date.today - 2.days %>
-  end_date: <%= Date.today %>
+  end_date: <%= Date.today + 3.days %>
 
 inactive_membership:
   participant: inactive_participant
@@ -20,4 +20,4 @@ active_membership:
   participant: active_participant
   group: group2
   start_date: <%= Date.yesterday %>
-  end_date: <%= Date.tomorrow%>
+  end_date: <%= Date.tomorrow %>
