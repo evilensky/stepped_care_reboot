@@ -30,9 +30,9 @@ module Manage
     def _params
       params.require(:task)
         .permit(
-          :created_at,
-          :group_id,
           :bit_player_content_module_id,
+          :group_id,
+          :is_recurring,
           :release_day
         )
     end
