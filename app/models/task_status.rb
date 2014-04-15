@@ -25,8 +25,7 @@ class TaskStatus < ActiveRecord::Base
     where("start_day <= ?", membership.day_in_study)
   }
 
-  def is_completed?
-    !!completed_at
+  def completed?
+    !completed_at.nil?
   end
-
 end

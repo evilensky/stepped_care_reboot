@@ -23,14 +23,24 @@ class Task < ActiveRecord::Base
   def assign_task_status_to_each_participant
     group.memberships.each do |membership|
       if is_recurring
-        days_of_study = (membership.end_date - membership.start_date.to_date)
-        days = *(release_day..days_of_study)
-        days.each do |day|
-          TaskStatus.create!(membership_id: membership.id, task_id: id, start_day: release_day + day)
-        end
+        create_recurring_task_statuses(membership, release_day)
       else
-        TaskStatus.create!(membership_id: membership.id, task_id: id, start_day: release_day)
+        TaskStatus.create!(
+          membership_id: membership.id,
+          task_id: id,
+          start_day: release_day)
       end
+    end
+  end
+
+  def create_recurring_task_statuses(membership, release_day)
+    days_of_study = (membership.end_date - membership.start_date.to_date)
+    days = *(release_day..days_of_study)
+    days.each do |day|
+      TaskStatus.create!(
+        membership_id: membership.id,
+        task_id: id,
+        start_day: release_day + day)
     end
   end
 end

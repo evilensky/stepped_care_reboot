@@ -30,14 +30,13 @@ describe TaskStatus do
   end
 
   it "should create 1 task statuses for each membership when assigned" do
-    task = user.tasks.build({
+    task = user.tasks.build(
       group_id: group1.id,
       bit_player_content_module_id: slideshow_content_module_13.id,
-      release_day: 2
-    })
+      release_day: 2)
     task.save!
     group1.memberships.each do |membership|
-      expect(TaskStatus.where(task_id: task.id, membership_id: membership.id).count).to eq 1 
+      expect(TaskStatus.where(task_id: task.id, membership_id: membership.id).count).to eq 1
     end
   end
 

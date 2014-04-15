@@ -72,7 +72,7 @@ describe "Participant accessing tasks" do
   end
 
   describe "Participant 2 logs in today" do
-  
+
     it "should only see the most recent task if a content module has been assigned twice" do
       sign_in_participant participants(:participant2)
       visit "/navigator/contexts/THINK"
