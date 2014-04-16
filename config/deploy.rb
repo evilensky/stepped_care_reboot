@@ -81,8 +81,9 @@ namespace :deploy do
   ServerName steppedcare.northwestern.edu
 
   SSLEngine On
-  SSLCertificateFile /etc/pki/tls/private/communicationbridge.northwestern.edu.cer
-  SSLCertificateKeyFile /etc/pki/tls/private/communicationbridge.northwestern.edu.key
+  SSLCertificateFile /etc/pki/tls/certs/cbits-railsapps.nubic.northwestern.edu.crt
+  SSLCertificateChainFile /etc/pki/tls/certs/komodo_intermediate_ca.crt
+  SSLCertificateKeyFile /etc/pki/tls/private/cbits-railsapps.nubic.northwestern.edu.key
 
   DocumentRoot #{deploy_to}/current/public
   RailsBaseURI /
